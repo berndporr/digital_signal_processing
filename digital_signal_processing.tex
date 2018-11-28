@@ -1479,14 +1479,6 @@ set up a digital filter (see Fig.~\ref{FIRfilter}).
 
 \subsubsection{FIR filter implementations}
 \begin{itemize}
-\item Python:
-\begin{verbatim}
-import scipy.signal as signal
-y = signal.lfilter(h,1,x)
-\end{verbatim}
-This filters the signal \texttt{x} with the impulse response
-\texttt{h}.
-
 \item C++:
 This is a simple example of a filter which stores the values
 in a simple linear buffer \texttt{bufferFIR} which stores the
@@ -1506,6 +1498,38 @@ delayed values. The coefficients are stored in \texttt{coeffFIR}.
   return output;
   }
 \end{verbatim}
+
+\item Python: Here, the FIR filter is implemented as a
+  class which receives the FIR filter coefficients
+  in the constructor and then filters a signal sample
+  by sample in the function filter:
+  
+\begin{verbatim}
+class FIR_filter:
+    def __init__(self,_coefficients):
+        self.ntaps = len(_coefficients)
+        self.coefficients = _coefficients
+        self.buffer = np.zeros(self.ntaps)
+
+    def filter(self,v):
+        buffer = np.roll(buffer,1)
+        self.buffer[0] = v
+        return np.inner(self.buffer,self.coefficients)
+\end{verbatim}
+which again processes the signal sample by sample. It uses
+the numpy ``roll'' command to shift the samples and then
+the inner product to calculate the weighted sum between
+the buffer and the coefficients.
+
+If one wants
+to filter a whole array one can use Python's lfilter command:
+\begin{verbatim}
+import scipy.signal as signal
+y = signal.lfilter(h,1,x)
+\end{verbatim}
+This filters the signal \texttt{x} with the impulse response
+\texttt{h}. Note that this operation is on an array and thus
+a-causal.
 \end{itemize}
 More sophisticated code can be found in \citet{NumericalRec2007}.
 This book is strongly recommended for any C programmer who
