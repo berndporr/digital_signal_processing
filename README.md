@@ -17,8 +17,8 @@ are structured in playlists. Every playlist has a specific topic.
 
 The lab is 2 hours / week and we have 3 assignments which cover:
 
-  * Audio manipulation with the Fast Fourier Transform (FFT) to enhance vocals
-  * ECG filtering with Finite Impulse Response filters (FIR) with ECG recorded in the lab (50Hz / DC removal)
+  * Audio manipulation with the Fast Fourier Transform (FFT) to enhance vocals and to perform spectral analysis / detection
+  * ECG filtering with Finite Impulse Response filters (FIR) with ECG recorded in the lab (50Hz / DC removal, matched filters & heartbeat / rate detection)
   * Realtime filtering with Infinite Impulse Response filters (IIR) using Arduinos, USB-DUX and Attys to remove noise from a sensor
 
 ## Handout
