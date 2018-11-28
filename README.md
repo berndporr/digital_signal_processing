@@ -23,9 +23,6 @@ The lab is 2 hours / week and we have 3 assignments which cover:
 
 ## Handout
 
-The handout covers more the theoretical aspects which are relevant
-for this lecture but also provides a brief introduction into Python.
-
-https://github.com/berndporr/digital_signal_processing/blob/master/digital_signal_processing.pdf
+[Download the PDF here](https://github.com/berndporr/digital_signal_processing/blob/master/digital_signal_processing.pdf)
 
 Creative commons BY-SA (C), 2018 Bernd Porr <bernd.porr@glasgow.ac.uk>
