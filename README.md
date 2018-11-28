@@ -21,7 +21,9 @@ The lab is 2 hours / week and we have 3 assignments which cover:
   * ECG filtering with Finite Impulse Response filters (FIR) with ECG recorded in the lab (50Hz / DC removal, matched filters & heartbeat / rate detection)
   * Realtime filtering with Infinite Impulse Response filters (IIR) using Arduinos, USB-DUX and Attys to remove noise from a sensor
 
-## Handout
+## Lecture notes
+
+They track the YouTube clips and act as a reference.
 
 [Download the PDF here](https://github.com/berndporr/digital_signal_processing/blob/master/digital_signal_processing.pdf)
 
