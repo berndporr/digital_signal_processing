@@ -2078,6 +2078,36 @@ In Direct From I we have one accumulator and two delay lines whereas
 in the Direct Form II we have two accumulators and one delay line.
 Only the Direct Form I is suitable for integer operations.
 
+A Python class of a direct form II filter can be implemented
+with a few lines:
+\begin{verbatim}
+class IIR_filter:
+    def __init__(self,_num,_den):
+        self.numerator = _num
+        self.denominator = _den
+        self.buffer1 = 0
+        self.buffer2 = 0
+
+    def filter(self,v):
+        input=0.0
+        output=0.0
+        input=v
+        output=(self.numerator[1]*self.buffer1)
+        input=input-(self.denominator[1]*self.buffer1)
+        output=output+(self.numerator[2]*self.buffer2)
+        input=input-(self.denominator[2]*self.buffer2)
+        output=output+input*self.numerator[0]
+        self.buffer2=self.buffer1
+        self.buffer1=input
+        return output
+\end{verbatim}
+Here, the two delay steps are represented by two variables
+\texttt{buffer1} and \texttt{buffer2}.
+
+In order to achive higher order filters one can then just
+chain these 2nd order filters. In Python this can be achieved
+by storing these in an array of instances of this class.
+
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.5\textwidth]{iir_fixed}}
