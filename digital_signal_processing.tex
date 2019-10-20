@@ -1307,7 +1307,7 @@ Proof:
 \begin{eqnarray}
 \lapl{h(t - T)} & = &\int_{0}^{\infty} h\underbrace{(t - T)}_{causal} e^{-st} dt \\
 & = & \int_{0}^{\infty} h(t) e^{-s(t + T)} dt \\
-& = & \int_{0}^{\infty} h(t) e^{e-st} e^{e-st} dt \\
+& = & \int_{0}^{\infty} h(t) e^{-st} e^{-sT} dt \\
 & = & e^{-sT} \underbrace{\int_{0}^{\infty} h(t) e^{-st} dt}_{H(s)} \\
 & = & e^{-sT} H(s)
 \end{eqnarray}
