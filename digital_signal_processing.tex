@@ -1307,7 +1307,7 @@ Proof:
 \begin{eqnarray}
 \lapl{h(t - T)} & = &\int_{0}^{\infty} h\underbrace{(t - T)}_{causal} e^{-st} dt \\
 & = & \int_{0}^{\infty} h(t) e^{-s(t + T)} dt \\
-& = & \int_{0}^{\infty} h(t) e^{e-st} e^{e-st} dt \\
+& = & \int_{0}^{\infty} h(t) e^{-st} e^{-sT} dt \\
 & = & e^{-sT} \underbrace{\int_{0}^{\infty} h(t) e^{-st} dt}_{H(s)} \\
 & = & e^{-sT} H(s)
 \end{eqnarray}
@@ -1346,7 +1346,7 @@ g(t) = h(t) * x(t) \Leftrightarrow Y(s) = H(s) \cdot X(s)
 \begin{enumerate}
 \item{\bf Impulse Response}
 \begin{eqnarray}
-x(t) & = & \delta(t) \qquad \leftarrow \mbox{deta pulse} \\
+x(t) & = & \delta(t) \qquad \leftarrow \mbox{delta pulse} \\
 h(t) & = & y(t) \qquad \leftarrow \mbox{impulse response} \\
 \end{eqnarray}
 The filter is fully characterised by its impulse response $h(t)$
@@ -1386,7 +1386,7 @@ into the Laplace transform:
 \begin{eqnarray}
 X(s) & = & \sum_{n = 0}^{\infty} x(n) e^{-snT} \\
      & = & \int_{0}^{\infty} x(n) e^{-st} dt \\
-     & = & \sum_{n = 0}^{\infty} x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-s}} \\
+     & = & \sum_{n = 0}^{\infty} x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-sT}} \\
      & = & \sum_{n = 0}^{\infty} x(n) (z^{-1})^{n} \qquad \mbox{z-transform}
 \end{eqnarray}
 What is $e^{-sT} = z^{-1}$? It's a unit delay (see Eq.~\ref{shiftOperation}).
