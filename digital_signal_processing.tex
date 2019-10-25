@@ -807,7 +807,7 @@ x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(F) e^{j 2 \pi F t} dF
 
 \subsection{Sampled time and/or frequency}
 
-\subsubsection{Discrete time Fourier Transform}
+\subsubsection{Discrete time Fourier Transform (DTFT)}
 
 The signal $x(n)$ is discrete whereas the resulting frequency
 spectrum is considered as continuous (arbitrary signals).
@@ -909,7 +909,7 @@ and sampled domain ($f$). $F_s$ is the sampling rate.
 \end{figure}
 
 With the insight from these equations we can create
-a plot how analogue frequencies map onto sampled frequencies.
+a plot of how analogue frequencies map onto sampled frequencies.
 Fig~\ref{fold_down} shows how the analogue frequencies $F_\textrm{analogue}$
 map on the normalised frequencies $f_\textrm{sampled}$.
 As long as the analogue frequencies are below $F_s/2$ the mapping
@@ -1404,7 +1404,7 @@ in the continuous case and sampled case.
 
 \subsection{Frequency response of a sampled filter}
 Reminder: for analogue Signals we had $H(s)$ with $s=j \omega$.
-Let's substitute $s$ by $z$: $z^{-1} = e^{-s}$ which
+Let's substitute $s$ by $z$: $z^{-1} = e^{-sT}$ which
 gives us in general a mapping between the continuous domain and
 the sampled domain:
 \begin{equation}
@@ -1414,7 +1414,7 @@ z = e^{sT}
 With $s=j \omega$ this gives us $z = e^{j \omega}$ and therefore
 the frequency response of the digital filter is:
 \begin{equation}
-H(e^{i \omega})
+H(e^{j \omega})
 \end{equation}
 which then leads to the amplitude and phase response:
 \begin{itemize}
