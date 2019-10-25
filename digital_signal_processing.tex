@@ -1473,7 +1473,12 @@ H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
 
 This sum is a direct recipe how to filter the signal $X(z)$. We only
 need the impulse response of the filter $h(nT)$ and we can
-set up a digital filter (see Fig.~\ref{FIRfilter}).
+set up a digital filter (see Fig.~\ref{FIRfilter}). Of course
+in practise this impulse response cannot run till infinity
+but only for a limited number of samples. The these are often
+called ``taps''. So for example a filter with 100 samples of $h(nT)$ has
+100 ``taps''. This in turn then requires a delay line which
+can hold 100 samples.
 
 
 
