@@ -1039,7 +1039,7 @@ x(n) & \leftrightarrow & X(k) \\
 x(-n)& \leftrightarrow & X(N - k)
 \end{eqnarray}
 
-\item Convolution:
+\item \textsl{Circular} convolution:
 \begin{equation}
 X_{1}(k) X_{2}(k) \leftrightarrow x_1(n) * x_2(n)
 \end{equation}
@@ -1258,10 +1258,11 @@ shows the integration for $t=1$.
 
 \subsection{Convolution of Causal Signal}
 After having defined causality we can define the convolution:
-\begin{equation} 
-y(t) = h(t) * x(t) = \int_{-\infty}^{\infty} h(t - \tau) x(\tau) d\tau
+\begin{eqnarray} 
+  y(t) = h(t) * x(t) = \int_{-\infty}^{\infty} h(t - \tau) x(\tau) d\tau
+  y(n) = h(n) * x(n) = \sum_{n = -\infty}^\infty h(n) x(m - n)
 \label{eqconv}
-\end{equation}
+\end{eqnarray}
 Note the reversal of integration of the function $h$. This
 is characteristic of the convolution. At time $t=0$
 only the values at $h(0)$ and $x(0)$ are evaluated 
