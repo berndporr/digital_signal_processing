@@ -2149,55 +2149,71 @@ is a safe bet.
 \mbox{\includegraphics[width=0.5\textwidth]{butterworth_poles}}
 \end{center}
 \caption{Pole placements of the Butterworth filter. Its analogue
-  cutoff frequency is $\Omega$. This filter can be implemented
+  cutoff frequency is $\Omega = 2\pi F$ where $F$ is the
+  analogue cutoff frequency in Hertz. This filter can be implemented
   as a chain of 2nd order IIR filters (biquads) by using the
   complex conjugate pairs for the different 2nd order IIR filters.
 \label{butterworth_poles}}
 \end{figure}
 
-\subsubsection{Filter design from analogue filters}
+\subsubsection{Filter design based on analogue filters}
 Traditionally digital filters were designed from analogue
 filters by transforming from the continuous domain to the
 sampled domain. This has historical reasons because before digital
 signal processing became popular most designs were analogue
-and used Transfer functions in the Laplace domain. Some popular
+which used the Laplace domain. Some popular
 analogue transfer functions are:
 
 \begin{itemize}
 \item {\bf Butterworth:} All poles lie on the left half plane
-  equally distributed on a half circle with radius $\Omega$ which
-  is shown in Fig.~\ref{butterworth_poles}.
+  equally distributed on a half circle with radius $\Omega = 2\pi F$ which
+  is shown in Fig.~\ref{butterworth_poles}. The Butterworth filter
+  is by far the most popular filter. Here are its properties:
 \begin{itemize} 
-\item monotonic  
-\item only poles, no zeros  
-\item standard filter for many applications  
-\item no constant group delay!  
+\item monotonic frequency response
+\item only poles, no zeros
+\item the Poles have analytical solution and very easy to calculate
+\item no constant group delay but usually acceptable deviation from
+  a strict constant group delay for many applications.
 \end{itemize}
 
 \item {\bf Chebyshev Filters:}
 \begin{equation} 
 |H(\Omega)|^{2} = \frac{1}{1 - \varepsilon^{2} T_{N} (\Omega/\Omega_{p})}
 \end{equation}
-where T = Chebyslev polynomials.
+where T = Chebyslev polynomials. These filters have either ripples
+in the stop or passband depending on the choice of polynomials.
+As with Butterworth the polynomials have analytical solutions for
+the poles and zeros of the filter so that their design again is
+straightforward.
+
 \item {\bf Bessel Filter: }
 \begin{itemize} 
 \item Constant Group Delay
-\item Shallow transition from stop- to passband.
+\item Shallow transition from stop- to passband
+\item No analytical solution for the poles/zeros.
 \end{itemize}
 \end{itemize}
 
-These analogue transfer functions need to be transformed in the
-sampled domain. This could be done by the impulse invariance / matched
-z-transform method but the problem with these methods is 
-that they map frequencies
-1:1 between the digital and analogue domain. Remember: in the sampled
-domain there is no infinite frequency but only $F_s/2$. It ends at the Nyquist
-frequency which means that we never get more damping than at $F_s/2$.
+Note that all these analogue transfer functions are lowpass
+filters. However the analogue community has developed transforms
+which take an analogue lowpass transfer function or poles/zeros
+and then transforms them into highpass, bandpass and stopband
+filter. These rules can be found in any good analogue filter
+design book.
+
+As a next step these analogue transfer functions $H(s)$ need to be
+transformed to digital transfer functions $H(z)$. This could be done
+by the impulse invariance / matched z-transform method. However, the
+problem with these methods is that they map frequencies 1:1 between
+the digital and analogue domain. Remember: in the sampled domain there
+is no infinite frequency but $F_s/2$ which is the Nyquist frequency.
+This means that we never get more damping than at Nyquist $F_s/2$.
 This is especially a problem for lowpass filters where damping
 increases the higher the frequency.
 
 The solution is to map {\bf all} analogue frequencies from $0 \ldots \infty$
-to $0\ldots 0.5$ (normalised frequency) in a non-linear way:
+to the sampled frequencies $0\ldots 0.5$ in a non-linear way:
 \begin{equation} 
 - \infty < \Omega < \infty \Rightarrow -\pi \leq \omega \leq \pi 
 \end{equation}
@@ -2205,50 +2221,70 @@ This is called \textsl{Bilinear Transformation}:
 \begin{equation} 
 s = \frac{2}{T} \quad \frac{z - 1}{z + 1}
 \end{equation}
+This rule replaces all $s$ with $z$ in our analogue transfer
+function so that it's now digital. However, the cutoff frequency $\Omega_c$
+is still an analogue one but if we want to design a digital filter
+we want to specify a digital cutoff frequency. Plus remember that
+the frequency mapping is non-linear so that there is non-linear
+mapping also of the cutoff. 
 
-Let's test if the mapping works. In the analogue domain the
+In the analogue domain the
 frequency is given as $s = j\Omega$ and in the sampled domain as
-$z = e^{j \omega}$.
+$z = e^{j \omega}$. With the definition of the bilinear transform
+we can establish how to map from our desired digital cutoff to
+the analogue one:
 \begin{equation} 
 j \Omega = \frac{2}{T} \left[\frac{e^{j \omega} - 1}{e^{j \omega} +1}\right] = \frac{2}{T} j \tan \frac{\omega}{2}
 \end{equation}
+This derivation is useful for two purposes. It shows the non-linear
+mapping between the digital and analogue world and it provides
+a recipe how to calculate our analogue cutoff frequency.
 
-Note, that the bilinear transform is a 
-{\bf non}linear mapping of the frequency:
+That the bilinear transform is a 
+{\bf non}linear mapping between the analogue world and the digital
+world can be directly seen by just omitting the $j$:
 \begin{equation}
 \Omega = \frac{2}{T} tan \frac{\omega}{2}
 \end{equation}
-So, the cut-off frequency of our analogue filter is changed
-by the bilinear transformation. Consequently, we need a pre-warp of the
-analogue filter frequency:
+
+This also means that the cut-off frequency of our analogue filter is changed
+by the bilinear transformation. Consequently, we need to apply the same
+transformation to the cutoff frequency itself:
 \begin{equation}
 \Omega_{c} = \frac{2}{T} tan \frac {\omega_{c}}{2}
 \label{prewarp}
 \end{equation}
-where $T$ is the sampling interval.
+where $T$ is the sampling interval. This is often called ``pre-warp''
+but is simply the application of the same rule to the cut-off
+frequency as what the bilinear transform does to the transfer function
+$H(s)$. It has also another important result: we can now finally
+specify our cut-off in the sampled domain in normalised frequencies
+$\omega_{c} = 2\pi f_{c}$ by using Eq.~\ref{prewarp}. After all we
+just use the analogue filter as a vehicle to design a digital filter.
 
-The general design steps are:
+In summary, the design steps are:
 \begin{enumerate}
 \item Choose the cut-off frequency of your digital filter $\omega_{c}$.
-\item Pre-warp $\omega_{c} \rightarrow \Omega_{c}$ with Eq.~\ref{prewarp}
+\item Calculate the analogue cutoff frequency $\omega_{c} \rightarrow
+  \Omega_{c}$ with Eq.~\ref{prewarp}
 \item Choose your favourite analogue lowpass filter $H(s)$,
 for example Butterworth.
 \item Replace all $s$ in the analogue transfer function
-$H(s)$ by $\frac{2}{T} \frac{z - 1}{z + 1}$ 
+$H(s)$ by $s = \frac{2}{T} \frac{z - 1}{z + 1}$ 
 to obtain the digital filter $H(z)$
-\item Change the transfer function $H(z)$ so that it contains only
+\item Change the transfer function $H(z)$ so that it only contains
 negative powers of $z$ ($z^{-1}, z^{-2}, \ldots$) which can be
 interpreted as delay lines.
 \item Build your IIR filter!
 \end{enumerate}
 
-For filter orders higher than two one needs to develop a different
+For filter-orders higher than two one needs to develop a different
 strategy because the bilinear transform is a real \textsl{pain} to
-calculate for anything above order two.  Nobody wants to transform
-high order analogue transfer functions $H(s)$ to the $H(z)$
+calculate for anything above the order of two. Nobody wants to
+transform high order analogue transfer functions $H(s)$ to the $H(z)$
 domain. However, there is an important property of all analogue
 transfer functions: they generate complex conjugate pole pairs (plus
-one real pole if of odd order) which suggest a chain of 2nd order IIR
+one real pole if of of odd order) which suggest a chain of 2nd order IIR
 filters straight away (see Fig.~\ref{butterworth_poles}). Remember
 that a complex conjugate pole pair creates a 2nd order IIR filter with
 with two delay steps. A real pole is a 1st order IIR filter with one
