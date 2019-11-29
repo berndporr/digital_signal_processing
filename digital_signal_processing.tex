@@ -2144,6 +2144,17 @@ an accumulator of 32 bits that gives only a headroom of 2~bits so the
 output can only be 4 times larger than the input. A 64 bit accumulator
 is a safe bet.
 
+\begin{figure}[!hbt]
+\begin{center}
+\mbox{\includegraphics[width=0.5\textwidth]{butterworth_poles}}
+\end{center}
+\caption{Pole placements of the Butterworth filter. Its analogue
+  cutoff frequency is $\Omega$. This filter can be implemented
+  as a chain of 2nd order IIR filters (biquads) by using the
+  complex conjugate pairs for the different 2nd order IIR filters.
+\label{butterworth_poles}}
+\end{figure}
+
 \subsubsection{Filter design from analogue filters}
 Traditionally digital filters were designed from analogue
 filters by transforming from the continuous domain to the
@@ -2154,7 +2165,8 @@ analogue transfer functions are:
 
 \begin{itemize}
 \item {\bf Butterworth:} All poles lie on the left half plane
-equally distributed on a half circle with radius $\Omega$.
+  equally distributed on a half circle with radius $\Omega$ which
+  is shown in Fig.~\ref{butterworth_poles}.
 \begin{itemize} 
 \item monotonic  
 \item only poles, no zeros  
@@ -2173,10 +2185,6 @@ where T = Chebyslev polynomials.
 \item Shallow transition from stop- to passband.
 \end{itemize}
 \end{itemize}
-
-Note that all these transfer functions generate complex conjugate pole
-pairs (plus one real pole if of odd order) which suggests a chain of
-2nd order structures straight away.
 
 These analogue transfer functions need to be transformed in the
 sampled domain. This could be done by the impulse invariance / matched
@@ -2234,15 +2242,27 @@ interpreted as delay lines.
 \item Build your IIR filter!
 \end{enumerate}
 
-Note that the bilinear is a real \textsl{pain}. Nobody wants to
-transform high order analogue transfer functions $H(s)$ to the
-$z$ domain. The solution lies again in the 2nd order terms:
-Split up the analogue transfer function $H(s)$  in a chain of 2nd order filters
-$H(s) = H_1(s) H_2(s) H_3(s) \ldots$. Using this strategy you only
-need to calculate the bilinear transform once for a 2nd order system
-(or if the order is odd then also for a 1st order one) but then
-there is no need to do any more painful bilinear transforms. This
-is standard practise in IIR filter design.
+For filter orders higher than two one needs to develop a different
+strategy because the bilinear transform is a real \textsl{pain} to
+calculate for anything above order two.  Nobody wants to transform
+high order analogue transfer functions $H(s)$ to the $H(z)$
+domain. However, there is an important property of all analogue
+transfer functions: they generate complex conjugate pole pairs (plus
+one real pole if of odd order) which suggest a chain of 2nd order IIR
+filters straight away (see Fig.~\ref{butterworth_poles}). Remember
+that a complex conjugate pole pair creates a 2nd order IIR filter with
+with two delay steps. A real pole is a 1st order IIR filter with one
+delay but is often also implemented as a 2nd order filter where the
+coefficients of the 2nd delay are kept zero.
+
+The design strategy is thus to split up the analogue transfer function
+$H(s)$ in a chain of 2nd order filters $H(s) = H_1(s) H_2(s) H_3(s)
+\ldots$ and then to apply the bilinear transform on every 2nd order
+term separately. Using this strategy you only need to calculate the bilinear
+transform once for a 2nd order system (or if the order is odd then
+also for a 1st order one) but then there is no need to do any more
+painful bilinear transforms. This is standard practise in IIR filter
+design.
 
 
 \subsection{The role of poles and zeros}
