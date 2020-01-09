@@ -1447,6 +1447,9 @@ periodic! This is a subtle implication of the sampling theorem.
 \end{center}
 \end{figure}
 
+
+
+\clearpage
 \subsection{FIR Filter}
 What happens if we sample the impulse response $h(t)$ of an
 analogue filter? Let's find out:
@@ -1925,17 +1928,16 @@ constructing an FIR filter with it.
 How to improve the matching process? Square the output of the filter!
 
 
-
+\clearpage
 \subsection{IIR Filter}
-IIR filter stands for Infinite Impulse Response. Such filters
-are implemented as recursive filters. We will see that
-impulse responses from exponentials can easily be implemented
-as a recursive filter.
+IIR filter stands for Infinite Impulse Response. Such filters have
+feedback so that signals are processed in a recursive way. We will see
+that impulse responses from exponentials can easily be implemented as
+a recursive filter.
 
 \subsubsection{Introduction}
-We'll try to find a recursive version of a discrete filter. To
-demonstrate how this works we take a very simple analogue filter and
-sample it. This example can then be generalised to more complex
+As an instructional example we take a very simple analogue filter and
+sample it. This can then be generalised to more complex
 situations.
 
 We define a first order filter which can be implemented, for example, as
@@ -1981,7 +1983,7 @@ the unit circle.
 
 The same rule can be applied to zeros
 \begin{equation}
-z_0=e^{s_0 T}
+z_0=e^{s_0 T} \label{matchedz}
 \label{transzeros}
 \end{equation}
 together with Eq.~\ref{translpoles} this is called ``The matched
@@ -1995,6 +1997,8 @@ $H(z)=1-z^{-1}e^{0T}=1-z^{-1}$ which is basically a DC filter.
 \caption{IIR filter \label{IIRfilter}}
 \end{center}
 \end{figure}
+
+
 
 \subsubsection{Determining the data-flow diagram of an IIR filter}
 To get a practical implementation of Eq.~\ref{IIReq} we have
@@ -2024,7 +2028,7 @@ function.
 
 
 
-\subsubsection{General form of filters}
+\subsubsection{General form of IIR filters}
 A filter with forward and feedback components can be represented as:
 \begin{equation} 
 H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}} \end{equation}
@@ -2058,6 +2062,7 @@ The ``1'' represents the output.
   B) Direct Form II filter with two accumlators.
 \label{iir_types}}
 \end{figure}
+
 
 \subsubsection{IIR filter topologies}
 In real applications one would create a \textsl{chain of 2nd order
@@ -2125,6 +2130,7 @@ by storing these in an array of instances of this class.
 \label{iir_fixed}}
 \end{figure}
 
+
 \subsubsection{Fixed point IIR filters}
 Fig.~\ref{iir_fixed} shows the implementation of a fixed point IIR
 filter. It's a Direct Form I filter with one accumulator so that
@@ -2159,13 +2165,15 @@ is a safe bet.
 \label{butterworth_poles}}
 \end{figure}
 
+
+
 \subsubsection{Filter design based on analogue filters}
-Traditionally digital filters were designed from analogue
-filters by transforming from the continuous domain to the
-sampled domain. This has historical reasons because before digital
-signal processing became popular most designs were analogue
-which used the Laplace domain. Some popular
-analogue transfer functions are:
+Most IIR filters are designed from analogue filters by transforming
+from the continuous domain ($h(t),H(s)$) to the sampled domain
+($h(n),H(z)$).
+
+\paragraph{A list of popular analogue transfer functions being
+used for IIR filter design:}
 
 \begin{itemize}
 \item {\bf Butterworth:} All poles lie on the left half plane
@@ -2198,22 +2206,26 @@ straightforward.
 \end{itemize}
 \end{itemize}
 
-Note that all these analogue transfer functions are lowpass
-filters. However the analogue community has developed transforms
+\paragraph{How to transform the analogue lowpass filters into
+  highpass, bandstop or bandpass filters?}
+All the analogue transfer functions above are lowpass
+filters. However this is not a limitation because there are handy transforms
 which take an analogue lowpass transfer function or poles/zeros
 and then transforms them into highpass, bandpass and stopband
-filter. These rules can be found in any good analogue filter
-design book.
+filters. These rules can be found in any good analogue filter
+design book and industry handouts, for example from Analog Devices.
 
+\paragraph{Bilinear Transform: transforming the analoge transfer function into a digital one:}
 As a next step these analogue transfer functions $H(s)$ need to be
 transformed to digital transfer functions $H(z)$. This could be done
-by the impulse invariance / matched z-transform method. However, the
-problem with these methods is that they map frequencies 1:1 between
-the digital and analogue domain. Remember: in the sampled domain there
-is no infinite frequency but $F_s/2$ which is the Nyquist frequency.
-This means that we never get more damping than at Nyquist $F_s/2$.
-This is especially a problem for lowpass filters where damping
-increases the higher the frequency.
+by the matched z-transform
+(Eq.~\ref{matchedz}). However, the problem with these methods is that
+they map frequencies 1:1 between the digital and analogue
+domain. Remember: in the sampled domain there is no infinite frequency
+but $F_s/2$ which is the Nyquist frequency.  This means that we never
+get more damping than at Nyquist $F_s/2$.  This is especially a
+problem for lowpass filters where damping increases the higher the
+frequency.
 
 The solution is to map {\bf all} analogue frequencies from $0 \ldots \infty$
 to the sampled frequencies $0\ldots 0.5$ in a non-linear way:
@@ -2265,7 +2277,9 @@ specify our cut-off in the sampled domain in normalised frequencies
 $\omega_{c} = 2\pi f_{c}$ by using Eq.~\ref{prewarp}. After all we
 just use the analogue filter as a vehicle to design a digital filter.
 
-In summary, the design steps are:
+We can now list our design steps.
+
+\paragraph{IIR filter design steps:}
 \begin{enumerate}
 \item Choose the cut-off frequency of your digital filter $\omega_{c}$.
 \item Calculate the analogue cutoff frequency $\omega_{c} \rightarrow
@@ -2302,6 +2316,30 @@ transform once for a 2nd order system (or if the order is odd then
 also for a 1st order one) but then there is no need to do any more
 painful bilinear transforms. This is standard practise in IIR filter
 design.
+
+\paragraph{Time or frequency domain?}
+The transforms from analogue to digital alter both the temporal
+response and the frequency response. However the different transforms
+have different impact. The bilinear transform guarantees that the
+digital filter uses the whole frequency range of the analogue filter
+from zero to infinity which is the best solution for frequency domain
+problems. However, if one needs to reproduce the temporal response an
+analogue filter as faithfully as possible then the matched z transform
+is best because it's based (as the name suggests) on the impulse
+invariance method which aims to preserve the temporal behaviour of the
+filter (exact for pole-only transfer functions).
+
+\begin{center}
+\begin{tabular}{ll}
+  Identical frequency response required: & Bilinear transform \\
+  Identical temporal behaviour required: & Matched z-transform \\
+\end{tabular}
+\end{center}
+
+Of course a 100\% match won't be achieved but in practise this
+can be assumed. In most cases the bilinear transform is the
+transform of choice. The matched z transform can be very useful,
+for example in robotics where timing is important.
 
 
 \subsection{The role of poles and zeros}
