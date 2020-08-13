@@ -1474,22 +1474,62 @@ This is the z-transform of the impulse response $h(t)$ of the filter.
 
 We filter now the signal $X(z)$ with $H(z)$:
 \begin{equation}
-\label{FIRz}
-H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
+H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z) \label{notFIRyet}
 \end{equation}
 
 This sum is a direct recipe how to filter the signal $X(z)$. We only
 need the impulse response of the filter $h(nT)$ and we can
 set up a digital filter (see Fig.~\ref{FIRfilter}). Of course
 in practise this impulse response cannot run till infinity
-but only for a limited number of samples. The these are often
-called ``taps''. So for example a filter with 100 samples of $h(nT)$ has
-100 ``taps''. This in turn then requires a delay line which
-can hold 100 samples.
+but only for a limited number of samples. These are often
+called ``taps''. So for example a filter with $100$ samples of $h(nT)$ has
+$100$ ``taps''. This in turn then requires a delay line which
+can hold $N=100$ samples:
+\begin{equation}
+\label{FIRz}
+H(z)X(z)=\underbrace{\sum_{n=0}^N h(nT) z^{-n}}_{H(z)} X(z) \label{FIRfromAnalogue}
+\end{equation}
+
+This is the formula of an Finite Impulse Response filter where we have
+sampled an analogue impulse response $h(t)$ at time intervals of $T$.
+However, often the impulse response of the filter is derived directly
+in the digital domain where the argument of $h(n)$ represent just sample
+indices $n$ and the sampling interval is implicitly the inverse of the sampling
+rate. For that reason one needs to distinguish between:
+
+\begin{eqnarray}
+H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize{analogue}}(nT) z^{-n} \, X(z) \label{FIRa} \\
+H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize{digital}}(n) z^{-n} \, X(z) \label{FIRd}
+\end{eqnarray}
+
+This is usually clear from the context which impulse response is meant.
+
+\subsubsection{Generally FIR filters do not perform a convolution operation}
+
+Remember that we have derived the FIR filters from the analogue domain
+by filtering a signal (Eq.\ref{notFIRyet}). The timedomain representation
+of this is a discrete and causal convolution operation (using the
+sampled Laplace transform). However, the problem is that this runs to
+\textsl{infinite time} and would require an infinite number of delay
+steps and thus infinite time to complete. So the FIR filter at best
+performs an approximation of the convolution operation but there
+are serious problems with the finite number of taps ($N$) which
+requires a technique called windowing which moves it even further away
+from a convolution operation. On the other hand if the impulse
+response is strictly limited in time one can use this property for
+example for matched filters. However, the bottomline is that sweeping statements
+such as that ``FIR filters perform a convolution'' are \textsl{generally wrong}
+if nothing is known of the impulse response.
 
 
 
 \subsubsection{FIR filter implementations}
+No matter the design process the implementation is always the same: we
+need a delay line for the incoming signal and then weight the delayed
+outputs by the different coefficients and for that reason are called
+(water-) ``taps'' (see Eqs.~\ref{FIRa} \& \ref{FIRd}). We are now presenting
+different implementations.
+
 \begin{itemize}
 \item C++:
 This is a simple example of a filter which stores the values
