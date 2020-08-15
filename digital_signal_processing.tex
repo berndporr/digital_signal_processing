@@ -1221,11 +1221,10 @@ the phase might be of interest which is calculated as $\arg(X(F))$.
 Here are some randomly chosen reasons why we need causal
 signal processing:
 \begin{itemize}
-\item Fourier transform is not \textsl{real time}.  
+\item Fourier transform is \textsl{not real time}.  
 We need the whole signal from the first to the last sample.
 \item Reaction time: in time critical systems (robotics) we
-want to react fast.
-as little delay as possible!
+want to react as fast as possible and with as little delay as possible!
 \item We would like to ``recycle'' our analogue math.
 \end{itemize}
 
@@ -1262,8 +1261,8 @@ shows the integration for $t=1$.
 \subsection{Convolution of Causal Signal}
 After having defined causality we can define the convolution:
 \begin{eqnarray} 
-  y(t) = h(t) * x(t) = \int_{-\infty}^{\infty} h(t - \tau) x(\tau) d\tau
-  y(n) = h(n) * x(n) = \sum_{n = -\infty}^\infty h(n) x(m - n)
+  y(t) & = & h(t) * x(t) = \int_{-\infty}^{\infty} h(t - \tau) x(\tau) d\tau \\
+  y(n) & = & h(n) * x(n) = \sum_{n = -\infty}^\infty h(n) x(m - n)
 \label{eqconv}
 \end{eqnarray}
 Note the reversal of integration of the function $h$. This
