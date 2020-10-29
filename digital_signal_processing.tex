@@ -1563,7 +1563,7 @@ class FIR_filter:
         self.buffer = np.zeros(self.ntaps)
 
     def filter(self,v):
-        buffer = np.roll(buffer,1)
+        self.buffer = np.roll(self.buffer,1)
         self.buffer[0] = v
         return np.inner(self.buffer,self.coefficients)
 \end{verbatim}
