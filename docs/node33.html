@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Reconstruction of an analogue signal: Sampling theorem</TITLE>
+<META NAME="description" CONTENT="Reconstruction of an analogue signal: Sampling theorem">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="previous" HREF="node32.html">
+<LINK REL="next" HREF="node34.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html263"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node34.html">Quantisation of analogue signals</A>
+<B> Up:</B> <A
+ HREF="node30.html">Sampling of Analogue Signals</A>
+<B> Previous:</B> <A
+ HREF="node32.html">Nyquist frequency</A>
+ &nbsp; <B>  <A ID="tex2html264"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A ID="SECTION00063000000000000000">
+Reconstruction of an analogue signal: Sampling theorem</A>
+</H2>
+Is it possible to reconstruct an analogue signal from a digital signal
+which contains only frequencies below the Nyquist frequency?
+
+<P>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+F_s > 2 F_{\mbox{max}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.12ex; vertical-align: -0.45ex; " SRC="img57.svg"
+ ALT="$\displaystyle F_s &gt; 2 F_{\mbox{max}}
+$"> 
+
+(<SPAN CLASS="arabic">13</SPAN>)
+</DIV>
+where <!-- MATH
+ $F_{\mbox{max}}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.12ex; vertical-align: -0.45ex; " SRC="img58.svg"
+ ALT="$F_{\mbox{max}}$"></SPAN> is max frequency in the signal which we
+represent by sine waves:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x_{a}(t) = \sum_{i=1}^{n} A_i \cos (2 \pi F_{i}t  + \Theta_{i})
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.06ex; vertical-align: -2.60ex; " SRC="img59.svg"
+ ALT="$\displaystyle x_{a}(t) = \sum_{i=1}^{n} A_i \cos (2 \pi F_{i}t + \Theta_{i})
+$"> 
+
+(<SPAN CLASS="arabic">14</SPAN>)
+</DIV>
+
+<P>
+The analogue signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img60.svg"
+ ALT="$x_{a}(t)$"></SPAN> can be completely reconstructed if:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+g(t) = \frac{\sin 2\pi Bt}{2 \pi Bt}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.93ex; vertical-align: -1.69ex; " SRC="img61.svg"
+ ALT="$\displaystyle g(t) = \frac{\sin 2\pi Bt}{2 \pi Bt}
+$"> 
+
+(<SPAN CLASS="arabic">15</SPAN>)
+</DIV>
+
+<P>
+with
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+B = F_{\mbox{max}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.12ex; vertical-align: -0.45ex; " SRC="img62.svg"
+ ALT="$\displaystyle B = F_{\mbox{max}}
+$"> 
+
+(<SPAN CLASS="arabic">16</SPAN>)
+</DIV>
+
+<P>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x_{a}(t) = \sum_{h= -a}^{a}x_{a}(\frac{n}{F_s})g(t - \frac{h}{F_s})
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.27ex; vertical-align: -2.82ex; " SRC="img63.svg"
+ ALT="$\displaystyle x_{a}(t) = \sum_{h= -a}^{a}x_{a}(\frac{n}{F_s})g(t - \frac{h}{F_s})
+$"> 
+
+(<SPAN CLASS="arabic">17</SPAN>)
+</DIV>
+
+<P>
+
+<DIV class="CENTER"><A ID="quant_overv"></A><A ID="1566"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 3:</STRONG>
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img1.svg"
+ ALT="$\Delta $"></SPAN> is the quantisation step.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img64.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{quant_overv}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

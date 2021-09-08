@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>A-periodic signals</TITLE>
+<META NAME="description" CONTENT="A-periodic signals">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="previous" HREF="node38.html">
+<LINK REL="next" HREF="node40.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node37.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html290"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node40.html">Sampled time and/or frequency</A>
+<B> Up:</B> <A
+ HREF="node37.html">Continuous time and frequency</A>
+<B> Previous:</B> <A
+ HREF="node38.html">Periodic signals</A>
+ &nbsp; <B>  <A ID="tex2html291"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A ID="SECTION00081200000000000000">
+A-periodic signals</A>
+</H3>
+In case nothing is known about <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img105.svg"
+ ALT="$X(t)$"></SPAN> we need to integrate
+over all frequencies instead of just the discrete frequencies.
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X(F) = \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi F t} dt
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.79ex; vertical-align: -1.92ex; " SRC="img106.svg"
+ ALT="$\displaystyle X(F) = \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi F t} dt
+$"> 
+
+(<SPAN CLASS="arabic">36</SPAN>)
+</DIV>
+Consequently, the frequency spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img83.svg"
+ ALT="$X(F)$"></SPAN> is continuous.
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(F) e^{j 2 \pi F t} dF
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.07ex; vertical-align: -1.92ex; " SRC="img107.svg"
+ ALT="$\displaystyle x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(F) e^{j 2 \pi F t} dF
+$"> 
+
+(<SPAN CLASS="arabic">37</SPAN>)
+</DIV>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

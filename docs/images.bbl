@@ -1,0 +1,18 @@
+\begin{thebibliography}{}
+
+\bibitem[Diniz, 2002]{Diniz2002}
+Diniz, P. S.~R. (2002).
+\newblock {\em Digital Signal Processing}.
+\newblock Cambridge university press, Cambridge.
+
+\bibitem[Proakis and Manolakis, 1996]{Proakis1996}
+Proakis, J.~G. and Manolakis, D.~G. (1996).
+\newblock {\em Digital Signal Processing}.
+\newblock Prentice-Hall, New Jersey.
+
+\bibitem[Teukolsky et~al., 2007]{NumericalRec2007}
+Teukolsky, S.~A., Vetterling, W.~T., and Flannery, B.~P. (2007).
+\newblock {\em Numerical Recipes: The Art of Scientific Computing}.
+\newblock Cambridge University Press, 3rd edition.
+
+\end{thebibliography}

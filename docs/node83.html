@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Poles</TITLE>
+<META NAME="description" CONTENT="Poles">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node84.html">
+<LINK REL="previous" HREF="node82.html">
+<LINK REL="next" HREF="node84.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node81.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html452"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node84.html">Stability</A>
+<B> Up:</B> <A
+ HREF="node81.html">The role of poles</A>
+<B> Previous:</B> <A
+ HREF="node82.html">Zeros</A>
+ &nbsp; <B>  <A ID="tex2html453"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A ID="SECTION000911200000000000000">
+Poles</A>
+</H3>
+While zeros knock out frequencies, poles amplify frequencies.
+Let's investigate complex conjugate poles:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z) = \frac{1}{\underbrace{(1 - r e^{j \omega_{0}} z^{-1})(1 - r e^{-j \omega_{0}} z^{-1})}_{2 poles!}}
+\end{equation}
+ -->
+ &nbsp;  <A ID="resonatorz"></A><IMG STYLE="height: 8.77ex; vertical-align: -5.64ex; " SRC="img411.svg"
+ ALT="$\displaystyle H(z) = \frac{1}{\underbrace{(1 - r e^{j \omega_{0}} z^{-1})(1 - r e^{-j \omega_{0}} z^{-1})}_{2 poles!}}
+$"> 
+
+(<SPAN CLASS="arabic">169</SPAN>)
+</DIV>
+which are characterised by their resonance frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img17.svg"
+ ALT="$\omega _0$"></SPAN>
+and the amplification <SPAN CLASS="MATH"><IMG STYLE="height: 1.75ex; vertical-align: -0.16ex; " SRC="img412.svg"
+ ALT="$0&lt;r&lt;1$"></SPAN>.
+
+<P>
+In order to obtain a data flow diagram we need to get powers of <SPAN CLASS="MATH"><IMG STYLE="height: 2.03ex; vertical-align: -0.10ex; " SRC="img363.svg"
+ ALT="$z^{-1}$"></SPAN>
+because they represent delays.
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z) = \frac{1}{1 - 2 r \cos(\omega_{0}) z^{-1} + r^{2} z^{-2}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.42ex; vertical-align: -2.27ex; " SRC="img413.svg"
+ ALT="$\displaystyle H(z) = \frac{1}{1 - 2 r \cos(\omega_{0}) z^{-1} + r^{2} z^{-2}}
+$"> 
+
+(<SPAN CLASS="arabic">170</SPAN>)
+</DIV>
+which we multiply with the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img414.svg"
+ ALT="$Y(z)$"></SPAN>:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+Y(z) & = & X(z) \frac{1}{1 - 2 r \cos (\omega) z^{-1} + r^{2} z^{-2}} \\
+X(z) & = & Y(z) - Y(z) 2r \cos (\omega_{0}) z^{-1} + Y(z) r^{2} z^{-2} \\
+Y(z) & = & X(z) + z^{-1} Y(z) 2r \cos (\omega_{0}) - z^{-2} Y(z) r^{2}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img359.svg"
+ ALT="$\displaystyle Y(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.42ex; vertical-align: -2.27ex; " SRC="img415.svg"
+ ALT="$\displaystyle X(z) \frac{1}{1 - 2 r \cos (\omega) z^{-1} + r^{2} z^{-2}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">171</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img416.svg"
+ ALT="$\displaystyle X(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.72ex; vertical-align: -0.68ex; " SRC="img417.svg"
+ ALT="$\displaystyle Y(z) - Y(z) 2r \cos (\omega_{0}) z^{-1} + Y(z) r^{2} z^{-2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">172</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img359.svg"
+ ALT="$\displaystyle Y(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.72ex; vertical-align: -0.68ex; " SRC="img418.svg"
+ ALT="$\displaystyle X(z) + z^{-1} Y(z) 2r \cos (\omega_{0}) - z^{-2} Y(z) r^{2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">173</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This gives us a second order recursive filter (IIR) which is
+shown in Fig&nbsp;<A HREF="node82.html#iir_stop">24</A>. These complex
+conjugate poles generate a resonance at <SPAN CLASS="MATH"><IMG STYLE="height: 1.89ex; vertical-align: -0.45ex; " SRC="img419.svg"
+ ALT="$\pm\omega_0$"></SPAN> where the
+amplitude is determined by <SPAN CLASS="MATH"><IMG STYLE="height: 1.19ex; vertical-align: -0.10ex; " SRC="img18.svg"
+ ALT="$r$"></SPAN>.
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

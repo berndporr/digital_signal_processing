@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Design steps for FIR filters</TITLE>
+<META NAME="description" CONTENT="Design steps for FIR filters">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node67.html">
+<LINK REL="previous" HREF="node65.html">
+<LINK REL="next" HREF="node67.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node67.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node58.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node65.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html397"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node67.html">FIR filter design with</A>
+<B> Up:</B> <A
+ HREF="node58.html">FIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node65.html">FIR filter design from</A>
+ &nbsp; <B>  <A ID="tex2html398"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A ID="SECTION00098800000000000000">
+Design steps for FIR filters</A>
+</H3>
+Here are the design steps for an <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img277.svg"
+ ALT="$M$"></SPAN> tap FIR filter.
+
+<OL>
+<LI>Get yourself an impulse response for your filter:
+
+<OL>
+<LI>Create a frequency response &ldquo;by hand&rdquo; just by filling an array
+with the desired frequency response. Then, perform an inverse Fourier transform
+(see section&nbsp;<A HREF="node64.html#freqsamp">8.8.6</A>).
+</LI>
+<LI>Define a frequency response analytically. Do an inverse Fourier
+transform (see section&nbsp;<A HREF="node65.html#idealFilt">8.8.7</A>).
+</LI>
+<LI>Use an analogue circuit, get its impulse response and use
+these as filter coefficients.
+</LI>
+<LI>Dream up directly an impulse response (for example, averagers,
+differentiators, etc)
+</LI>
+</OL>
+
+<P>
+</LI>
+<LI>Mirror the impulse response (if not already symmetrical)
+</LI>
+<LI>Window the impulse response from an infinite number of samples
+to <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img277.svg"
+ ALT="$M$"></SPAN> samples.
+</LI>
+<LI>Move the impulse response to positive time so that it becomes causal
+(move it <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img303.svg"
+ ALT="$M/2$"></SPAN> steps to the right).
+</LI>
+</OL>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

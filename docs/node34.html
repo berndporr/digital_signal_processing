@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Quantisation of analogue signals</TITLE>
+<META NAME="description" CONTENT="Quantisation of analogue signals">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node36.html">
+<LINK REL="previous" HREF="node30.html">
+<LINK REL="next" HREF="node35.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="digital_signal_processing.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html265"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node35.html">Quantisation error</A>
+<B> Up:</B> <A
+ HREF="digital_signal_processing.html">digital_signal_processing</A>
+<B> Previous:</B> <A
+ HREF="node33.html">Reconstruction of an analogue</A>
+ &nbsp; <B>  <A ID="tex2html266"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A ID="SECTION00070000000000000000">
+Quantisation of analogue signals</A>
+</H1>
+A/D converters have a certain resolution. For example, the MAX1271 has a
+resolution of 12 bits which means that it divides the input range into
+4096 equal steps (see Fig&nbsp;<A HREF="node33.html#quant_overv">3</A>).
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\Delta = \mbox{quantisation step} =
+\frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.91ex; vertical-align: -1.88ex; " SRC="img65.svg"
+ ALT="$\displaystyle \Delta = \mbox{quantisation step} =
+\frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
+$"> 
+
+(<SPAN CLASS="arabic">18</SPAN>)
+</DIV>
+where <!-- MATH
+ $x_{\mbox{max}} - x_{\mbox{min}}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.28ex; vertical-align: -0.84ex; " SRC="img66.svg"
+ ALT="$x_{\mbox{max}} - x_{\mbox{min}}$"></SPAN> is the dynamic range in volt
+(for example <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img67.svg"
+ ALT="$4.096V$"></SPAN>) and <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img68.svg"
+ ALT="$L$"></SPAN> is the number of quantisation steps
+(for example, 4096). <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img1.svg"
+ ALT="$\Delta $"></SPAN> is the quantisation step which defines
+minimal voltage change which is needed to see a change in the output
+of the quantiser. The operation of the quantiser can be written down
+as:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x_{q}(n) = Q[x(n)]
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.58ex; vertical-align: -0.75ex; " SRC="img69.svg"
+ ALT="$\displaystyle x_{q}(n) = Q[x(n)]
+$"> 
+
+(<SPAN CLASS="arabic">19</SPAN>)
+</DIV>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html267"
+  HREF="node35.html">Quantisation error</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+
+</BODY>
+</HTML>

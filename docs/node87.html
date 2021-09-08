@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Limitations / outlook</TITLE>
+<META NAME="description" CONTENT="Limitations / outlook">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node88.html">
+<LINK REL="previous" HREF="node49.html">
+<LINK REL="next" HREF="node88.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="digital_signal_processing.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html460"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node88.html">Bibliography</A>
+<B> Up:</B> <A
+ HREF="digital_signal_processing.html">digital_signal_processing</A>
+<B> Previous:</B> <A
+ HREF="node86.html">Identifying filters from their</A>
+ &nbsp; <B>  <A ID="tex2html461"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A ID="SECTION000100000000000000000">
+Limitations / outlook</A>
+</H1>
+So far the coefficients have been constant in the filters. However,
+in many situations these coefficients need to change while the
+filter is operating. For example, an ECG with broadband muscle noise
+requires an adaptive approach because the noise level is unknown.
+The noise and the ECG overlap in their
+spectra. We need a lowpass filter which does a tradeoff between loosing
+the signal and filtering out most of the noise:
+The problem is that the signal to noise ratio is constantly changing.
+A fixed cut off is not a good option. We need to change the
+cut off all the time. One example is a Kalman filter.
+The idea is to maximise the
+<SPAN  CLASS="textsl">predictability</SPAN> of the filtered signal.
+A lowpass filter increases the predictability of a signal because
+it smoothes the signal.
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z) = \frac{b}{1 - a z^{-1}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.15ex; vertical-align: -1.88ex; " SRC="img424.svg"
+ ALT="$\displaystyle H(z) = \frac{b}{1 - a z^{-1}}
+$"> 
+
+(<SPAN CLASS="arabic">175</SPAN>)
+</DIV>
+The parameter <SPAN CLASS="MATH"><IMG STYLE="height: 1.19ex; vertical-align: -0.10ex; " SRC="img425.svg"
+ ALT="$a$"></SPAN> determines the cutoff frequency.
+Frequency Response :
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+|H(e^{j \omega}) | = |\frac{b}{1 - a e^{-j \omega}}|
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.15ex; vertical-align: -1.88ex; " SRC="img426.svg"
+ ALT="$\displaystyle \vert H(e^{j \omega}) \vert = \vert\frac{b}{1 - a e^{-j \omega}}\vert
+$"> 
+
+(<SPAN CLASS="arabic">176</SPAN>)
+</DIV>
+Let's re-interpret our low-pass filter in the time domain:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.12ex; vertical-align: -4.31ex; " SRC="img427.svg"
+ ALT="$\displaystyle \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) ...
+...estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
+$"> 
+
+(<SPAN CLASS="arabic">177</SPAN>)
+</DIV>
+We would like to have the best estimate for <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img428.svg"
+ ALT="$y(n)$"></SPAN>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.89ex; vertical-align: -0.68ex; " SRC="img429.svg"
+ ALT="$\displaystyle p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
+$"> 
+
+(<SPAN CLASS="arabic">178</SPAN>)
+</DIV>
+We need to minimise <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.55ex; " SRC="img430.svg"
+ ALT="$p$"></SPAN> which gives us equations for a and b which
+implements a Kalman filter.
+
+<P>
+Transmission line equalisation also requires an adaptive approach
+where the coefficients of the filter are determined by a known
+training sequence. The coefficients are changed until the desired
+training sequence appears at the output of the filter.
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="digital_signal_processing.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html460"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node88.html">Bibliography</A>
+<B> Up:</B> <A
+ HREF="digital_signal_processing.html">digital_signal_processing</A>
+<B> Previous:</B> <A
+ HREF="node86.html">Identifying filters from their</A>
+ &nbsp; <B>  <A ID="tex2html461"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

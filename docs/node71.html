@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Determining the data-flow diagram of an IIR filter</TITLE>
+<META NAME="description" CONTENT="Determining the data-flow diagram of an IIR filter">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node72.html">
+<LINK REL="previous" HREF="node70.html">
+<LINK REL="next" HREF="node72.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node69.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html418"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node72.html">General form of IIR</A>
+<B> Up:</B> <A
+ HREF="node69.html">IIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node70.html">Introduction</A>
+ &nbsp; <B>  <A ID="tex2html419"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A ID="SECTION000910200000000000000">
+Determining the data-flow diagram of an IIR filter</A>
+</H3>
+To get a practical implementation of Eq.&nbsp;<A HREF="node70.html#IIReq">148</A> we have
+to see it with its input- and output-signals:
+<BR>
+<DIV ALIGN="CENTER"><A ID="Verg"></A>
+<!-- MATH
+ \begin{eqnarray}
+Y(z)&=&X(z)H(z)\\
+    &=&X(z) {1\over 1-e^{-bT} z^{-1}} \\
+    &=&Y(z)z^{-1}e^{-bT}+X(z)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img359.svg"
+ ALT="$\displaystyle Y(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img360.svg"
+ ALT="$\displaystyle X(z)H(z)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">151</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.03ex; vertical-align: -1.88ex; " SRC="img361.svg"
+ ALT="$\displaystyle X(z) {1\over 1-e^{-bT} z^{-1}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">152</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.80ex; vertical-align: -0.68ex; " SRC="img362.svg"
+ ALT="$\displaystyle Y(z)z^{-1}e^{-bT}+X(z)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">153</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+We have to recall that <SPAN CLASS="MATH"><IMG STYLE="height: 2.03ex; vertical-align: -0.10ex; " SRC="img363.svg"
+ ALT="$z^{-1}$"></SPAN> is the delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img25.svg"
+ ALT="$T$"></SPAN>. With that
+information we directly have a difference equation in the
+temporal domain:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+y(nT)=y([n-1]T) e^{-bT} + x(nT)
+\end{equation}
+ -->
+ &nbsp;  <A ID="IIRtime"></A><IMG STYLE="height: 2.80ex; vertical-align: -0.68ex; " SRC="img364.svg"
+ ALT="$\displaystyle y(nT)=y([n-1]T) e^{-bT} + x(nT)
+$"> 
+
+(<SPAN CLASS="arabic">154</SPAN>)
+</DIV>
+This means that the output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img365.svg"
+ ALT="$y(nT)$"></SPAN> is calculated by
+adding the weighted and delayed output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img366.svg"
+ ALT="$y([n-1]T)$"></SPAN> 
+to the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img367.svg"
+ ALT="$x(nT)$"></SPAN>.
+How this actually works is shown in Fig.&nbsp;<A HREF="node70.html#IIRfilter">19</A>.
+The attention is drawn to the <SPAN  CLASS="textsl">sign inversion</SPAN> of the weighting
+factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.10ex; vertical-align: -0.10ex; " SRC="img368.svg"
+ ALT="$e^{-bT}$"></SPAN> in contrast to the transfer function 
+Eq.&nbsp;<A HREF="node70.html#impInv">149</A> where it is <SPAN CLASS="MATH"><IMG STYLE="height: 2.30ex; vertical-align: -0.29ex; " SRC="img369.svg"
+ ALT="$-e^{-bT}$"></SPAN>. In general the recursive
+coefficients change sign when they are taken from the transfer
+function.
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

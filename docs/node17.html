@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Tupels</TITLE>
+<META NAME="description" CONTENT="Tupels">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html224"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node18.html">Conditionals</A>
+<B> Up:</B> <A
+ HREF="node13.html">Data types</A>
+<B> Previous:</B> <A
+ HREF="node16.html">Arrays</A>
+ &nbsp; <B>  <A ID="tex2html225"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A ID="SECTION00044400000000000000">
+Tupels</A>
+</H3>
+Tupels are similar to lists but they are rather used as
+&ldquo;containers&rdquo; to package up different variables into one variable. For
+example, you might want to put the sampling rate and the resolution of
+an ADC into a tuple as they belong together.
+
+<UL>
+<LI><SPAN  CLASS="texttt">p&nbsp;=&nbsp;(1,9,'kk')</SPAN> is a tupel with the two integer numbers 1,2 and 'kk'.
+</LI>
+<LI>The round brackets are often omitted:
+  <SPAN  CLASS="texttt">p&nbsp;=&nbsp;1,9,'kk'</SPAN> which implicitly defines a tupel.
+</LI>
+<LI><SPAN  CLASS="texttt">p[1]</SPAN> returns the 2nd element of the tupel (the index
+  counts from 0).
+</LI>
+<LI>Extracting a tupel into separate variables also works:
+  <SPAN  CLASS="texttt">a,b,c = p</SPAN> assigns 1 to a, 9 to b and 'kk' to c. This
+  is very convenient for functions if you want to return more than
+  one result. Just package them up into a tuple and return it.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

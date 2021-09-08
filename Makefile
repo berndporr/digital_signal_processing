@@ -1,6 +1,5 @@
 all:
-	latex digital_signal_processing
+	pdflatex digital_signal_processing
 	bibtex digital_signal_processing
-	latex digital_signal_processing
-	latex digital_signal_processing
-	dvipdf digital_signal_processing
+	pdflatex digital_signal_processing
+	pdflatex digital_signal_processing

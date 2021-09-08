@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Fixed point FIR filters</TITLE>
+<META NAME="description" CONTENT="Fixed point FIR filters">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node60.html">
+<LINK REL="next" HREF="node62.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node58.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html387"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node62.html">Constant group delay or</A>
+<B> Up:</B> <A
+ HREF="node58.html">FIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node60.html">FIR filter implementations</A>
+ &nbsp; <B>  <A ID="tex2html388"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A ID="SECTION00098300000000000000">
+Fixed point FIR filters</A>
+</H3>
+These filters receive integer numbers as input, perform integer multiplications/additions
+and their outputs are integer as well. Thus, these filters do not require
+a floating point unit on a processor.
+
+<P>
+Fig.&nbsp;<A HREF="node60.html#fir_fixed">17</A> shows a fixed point FIR filter. The input <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> is an integer
+variable with I bit integers, the accumulator is an integer variable with A bits and
+the output as well (usually the same as the input in terms of bit width).
+
+<P>
+In contrast to a floating point FIR filter we need to scale up the
+coefficients so that they use full the integer range to avoid
+quantisation errors. For example if the coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img268.svg"
+ ALT="$h(n)$"></SPAN> range
+from <SPAN CLASS="MATH"><IMG STYLE="height: 1.88ex; vertical-align: -0.29ex; " SRC="img273.svg"
+ ALT="$-0.75$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.86ex; vertical-align: -0.27ex; " SRC="img274.svg"
+ ALT="$+0.75$"></SPAN> and we have signed 16 bit integers then the
+scaling factor is <SPAN CLASS="MATH"><IMG STYLE="height: 2.54ex; vertical-align: -0.55ex; " SRC="img275.svg"
+ ALT="$2^W, W=15$"></SPAN>.
+
+<P>
+However, the accumulator A which collects the data needs to have more
+bits because it receives scaled input values at I bits precision and
+these multiplied by factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.10ex; " SRC="img276.svg"
+ ALT="$2^W$"></SPAN>. If we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img277.svg"
+ ALT="$M$"></SPAN> taps then the additional
+bits we need is <SPAN CLASS="MATH"><IMG STYLE="height: 2.35ex; vertical-align: -0.65ex; " SRC="img278.svg"
+ ALT="$\log_2 M$"></SPAN>. The total number of bits we need in the accumulator
+in the worst case are:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+A = I + W + \log_2 M
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.35ex; vertical-align: -0.65ex; " SRC="img279.svg"
+ ALT="$\displaystyle A = I + W + \log_2 M
+$"> 
+
+(<SPAN CLASS="arabic">110</SPAN>)
+</DIV>
+However, this is the worst case scenario because if the gain of the
+FIR filter is below one then the summations by the <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img277.svg"
+ ALT="$M$"></SPAN> taps will only
+create <SPAN  CLASS="textsl">temporary</SPAN> overflows because integer numbers are
+cyclic in their representation. In case the gain of the FIR filter
+is below one this can be relaxed:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+A = I + W
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 1.95ex; vertical-align: -0.27ex; " SRC="img280.svg"
+ ALT="$\displaystyle A = I + W
+$"> 
+
+(<SPAN CLASS="arabic">111</SPAN>)
+</DIV>
+The actual bitwidth of the accumulator is usually the next integer size
+available and also makes sure that in case the gain goes slightly over one
+in an unexpected case that the filter still works. For example if I
+has <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img281.svg"
+ ALT="$16$"></SPAN>&nbsp;bits the accumulator has probably <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img282.svg"
+ ALT="$32$"></SPAN>&nbsp;bits.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node58.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html387"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node62.html">Constant group delay or</A>
+<B> Up:</B> <A
+ HREF="node58.html">FIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node60.html">FIR filter implementations</A>
+ &nbsp; <B>  <A ID="tex2html388"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>WAV files</TITLE>
+<META NAME="description" CONTENT="WAV files">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="previous" HREF="node25.html">
+<LINK REL="next" HREF="node27.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node24.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html244"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node27.html">Signal conversion</A>
+<B> Up:</B> <A
+ HREF="node24.html">Importing data</A>
+<B> Previous:</B> <A
+ HREF="node25.html">Space/Tab/Comma separated data</A>
+ &nbsp; <B>  <A ID="tex2html245"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A ID="SECTION000411200000000000000">
+WAV files</A>
+</H3>
+Scipy contains in its submodule io a subsubmodule wavfile which supports
+reading and writing wav files:
+<PRE>
+import scipy.io.wavfile as wavfile
+fs,data = wavfile.read('kongas.wav');
+</PRE>
+fs,data is a tuple containing the sampling rate and then the data.
+
+<P>
+<PRE>
+import scipy.io.wavfile as wavfile
+wavfile.write('kongas_filt.wav',fs,y3);
+</PRE>
+whereas 'fs' is the sampling rate and y3 the data &ndash; usually normalised between
+-1 and +1 for floating point numbers.
+
+<P>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

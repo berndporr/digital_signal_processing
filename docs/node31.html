@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Normalised frequency</TITLE>
+<META NAME="description" CONTENT="Normalised frequency">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node32.html">
+<LINK REL="previous" HREF="node30.html">
+<LINK REL="next" HREF="node32.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html259"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node32.html">Nyquist frequency</A>
+<B> Up:</B> <A
+ HREF="node30.html">Sampling of Analogue Signals</A>
+<B> Previous:</B> <A
+ HREF="node30.html">Sampling of Analogue Signals</A>
+ &nbsp; <B>  <A ID="tex2html260"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A ID="SECTION00061000000000000000">
+Normalised frequency</A>
+</H2>
+Note that the sampling frequency
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+F_{s} = \frac{1}{T_s}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.18ex; vertical-align: -2.04ex; " SRC="img31.svg"
+ ALT="$\displaystyle F_{s} = \frac{1}{T_s}
+$"> 
+
+(<SPAN CLASS="arabic">4</SPAN>)
+</DIV>
+is lost and needs to be stored additionally so that the analogue
+signal can be reconstructed:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X_{a}(t) = X_{a}(nT) = X_{a}(\frac{n}{F_{s}})
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.69ex; vertical-align: -2.04ex; " SRC="img32.svg"
+ ALT="$\displaystyle X_{a}(t) = X_{a}(nT) = X_{a}(\frac{n}{F_{s}})
+$"> 
+
+(<SPAN CLASS="arabic">5</SPAN>)
+</DIV>
+
+<P>
+
+<DIV class="CENTER"><A ID="max_sampl"></A><A ID="1557"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 1:</STRONG>
+Maximum frequency of a sampled signal is half the
+normalised frequency.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img33.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{max_sampl}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+What is the frequency range of our digital signal? What is
+the maximum frequency in digital terms? Fig&nbsp;<A HREF="#max_sampl">1</A> shows that the
+max frequency is <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img34.svg"
+ ALT="$0.5$"></SPAN> because we need two samples to
+represent a &ldquo;wave&rdquo;. The frequency range <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img35.svg"
+ ALT="$0\ldots 0.5$"></SPAN>
+is called the <SPAN  CLASS="textsl">normalised frequency</SPAN> range. What is the relation
+between normalised frequency and sampling rate?
+
+<P>
+Let's have a look at the analog signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img36.svg"
+ ALT="$X_{a}(t)$"></SPAN> with the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img3.svg"
+ ALT="$F$"></SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X_{a}(t) = A\cos (2\pi F t)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img37.svg"
+ ALT="$\displaystyle X_{a}(t) = A\cos (2\pi F t)
+$"> 
+
+(<SPAN CLASS="arabic">6</SPAN>)
+</DIV>
+and we sample it only at:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+t = n/F_s
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img38.svg"
+ ALT="$\displaystyle t = n/F_s
+$"> 
+
+(<SPAN CLASS="arabic">7</SPAN>)
+</DIV>
+Then the digital signal is:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X_{a}(n) = A \cos (2 \pi F/F_s n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img39.svg"
+ ALT="$\displaystyle X_{a}(n) = A \cos (2 \pi F/F_s n)
+$"> 
+
+(<SPAN CLASS="arabic">8</SPAN>)
+</DIV>
+
+<P>
+Now, we can define the normalised frequency as:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\mbox{Normalised frequency:} \qquad f =  \frac {F}{F_s}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.27ex; vertical-align: -2.04ex; " SRC="img40.svg"
+ ALT="$\displaystyle \mbox{Normalised frequency:} \qquad f = \frac {F}{F_s}
+$"> 
+
+(<SPAN CLASS="arabic">9</SPAN>)
+</DIV>
+which has its max value at <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img34.svg"
+ ALT="$0.5$"></SPAN> which represents one period of
+a sine wave within two samples<A ID="tex2html2"
+  HREF="footnode.html#foot1697"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node32.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node30.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html259"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node32.html">Nyquist frequency</A>
+<B> Up:</B> <A
+ HREF="node30.html">Sampling of Analogue Signals</A>
+<B> Previous:</B> <A
+ HREF="node30.html">Sampling of Analogue Signals</A>
+ &nbsp; <B>  <A ID="tex2html260"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

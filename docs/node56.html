@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>The z-transform</TITLE>
+<META NAME="description" CONTENT="The z-transform">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node57.html">
+<LINK REL="previous" HREF="node54.html">
+<LINK REL="next" HREF="node57.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html368"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node57.html">Frequency response of a</A>
+<B> Up:</B> <A
+ HREF="node49.html">Causal Signal Processing</A>
+<B> Previous:</B> <A
+ HREF="node55.html">How to characterise filters?</A>
+ &nbsp; <B>  <A ID="tex2html369"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A ID="SECTION00096000000000000000">
+The z-transform</A>
+</H2>
+The Laplace transform is for continuous causal signals but in DSP
+we have sampled signals. So, we need to investigate what happens
+if we feed a sampled signal:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x(t) = \sum_{n = 0}^{\infty} x(n) \delta(t - nT) \qquad \mbox{Sampled signal}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.03ex; vertical-align: -2.58ex; " SRC="img237.svg"
+ ALT="$\displaystyle x(t) = \sum_{n = 0}^{\infty} x(n) \delta(t - nT) \qquad \mbox{Sampled signal}
+$"> 
+
+(<SPAN CLASS="arabic">94</SPAN>)
+</DIV>
+into the Laplace transform:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+X(s) & = & \sum_{n = 0}^{\infty} x(n) e^{-snT} \\
+     & = & \int_{0}^{\infty} x(n) e^{-st} dt \\
+     & = & \sum_{n = 0}^{\infty} x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-sT}} \\
+     & = & \sum_{n = 0}^{\infty} x(n) (z^{-1})^{n} \qquad \mbox{z-transform}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img238.svg"
+ ALT="$\displaystyle X(s)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.03ex; vertical-align: -2.58ex; " SRC="img239.svg"
+ ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) e^{-snT}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">95</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.63ex; vertical-align: -1.76ex; " SRC="img240.svg"
+ ALT="$\displaystyle \int_{0}^{\infty} x(n) e^{-st} dt$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">96</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.27ex; vertical-align: -3.82ex; " SRC="img241.svg"
+ ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-sT}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">97</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.03ex; vertical-align: -2.58ex; " SRC="img242.svg"
+ ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) (z^{-1})^{n} \qquad \mbox{z-transform}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">98</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+What is <!-- MATH
+ $e^{-sT} = z^{-1}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.10ex; " SRC="img243.svg"
+ ALT="$e^{-sT} = z^{-1}$"></SPAN>? It's a unit delay (see Eq.&nbsp;<A HREF="node53.html#shiftOperation">81</A>).
+
+<P>
+
+<DIV class="CENTER"><A ID="frequency_response"></A><A ID="1620"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 15:</STRONG>
+Comparing the calculation of the frequency response
+in the continuous case and sampled case.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img244.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{frequency_response}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

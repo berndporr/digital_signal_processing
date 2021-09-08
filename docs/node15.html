@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
+<HTML lang="EN">
+<HEAD>
+<TITLE>Lists</TITLE>
+<META NAME="description" CONTENT="Lists">
+<META NAME="keywords" CONTENT="digital_signal_processing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+
+<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+
+<LINK REL="next" HREF="node16.html">
+<LINK REL="previous" HREF="node14.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A
+ HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html220"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node16.html">Arrays</A>
+<B> Up:</B> <A
+ HREF="node13.html">Data types</A>
+<B> Previous:</B> <A
+ HREF="node14.html">Numbers</A>
+ &nbsp; <B>  <A ID="tex2html221"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A ID="SECTION00044200000000000000">
+Lists</A>
+</H3>
+There are numerous data types in Python which allow storing
+collections of data. For DSP we need: lists, tupels and arrays. To clear
+up the confusion from the start we are going through them one
+by one. First up: lists!
+
+<UL>
+<LI><SPAN  CLASS="texttt">p&nbsp;=&nbsp;[1,9,77]</SPAN> is a list with the components 1,2 and 77.
+</LI>
+<LI><SPAN  CLASS="texttt">p[2]</SPAN> returns the third element of the list (the index
+  counts from 0). Note the index needs to be an integer so you might
+  need to cast a floating point variables first into an integer, for example
+  &ldquo;p[int(a)]&rdquo;.
+</LI>
+<LI><SPAN  CLASS="texttt">p[1:5]</SPAN> extracts from the list all elements from
+  index number 1 to index number 4 (!). The index 5 is excluded!
+  This is called splicing. Check out the online docs
+  for more examples.
+</LI>
+<LI><SPAN  CLASS="texttt">p&nbsp;=&nbsp;range(1,4)</SPAN> generates <SPAN CLASS="MATH"><IMG STYLE="height: 2.13ex; vertical-align: -0.55ex; " SRC="img21.svg"
+ ALT="$1, 2, 3$"></SPAN> which is the same as
+  a &ldquo;for loop&rdquo; in C: for(int i=1;i&lt;4;i++)
+</LI>
+<LI><SPAN  CLASS="texttt">p.append(10)</SPAN> adds a new element to the end of the
+  list. You see that lists are essentially classes with methods (see below)!
+  Check out the documentation for more options to manipulate lists.
+</LI>
+<LI><SPAN  CLASS="texttt">len(p2)</SPAN> provides the number of elements.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>
