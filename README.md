@@ -8,6 +8,8 @@ assignments = flipped classroom.
 
 [Download the PDF here](https://github.com/berndporr/digital_signal_processing/blob/master/digital_signal_processing.pdf)
 
+[Accessible online version](https://berndporr.github.io/digital_signal_processing/)
+
 The coding language is Python.
 
 ## YouTube clips
