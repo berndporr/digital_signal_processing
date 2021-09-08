@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Visualisation</TITLE>
-<META NAME="description" CONTENT="Visualisation">
+<TITLE>Software</TITLE>
+<META NAME="description" CONTENT="Software">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,8 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="previous" HREF="node47.html">
+<LINK REL="next" HREF="node49.html">
+<LINK REL="previous" HREF="node41.html">
 <LINK REL="next" HREF="node49.html">
 </HEAD>
 
@@ -26,48 +27,52 @@
  HREF="node49.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node36.html">
+ HREF="node37.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node47.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html313"
+<A ID="tex2html316"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node49.html">Causal Signal Processing</A>
+ HREF="node49.html">Visualisation</A>
 <B> Up:</B> <A
- HREF="node36.html">Frequency representation of signals</A>
+ HREF="node37.html">Frequency representation of signals</A>
 <B> Previous:</B> <A
- HREF="node47.html">Software</A>
- &nbsp; <B>  <A ID="tex2html314"
+ HREF="node47.html">Fast Fourier Transform</A>
+ &nbsp; <B>  <A ID="tex2html317"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00084000000000000000">
-Visualisation</A>
+<H2><A ID="SECTION00083000000000000000">
+Software</A>
 </H2>
-The Fourier spectrum is a complex function of frequency which cannot
-be displayed in a convenient way. Usually the amplitude or magnitude
-of the spectrum is of interest (see Fig.&nbsp;<A HREF="node47.html#visualisation">11</A>) which is calculated as the
-absolute value <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img199.svg"
- ALT="$\vert X(F)\vert$"></SPAN> of the Fourier spectrum X(F). In addition
-the phase might be of interest which is calculated as <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img200.svg"
- ALT="$\arg(X(F))$"></SPAN>.
-
-<UL>
-<LI>Magnitude or Amplitude: <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img199.svg"
- ALT="$\vert X(F)\vert$"></SPAN>
-</LI>
-<LI>Phase: <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img200.svg"
- ALT="$\arg(X(F))$"></SPAN>
-</LI>
-</UL>
+In <A
+ HREF="node89.html#NumericalRec2007">Teukolsky et&nbsp;al. (2007)</A> you'll find highly optimised C code
+for Fourier transforms. Most Linux distros (Ubuntu, Suse, RedHat, ...)
+come with an excellent FFT library called <SPAN  CLASS="texttt">libfftw3</SPAN>.
 
 <P>
+
+<DIV class="CENTER"><A ID="visualisation"></A><A ID="1612"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 11:</STRONG>
+
+An ECG signal in the time- and frequency domain.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img198.svg"
+ ALT="\includegraphics[width=\textwidth]{visualisation}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
 <BR><HR>

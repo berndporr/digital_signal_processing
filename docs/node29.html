@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>D/A Conversion</TITLE>
-<META NAME="description" CONTENT="D/A Conversion">
+<TITLE>A/D conversion</TITLE>
+<META NAME="description" CONTENT="A/D conversion">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,6 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
+<LINK REL="next" HREF="node30.html">
 <LINK REL="previous" HREF="node28.html">
 <LINK REL="next" HREF="node30.html">
 </HEAD>
@@ -26,33 +27,89 @@
  HREF="node30.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node27.html">
+ HREF="node28.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node28.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html251"
+<A ID="tex2html254"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node30.html">Sampling of Analogue Signals</A>
+ HREF="node30.html">D/A Conversion</A>
 <B> Up:</B> <A
- HREF="node27.html">Signal conversion</A>
+ HREF="node28.html">Signal conversion</A>
 <B> Previous:</B> <A
- HREF="node28.html">A/D conversion</A>
- &nbsp; <B>  <A ID="tex2html252"
+ HREF="node28.html">Signal conversion</A>
+ &nbsp; <B>  <A ID="tex2html255"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00052000000000000000">
-D/A Conversion</A>
+<H2><A ID="SECTION00051000000000000000">
+A/D conversion</A>
 </H2>
-Back to analogue. The D/A converter needs to interpolate between the samples
-to get the original signal back without error! This is usually
-done by a simple low pass filter.
+
+<P>
+
+<OL>
+<LI><B>sampling</B>
+
+<P>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\underbrace{X_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.26ex; vertical-align: -4.51ex; " SRC="img23.svg"
+ ALT="$\displaystyle \underbrace{X_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
+$"> 
+
+(<SPAN CLASS="arabic">2</SPAN>)
+</DIV>
+
+<P>
+
+<UL>
+<LI><SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img24.svg"
+ ALT="$X_a$"></SPAN>: analogue signal
+</LI>
+<LI><SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img25.svg"
+ ALT="$T$"></SPAN>: sampling interval, <!-- MATH
+ $\frac{1}{T}=F_s$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img26.svg"
+ ALT="$\frac{1}{T}=F_s$"></SPAN> is the sampling rate
+</LI>
+<LI><SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>: discrete data
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>quantisation:</B> 
+Continuous value into discrete steps. <!-- MATH
+ $X(n) \rightarrow X_{q}(n)$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img27.svg"
+ ALT="$X(n) \rightarrow X_{q}(n)$"></SPAN>
+
+<P>
+</LI>
+<LI><B>Coding</B>
+<!-- MATH
+ $X_{q}(n) \rightarrow$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img28.svg"
+ ALT="$X_{q}(n) \rightarrow$"></SPAN> into binary sequence or integer numbers.
+</LI>
+</OL>
 
 <P>
 <BR><HR>

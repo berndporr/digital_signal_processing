@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Mathematical functions</TITLE>
-<META NAME="description" CONTENT="Mathematical functions">
+<TITLE>Classes</TITLE>
+<META NAME="description" CONTENT="Classes">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -32,39 +32,64 @@
 <A
  HREF="node21.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html233"
+<A ID="tex2html236"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node23.html">Plotting of Functions</A>
+ HREF="node23.html">Mathematical functions</A>
 <B> Up:</B> <A
  HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node21.html">Classes</A>
- &nbsp; <B>  <A ID="tex2html234"
+ HREF="node21.html">Functions</A>
+ &nbsp; <B>  <A ID="tex2html237"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00049000000000000000">
-Mathematical functions</A>
+<H2><A ID="SECTION00046000000000000000">
+Classes</A>
 </H2>
-Just import the numpy library which contains all the
-mathematical functions and constants such as pi.
-<SPAN  CLASS="texttt">import numpy as np</SPAN>. It has all the standard functions such
-as np.sin, np.cos, np.tan, np.exp, ....
+Classes contain functions and variables. They usually
+have a constructor called <SPAN  CLASS="texttt">init</SPAN> which is a special function which is called
+when an instance of a class is created.
+<PRE>
+class MyAmazingClass:
+    def __init__(self,coeff):
+        # Your init code here.
+        self.mylocalcoeff = coeff
+
+    def doSomeProcessing(self,data):
+        # we process data
+        data = data * self.mylocalcoeff
+        return data
+</PRE>
+(!) Note the special variable &ldquo;self&rdquo; which is <SPAN  CLASS="textsl">the first</SPAN>
+argument of every method in a class. Variables which
+are part of the class are references by &ldquo;self&rdquo;. For
+example the constructor argument &ldquo;coeff&rdquo; is saved
+in the class as &ldquo;mylocalcoeff&rdquo; and is then available
+throughout the lifetime of the class as &ldquo;self.mylocalcoeff&rdquo;. When we call
+the method &ldquo;doSomeProcessing&rdquo; then &ldquo;self.mylocalcoeff&rdquo;
+is multiplied with the &ldquo;data&rdquo; argument and the result
+is returned. Anything which hasn't got &ldquo;self.&rdquo; in front
+of it will be forgotten after the function has terminated.
+In this way you distinguish which variables are kept
+for the lifetime of the class or
+are just used temporarily.
 
 <P>
-Note that these functions also take arrays as arguments. For example,
-inputting the array x into the sine:
+Classes are just types and need to be instantiated:
 <PRE>
-x = np.array(range(6))
-y = np.sin(x);
+f = MyAmazingClass(5)
+a = f.doSomeProcessing(10)
+b = f.doSomeProcessing(20)
 </PRE>
-yields again an array in y! All elements have been processed at the 
-<SPAN  CLASS="textit">same</SPAN> time.
+which will give us 50 as a result for the variable &ldquo;a&rdquo; and
+100 for the variable &ldquo;b&rdquo;. The variable &ldquo;f&rdquo; is the instance
+of the class MyAmazingClass and the argument initialises
+self.mylocalcoeff with 5.
 
 <P>
 <BR><HR>

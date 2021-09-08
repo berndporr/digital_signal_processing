@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>The role of poles and zeros</TITLE>
-<META NAME="description" CONTENT="The role of poles and zeros">
+<TITLE>Time or frequency domain?</TITLE>
+<META NAME="description" CONTENT="Time or frequency domain?">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="previous" HREF="node69.html">
+<LINK REL="previous" HREF="node80.html">
 <LINK REL="next" HREF="node82.html">
 </HEAD>
 
@@ -26,77 +26,60 @@
  HREF="node82.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node49.html">
+ HREF="node76.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node80.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html442"
+<A ID="tex2html445"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node82.html">Zeros</A>
+ HREF="node82.html">The role of poles</A>
 <B> Up:</B> <A
- HREF="node49.html">Causal Signal Processing</A>
+ HREF="node76.html">Filter design based on</A>
 <B> Previous:</B> <A
- HREF="node80.html">Time or frequency domain?</A>
- &nbsp; <B>  <A ID="tex2html443"
+ HREF="node80.html">IIR filter design steps:</A>
+ &nbsp; <B>  <A ID="tex2html446"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000911000000000000000">
-The role of poles and zeros</A>
-</H2>
-Transfer functions contain poles and zeros. To gain a deeper
-understanding of the transfer functions we need to understand
-how poles and zeros shape the frequency response of <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img262.svg"
- ALT="$H(z)$"></SPAN>.
-The position of the poles also determines the stability of the filter
-which is important for real world applications.
+<H4><A ID="SECTION000910650000000000000">
+Time or frequency domain?</A>
+</H4>
+The transforms from analogue to digital alter both the temporal
+response and the frequency response. However the different transforms
+have different impact. The bilinear transform guarantees that the
+digital filter uses the whole frequency range of the analogue filter
+from zero to infinity which is the best solution for frequency domain
+problems. However, if one needs to reproduce the temporal response an
+analogue filter as faithfully as possible then the matched z transform
+is best because it's based (as the name suggests) on the impulse
+invariance method which aims to preserve the temporal behaviour of the
+filter (exact for pole-only transfer functions).
 
 <P>
-We are going to explore the roles of poles and zeros first with
-an instructional example which leads to a 2nd order bandstop filter.
-
-<P>
-
-<DIV class="CENTER"><A ID="fir_stop"></A><A ID="1668"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 23:</STRONG>
-A two tap FIR stopband filter for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img17.svg"
- ALT="$\omega _0$"></SPAN>.
-</CAPTION>
-<TR><TD>
 <DIV class="CENTER">
-<IMG STYLE=""
- SRC="img397.svg"
- ALT="\includegraphics[width=0.75\textwidth]{fir_stop}">
-
-</DIV></TD></TR>
+<TABLE class="PAD " style="">
+<TR><TD CLASS="LEFT">Identical frequency response required:</TD>
+<TD CLASS="LEFT">Bilinear transform</TD>
+</TR>
+<TR><TD CLASS="LEFT">Identical temporal behaviour required:</TD>
+<TD CLASS="LEFT">Matched z-transform</TD>
+</TR>
 </TABLE>
 </DIV>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+Of course a 100% match won't be achieved but in practise this
+can be assumed. In most cases the bilinear transform is the
+transform of choice. The matched z transform can be very useful,
+for example in robotics where timing is important.
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html444"
-  HREF="node82.html">Zeros</A>
-<LI><A ID="tex2html445"
-  HREF="node83.html">Poles</A>
-<LI><A ID="tex2html446"
-  HREF="node84.html">Stability</A>
-<LI><A ID="tex2html447"
-  HREF="node85.html">Design of an IIR notch filter</A>
-<LI><A ID="tex2html448"
-  HREF="node86.html">Identifying filters from their poles and zeroes</A>
-</UL>
-<!--End of Table of Child-Links-->
+<P>
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

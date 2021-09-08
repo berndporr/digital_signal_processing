@@ -23,8 +23,7 @@
     linkcolor=blue,
     urlcolor=blue
 }
-
-
+\renewcommand{\familydefault}{\sfdefault}
 \renewcommand{\captionfont}{\small}
 %
 %
@@ -131,13 +130,12 @@ Development environments such as anaconda have both the
 console and then scripting facility integrated under one
 roof.
 
-\subsubsection{The python console}
+\paragraph{The python console}
 The python console you can just start by typing
-``python'' or ``python3'' (for version 3):
+``python'':
 \begin{verbatim}
-bp1@bp1-ThinkPad-X220:~$ python
-Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
-[GCC 5.4.0 20160609] on linux2
+Python 3.8.10 (default, Jun  2 2021, 10:49:15) 
+[GCC 9.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 \end{verbatim}
@@ -145,7 +143,7 @@ then you can type in commands one by one. Under Windows you might
 need to point the PATH variable to your python program or you let Anaconda
 do it for you.
 
-\subsubsection{Python scripts}
+\paragraph{Python scripts}
 Scripts are text files which contain python commands. One command
 per line and these are executed line by line.
 
@@ -157,13 +155,13 @@ defines the body of a function, the content of a loop or the code
 executed conditionally.
 
 So, it's recommended for any serious
-work to install an editor which supports python such as Anaconda
+work to install an editor which supports python such as spyder, VS-code, py-charm
 or emacs.
 
 Once you have your script file saved just type ``python myscript.py''
 and it will be executed.
 
-\subsection{Help}
+\paragraph{Help}
 There is an abundance of online help available for Python. The
 official Python pages have an excellent tutorial
 (\texttt{https://docs.python.org/3/tutorial/}) and of course you find
@@ -173,10 +171,11 @@ If you need help for a function you can use the in built help function
 ``help(thecommand)'' to get help for ``thecommand''. Try out ``help(print)''
 to get help for the ``print'' command.
 
-\subsection{Modules}
+\subsection{Packages/Modules}
 The power of Python comes form thousands of modules which are shipped
-with python or can be installed via python's (or Anaconda's) package
-manager. The standard package manager of python is called ``pip''
+with python or can be installed via python's package
+manager. A package contains usually many modules.
+The standard package manager of python is called ``pip''
 which downloads the package for you and installs it. This is not just
 very convenient but also is safe because the download location is the
 official python repository.
@@ -211,7 +210,7 @@ Python has all the standard data types such as int, float, string,
 \ldots and a few more. You can check which type a variable has with:
 ``type(variable)''. Important for DSP are these types:
 
-\subsubsection{Numbers}
+\paragraph{Numbers}
 Numbers are represented in a standard way, including complex numbers:
 \begin{itemize}
 \item \texttt{6E23}$=6\cdot 10^{23}$
@@ -225,7 +224,7 @@ over. If you write ``a=1'' then ``a'' is an integer whereas
 ``a=1.0'' is a floating point number. You can force a certain type by using
 the typecast operator, for example `` a = int(b)'' to create an integer.
 
-\subsubsection{Lists}
+\paragraph{Lists}
 There are numerous data types in Python which allow storing
 collections of data. For DSP we need: lists, tupels and arrays. To clear
 up the confusion from the start we are going through them one
@@ -248,38 +247,7 @@ by one. First up: lists!
 \item \texttt{len(p2)} provides the number of elements.
 \end{itemize}
 
-\subsubsection{Arrays}
-This data structure is used for number crunching and is thus ideal for
-DSP. Python arrays are essentially C arrays with a thin wrapper around
-them.
-
-Usually you'd create arrays with the numpy library (add \texttt{import numpy
-  as np} to your script).
-\begin{itemize}
-\item\texttt{a = np.array([1, 2, 5])} which creates a numpy
-  array from a standard Python list containing 1,2,5.
-\item\texttt{b = np.array([[6, 2], [9, 7]])} creates a two dimensional
-  array.
-\item There are a lot of convenience functions in numpy to create
-  arrays just containing zeros, ones or ascending numbers etc. Check out
-   the numpy docs.
-\end{itemize}
-
-Since arrays are close relatives to C arrays they have an additional
-field which is called ``dtype'' which determines the type of the
-array elements, for example ``int16'' (a 16 bit wide integer).
-\begin{verbatim}
->>> data
-array([-12288, -12545, -12798, ...,    511,    513,    513], dtype=int16)
->>> data.dtype
-dtype('int16')
->>> data.astype(float)
-array([-12288., -12545., -12798., ...,    511.,    513.,    513.])
-\end{verbatim}
-where the member function ``astype'' can convert from one array type to another, here
-from int16 to floating point.
-
-\subsubsection{Tupels}
+\paragraph{Tupels}
 Tupels are similar to lists but they are rather used as
 ``containers'' to package up different variables into one variable. For
 example, you might want to put the sampling rate and the resolution of
@@ -296,7 +264,40 @@ an ADC into a tuple as they belong together.
   one result. Just package them up into a tuple and return it.
 \end{itemize}
 
-\subsection{Conditionals}
+\paragraph{numpy Arrays/Matrices}
+Numpy arrays or matrices are used for number crunching and are ideal for
+DSP. Use these for all of you DSP data manipulation.
+They are essentially C arrays with a thin wrapper around
+them. In order to create and manipulate these arrays you need to use the numpy functions.
+
+\begin{itemize}
+\item\texttt{a = np.array([1, 2, 5])} which creates a numpy
+  array from a standard Python list containing 1,2,5.
+\item\texttt{b = np.array([[6, 2], [9, 7]])} creates a two dimensional
+  array.
+\item There are a lot of convenience functions in numpy to create
+  arrays just containing zeros, ones or ascending numbers etc. Check out
+   the numpy docs.
+\end{itemize}
+
+Since numpy arrays are close relatives to C arrays they have an additional
+field which is called ``dtype'' which determines the type of the
+array elements, for example ``int16'' (a 16 bit wide integer).
+\begin{verbatim}
+>>> data
+array([-12288, -12545, -12798, ...,    511,    513,    513], dtype=int16)
+>>> data.dtype
+dtype('int16')
+>>> data.astype(float)
+array([-12288., -12545., -12798., ...,    511.,    513.,    513.])
+\end{verbatim}
+where the member function ``astype'' can convert from one array type to another, here
+from int16 to floating point.
+
+
+\subsection{Control structures}
+
+\paragraph{Conditionals}
 Conditional operation is done in exactly the same way as in other languages:
 \begin{verbatim}
 if a > c:
@@ -308,7 +309,7 @@ The indent of 4 characters indicates the conditionally executed commands. The sa
 applies for do and while loops where the body has an indent. Here, print(c)
 is always executed because it doesn't have an indent.
 
-\subsection{Loops}
+\paragraph{Loops}
 Loops in python are always done with the help of iterators. This
 means that we progress through the elements of a list.
 Imagine you want to calculate the average of the array \texttt{y}.
@@ -342,9 +343,10 @@ Note again the 4 character indent
 for the function body and the colon after the function name. This is characteristic
 for python.
 
+
 \subsection{Classes}
 Classes contain functions and variables. They usually
-have a constructor which is a special function which is called
+have a constructor called \texttt{init} which is a special function which is called
 when an instance of a class is created.
 \begin{verbatim}
 class MyAmazingClass:
@@ -358,7 +360,7 @@ class MyAmazingClass:
         return data
 \end{verbatim}
 (!) Note the special variable ``self'' which is \textsl{the first}
-argument of every function in a class. Variables which
+argument of every method in a class. Variables which
 are part of the class are references by ``self''. For
 example the constructor argument ``coeff'' is saved
 in the class as ``mylocalcoeff'' and is then available
@@ -371,12 +373,9 @@ In this way you distinguish which variables are kept
 for the lifetime of the class or
 are just used temporarily.
 
-It's common practise to save a class (or a couple of them) in a separate
-file and create a module. For example, let's save our averaging class in ``myamazingclass.py''.
-If we want to use this class in the main program we type:
+Classes are just types and need to be instantiated:
 \begin{verbatim}
-import myamazingclass
-f = myamazingclass.MyAmazingClass(5)
+f = MyAmazingClass(5)
 a = f.doSomeProcessing(10)
 b = f.doSomeProcessing(20)
 \end{verbatim}
@@ -439,7 +438,7 @@ Generally the best approach is to use an example and then customise it to your n
 
 \subsection{Importing data}
 
-\subsubsection{Space/Tab/Comma separated data}
+\paragraph{Space/Tab/Comma separated data}
 Numpy has a very handy import function for data as long as the the
 elements in the data file are separated with spaces, tabs or
 commas. To load such data files just type in: \texttt{x =
@@ -451,7 +450,7 @@ readable data then just export the data as space/tab separated ASCII files.
 
 
 
-\subsubsection{WAV files}
+\paragraph{WAV files}
 Scipy contains in its submodule io a subsubmodule wavfile which supports
 reading and writing wav files:
 \begin{verbatim}

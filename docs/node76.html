@@ -3,10 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>A list of popular analogue transfer functions being
-used for IIR filter design:</TITLE>
-<META NAME="description" CONTENT="A list of popular analogue transfer functions being
-used for IIR filter design:">
+<TITLE>Filter design based on analogue filters</TITLE>
+<META NAME="description" CONTENT="Filter design based on analogue filters">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -17,7 +15,6 @@ used for IIR filter design:">
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node77.html">
 <LINK REL="previous" HREF="node75.html">
 <LINK REL="next" HREF="node77.html">
 </HEAD>
@@ -29,95 +26,56 @@ used for IIR filter design:">
  HREF="node77.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node75.html">
+ HREF="node70.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node75.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html432"
+<A ID="tex2html430"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node77.html">How to transform the</A>
+ HREF="node77.html">A list of popular</A>
 <B> Up:</B> <A
- HREF="node75.html">Filter design based on</A>
+ HREF="node70.html">IIR Filter</A>
 <B> Previous:</B> <A
- HREF="node75.html">Filter design based on</A>
- &nbsp; <B>  <A ID="tex2html433"
+ HREF="node75.html">Fixed point IIR filters</A>
+ &nbsp; <B>  <A ID="tex2html431"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H4><A ID="SECTION000910610000000000000">
-A list of popular analogue transfer functions being
+<H3><A ID="SECTION000910600000000000000">
+Filter design based on analogue filters</A>
+</H3>
+Most IIR filters are designed from analogue filters by transforming
+from the continuous domain (<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img379.svg"
+ ALT="$h(t),H(s)$"></SPAN>) to the sampled domain
+(<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img380.svg"
+ ALT="$h(n),H(z)$"></SPAN>).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html432"
+  HREF="node77.html">A list of popular analogue transfer functions being
 used for IIR filter design:</A>
-</H4>
-
-<P>
-
-<UL>
-<LI><B>Butterworth:</B> All poles lie on the left half plane
-  equally distributed on a half circle with radius <!-- MATH
- $\Omega = 2\pi F$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img16.svg"
- ALT="$\Omega = 2\pi F$"></SPAN> which
-  is shown in Fig.&nbsp;<A HREF="node74.html#butterworth_poles">22</A>. The Butterworth filter
-  is by far the most popular filter. Here are its properties:
-
-<UL>
-<LI>monotonic frequency response
-</LI>
-<LI>only poles, no zeros
-</LI>
-<LI>the Poles have analytical solution and very easy to calculate
-</LI>
-<LI>no constant group delay but usually acceptable deviation from
-  a strict constant group delay for many applications.
-</LI>
+<LI><A ID="tex2html433"
+  HREF="node78.html">How to transform the analogue lowpass filters into
+  highpass, bandstop or bandpass filters?</A>
+<LI><A ID="tex2html434"
+  HREF="node79.html">Bilinear Transform: transforming the analoge transfer function into a digital one:</A>
+<LI><A ID="tex2html435"
+  HREF="node80.html">IIR filter design steps:</A>
+<LI><A ID="tex2html436"
+  HREF="node81.html">Time or frequency domain?</A>
 </UL>
-
-<P>
-</LI>
-<LI><B>Chebyshev Filters:</B>
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-|H(\Omega)|^{2} = \frac{1}{1 - \varepsilon^{2} T_{N} (\Omega/\Omega_{p})}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.48ex; vertical-align: -2.34ex; " SRC="img381.svg"
- ALT="$\displaystyle \vert H(\Omega)\vert^{2} = \frac{1}{1 - \varepsilon^{2} T_{N} (\Omega/\Omega_{p})}
-$"> 
-
-(<SPAN CLASS="arabic">156</SPAN>)
-</DIV>
-where T = Chebyslev polynomials. These filters have either ripples
-in the stop or passband depending on the choice of polynomials.
-As with Butterworth the polynomials have analytical solutions for
-the poles and zeros of the filter so that their design again is
-straightforward.
-
-<P>
-</LI>
-<LI><B>Bessel Filter: </B>
-
-<UL>
-<LI>Constant Group Delay
-</LI>
-<LI>Shallow transition from stop- to passband
-</LI>
-<LI>No analytical solution for the poles/zeros.
-</LI>
-</UL>
-</LI>
-</UL>
-
-<P>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

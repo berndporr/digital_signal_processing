@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Quantisation of analogue signals</TITLE>
-<META NAME="description" CONTENT="Quantisation of analogue signals">
+<TITLE>Reconstruction of an analogue signal: Sampling theorem</TITLE>
+<META NAME="description" CONTENT="Reconstruction of an analogue signal: Sampling theorem">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,8 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node36.html">
-<LINK REL="previous" HREF="node30.html">
+<LINK REL="previous" HREF="node33.html">
 <LINK REL="next" HREF="node35.html">
 </HEAD>
 
@@ -27,87 +26,139 @@
  HREF="node35.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="digital_signal_processing.html">
+ HREF="node31.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node33.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html264"
+<A ID="tex2html267"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node35.html">Quantisation error</A>
+ HREF="node35.html">Quantisation of analogue signals</A>
 <B> Up:</B> <A
- HREF="digital_signal_processing.html">Digital Signal Processing</A>
+ HREF="node31.html">Sampling of Analogue Signals</A>
 <B> Previous:</B> <A
- HREF="node33.html">Reconstruction of an analogue</A>
- &nbsp; <B>  <A ID="tex2html265"
+ HREF="node33.html">Nyquist frequency</A>
+ &nbsp; <B>  <A ID="tex2html268"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION00070000000000000000">
-Quantisation of analogue signals</A>
-</H1>
-A/D converters have a certain resolution. For example, the MAX1271 has a
-resolution of 12 bits which means that it divides the input range into
-4096 equal steps (see Fig&nbsp;<A HREF="node33.html#quant_overv">3</A>).
+<H2><A ID="SECTION00063000000000000000">
+Reconstruction of an analogue signal: Sampling theorem</A>
+</H2>
+Is it possible to reconstruct an analogue signal from a digital signal
+which contains only frequencies below the Nyquist frequency?
+
+<P>
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-\Delta = \mbox{quantisation step} =
-\frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
+F_s > 2 F_{\mbox{max}}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.91ex; vertical-align: -1.88ex; " SRC="img65.svg"
- ALT="$\displaystyle \Delta = \mbox{quantisation step} =
-\frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
+ &nbsp;  <IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img57.svg"
+ ALT="$\displaystyle F_s &gt; 2 F_{\mbox{max}}
 $"> 
 
-(<SPAN CLASS="arabic">18</SPAN>)
+(<SPAN CLASS="arabic">13</SPAN>)
 </DIV>
 where <!-- MATH
- $x_{\mbox{max}} - x_{\mbox{min}}$
+ $F_{\mbox{max}}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.28ex; vertical-align: -0.84ex; " SRC="img66.svg"
- ALT="$x_{\mbox{max}} - x_{\mbox{min}}$"></SPAN> is the dynamic range in volt
-(for example <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img67.svg"
- ALT="$4.096V$"></SPAN>) and <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img68.svg"
- ALT="$L$"></SPAN> is the number of quantisation steps
-(for example, 4096). <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img1.svg"
- ALT="$\Delta $"></SPAN> is the quantisation step which defines
-minimal voltage change which is needed to see a change in the output
-of the quantiser. The operation of the quantiser can be written down
-as:
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img58.svg"
+ ALT="$F_{\mbox{max}}$"></SPAN> is max frequency in the signal which we
+represent by sine waves:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-x_{q}(n) = Q[x(n)]
+x_{a}(t) = \sum_{i=1}^{n} A_i \cos (2 \pi F_{i}t  + \Theta_{i})
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.58ex; vertical-align: -0.75ex; " SRC="img69.svg"
- ALT="$\displaystyle x_{q}(n) = Q[x(n)]
+ &nbsp;  <IMG STYLE="height: 5.87ex; vertical-align: -2.52ex; " SRC="img59.svg"
+ ALT="$\displaystyle x_{a}(t) = \sum_{i=1}^{n} A_i \cos (2 \pi F_{i}t + \Theta_{i})
 $"> 
 
-(<SPAN CLASS="arabic">19</SPAN>)
+(<SPAN CLASS="arabic">14</SPAN>)
 </DIV>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+The analogue signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img60.svg"
+ ALT="$x_{a}(t)$"></SPAN> can be completely reconstructed if:
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html266"
-  HREF="node35.html">Quantisation error</A>
-</UL>
-<!--End of Table of Child-Links-->
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+g(t) = \frac{\sin 2\pi Bt}{2 \pi Bt}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.77ex; vertical-align: -1.64ex; " SRC="img61.svg"
+ ALT="$\displaystyle g(t) = \frac{\sin 2\pi Bt}{2 \pi Bt}
+$"> 
+
+(<SPAN CLASS="arabic">15</SPAN>)
+</DIV>
+
+<P>
+with
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+B = F_{\mbox{max}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img62.svg"
+ ALT="$\displaystyle B = F_{\mbox{max}}
+$"> 
+
+(<SPAN CLASS="arabic">16</SPAN>)
+</DIV>
+
+<P>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x_{a}(t) = \sum_{h= -a}^{a}x_{a}(\frac{n}{F_s})g(t - \frac{h}{F_s})
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.07ex; vertical-align: -2.73ex; " SRC="img63.svg"
+ ALT="$\displaystyle x_{a}(t) = \sum_{h= -a}^{a}x_{a}(\frac{n}{F_s})g(t - \frac{h}{F_s})
+$"> 
+
+(<SPAN CLASS="arabic">17</SPAN>)
+</DIV>
+
+<P>
+
+<DIV class="CENTER"><A ID="quant_overv"></A><A ID="1569"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 3:</STRONG>
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img1.svg"
+ ALT="$\Delta $"></SPAN> is the quantisation step.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img64.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{quant_overv}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

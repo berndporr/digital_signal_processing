@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Classes</TITLE>
-<META NAME="description" CONTENT="Classes">
+<TITLE>Functions</TITLE>
+<META NAME="description" CONTENT="Functions">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -16,7 +16,7 @@
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
 <LINK REL="next" HREF="node22.html">
-<LINK REL="previous" HREF="node20.html">
+<LINK REL="previous" HREF="node18.html">
 <LINK REL="next" HREF="node22.html">
 </HEAD>
 
@@ -32,67 +32,41 @@
 <A
  HREF="node20.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html231"
+<A ID="tex2html234"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node22.html">Mathematical functions</A>
+ HREF="node22.html">Classes</A>
 <B> Up:</B> <A
  HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node20.html">Functions</A>
- &nbsp; <B>  <A ID="tex2html232"
+ HREF="node20.html">Loops</A>
+ &nbsp; <B>  <A ID="tex2html235"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00048000000000000000">
-Classes</A>
+<H2><A ID="SECTION00045000000000000000">
+Functions</A>
 </H2>
-Classes contain functions and variables. They usually
-have a constructor which is a special function which is called
-when an instance of a class is created.
-<PRE>
-class MyAmazingClass:
-    def __init__(self,coeff):
-        # Your init code here.
-        self.mylocalcoeff = coeff
-
-    def doSomeProcessing(self,data):
-        # we process data
-        data = data * self.mylocalcoeff
-        return data
-</PRE>
-(!) Note the special variable &ldquo;self&rdquo; which is <SPAN  CLASS="textsl">the first</SPAN>
-argument of every function in a class. Variables which
-are part of the class are references by &ldquo;self&rdquo;. For
-example the constructor argument &ldquo;coeff&rdquo; is saved
-in the class as &ldquo;mylocalcoeff&rdquo; and is then available
-throughout the lifetime of the class as &ldquo;self.mylocalcoeff&rdquo;. When we call
-the method &ldquo;doSomeProcessing&rdquo; then &ldquo;self.mylocalcoeff&rdquo;
-is multiplied with the &ldquo;data&rdquo; argument and the result
-is returned. Anything which hasn't got &ldquo;self.&rdquo; in front
-of it will be forgotten after the function has terminated.
-In this way you distinguish which variables are kept
-for the lifetime of the class or
-are just used temporarily.
+Function definitions can happen anywhere in the program or in a separate file.
+For example, the above average calculations can be defined as:
 
 <P>
-It's common practise to save a class (or a couple of them) in a separate
-file and create a module. For example, let's save our averaging class in &ldquo;myamazingclass.py&rdquo;.
-If we want to use this class in the main program we type:
 <PRE>
-import myamazingclass
-f = myamazingclass.MyAmazingClass(5)
-a = f.doSomeProcessing(10)
-b = f.doSomeProcessing(20)
+def myaverage(g):
+    avg = 0
+    for i in range(len(y)):
+        avg = avg + y[i]
+    return (avg/len(y))
 </PRE>
-which will give us 50 as a result for the variable &ldquo;a&rdquo; and
-100 for the variable &ldquo;b&rdquo;. The variable &ldquo;f&rdquo; is the instance
-of the class MyAmazingClass and the argument initialises
-self.mylocalcoeff with 5.
+and then called from the main program as <SPAN  CLASS="texttt">myaverage(y)</SPAN>.
+The keyword &ldquo;def&rdquo; indicates the start of the function definition.
+Note again the 4 character indent
+for the function body and the colon after the function name. This is characteristic
+for python.
 
 <P>
 <BR><HR>

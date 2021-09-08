@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Fast Fourier Transform</TITLE>
-<META NAME="description" CONTENT="Fast Fourier Transform">
+<TITLE>Problems with finite length DFTs</TITLE>
+<META NAME="description" CONTENT="Problems with finite length DFTs">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,6 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
+<LINK REL="next" HREF="node47.html">
 <LINK REL="previous" HREF="node45.html">
 <LINK REL="next" HREF="node47.html">
 </HEAD>
@@ -26,279 +27,116 @@
  HREF="node47.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node40.html">
+ HREF="node41.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node45.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html309"
+<A ID="tex2html312"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node47.html">Software</A>
+ HREF="node47.html">Fast Fourier Transform</A>
 <B> Up:</B> <A
- HREF="node40.html">Sampled time and/or frequency</A>
+ HREF="node41.html">Sampled time and/or frequency</A>
 <B> Previous:</B> <A
- HREF="node45.html">Problems with finite length</A>
- &nbsp; <B>  <A ID="tex2html310"
+ HREF="node45.html">Properties of the DFT</A>
+ &nbsp; <B>  <A ID="tex2html313"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00082600000000000000">
-Fast Fourier Transform</A>
+<H3><A ID="SECTION00082500000000000000">
+Problems with finite length DFTs</A>
 </H3>
 
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x_w(n) = x(n) \cdot w(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img156.svg"
+ ALT="$\displaystyle x_w(n) = x(n) \cdot w(n)
+$"> 
+
+(<SPAN CLASS="arabic">62</SPAN>)
+</DIV>
+where <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img157.svg"
+ ALT="$x$"></SPAN> is the input signal and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img158.svg"
+ ALT="$w(n)$"></SPAN> represents a function
+which is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img90.svg"
+ ALT="$1$"></SPAN> from <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img159.svg"
+ ALT="$n=0$"></SPAN> to <SPAN CLASS="MATH"><IMG STYLE="height: 1.91ex; vertical-align: -0.28ex; " SRC="img160.svg"
+ ALT="$n=L-1$"></SPAN> so that we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img68.svg"
+ ALT="$L$"></SPAN> samples
+from the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>.
+
 <P>
-We can rewrite the DFT (Eq.&nbsp;<A HREF="node43.html#DFT">49</A>) in a slightly more compact form:
+To illustrate the effect of this finite sequence we introduce a sine
+wave <!-- MATH
+ $x(n) = \cos \omega_0 n$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img161.svg"
+ ALT="$x(n) = \cos \omega_0 n$"></SPAN> which has just two peaks in a proper
+Fourier spectrum at <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.28ex; " SRC="img162.svg"
+ ALT="$-\omega$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.65ex; vertical-align: -0.27ex; " SRC="img163.svg"
+ ALT="$+\omega$"></SPAN>.
+
+<P>
+The spectrum of the rectangular window with the width <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img68.svg"
+ ALT="$L$"></SPAN> is:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-X(k) = \sum_{n = 0}^{N-1}  x(n) W_{N}^{kn}
+W(\omega) = \frac{sin(\omega L /2)}{sin (\omega / 2)} e^{-j\omega (L -1)/2}
 \end{equation}
  -->
- &nbsp;  <A ID="compactDFT"></A><IMG STYLE="height: 6.42ex; vertical-align: -2.58ex; " SRC="img169.svg"
- ALT="$\displaystyle X(k) = \sum_{n = 0}^{N-1} x(n) W_{N}^{kn}
+ &nbsp;  <IMG STYLE="height: 5.48ex; vertical-align: -2.20ex; " SRC="img164.svg"
+ ALT="$\displaystyle W(\omega) = \frac{sin(\omega L /2)}{sin (\omega / 2)} e^{-j\omega (L -1)/2}
 $"> 
 
-(<SPAN CLASS="arabic">65</SPAN>)
+(<SPAN CLASS="arabic">63</SPAN>)
 </DIV>
-with the constant:
+
+<P>
+The resulting spectrum is then:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-W_{N} = e^{-j 2\pi/N}
+X_{3}(\omega) = X(\omega) * W(\omega)
 \end{equation}
  -->
- &nbsp;  <A ID="constWN"></A><IMG STYLE="height: 2.65ex; vertical-align: -0.45ex; " SRC="img170.svg"
- ALT="$\displaystyle W_{N} = e^{-j 2\pi/N}
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img165.svg"
+ ALT="$\displaystyle X_{3}(\omega) = X(\omega) * W(\omega)
 $"> 
 
-(<SPAN CLASS="arabic">66</SPAN>)
-</DIV>
-The problem with the DFT is that it needs <SPAN CLASS="MATH"><IMG STYLE="height: 2.03ex; vertical-align: -0.10ex; " SRC="img171.svg"
- ALT="$N^2$"></SPAN> multiplications.
-How can we reduce the number of multiplications?
-Idea: Let's divide the DFT in an odd and an even sequence:
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-& x(2m) & \\
-& x(2m + 1), & \qquad m = 0, ..... , \frac{N}{2} - 1
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img172.svg"
- ALT="$\textstyle x(2m)$"></TD>
-<TD>&nbsp;</TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">67</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img173.svg"
- ALT="$\textstyle x(2m + 1),$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.93ex; vertical-align: -1.69ex; " SRC="img174.svg"
- ALT="$\displaystyle \qquad m = 0, ..... , \frac{N}{2} - 1$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">68</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-which gives us with the trick <!-- MATH
- $W_N^{2mk} = W_{N/2}^{mk}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 3.12ex; vertical-align: -1.11ex; " SRC="img175.svg"
- ALT="$W_N^{2mk} = W_{N/2}^{mk}$"></SPAN> because of the
-definition Eq.&nbsp;<A HREF="#constWN">66</A>.
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-X(k) & = & \sum_{m=0}^{N/2-1} x(2m) W_{N}^{2mk} + \sum_{m=0}^{N/2 - 1}  x(2m + 1) W_{N}^{k (2m + 1)} \\
-& = & \sum_{m=0}^{N/2-1} x(2m) W_{N/2}^{mk} + W_{N}^{k} \sum_{m = 0}^{N/2 - 1} x(2m + 1) W_{N/2}^{mk} \\
-& = & F_{e}(k) + W_{N}^{k} F_{o}(k)
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img148.svg"
- ALT="$\displaystyle X(k)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.74ex; vertical-align: -2.58ex; " SRC="img176.svg"
- ALT="$\displaystyle \sum_{m=0}^{N/2-1} x(2m) W_{N}^{2mk} + \sum_{m=0}^{N/2 - 1} x(2m + 1) W_{N}^{k (2m + 1)}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">69</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.74ex; vertical-align: -2.58ex; " SRC="img177.svg"
- ALT="$\displaystyle \sum_{m=0}^{N/2-1} x(2m) W_{N/2}^{mk} + W_{N}^{k} \sum_{m = 0}^{N/2 - 1} x(2m + 1) W_{N/2}^{mk}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">70</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.80ex; vertical-align: -0.68ex; " SRC="img178.svg"
- ALT="$\displaystyle F_{e}(k) + W_{N}^{k} F_{o}(k)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">71</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.12ex; vertical-align: -0.45ex; " SRC="img179.svg"
- ALT="$F_e$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.12ex; vertical-align: -0.45ex; " SRC="img180.svg"
- ALT="$F_o$"></SPAN> have both half the length of the original sequence and
-need only <SPAN CLASS="MATH"><IMG STYLE="height: 2.61ex; vertical-align: -0.68ex; " SRC="img181.svg"
- ALT="$(N/2)^2$"></SPAN> multiplication, so in total <!-- MATH
- $2 \cdot (N/2)^2 = \frac{N^2}{2}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 3.19ex; vertical-align: -0.90ex; " SRC="img182.svg"
- ALT="$2 \cdot (N/2)^2 = \frac{N^2}{2}$"></SPAN>.
-Basically by dividing the sequence in even and odd parts we can reduce
-the number of multiplications by 2. Obviously, the next step is then
-to subdivide the two sequences <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img183.svg"
- ALT="$F_{e}(k)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img184.svg"
- ALT="$F_{o}(k)$"></SPAN> even further
-into something like <!-- MATH
- $F_{ee}(k), F_{eo}(k), F_{oe}(k)$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img185.svg"
- ALT="$F_{ee}(k), F_{eo}(k), F_{oe}(k)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img186.svg"
- ALT="$F_{oo}(k)$"></SPAN>.
-
-<P>
-
-<DIV class="CENTER"><A ID="fft_div"></A><A ID="1607"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 10:</STRONG>
-Illustration of the Fast Fourier Algorithm. The sequence
-of <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img8.svg"
- ALT="$N$"></SPAN> samples is recursively divided into subsequences of odd and
-even samples.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img187.svg"
- ALT="\includegraphics[width=0.75\textwidth]{fft_div}">
-
-</DIV></TD></TR>
-</TABLE>
+(<SPAN CLASS="arabic">64</SPAN>)
 </DIV>
 
 <P>
-In general the recipe for the calculation of the FFT is:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-X_{i}(k) = X_{ie}(k) + W_{L}^{k} X_{io}(k)
-\end{equation}
- -->
- &nbsp;  <A ID="butterfly"></A><IMG STYLE="height: 2.80ex; vertical-align: -0.68ex; " SRC="img188.svg"
- ALT="$\displaystyle X_{i}(k) = X_{ie}(k) + W_{L}^{k} X_{io}(k)
-$"> 
-
-(<SPAN CLASS="arabic">72</SPAN>)
-</DIV>
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.68ex; vertical-align: -0.67ex; " SRC="img189.svg"
- ALT="$W_{L}^{k}$"></SPAN> is the phase factor in front of the odd sequence.
-This is continued until we have only two point (<SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img190.svg"
- ALT="$N=2$"></SPAN>) 
-DFTs (see Eq.&nbsp;<A HREF="#compactDFT">65</A>):
-<BR>
-<DIV ALIGN="CENTER"><A ID="dcDFT"></A><A ID="nyDFT"></A>
-<!-- MATH
- \begin{eqnarray}
-\mbox{DC:} \qquad X(0) & = & x(0) + \underbrace{W_2^0}_{1} x(1) = x(0) + x(1)\\
-\mbox{Nyquist frequ.:} \qquad X(1) & = & x(0) + \underbrace{W_2^1}_{-1} x(1) = x(0) - x(1)
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img191.svg"
- ALT="$\displaystyle \mbox{DC:} \qquad X(0)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.61ex; vertical-align: -3.58ex; " SRC="img192.svg"
- ALT="$\displaystyle x(0) + \underbrace{W_2^0}_{1} x(1) = x(0) + x(1)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">73</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img193.svg"
- ALT="$\displaystyle \mbox{Nyquist frequ.:} \qquad X(1)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.77ex; vertical-align: -3.74ex; " SRC="img194.svg"
- ALT="$\displaystyle x(0) + \underbrace{W_2^1}_{-1} x(1) = x(0) - x(1)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">74</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-A two point DFT operates only on two samples which can represent only
-two frequencies: DC and the Nyquist frequency which makes the
-calculation trivial. Eq.&nbsp;<A HREF="#dcDFT">73</A> is an averager and
-Eq.&nbsp;<A HREF="#nyDFT">74</A> is basically a differentiator which gives the max output
-for the sequence <!-- MATH
- $1,-1,1,-1,\ldots$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.13ex; vertical-align: -0.55ex; " SRC="img195.svg"
- ALT="$1,-1,1,-1,\ldots$"></SPAN>.  Fig.&nbsp;<A HREF="#fft_div">10</A> illustrates
-how to divide the initial sequence to arrive at 2 point DFTs. In other
-words the calculation of the full DFT is done by first calculating
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img9.svg"
- ALT="$N/2$"></SPAN> 2 point DFTs and recombining the results with the help of
-Eq.&nbsp;<A HREF="#butterfly">72</A>. This is sometimes called the &ldquo;Butterfly&rdquo;
-algorithm because the data flow diagram can be drawn as a butterfly.
-The number of complex multiplications reduces in this approach to <SPAN CLASS="MATH"><IMG STYLE="height: 2.35ex; vertical-align: -0.65ex; " SRC="img196.svg"
- ALT="$N
-\log_2 N$"></SPAN> which is actually the worst case scenario because many
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.68ex; vertical-align: -0.67ex; " SRC="img189.svg"
- ALT="$W_{L}^{k}$"></SPAN> usually turn out to be <SPAN CLASS="MATH"><IMG STYLE="height: 2.16ex; vertical-align: -0.55ex; " SRC="img197.svg"
- ALT="$1,-1,j,-j$"></SPAN> which are just sign
-inversions or swaps of real and imaginary parts. A clever
-implementation of this algorithm will be even faster.
+Because the spectrum of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img166.svg"
+ ALT="$X(\omega)$"></SPAN> consists of just two delta functions
+the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img167.svg"
+ ALT="$X_{3}(\omega)$"></SPAN> contains the window spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img168.svg"
+ ALT="$W(\omega)$"></SPAN> twice at
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.28ex; " SRC="img162.svg"
+ ALT="$-\omega$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.65ex; vertical-align: -0.27ex; " SRC="img163.svg"
+ ALT="$+\omega$"></SPAN> (see Fig.&nbsp;<A HREF="node45.html#windowing_dft">9</A>). This
+is called <SPAN  CLASS="textsl">leakage</SPAN>. Solutions to solve the leakage problem?
+Use Windows with a narrower spectrum and with less ripples
+(see FIR filters).
 
 <P>
-In summary the idea behind the FFT algorithms is to divide the sequence
-into subsequences. Here we have presented the most popular radix 2 algorithm.
-The radix 4 is even more efficient and there are also algorithms
-for divisions into prime numbers and other rather exotic divisions.
-However, the main idea is always the same: subsample the data in a clever
-way so that the final DFT becomes trivial.
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node47.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node40.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node45.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html309"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node47.html">Software</A>
-<B> Up:</B> <A
- HREF="node40.html">Sampled time and/or frequency</A>
-<B> Previous:</B> <A
- HREF="node45.html">Problems with finite length</A>
- &nbsp; <B>  <A ID="tex2html310"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

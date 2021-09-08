@@ -3,10 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Python code: impulse response from the inverse DFT - The frequency sampling
-method</TITLE>
-<META NAME="description" CONTENT="Python code: impulse response from the inverse DFT - The frequency sampling
-method">
+<TITLE>Window functions</TITLE>
+<META NAME="description" CONTENT="Window functions">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -29,62 +27,157 @@ method">
  HREF="node65.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node58.html">
+ HREF="node59.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node63.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html392"
+<A ID="tex2html395"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node65.html">FIR filter design from</A>
+ HREF="node65.html">Python code: impulse response</A>
 <B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
+ HREF="node59.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node63.html">Window functions</A>
- &nbsp; <B>  <A ID="tex2html393"
+ HREF="node63.html">Constant group delay or</A>
+ &nbsp; <B>  <A ID="tex2html396"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00098600000000000000"></A><A ID="freqsamp"></A>
-<BR>
-Python code: 
-impulse response from the inverse DFT - The frequency sampling
-method
-</H3> Imagine that we want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img311.svg"
- ALT="$50Hz$"></SPAN> from a
-signal with sampling rate of <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.10ex; " SRC="img312.svg"
- ALT="$1kHz$"></SPAN>. We define an FIR filter with 100
-taps. The midpoint <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img313.svg"
- ALT="$N/2=50$"></SPAN> corresponds to <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img314.svg"
- ALT="$500Hz$"></SPAN>. The <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img311.svg"
- ALT="$50Hz$"></SPAN>
-correspond to index <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img315.svg"
- ALT="$5$"></SPAN>.
-<PRE>
-f_resp=np.ones(100)
-# note we need to add "+1" to the end because the end of
-# the range is not included.
-f_resp[4:6+1]=0
-f_resp[94:96+1]=0
-hc=np.fft.ifft(f_resp)
-h=np.real(hc)
-# this is from index 0 to index 49 on the left
-# and on the right hand side from index 50 to index 99
-h_shift[0:50]=h[50:100]
-h_shift[50:100]=h[0:50]
-h_wind=h_shift*hamming(100)
-</PRE>
-To get a nice symmetric impulse response we need to shift the
-inverse around <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img316.svg"
- ALT="$50$"></SPAN> samples.
+<H3><A ID="SECTION00098500000000000000">
+Window functions</A>
+</H3>
+So far we still have a infinite number of coefficients for 
+for the FIR filter because there's no guarantee that the 
+impulse response becomes zero
+after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img303.svg"
+ ALT="$M/2$"></SPAN> delays. Thus, we have to find a way to truncate the
+response without distorting the filter response.
 
 <P>
-<BR><HR>
+The standard technique is to multiply the coefficients with a window
+function which becomes and stays zero at a certain coefficient
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img304.svg"
+ ALT="$n&gt;N$"></SPAN> so that Eq.&nbsp;<A HREF="node59.html#FIRz">108</A> need not to run to infinity:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
+\end{equation}
+ -->
+ &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img305.svg"
+ ALT="$\displaystyle
+H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
+$"> 
+
+(<SPAN CLASS="arabic">119</SPAN>)
+</DIV>
+
+<P>
+
+<OL>
+<LI>Rectangular window: truncating the impulse response.
+Problem: we get ripples in the frequency-response.
+The stop-band damping is poor
+
+<P>
+</LI>
+<LI>Triangular or Bartlett window: greatly improved stop-band attenuation.
+</LI>
+<LI>Hanning and Hamming window: standard windows in many applications.
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img306.svg"
+ ALT="$\displaystyle w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
+$"> 
+
+(<SPAN CLASS="arabic">120</SPAN>)
+</DIV>
+
+<UL>
+<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img307.svg"
+ ALT="$\alpha = 0.54$"></SPAN>
+</LI>
+<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img308.svg"
+ ALT="$\alpha = 0.5$"></SPAN>
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI>Blackman window:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
+0.08 \cos \left( \frac{4 \pi n}{M} \right) 
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img309.svg"
+ ALT="$\displaystyle w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
+0.08 \cos \left( \frac{4 \pi n}{M} \right)
+$"> 
+
+(<SPAN CLASS="arabic">121</SPAN>)
+</DIV>
+</LI>
+<LI>Kaiser window: control over stop- and passband. No closed form
+equation available.
+</LI>
+</OL>
+To illustrate how window functions influence the frequency response
+we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img310.svg"
+ ALT="$f_c=0.1$"></SPAN>)
+and applied different window functions to it (Fig.&nbsp;<A HREF="node63.html#window_functions">18</A>).
+
+<P>
+Note that the higher the damping the wider the transition from pass-
+to stopband. This can be seen when comparing the Blackman window with
+the Hamming window (Fig.&nbsp;<A HREF="node63.html#window_functions">18</A>). For the lowpass
+filter this seems to be quite similar. However, for a bandstop filter
+the wider transition width might lead actually to very poor stopband
+damping. In such a case a Hamming window might be a better choice.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html395"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node65.html">Python code: impulse response</A>
+<B> Up:</B> <A
+ HREF="node59.html">FIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node63.html">Constant group delay or</A>
+ &nbsp; <B>  <A ID="tex2html396"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

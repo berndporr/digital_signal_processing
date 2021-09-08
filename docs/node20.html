@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Functions</TITLE>
-<META NAME="description" CONTENT="Functions">
+<TITLE>Loops</TITLE>
+<META NAME="description" CONTENT="Loops">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,6 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node21.html">
 <LINK REL="previous" HREF="node19.html">
 <LINK REL="next" HREF="node21.html">
 </HEAD>
@@ -27,46 +26,44 @@
  HREF="node21.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node7.html">
+ HREF="node18.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node19.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html229"
+<A ID="tex2html232"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node21.html">Classes</A>
+ HREF="node21.html">Functions</A>
 <B> Up:</B> <A
- HREF="node7.html">Python</A>
+ HREF="node18.html">Control structures</A>
 <B> Previous:</B> <A
- HREF="node19.html">Loops</A>
- &nbsp; <B>  <A ID="tex2html230"
+ HREF="node19.html">Conditionals</A>
+ &nbsp; <B>  <A ID="tex2html233"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00047000000000000000">
-Functions</A>
-</H2>
-Function definitions can happen anywhere in the program or in a separate file.
-For example, the above average calculations can be defined as:
-
-<P>
+<H4><A ID="SECTION00044020000000000000">
+Loops</A>
+</H4>
+Loops in python are always done with the help of iterators. This
+means that we progress through the elements of a list.
+Imagine you want to calculate the average of the array <SPAN  CLASS="texttt">y</SPAN>.
 <PRE>
-def myaverage(g):
-    avg = 0
-    for i in range(len(y)):
-        avg = avg + y[i]
-    return (avg/len(y))
+avg = 0
+for i in range(len(y)):
+    avg = avg + y[i]
+    print("momentary average=",avg)
+print(avg/len(y))
 </PRE>
-and then called from the main program as <SPAN  CLASS="texttt">myaverage(y)</SPAN>.
-The keyword &ldquo;def&rdquo; indicates the start of the function definition.
-Note again the 4 character indent
-for the function body and the colon after the function name. This is characteristic
-for python.
+The &ldquo;for&rdquo; statement iterates through all elements of an array. In this
+case we have created a list with the &ldquo;range&rdquo; command. Important: the <SPAN  CLASS="textsl">indent</SPAN>
+indicates the commands which the loop iterates through. This is the general rule in python.
+There are also while/do loops available.
 
 <P>
 <BR><HR>

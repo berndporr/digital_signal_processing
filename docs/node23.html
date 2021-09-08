@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Plotting of Functions</TITLE>
-<META NAME="description" CONTENT="Plotting of Functions">
+<TITLE>Mathematical functions</TITLE>
+<META NAME="description" CONTENT="Mathematical functions">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -32,59 +32,39 @@
 <A
  HREF="node22.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html235"
+<A ID="tex2html238"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node24.html">Importing data</A>
+ HREF="node24.html">Plotting of Functions</A>
 <B> Up:</B> <A
  HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node22.html">Mathematical functions</A>
- &nbsp; <B>  <A ID="tex2html236"
+ HREF="node22.html">Classes</A>
+ &nbsp; <B>  <A ID="tex2html239"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000410000000000000000">
-Plotting of Functions</A>
+<H2><A ID="SECTION00047000000000000000">
+Mathematical functions</A>
 </H2>
-Pylab has a vast amount of plotting functions which supports simple plotting
-with just two commands (plot and show) up to complex animations of 3D data.
-Plotting a sine wave can be achieved with:
-<PRE> 
-import matplotlib.pyplot as plt
-import numpy as np
-x = np.linspace(0,2*np.pi,100)
-y = np.sin(x)
-plt.plot(x,y)
-plt.show()
-</PRE>
-where I have used the numpy linspace command to create an array which
-runs from 0 to two pi with 100 samples.
+Just import the numpy library which contains all the
+mathematical functions and constants such as pi.
+<SPAN  CLASS="texttt">import numpy as np</SPAN>. It has all the standard functions such
+as np.sin, np.cos, np.tan, np.exp, ....
 
 <P>
-If you want to create more plot-windows you can use the command
-<SPAN  CLASS="texttt">plt.figure</SPAN>. Access the windows with the commands <SPAN  CLASS="texttt">plt.figure(1)</SPAN>,
-<SPAN  CLASS="texttt">plt.figure(2)</SPAN>.
-
-<P>
-It is also possible to combine plot windows into one with the
-command <SPAN  CLASS="texttt">subplot</SPAN>.
-
-<P>
-How to make it look nice? Here is an example:
+Note that these functions also take arrays as arguments. For example,
+inputting the array x into the sine:
 <PRE>
-plt.xlabel('time (s)')
-plt.ylabel('voltage (V)')
-plt.title('That is an AC voltage over time!')
-plt.grid(True)
+x = np.array(range(6))
+y = np.sin(x);
 </PRE>
-
-<P>
-Generally the best approach is to use an example and then customise it to your needs.
+yields again an array in y! All elements have been processed at the 
+<SPAN  CLASS="textit">same</SPAN> time.
 
 <P>
 <BR><HR>

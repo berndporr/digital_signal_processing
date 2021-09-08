@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>WAV files</TITLE>
-<META NAME="description" CONTENT="WAV files">
+<TITLE>Space/Tab/Comma separated data</TITLE>
+<META NAME="description" CONTENT="Space/Tab/Comma separated data">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,6 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
+<LINK REL="next" HREF="node27.html">
 <LINK REL="previous" HREF="node25.html">
 <LINK REL="next" HREF="node27.html">
 </HEAD>
@@ -26,47 +27,39 @@
  HREF="node27.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node24.html">
+ HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node25.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html243"
+<A ID="tex2html246"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node27.html">Signal conversion</A>
+ HREF="node27.html">WAV files</A>
 <B> Up:</B> <A
- HREF="node24.html">Importing data</A>
+ HREF="node25.html">Importing data</A>
 <B> Previous:</B> <A
- HREF="node25.html">Space/Tab/Comma separated data</A>
- &nbsp; <B>  <A ID="tex2html244"
+ HREF="node25.html">Importing data</A>
+ &nbsp; <B>  <A ID="tex2html247"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000411200000000000000">
-WAV files</A>
-</H3>
-Scipy contains in its submodule io a subsubmodule wavfile which supports
-reading and writing wav files:
-<PRE>
-import scipy.io.wavfile as wavfile
-fs,data = wavfile.read('kongas.wav');
-</PRE>
-fs,data is a tuple containing the sampling rate and then the data.
+<H4><A ID="SECTION00049010000000000000">
+Space/Tab/Comma separated data</A>
+</H4>
+Numpy has a very handy import function for data as long as the the
+elements in the data file are separated with spaces, tabs or
+commas. To load such data files just type in: <SPAN  CLASS="texttt">x =
+  np.loadtxt('mydatafile.dat')</SPAN>. This creates a two dimensional array
+which reflects exactly the structure in the datafile.
 
 <P>
-<PRE>
-import scipy.io.wavfile as wavfile
-wavfile.write('kongas_filt.wav',fs,y3);
-</PRE>
-whereas 'fs' is the sampling rate and y3 the data &ndash; usually normalised between
--1 and +1 for floating point numbers.
-
-<P>
+Thus, if you want to write software which creates Python
+readable data then just export the data as space/tab separated ASCII files.
 
 <P>
 <BR><HR>

@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Filter design based on analogue filters</TITLE>
-<META NAME="description" CONTENT="Filter design based on analogue filters">
+<TITLE>Fixed point IIR filters</TITLE>
+<META NAME="description" CONTENT="Fixed point IIR filters">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,6 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
+<LINK REL="next" HREF="node76.html">
 <LINK REL="previous" HREF="node74.html">
 <LINK REL="next" HREF="node76.html">
 </HEAD>
@@ -26,57 +27,111 @@
  HREF="node76.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node69.html">
+ HREF="node70.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node74.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html425"
+<A ID="tex2html428"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node76.html">A list of popular</A>
+ HREF="node76.html">Filter design based on</A>
 <B> Up:</B> <A
- HREF="node69.html">IIR Filter</A>
+ HREF="node70.html">IIR Filter</A>
 <B> Previous:</B> <A
- HREF="node74.html">Fixed point IIR filters</A>
- &nbsp; <B>  <A ID="tex2html426"
+ HREF="node74.html">IIR filter topologies</A>
+ &nbsp; <B>  <A ID="tex2html429"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000910600000000000000">
-Filter design based on analogue filters</A>
+<H3><A ID="SECTION000910500000000000000">
+Fixed point IIR filters</A>
 </H3>
-Most IIR filters are designed from analogue filters by transforming
-from the continuous domain (<SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img379.svg"
- ALT="$h(t),H(s)$"></SPAN>) to the sampled domain
-(<SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img380.svg"
- ALT="$h(n),H(z)$"></SPAN>).
+Fig.&nbsp;<A HREF="node74.html#iir_fixed">21</A> shows the implementation of a fixed point IIR
+filter. It's a Direct Form I filter with one accumulator so that
+temporary overflows can be compensated. The original floating point
+IIR coefficients are scaled up by factor <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.09ex; " SRC="img14.svg"
+ ALT="$2^w$"></SPAN> so that they max out
+the range of the integer coefficients. After the addition operation
+they are shifted back by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img13.svg"
+ ALT="$w$"></SPAN>&nbsp;bits to their original values.
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+For example if the largest IIR coefficient is 1.9 and we use 16 bit
+signed numbers (max number is 32767) then one could multiply all
+coefficients with <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img375.svg"
+ ALT="$2^{14}$"></SPAN>.
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html427"
-  HREF="node76.html">A list of popular analogue transfer functions being
-used for IIR filter design:</A>
-<LI><A ID="tex2html428"
-  HREF="node77.html">How to transform the analogue lowpass filters into
-  highpass, bandstop or bandpass filters?</A>
-<LI><A ID="tex2html429"
-  HREF="node78.html">Bilinear Transform: transforming the analoge transfer function into a digital one:</A>
-<LI><A ID="tex2html430"
-  HREF="node79.html">IIR filter design steps:</A>
-<LI><A ID="tex2html431"
-  HREF="node80.html">Time or frequency domain?</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+<P>
+Then one needs to assess the maximum value in the accumulator which
+is much more difficult than for FIR filters. For example,
+resonators can generate high output values with even small input values
+so that it's advisable to have a large overhead in the accumulator.
+For example if the input signal is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img281.svg"
+ ALT="$16$"></SPAN>&nbsp;bit and the scaling factor is
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img376.svg"
+ ALT="$14$"></SPAN>&nbsp;bits then the signal will certainly occupy <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img377.svg"
+ ALT="$16+14=30$"></SPAN>&nbsp;bits. With
+an accumulator of 32 bits that gives only a headroom of 2&nbsp;bits so the
+output can only be 4 times larger than the input. A 64 bit accumulator
+is a safe bet.
+
+<P>
+
+<DIV class="CENTER"><A ID="butterworth_poles"></A><A ID="1665"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 22:</STRONG>
+Pole placements of the Butterworth filter. Its analogue
+  cutoff frequency is <!-- MATH
+ $\Omega = 2\pi F$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img16.svg"
+ ALT="$\Omega = 2\pi F$"></SPAN> where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img3.svg"
+ ALT="$F$"></SPAN> is the
+  analogue cutoff frequency in Hertz. This filter can be implemented
+  as a chain of 2nd order IIR filters (biquads) by using the
+  complex conjugate pairs for the different 2nd order IIR filters.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img378.svg"
+ ALT="\includegraphics[width=0.5\textwidth]{butterworth_poles}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node76.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node74.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html428"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node76.html">Filter design based on</A>
+<B> Up:</B> <A
+ HREF="node70.html">IIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node74.html">IIR filter topologies</A>
+ &nbsp; <B>  <A ID="tex2html429"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

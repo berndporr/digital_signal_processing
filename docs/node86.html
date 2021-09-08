@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Identifying filters from their poles and zeroes</TITLE>
-<META NAME="description" CONTENT="Identifying filters from their poles and zeroes">
+<TITLE>Design of an IIR notch filter</TITLE>
+<META NAME="description" CONTENT="Design of an IIR notch filter">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,6 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
+<LINK REL="next" HREF="node87.html">
 <LINK REL="previous" HREF="node85.html">
 <LINK REL="next" HREF="node87.html">
 </HEAD>
@@ -26,37 +27,84 @@
  HREF="node87.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node81.html">
+ HREF="node82.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node85.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html457"
+<A ID="tex2html460"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node87.html">Limitations / outlook</A>
+ HREF="node87.html">Identifying filters from their</A>
 <B> Up:</B> <A
- HREF="node81.html">The role of poles</A>
+ HREF="node82.html">The role of poles</A>
 <B> Previous:</B> <A
- HREF="node85.html">Design of an IIR</A>
- &nbsp; <B>  <A ID="tex2html458"
+ HREF="node85.html">Stability</A>
+ &nbsp; <B>  <A ID="tex2html461"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000911500000000000000">
-Identifying filters from their poles and zeroes</A>
+<H3><A ID="SECTION000911400000000000000">
+Design of an IIR notch filter</A>
 </H3>
-<A
- HREF="node88.html#Proakis1996">Proakis and Manolakis (1996, pp.333)</A> has an excellent section about this topic
-and we refer the reader to have a look. As a rule of thumb a digital
-lowpass filter has poles where their real parts are positive and a
-highpass filter has poles with negative real part of the complex
-poles. In both cases they reside within the unit circle to guarantee
-stability.
+Now we combine the filters from the last two sections:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z) = \frac {1 - 2 \cos (\omega_{0}) z^{-1} + z^{-2}}{1 - 2r \cos (\omega_{0}) z^{-1} + r^{2} z^{-2}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.58ex; vertical-align: -2.20ex; " SRC="img422.svg"
+ ALT="$\displaystyle H(z) = \frac {1 - 2 \cos (\omega_{0}) z^{-1} + z^{-2}}{1 - 2r \cos (\omega_{0}) z^{-1} + r^{2} z^{-2}}
+$"> 
+
+(<SPAN CLASS="arabic">174</SPAN>)
+</DIV>
+This gives us a notch filter where its width is tunable with the
+help of <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img423.svg"
+ ALT="$r&lt;1$"></SPAN>. The closer <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img18.svg"
+ ALT="$r$"></SPAN> goes towards <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img90.svg"
+ ALT="$1$"></SPAN> the more narrow
+is the frequency response.
+This filter has two poles and two zeros. The zeros sit on the unit
+circle and eliminate the frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img419.svg"
+ ALT="$\pm\omega_0$"></SPAN> while the
+poles sit within the unit circle and generate a resonance around
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img419.svg"
+ ALT="$\pm\omega_0$"></SPAN>. As long as <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img423.svg"
+ ALT="$r&lt;1$"></SPAN> this resonance will not go towards
+infinity at <SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img419.svg"
+ ALT="$\pm\omega_0$"></SPAN> so that the zeros will always eliminate
+the frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img419.svg"
+ ALT="$\pm\omega_0$"></SPAN>.
+
+<P>
+A C++ implementation of such a filter is quite compact and
+requires no loops:
+<PRE>
+float Iirnotch::filter(float value) {
+  float input=0.0;
+  float output=0.0;
+  // a little bit cryptic but optimized for speed
+  input=value;
+  output=(numerator[1]*buffer[1]);
+  input=input-(denominator[1]*buffer[1]);
+  output=output+(numerator[2]*buffer[2]);
+  input=input-(denominator[2]*buffer[2]);
+  output=output+input*numerator[0];
+  buffer[2]=buffer[1];
+  buffer[1]=input;
+  return output;
+}
+</PRE>
+This filter is part of the program <SPAN  CLASS="texttt">comedirecord</SPAN>
+and is used to filter out 50Hz noise.
 
 <P>
 <BR><HR>

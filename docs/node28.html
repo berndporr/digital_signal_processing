@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>A/D conversion</TITLE>
-<META NAME="description" CONTENT="A/D conversion">
+<TITLE>Signal conversion</TITLE>
+<META NAME="description" CONTENT="Signal conversion">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,8 +15,8 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node29.html">
-<LINK REL="previous" HREF="node27.html">
+<LINK REL="next" HREF="node31.html">
+<LINK REL="previous" HREF="node7.html">
 <LINK REL="next" HREF="node29.html">
 </HEAD>
 
@@ -27,35 +27,30 @@
  HREF="node29.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node27.html">
+ HREF="digital_signal_processing.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node27.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html249"
+<A ID="tex2html250"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node29.html">D/A Conversion</A>
+ HREF="node29.html">A/D conversion</A>
 <B> Up:</B> <A
- HREF="node27.html">Signal conversion</A>
+ HREF="digital_signal_processing.html">Digital Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node27.html">Signal conversion</A>
- &nbsp; <B>  <A ID="tex2html250"
+ HREF="node27.html">WAV files</A>
+ &nbsp; <B>  <A ID="tex2html251"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00051000000000000000">
-A/D conversion</A>
-</H2>
-
-<P>
-
-<OL>
-<LI><B>sampling</B>
+<H1><A ID="SECTION00050000000000000000">
+Signal conversion</A>
+</H1>
 
 <P>
 
@@ -63,55 +58,30 @@ A/D conversion</A>
 
 <!-- MATH
  \begin{equation}
-\underbrace{X_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
+\mbox{Analogue} \rightarrow \mbox{A/D} \rightarrow \mbox{Digital processing}
+\rightarrow \mbox{D/A} \rightarrow \mbox{Analogue}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 6.47ex; vertical-align: -4.65ex; " SRC="img23.svg"
- ALT="$\displaystyle \underbrace{X_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img22.svg"
+ ALT="$\displaystyle \mbox{Analogue} \rightarrow \mbox{A/D} \rightarrow \mbox{Digital processing}
+\rightarrow \mbox{D/A} \rightarrow \mbox{Analogue}
 $"> 
 
-(<SPAN CLASS="arabic">2</SPAN>)
+(<SPAN CLASS="arabic">1</SPAN>)
 </DIV>
 
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL>
-<LI><SPAN CLASS="MATH"><IMG STYLE="height: 2.12ex; vertical-align: -0.45ex; " SRC="img24.svg"
- ALT="$X_a$"></SPAN>: analogue signal
-</LI>
-<LI><SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img25.svg"
- ALT="$T$"></SPAN>: sampling interval, <!-- MATH
- $\frac{1}{T}=F_s$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.90ex; vertical-align: -0.90ex; " SRC="img26.svg"
- ALT="$\frac{1}{T}=F_s$"></SPAN> is the sampling rate
-</LI>
-<LI><SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN>: discrete data
-</LI>
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html252"
+  HREF="node29.html">A/D conversion</A>
+<LI><A ID="tex2html253"
+  HREF="node30.html">D/A Conversion</A>
 </UL>
-
-<P>
-</LI>
-<LI><B>quantisation:</B> 
-Continuous value into discrete steps. <!-- MATH
- $X(n) \rightarrow X_{q}(n)$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.58ex; vertical-align: -0.75ex; " SRC="img27.svg"
- ALT="$X(n) \rightarrow X_{q}(n)$"></SPAN>
-
-<P>
-</LI>
-<LI><B>Coding</B>
-<!-- MATH
- $X_{q}(n) \rightarrow$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.58ex; vertical-align: -0.75ex; " SRC="img28.svg"
- ALT="$X_{q}(n) \rightarrow$"></SPAN> into binary sequence or integer numbers.
-</LI>
-</OL>
-
-<P>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Generally FIR filters do not perform a convolution operation</TITLE>
-<META NAME="description" CONTENT="Generally FIR filters do not perform a convolution operation">
+<TITLE>FIR Filter</TITLE>
+<META NAME="description" CONTENT="FIR Filter">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node60.html">
+<LINK REL="next" HREF="node69.html">
 <LINK REL="previous" HREF="node58.html">
 <LINK REL="next" HREF="node60.html">
 </HEAD>
@@ -27,50 +27,239 @@
  HREF="node60.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node58.html">
+ HREF="node50.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node58.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html382"
+<A ID="tex2html376"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node60.html">FIR filter implementations</A>
+ HREF="node60.html">Generally FIR filters do</A>
 <B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
+ HREF="node50.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node58.html">FIR Filter</A>
- &nbsp; <B>  <A ID="tex2html383"
+ HREF="node58.html">Frequency response of a</A>
+ &nbsp; <B>  <A ID="tex2html377"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00098100000000000000">
-Generally FIR filters do not perform a convolution operation</A>
-</H3>
+<H2><A ID="SECTION00098000000000000000">
+FIR Filter</A>
+</H2>
+What happens if we sample the impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img213.svg"
+ ALT="$h(t)$"></SPAN> of an
+analogue filter? Let's find out:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(t)=\sum_{n=0}^\infty h(nT) \delta(t-nT)
+\end{equation}
+ -->
+ &nbsp;  <A ID="sampltime"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img256.svg"
+ ALT="$\displaystyle
+h(t)=\sum_{n=0}^\infty h(nT) \delta(t-nT)
+$"> 
+
+(<SPAN CLASS="arabic">103</SPAN>)
+</DIV>
+If we transform it to the Laplace space it looks like this:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(s)=\sum_{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_
+                                           {z^{-1}}}^n
+\end{equation}
+ -->
+ &nbsp;  <A ID="sFunktion"></A><IMG STYLE="height: 7.56ex; vertical-align: -4.22ex; " SRC="img257.svg"
+ ALT="$\displaystyle
+H(s)=\sum_{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_
+{z^{-1}}}^n
+$"> 
+
+(<SPAN CLASS="arabic">104</SPAN>)
+</DIV>
+Remember that <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img258.svg"
+ ALT="$e^{-sT}$"></SPAN> has a very handy meaning: it is a delay
+by the unit time step (Eq.&nbsp;<A HREF="node54.html#shiftOperation">81</A>).
+Thus <SPAN CLASS="MATH"><IMG STYLE="height: 1.90ex; vertical-align: -0.09ex; " SRC="img259.svg"
+ ALT="$z^{-n}$"></SPAN> is a delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img45.svg"
+ ALT="$n$"></SPAN> time steps.
+We can rewrite Eq.&nbsp;<A HREF="#sFunktion">105</A>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z)=\sum_{n=0}^\infty h(nT) {(z^{-1})}^n
+\end{equation}
+ -->
+ &nbsp;  <A ID="ztrans"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img260.svg"
+ ALT="$\displaystyle H(z)=\sum_{n=0}^\infty h(nT) {(z^{-1})}^n
+$"> 
+
+(<SPAN CLASS="arabic">105</SPAN>)
+</DIV>
+This is the z-transform of the impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img213.svg"
+ ALT="$h(t)$"></SPAN> of the filter.
 
 <P>
-Remember that we have derived the FIR filters from the analogue domain
-by filtering a signal (Eq.<A HREF="node58.html#notFIRyet">107</A>). The timedomain representation
-of this is a discrete and causal convolution operation (using the
-sampled Laplace transform). However, the problem is that this runs to
-<SPAN  CLASS="textsl">infinite time</SPAN> and would require an infinite number of delay
-steps and thus infinite time to complete. So the FIR filter at best
-performs an approximation of the convolution operation but there
-are serious problems with the finite number of taps (<SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img8.svg"
- ALT="$N$"></SPAN>) which
-requires a technique called windowing which moves it even further away
-from a convolution operation. On the other hand if the impulse
-response is strictly limited in time one can use this property for
-example for matched filters. However, the bottomline is that sweeping statements
-such as that &ldquo;FIR filters perform a convolution&rdquo; are <SPAN  CLASS="textsl">generally wrong</SPAN>
-if nothing is known of the impulse response.
+We filter now the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
+ ALT="$X(z)$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img262.svg"
+ ALT="$H(z)$"></SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
+\end{equation}
+ -->
+ &nbsp;  <A ID="notFIRyet"></A><IMG STYLE="height: 9.18ex; vertical-align: -5.85ex; " SRC="img263.svg"
+ ALT="$\displaystyle H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
+$"> 
+
+(<SPAN CLASS="arabic">106</SPAN>)
+</DIV>
+
+<P>
+This sum is a direct recipe how to filter the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
+ ALT="$X(z)$"></SPAN>. We only
+need the impulse response of the filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img264.svg"
+ ALT="$h(nT)$"></SPAN> and we can
+set up a digital filter (see Fig.&nbsp;<A HREF="node58.html#FIRfilter">16</A>). Of course
+in practise this impulse response cannot run till infinity
+but only for a limited number of samples. These are often
+called &ldquo;taps&rdquo;. So for example a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img265.svg"
+ ALT="$100$"></SPAN> samples of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img264.svg"
+ ALT="$h(nT)$"></SPAN> has
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img265.svg"
+ ALT="$100$"></SPAN> &ldquo;taps&rdquo;. This in turn then requires a delay line which
+can hold <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img266.svg"
+ ALT="$N=100$"></SPAN> samples:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z)X(z)=\underbrace{\sum_{n=0}^N h(nT) z^{-n}}_{H(z)} X(z)
+\end{equation}
+ -->
+ &nbsp;  <A ID="FIRfromAnalogue"></A><A ID="FIRz"></A><IMG STYLE="height: 9.56ex; vertical-align: -5.85ex; " SRC="img267.svg"
+ ALT="$\displaystyle
+H(z)X(z)=\underbrace{\sum_{n=0}^N h(nT) z^{-n}}_{H(z)} X(z)
+$"> 
+
+(<SPAN CLASS="arabic">107</SPAN>)
+</DIV>
+
+<P>
+This is the formula of an Finite Impulse Response filter where we have
+sampled an analogue impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img213.svg"
+ ALT="$h(t)$"></SPAN> at time intervals of <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img25.svg"
+ ALT="$T$"></SPAN>.
+However, often the impulse response of the filter is derived directly
+in the digital domain where the argument of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img268.svg"
+ ALT="$h(n)$"></SPAN> represent just sample
+indices <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img45.svg"
+ ALT="$n$"></SPAN> and the sampling interval is implicitly the inverse of the sampling
+rate. For that reason one needs to distinguish between:
+
+<P>
+<BR>
+<DIV ALIGN="CENTER"><A ID="FIRa"></A><A ID="FIRd"></A>
+<!-- MATH
+ \begin{eqnarray}
+H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize {analogue}}(nT) z^{-n} \, X(z)\\
+H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize {digital}}(n) z^{-n} \, X(z)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img269.svg"
+ ALT="$\displaystyle H(z)X(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img270.svg"
+ ALT="$\displaystyle \sum_{n=0}^N h_\textrm{\footnotesize {analogue}}(nT) z^{-n} \, X(z)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">108</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img269.svg"
+ ALT="$\displaystyle H(z)X(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img271.svg"
+ ALT="$\displaystyle \sum_{n=0}^N h_\textrm{\footnotesize {digital}}(n) z^{-n} \, X(z)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">109</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+This is usually clear from the context which impulse response is meant.
 
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html378"
+  HREF="node60.html">Generally FIR filters do not perform a convolution operation</A>
+<LI><A ID="tex2html379"
+  HREF="node61.html">FIR filter implementations</A>
+<LI><A ID="tex2html380"
+  HREF="node62.html">Fixed point FIR filters</A>
+<LI><A ID="tex2html381"
+  HREF="node63.html">Constant group delay or linear phase filter</A>
+<LI><A ID="tex2html382"
+  HREF="node64.html">Window functions</A>
+<LI><A ID="tex2html383"
+  HREF="node65.html">Python code: 
+impulse response from the inverse DFT - The frequency sampling
+method</A>
+<LI><A ID="tex2html384"
+  HREF="node66.html">FIR filter design from ideal frequency response &ndash;
+The analytical way
+</A>
+<LI><A ID="tex2html385"
+  HREF="node67.html">Design steps for FIR filters</A>
+<LI><A ID="tex2html386"
+  HREF="node68.html">FIR filter design with Python's high level functions</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html376"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node60.html">Generally FIR filters do</A>
+<B> Up:</B> <A
+ HREF="node50.html">Causal Signal Processing</A>
+<B> Previous:</B> <A
+ HREF="node58.html">Frequency response of a</A>
+ &nbsp; <B>  <A ID="tex2html377"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

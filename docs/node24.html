@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Importing data</TITLE>
-<META NAME="description" CONTENT="Importing data">
+<TITLE>Plotting of Functions</TITLE>
+<META NAME="description" CONTENT="Plotting of Functions">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,6 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
+<LINK REL="next" HREF="node25.html">
 <LINK REL="previous" HREF="node23.html">
 <LINK REL="next" HREF="node25.html">
 </HEAD>
@@ -31,38 +32,61 @@
 <A
  HREF="node23.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html237"
+<A ID="tex2html240"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node25.html">Space/Tab/Comma separated data</A>
+ HREF="node25.html">Importing data</A>
 <B> Up:</B> <A
  HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node23.html">Plotting of Functions</A>
- &nbsp; <B>  <A ID="tex2html238"
+ HREF="node23.html">Mathematical functions</A>
+ &nbsp; <B>  <A ID="tex2html241"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION000411000000000000000">
-Importing data</A>
+<H2><A ID="SECTION00048000000000000000">
+Plotting of Functions</A>
 </H2>
+Pylab has a vast amount of plotting functions which supports simple plotting
+with just two commands (plot and show) up to complex animations of 3D data.
+Plotting a sine wave can be achieved with:
+<PRE> 
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0,2*np.pi,100)
+y = np.sin(x)
+plt.plot(x,y)
+plt.show()
+</PRE>
+where I have used the numpy linspace command to create an array which
+runs from 0 to two pi with 100 samples.
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+If you want to create more plot-windows you can use the command
+<SPAN  CLASS="texttt">plt.figure</SPAN>. Access the windows with the commands <SPAN  CLASS="texttt">plt.figure(1)</SPAN>,
+<SPAN  CLASS="texttt">plt.figure(2)</SPAN>.
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html239"
-  HREF="node25.html">Space/Tab/Comma separated data</A>
-<LI><A ID="tex2html240"
-  HREF="node26.html">WAV files</A>
-</UL>
-<!--End of Table of Child-Links-->
+<P>
+It is also possible to combine plot windows into one with the
+command <SPAN  CLASS="texttt">subplot</SPAN>.
+
+<P>
+How to make it look nice? Here is an example:
+<PRE>
+plt.xlabel('time (s)')
+plt.ylabel('voltage (V)')
+plt.title('That is an AC voltage over time!')
+plt.grid(True)
+</PRE>
+
+<P>
+Generally the best approach is to use an example and then customise it to your needs.
+
+<P>
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Causal Signal Processing</TITLE>
-<META NAME="description" CONTENT="Causal Signal Processing">
+<TITLE>Visualisation</TITLE>
+<META NAME="description" CONTENT="Visualisation">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,8 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node87.html">
-<LINK REL="previous" HREF="node36.html">
+<LINK REL="previous" HREF="node48.html">
 <LINK REL="next" HREF="node50.html">
 </HEAD>
 
@@ -27,131 +26,50 @@
  HREF="node50.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="digital_signal_processing.html">
+ HREF="node37.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node48.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html315"
+<A ID="tex2html318"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node50.html">Motivation</A>
+ HREF="node50.html">Causal Signal Processing</A>
 <B> Up:</B> <A
- HREF="digital_signal_processing.html">Digital Signal Processing</A>
+ HREF="node37.html">Frequency representation of signals</A>
 <B> Previous:</B> <A
- HREF="node48.html">Visualisation</A>
- &nbsp; <B>  <A ID="tex2html316"
+ HREF="node48.html">Software</A>
+ &nbsp; <B>  <A ID="tex2html319"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION00090000000000000000">
-Causal Signal Processing</A>
-</H1>
+<H2><A ID="SECTION00084000000000000000">
+Visualisation</A>
+</H2>
+The Fourier spectrum is a complex function of frequency which cannot
+be displayed in a convenient way. Usually the amplitude or magnitude
+of the spectrum is of interest (see Fig.&nbsp;<A HREF="node48.html#visualisation">11</A>) which is calculated as the
+absolute value <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img199.svg"
+ ALT="$\vert X(F)\vert$"></SPAN> of the Fourier spectrum X(F). In addition
+the phase might be of interest which is calculated as <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img200.svg"
+ ALT="$\arg(X(F))$"></SPAN>.
+
+<UL>
+<LI>Magnitude or Amplitude: <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img199.svg"
+ ALT="$\vert X(F)\vert$"></SPAN>
+</LI>
+<LI>Phase: <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img200.svg"
+ ALT="$\arg(X(F))$"></SPAN>
+</LI>
+</UL>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html317"
-  HREF="node50.html">Motivation</A>
-<LI><A ID="tex2html318"
-  HREF="node51.html">Causality</A>
-<LI><A ID="tex2html319"
-  HREF="node52.html">Convolution of Causal Signal</A>
-<LI><A ID="tex2html320"
-  HREF="node53.html">Laplace transform</A>
-<LI><A ID="tex2html321"
-  HREF="node54.html">Filters</A>
-<UL>
-<LI><A ID="tex2html322"
-  HREF="node55.html">How to characterise filters?</A>
-</UL>
-<BR>
-<LI><A ID="tex2html323"
-  HREF="node56.html">The z-transform</A>
-<LI><A ID="tex2html324"
-  HREF="node57.html">Frequency response of a sampled filter</A>
-<LI><A ID="tex2html325"
-  HREF="node58.html">FIR Filter</A>
-<UL>
-<LI><A ID="tex2html326"
-  HREF="node59.html">Generally FIR filters do not perform a convolution operation</A>
-<LI><A ID="tex2html327"
-  HREF="node60.html">FIR filter implementations</A>
-<LI><A ID="tex2html328"
-  HREF="node61.html">Fixed point FIR filters</A>
-<LI><A ID="tex2html329"
-  HREF="node62.html">Constant group delay or linear phase filter</A>
-<LI><A ID="tex2html330"
-  HREF="node63.html">Window functions</A>
-<LI><A ID="tex2html331"
-  HREF="node64.html">Python code: 
-impulse response from the inverse DFT - The frequency sampling
-method</A>
-<LI><A ID="tex2html332"
-  HREF="node65.html">FIR filter design from ideal frequency response &ndash;
-The analytical way
-</A>
-<LI><A ID="tex2html333"
-  HREF="node66.html">Design steps for FIR filters</A>
-<LI><A ID="tex2html334"
-  HREF="node67.html">FIR filter design with Python's high level functions</A>
-</UL>
-<BR>
-<LI><A ID="tex2html335"
-  HREF="node68.html">Signal Detection</A>
-<LI><A ID="tex2html336"
-  HREF="node69.html">IIR Filter</A>
-<UL>
-<LI><A ID="tex2html337"
-  HREF="node70.html">Introduction</A>
-<LI><A ID="tex2html338"
-  HREF="node71.html">Determining the data-flow diagram of an IIR filter</A>
-<LI><A ID="tex2html339"
-  HREF="node72.html">General form of IIR filters</A>
-<LI><A ID="tex2html340"
-  HREF="node73.html">IIR filter topologies</A>
-<LI><A ID="tex2html341"
-  HREF="node74.html">Fixed point IIR filters</A>
-<LI><A ID="tex2html342"
-  HREF="node75.html">Filter design based on analogue filters</A>
-<UL>
-<LI><A ID="tex2html343"
-  HREF="node76.html">A list of popular analogue transfer functions being
-used for IIR filter design:</A>
-<LI><A ID="tex2html344"
-  HREF="node77.html">How to transform the analogue lowpass filters into
-  highpass, bandstop or bandpass filters?</A>
-<LI><A ID="tex2html345"
-  HREF="node78.html">Bilinear Transform: transforming the analoge transfer function into a digital one:</A>
-<LI><A ID="tex2html346"
-  HREF="node79.html">IIR filter design steps:</A>
-<LI><A ID="tex2html347"
-  HREF="node80.html">Time or frequency domain?</A>
-</UL>
-</UL>
-<BR>
-<LI><A ID="tex2html348"
-  HREF="node81.html">The role of poles and zeros</A>
-<UL>
-<LI><A ID="tex2html349"
-  HREF="node82.html">Zeros</A>
-<LI><A ID="tex2html350"
-  HREF="node83.html">Poles</A>
-<LI><A ID="tex2html351"
-  HREF="node84.html">Stability</A>
-<LI><A ID="tex2html352"
-  HREF="node85.html">Design of an IIR notch filter</A>
-<LI><A ID="tex2html353"
-  HREF="node86.html">Identifying filters from their poles and zeroes</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
+<P>
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

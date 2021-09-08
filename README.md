@@ -6,9 +6,9 @@ These are the lecture notes which are part of my class Digital Signal
 Processing (DSP) class which consists of YouTube clips and 3 extensive
 assignments = flipped classroom.
 
-[Download the PDF here](https://github.com/berndporr/digital_signal_processing/blob/master/digital_signal_processing.pdf)
+[PDF](https://github.com/berndporr/digital_signal_processing/blob/master/digital_signal_processing.pdf)
 
-[Accessible online version](https://berndporr.github.io/digital_signal_processing/)
+[Online version](https://berndporr.github.io/digital_signal_processing/)
 
 The coding language is Python.
 

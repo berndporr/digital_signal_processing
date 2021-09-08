@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Introduction</TITLE>
-<META NAME="description" CONTENT="Introduction">
+<TITLE>IIR Filter</TITLE>
+<META NAME="description" CONTENT="IIR Filter">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node71.html">
+<LINK REL="next" HREF="node82.html">
 <LINK REL="previous" HREF="node69.html">
 <LINK REL="next" HREF="node71.html">
 </HEAD>
@@ -27,238 +27,69 @@
  HREF="node71.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node69.html">
+ HREF="node50.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node69.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html415"
+<A ID="tex2html407"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node71.html">Determining the data-flow diagram</A>
+ HREF="node71.html">Introduction</A>
 <B> Up:</B> <A
- HREF="node69.html">IIR Filter</A>
+ HREF="node50.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node69.html">IIR Filter</A>
- &nbsp; <B>  <A ID="tex2html416"
+ HREF="node69.html">Signal Detection</A>
+ &nbsp; <B>  <A ID="tex2html408"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000910100000000000000">
-Introduction</A>
-</H3>
-As an instructional example we take a very simple analogue filter and
-sample it. This can then be generalised to more complex
-situations.
+<H2><A ID="SECTION000910000000000000000">
+IIR Filter</A>
+</H2>
+IIR filter stands for Infinite Impulse Response. Such filters have
+feedback so that signals are processed in a recursive way. We will see
+that impulse responses from exponentials can easily be implemented as
+a recursive filter.
 
 <P>
-We define a first order filter which can be implemented, for example, as
-a simple RC network:
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(t)=e^{-bt}
-\end{equation}
- -->
- &nbsp;  <A ID="ExpoFunktion"></A><IMG STYLE="height: 2.80ex; vertical-align: -0.68ex; " SRC="img345.svg"
- ALT="$\displaystyle h(t)=e^{-bt}
-$"> 
-
-(<SPAN CLASS="arabic">141</SPAN>)
-</DIV>
-where its Laplace transform is a simple fraction:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(s)=\frac{1}{s+b}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.01ex; vertical-align: -1.87ex; " SRC="img346.svg"
- ALT="$\displaystyle H(s)=\frac{1}{s+b}
-$"> 
-
-(<SPAN CLASS="arabic">142</SPAN>)
-</DIV>
-Now we sample Eq.&nbsp;<A HREF="#ExpoFunktion">142</A>:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(t)=\sum_{n=0}^\infty e^{-bnT} \cdot \delta(t-nT)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 6.03ex; vertical-align: -2.58ex; " SRC="img347.svg"
- ALT="$\displaystyle h(t)=\sum_{n=0}^\infty e^{-bnT} \cdot \delta(t-nT)
-$"> 
-
-(<SPAN CLASS="arabic">143</SPAN>)
-</DIV>
-and perform a Laplace transform on it:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(s) = \sum_{n=0}^\infty e^{-bnT} \underbrace{e^{-nsT}}_{{z^{-1}}^n}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 6.67ex; vertical-align: -3.22ex; " SRC="img348.svg"
- ALT="$\displaystyle H(s) = \sum_{n=0}^\infty e^{-bnT} \underbrace{e^{-nsT}}_{{z^{-1}}^n}
-$"> 
-
-(<SPAN CLASS="arabic">144</SPAN>)
-</DIV>
-which turns into a z-transform:
-<BR>
-<DIV ALIGN="CENTER"><A ID="IIReq"></A>
-<!-- MATH
- \begin{eqnarray}
-H(z)&=&\sum_{n=0}^\infty e^{-bnT} z^{-n} \\
-    &=&\sum_{n=0}^\infty {\left(e^{-bT} z^{-1}\right)}^n \\
-    &=&{1\over 1-e^{-bT} z^{-1}}
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img349.svg"
- ALT="$\displaystyle H(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.03ex; vertical-align: -2.58ex; " SRC="img350.svg"
- ALT="$\displaystyle \sum_{n=0}^\infty e^{-bnT} z^{-n}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">145</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.03ex; vertical-align: -2.58ex; " SRC="img351.svg"
- ALT="$\displaystyle \sum_{n=0}^\infty {\left(e^{-bT} z^{-1}\right)}^n$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">146</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.03ex; vertical-align: -1.88ex; " SRC="img352.svg"
- ALT="$\displaystyle {1\over 1-e^{-bT} z^{-1}}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">147</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-Consequently the analogue transfer function <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img245.svg"
- ALT="$H(s)$"></SPAN>
-transfers into <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img262.svg"
- ALT="$H(z)$"></SPAN> with the following recipe:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(s)=\frac{1}{s+b} \qquad\Leftrightarrow\qquad
-H(z)=\frac{1}{1-e^{-bT} z^{-1}}
-\end{equation}
- -->
- &nbsp;  <A ID="impInv"></A><IMG STYLE="height: 5.03ex; vertical-align: -1.88ex; " SRC="img353.svg"
- ALT="$\displaystyle H(s)=\frac{1}{s+b} \qquad\Leftrightarrow\qquad
-H(z)=\frac{1}{1-e^{-bT} z^{-1}}
-$"> 
-
-(<SPAN CLASS="arabic">148</SPAN>)
-</DIV>
-Thus, if you have the poles of an analogue system and you want
-to have the poles in the z-plane you can transfer them with:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-z_\infty=e^{s_\infty T}
-\end{equation}
- -->
- &nbsp;  <A ID="translpoles"></A><IMG STYLE="height: 2.55ex; vertical-align: -0.45ex; " SRC="img354.svg"
- ALT="$\displaystyle z_\infty=e^{s_\infty T}
-$"> 
-
-(<SPAN CLASS="arabic">149</SPAN>)
-</DIV>
-This also gives us a stability criterion. In the Laplace domain
-the poles have to be in the left half plane (real value negative).
-This means that in the sampled domain the poles have to lie within
-the unit circle.
-
-<P>
-The same rule can be applied to zeros
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-z_0=e^{s_0 T}
-\end{equation}
- -->
- &nbsp;  <A ID="transzeros"></A><A ID="matchedz"></A><IMG STYLE="height: 0.19ex; vertical-align: -0.10ex; " SRC="img355.svg"
- ALT="$\displaystyle z_0=e^{s_0 T}$"> 
-
-(<SPAN CLASS="arabic">150</SPAN>)
-</DIV>
-together with Eq.&nbsp;<A HREF="#translpoles">150</A> this is called &ldquo;The matched
-z-transform method&rdquo;. For example <SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img356.svg"
- ALT="$H(s)=s$"></SPAN> turns into
-<!-- MATH
- $H(z)=1-z^{-1}e^{0T}=1-z^{-1}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.67ex; vertical-align: -0.68ex; " SRC="img357.svg"
- ALT="$H(z)=1-z^{-1}e^{0T}=1-z^{-1}$"></SPAN> which is basically a DC filter.
-
-<P>
-
-<DIV class="CENTER"><A ID="IIRfilter"></A><A ID="1653"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 19:</STRONG>
-IIR filter</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img358.svg"
- ALT="\includegraphics[width=0.75\linewidth]{iir}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node71.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node69.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node69.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html415"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node71.html">Determining the data-flow diagram</A>
-<B> Up:</B> <A
- HREF="node69.html">IIR Filter</A>
-<B> Previous:</B> <A
- HREF="node69.html">IIR Filter</A>
- &nbsp; <B>  <A ID="tex2html416"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html409"
+  HREF="node71.html">Introduction</A>
+<LI><A ID="tex2html410"
+  HREF="node72.html">Determining the data-flow diagram of an IIR filter</A>
+<LI><A ID="tex2html411"
+  HREF="node73.html">General form of IIR filters</A>
+<LI><A ID="tex2html412"
+  HREF="node74.html">IIR filter topologies</A>
+<LI><A ID="tex2html413"
+  HREF="node75.html">Fixed point IIR filters</A>
+<LI><A ID="tex2html414"
+  HREF="node76.html">Filter design based on analogue filters</A>
+<UL>
+<LI><A ID="tex2html415"
+  HREF="node77.html">A list of popular analogue transfer functions being
+used for IIR filter design:</A>
+<LI><A ID="tex2html416"
+  HREF="node78.html">How to transform the analogue lowpass filters into
+  highpass, bandstop or bandpass filters?</A>
+<LI><A ID="tex2html417"
+  HREF="node79.html">Bilinear Transform: transforming the analoge transfer function into a digital one:</A>
+<LI><A ID="tex2html418"
+  HREF="node80.html">IIR filter design steps:</A>
+<LI><A ID="tex2html419"
+  HREF="node81.html">Time or frequency domain?</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

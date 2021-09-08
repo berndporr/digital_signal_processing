@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Arrays</TITLE>
-<META NAME="description" CONTENT="Arrays">
+<TITLE>Tupels</TITLE>
+<META NAME="description" CONTENT="Tupels">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -32,60 +32,45 @@
 <A
  HREF="node15.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html221"
+<A ID="tex2html222"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node17.html">Tupels</A>
+ HREF="node17.html">numpy Arrays/Matrices</A>
 <B> Up:</B> <A
  HREF="node13.html">Data types</A>
 <B> Previous:</B> <A
  HREF="node15.html">Lists</A>
- &nbsp; <B>  <A ID="tex2html222"
+ &nbsp; <B>  <A ID="tex2html223"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00044300000000000000">
-Arrays</A>
-</H3>
-This data structure is used for number crunching and is thus ideal for
-DSP. Python arrays are essentially C arrays with a thin wrapper around
-them.
-
-<P>
-Usually you'd create arrays with the numpy library (add <SPAN  CLASS="texttt">import numpy
-  as np</SPAN> to your script).
+<H4><A ID="SECTION00043030000000000000">
+Tupels</A>
+</H4>
+Tupels are similar to lists but they are rather used as
+&ldquo;containers&rdquo; to package up different variables into one variable. For
+example, you might want to put the sampling rate and the resolution of
+an ADC into a tuple as they belong together.
 
 <UL>
-<LI><SPAN  CLASS="texttt">a = np.array([1, 2, 5])</SPAN> which creates a numpy
-  array from a standard Python list containing 1,2,5.
+<LI><SPAN  CLASS="texttt">p&nbsp;=&nbsp;(1,9,'kk')</SPAN> is a tupel with the two integer numbers 1,2 and 'kk'.
 </LI>
-<LI><SPAN  CLASS="texttt">b = np.array([[6, 2], [9, 7]])</SPAN> creates a two dimensional
-  array.
+<LI>The round brackets are often omitted:
+  <SPAN  CLASS="texttt">p&nbsp;=&nbsp;1,9,'kk'</SPAN> which implicitly defines a tupel.
 </LI>
-<LI>There are a lot of convenience functions in numpy to create
-  arrays just containing zeros, ones or ascending numbers etc. Check out
-   the numpy docs.
+<LI><SPAN  CLASS="texttt">p[1]</SPAN> returns the 2nd element of the tupel (the index
+  counts from 0).
+</LI>
+<LI>Extracting a tupel into separate variables also works:
+  <SPAN  CLASS="texttt">a,b,c = p</SPAN> assigns 1 to a, 9 to b and 'kk' to c. This
+  is very convenient for functions if you want to return more than
+  one result. Just package them up into a tuple and return it.
 </LI>
 </UL>
-
-<P>
-Since arrays are close relatives to C arrays they have an additional
-field which is called &ldquo;dtype&rdquo; which determines the type of the
-array elements, for example &ldquo;int16&rdquo; (a 16 bit wide integer).
-<PRE>
-&gt;&gt;&gt; data
-array([-12288, -12545, -12798, ...,    511,    513,    513], dtype=int16)
-&gt;&gt;&gt; data.dtype
-dtype('int16')
-&gt;&gt;&gt; data.astype(float)
-array([-12288., -12545., -12798., ...,    511.,    513.,    513.])
-</PRE>
-where the member function &ldquo;astype&rdquo; can convert from one array type to another, here
-from int16 to floating point.
 
 <P>
 <BR><HR>

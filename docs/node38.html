@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Periodic signals</TITLE>
-<META NAME="description" CONTENT="Periodic signals">
+<TITLE>Continuous time and frequency</TITLE>
+<META NAME="description" CONTENT="Continuous time and frequency">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node39.html">
+<LINK REL="next" HREF="node41.html">
 <LINK REL="previous" HREF="node37.html">
 <LINK REL="next" HREF="node39.html">
 </HEAD>
@@ -32,223 +32,39 @@
 <A
  HREF="node37.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html287"
+<A ID="tex2html288"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node39.html">A-periodic signals</A>
+ HREF="node39.html">Periodic signals</A>
 <B> Up:</B> <A
- HREF="node37.html">Continuous time and frequency</A>
+ HREF="node37.html">Frequency representation of signals</A>
 <B> Previous:</B> <A
- HREF="node37.html">Continuous time and frequency</A>
- &nbsp; <B>  <A ID="tex2html288"
+ HREF="node37.html">Frequency representation of signals</A>
+ &nbsp; <B>  <A ID="tex2html289"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00081100000000000000">
-Periodic signals</A>
-</H3>
-Periodic signals can be composed of sine waves :
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-x(t) = \sum_{k = -\infty}^{\infty} c_{k} e^{j2\pi k F_1 t}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 6.27ex; vertical-align: -2.82ex; " SRC="img85.svg"
- ALT="$\displaystyle x(t) = \sum_{k = -\infty}^{\infty} c_{k} e^{j2\pi k F_1 t}
-$"> 
-
-(<SPAN CLASS="arabic">28</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.12ex; vertical-align: -0.45ex; " SRC="img86.svg"
- ALT="$F_1$"></SPAN> is the principle or fundamental frequency and <SPAN CLASS="MATH"><IMG STYLE="height: 2.25ex; vertical-align: -0.55ex; " SRC="img87.svg"
- ALT="$k \neq 1$"></SPAN> are the
-harmonics with strength <SPAN CLASS="MATH"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img88.svg"
- ALT="$c_k$"></SPAN>. Usually <SPAN CLASS="MATH"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img89.svg"
- ALT="$c_1$"></SPAN> is set to <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img90.svg"
- ALT="$1$"></SPAN>. This is a
-Fourier series with <SPAN CLASS="MATH"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img91.svg"
- ALT="$c_{k}$"></SPAN> as coefficients. For example an
-ECG has a fundamental frequency of about 1Hz (60 beats per minute).
-However, the harmonics give the ECG its characteristic peak like shape.
+<H2><A ID="SECTION00081000000000000000">
+Continuous time and frequency</A>
+</H2>
 
 <P>
-How do we find the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img88.svg"
- ALT="$c_k$"></SPAN>?
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-c_{k} = \frac{1}{T_p} \int_{T_p} x(t) e^{-j2 \pi k F_1 t} dt
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.48ex; vertical-align: -2.34ex; " SRC="img92.svg"
- ALT="$\displaystyle c_{k} = \frac{1}{T_p} \int_{T_p} x(t) e^{-j2 \pi k F_1 t} dt
-$"> 
-
-(<SPAN CLASS="arabic">29</SPAN>)
-</DIV>
-
-<P>
-For simple cases there are analytical solutions for <SPAN CLASS="MATH"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img88.svg"
- ALT="$c_k$"></SPAN>, for example
-for square waves, triangle wave, etc.
-
-<P>
-What are the properties of <SPAN CLASS="MATH"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img91.svg"
- ALT="$c_{k}$"></SPAN>?
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-c_{k} = c_{- k}^{*} \qquad \Leftrightarrow \qquad x(t)\mbox{ is real}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.66ex; vertical-align: -0.83ex; " SRC="img93.svg"
- ALT="$\displaystyle c_{k} = c_{- k}^{*} \qquad \Leftrightarrow \qquad x(t)\mbox{ is real}
-$"> 
-
-(<SPAN CLASS="arabic">30</SPAN>)
-</DIV>
-or
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-c_{k} &=& \mid c_k \mid e^{j \theta_k} \\
-c_{-k} &=& \mid c_k \mid e^{-j \theta_k}
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.54ex; vertical-align: -0.45ex; " SRC="img94.svg"
- ALT="$\displaystyle c_{k}$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.80ex; vertical-align: -0.68ex; " SRC="img95.svg"
- ALT="$\displaystyle \mid c_k \mid e^{j \theta_k}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">31</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.70ex; vertical-align: -0.61ex; " SRC="img96.svg"
- ALT="$\displaystyle c_{-k}$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.80ex; vertical-align: -0.68ex; " SRC="img97.svg"
- ALT="$\displaystyle \mid c_k \mid e^{-j \theta_k}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">32</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-Proof: with the handy equation...
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\cos z = \frac{1}{2} \left(e^{zi} + e^{-zi}\right)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.84ex; vertical-align: -1.69ex; " SRC="img98.svg"
- ALT="$\displaystyle \cos z = \frac{1}{2} \left(e^{zi} + e^{-zi}\right)
-$"> 
-
-(<SPAN CLASS="arabic">33</SPAN>)
-</DIV>
-we get
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-x(t) & = & c_0 + \sum_{k = 1}^{\infty} \mid c_k \mid e^{j \theta_k} e^{j 2\pi k F_1 t}
-               + \sum_{k = 1}^{\infty} \mid c_{k}\mid e^{-j \theta_k} e^{-j 2\pi k F_1 t} \\
-     & = & c_0 + 2 \sum_{k = 1}^{\infty} \mid c_k \mid \cos(2 \pi k F_1 t + \theta_{k})
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img99.svg"
- ALT="$\displaystyle x(t)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.11ex; vertical-align: -2.66ex; " SRC="img100.svg"
- ALT="$\displaystyle c_0 + \sum_{k = 1}^{\infty} \mid c_k \mid e^{j \theta_k} e^{j 2\p...
-...1 t}
-+ \sum_{k = 1}^{\infty} \mid c_{k}\mid e^{-j \theta_k} e^{-j 2\pi k F_1 t}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">34</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.11ex; vertical-align: -2.66ex; " SRC="img101.svg"
- ALT="$\displaystyle c_0 + 2 \sum_{k = 1}^{\infty} \mid c_k \mid \cos(2 \pi k F_1 t + \theta_{k})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">35</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-How are the frequencies distributed? Let's have a look at the
-frequency spectrum of a periodic signal: <!-- MATH
- $P_{k} = \mid c_{k} \mid^{2}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.61ex; vertical-align: -0.68ex; " SRC="img102.svg"
- ALT="$P_{k} = \mid c_{k} \mid^{2}$"></SPAN>
-
-<P>
-
-<UL>
-<LI>There are discrete frequency peaks
-</LI>
-<LI>Spacing of the peaks is <!-- MATH
- $\frac{1}{T_1} = F_1$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 3.11ex; vertical-align: -1.11ex; " SRC="img103.svg"
- ALT="$\frac{1}{T_1} = F_1$"></SPAN>
-</LI>
-<LI>Only the positive frequencies are needed: <!-- MATH
- $c_{-k} = c_{k}^{*}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.32ex; vertical-align: -0.67ex; " SRC="img104.svg"
- ALT="$c_{-k} = c_{k}^{*}$"></SPAN>
-</LI>
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html290"
+  HREF="node39.html">Periodic signals</A>
+<LI><A ID="tex2html291"
+  HREF="node40.html">A-periodic signals</A>
 </UL>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node39.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node37.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node37.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html287"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node39.html">A-periodic signals</A>
-<B> Up:</B> <A
- HREF="node37.html">Continuous time and frequency</A>
-<B> Previous:</B> <A
- HREF="node37.html">Continuous time and frequency</A>
- &nbsp; <B>  <A ID="tex2html288"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

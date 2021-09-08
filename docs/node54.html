@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Filters</TITLE>
-<META NAME="description" CONTENT="Filters">
+<TITLE>Laplace transform</TITLE>
+<META NAME="description" CONTENT="Laplace transform">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node56.html">
+<LINK REL="next" HREF="node55.html">
 <LINK REL="previous" HREF="node53.html">
 <LINK REL="next" HREF="node55.html">
 </HEAD>
@@ -27,60 +27,219 @@
  HREF="node55.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node49.html">
+ HREF="node50.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node53.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html362"
+<A ID="tex2html365"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node55.html">How to characterise filters?</A>
+ HREF="node55.html">Filters</A>
 <B> Up:</B> <A
- HREF="node49.html">Causal Signal Processing</A>
+ HREF="node50.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node53.html">Laplace transform</A>
- &nbsp; <B>  <A ID="tex2html363"
+ HREF="node53.html">Convolution of Causal Signal</A>
+ &nbsp; <B>  <A ID="tex2html366"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00095000000000000000">
-Filters</A>
+<H2><A ID="SECTION00094000000000000000">
+Laplace transform</A>
 </H2>
-Fig.&nbsp;<A HREF="node53.html#filter">14</A> presents a causal filter as a black box. We
-send in a signal and and we get a signal out of it. The
-operation of the filter is that of a convolution of the input
-signal or a multiplication in the Laplace space:
+The Fourier transform is not suitable for causal systems
+because it requires the whole signal from <!-- MATH
+ $-\infty < t < +\infty$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.75ex; vertical-align: -0.28ex; " SRC="img214.svg"
+ ALT="$-\infty &lt; t &lt; +\infty$"></SPAN>.
+What we need is a transform which works with causal signals.
+This is the Laplace transform:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-g(t) = h(t) * x(t) \Leftrightarrow Y(s) = H(s) \cdot X(s)
+{\mathrm{\bf L\!T}({h(t)})} = H(s) = \int_{0}^{\infty} h(t) e^{-st} dt
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img227.svg"
- ALT="$\displaystyle g(t) = h(t) * x(t) \Leftrightarrow Y(s) = H(s) \cdot X(s)
+ &nbsp;  <A ID="lapltrans"></A><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img215.svg"
+ ALT="$\displaystyle {\mathrm{\bf L\!T}({h(t)})} = H(s) = \int_{0}^{\infty} h(t) e^{-st} dt
 $"> 
 
-(<SPAN CLASS="arabic">88</SPAN>)
+(<SPAN CLASS="arabic">78</SPAN>)
+</DIV>
+The Laplace transform has a couple of very useful properties:
+
+<UL>
+<LI>Integration: 
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\int f(\tau) d\tau \Leftrightarrow \frac{1}{s} F(s)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img216.svg"
+ ALT="$\displaystyle \int f(\tau) d\tau \Leftrightarrow \frac{1}{s} F(s)
+$"> 
+
+(<SPAN CLASS="arabic">79</SPAN>)
+</DIV>
+</LI>
+<LI>Differentiation:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\frac{d}{dt} f(t) \Leftrightarrow s F(s)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.80ex; vertical-align: -1.64ex; " SRC="img217.svg"
+ ALT="$\displaystyle \frac{d}{dt} f(t) \Leftrightarrow s F(s)
+$"> 
+
+(<SPAN CLASS="arabic">80</SPAN>)
+</DIV>
+</LI>
+<LI>Shift:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+f(t - T) \Leftrightarrow e^{-Ts} F(s)
+\end{equation}
+ -->
+ &nbsp;  <A ID="shiftOperation"></A><IMG STYLE="height: 2.69ex; vertical-align: -0.66ex; " SRC="img218.svg"
+ ALT="$\displaystyle f(t - T) \Leftrightarrow e^{-Ts} F(s)
+$"> 
+
+(<SPAN CLASS="arabic">81</SPAN>)
+</DIV>
+Proof:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+{\mathrm{\bf L\!T}({h(t - T)})} & = &\int_{0}^{\infty} h\underbrace{(t - T)}_{causal} e^{-st} dt \\
+& = & \int_{0}^{\infty} h(t) e^{-s(t + T)} dt \\
+& = & \int_{0}^{\infty} h(t) e^{-st} e^{-sT} dt \\
+& = & e^{-sT} \underbrace{\int_{0}^{\infty} h(t) e^{-st} dt}_{H(s)} \\
+& = & e^{-sT} H(s)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img219.svg"
+ ALT="$\displaystyle {\mathrm{\bf L\!T}({h(t - T)})}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.32ex; vertical-align: -3.55ex; " SRC="img220.svg"
+ ALT="$\displaystyle \int_{0}^{\infty} h\underbrace{(t - T)}_{causal} e^{-st} dt$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">82</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img221.svg"
+ ALT="$\displaystyle \int_{0}^{\infty} h(t) e^{-s(t + T)} dt$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">83</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img222.svg"
+ ALT="$\displaystyle \int_{0}^{\infty} h(t) e^{-st} e^{-sT} dt$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">84</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.82ex; vertical-align: -5.06ex; " SRC="img223.svg"
+ ALT="$\displaystyle e^{-sT} \underbrace{\int_{0}^{\infty} h(t) e^{-st} dt}_{H(s)}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">85</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.69ex; vertical-align: -0.66ex; " SRC="img224.svg"
+ ALT="$\displaystyle e^{-sT} H(s)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">86</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+</LI>
+<LI>Convolution:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+f(t) * g(t) \Leftrightarrow F(s) G(s)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img225.svg"
+ ALT="$\displaystyle f(t) * g(t) \Leftrightarrow F(s) G(s)
+$"> 
+
+(<SPAN CLASS="arabic">87</SPAN>)
+</DIV>
+</LI>
+</UL>
+
+<P>
+
+<DIV class="CENTER"><A ID="filter"></A><A ID="1619"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 14:</STRONG>
+General idea of a filter and how to describe it:
+either with its impulse response or with it's Laplace transforms.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img226.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{filter}">
+
+</DIV></TD></TR>
+</TABLE>
 </DIV>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html364"
-  HREF="node55.html">How to characterise filters?</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html365"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node55.html">Filters</A>
+<B> Up:</B> <A
+ HREF="node50.html">Causal Signal Processing</A>
+<B> Previous:</B> <A
+ HREF="node53.html">Convolution of Causal Signal</A>
+ &nbsp; <B>  <A ID="tex2html366"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

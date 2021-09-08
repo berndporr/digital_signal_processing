@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>FIR filter implementations</TITLE>
-<META NAME="description" CONTENT="FIR filter implementations">
+<TITLE>Generally FIR filters do not perform a convolution operation</TITLE>
+<META NAME="description" CONTENT="Generally FIR filters do not perform a convolution operation">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,146 +27,50 @@
  HREF="node61.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node58.html">
+ HREF="node59.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html384"
+<A ID="tex2html387"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node61.html">Fixed point FIR filters</A>
+ HREF="node61.html">FIR filter implementations</A>
 <B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
+ HREF="node59.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node59.html">Generally FIR filters do</A>
- &nbsp; <B>  <A ID="tex2html385"
+ HREF="node59.html">FIR Filter</A>
+ &nbsp; <B>  <A ID="tex2html388"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00098200000000000000">
-FIR filter implementations</A>
+<H3><A ID="SECTION00098100000000000000">
+Generally FIR filters do not perform a convolution operation</A>
 </H3>
-No matter the design process the implementation is always the same: we
-need a delay line for the incoming signal and then weight the delayed
-outputs by the different coefficients and for that reason are called
-(water-) &ldquo;taps&rdquo; (see Eqs.&nbsp;<A HREF="node58.html#FIRa">109</A> &amp; <A HREF="node58.html#FIRd">110</A>). We are now presenting
-different implementations.
 
 <P>
-
-<UL>
-<LI>C++:
-This is a simple example of a filter which stores the values
-in a simple linear buffer <SPAN  CLASS="texttt">bufferFIR</SPAN> which stores the
-delayed values. The coefficients are stored in <SPAN  CLASS="texttt">coeffFIR</SPAN>.
-<PRE>
-  float filter(float value) {
-    // shift
-    for (int i=taps-1;i&gt;0;i--)  {
-      bufferFIR[i]=bufferFIR[i-l];
-    }
-    //store new value
-    bufferFIR[0]=value;
-    //calculate result
-    for (int i=0;i&lt;taps;i++)  {
-      output +=bufferFIR[i]*coeffFIR[i];
-    }
-  return output;
-  }
-</PRE>
+Remember that we have derived the FIR filters from the analogue domain
+by filtering a signal (Eq.<A HREF="node59.html#notFIRyet">107</A>). The timedomain representation
+of this is a discrete and causal convolution operation (using the
+sampled Laplace transform). However, the problem is that this runs to
+<SPAN  CLASS="textsl">infinite time</SPAN> and would require an infinite number of delay
+steps and thus infinite time to complete. So the FIR filter at best
+performs an approximation of the convolution operation but there
+are serious problems with the finite number of taps (<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
+ ALT="$N$"></SPAN>) which
+requires a technique called windowing which moves it even further away
+from a convolution operation. On the other hand if the impulse
+response is strictly limited in time one can use this property for
+example for matched filters. However, the bottomline is that sweeping statements
+such as that &ldquo;FIR filters perform a convolution&rdquo; are <SPAN  CLASS="textsl">generally wrong</SPAN>
+if nothing is known of the impulse response.
 
 <P>
-</LI>
-<LI>Python: Here, the FIR filter is implemented as a
-  class which receives the FIR filter coefficients
-  in the constructor and then filters a signal sample
-  by sample in the function filter:
-
-<P>
-<PRE>
-class FIR_filter:
-    def __init__(self,_coefficients):
-        self.ntaps = len(_coefficients)
-        self.coefficients = _coefficients
-        self.buffer = np.zeros(self.ntaps)
-
-    def filter(self,v):
-        self.buffer = np.roll(self.buffer,1)
-        self.buffer[0] = v
-        return np.inner(self.buffer,self.coefficients)
-</PRE>
-which again processes the signal sample by sample. It uses
-the numpy &ldquo;roll&rdquo; command to shift the samples and then
-the inner product to calculate the weighted sum between
-the buffer and the coefficients.
-
-<P>
-If one wants
-to filter a whole array one can use Python's lfilter command:
-<PRE>
-import scipy.signal as signal
-y = signal.lfilter(h,1,x)
-</PRE>
-This filters the signal <SPAN  CLASS="texttt">x</SPAN> with the impulse response
-<SPAN  CLASS="texttt">h</SPAN>. Note that this operation is on an array and thus
-a-causal.
-</LI>
-</UL>
-More sophisticated code can be found in <A
- HREF="node88.html#NumericalRec2007">Teukolsky et&nbsp;al. (2007)</A>.
-This book is strongly recommended for any C programmer who
-needs efficient solutions.
-
-<P>
-
-<DIV class="CENTER"><A ID="fir_fixed"></A><A ID="1631"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 17:</STRONG>
-Fixed point FIR filter. The output signal is bit shifted to the
-  right by <SPAN CLASS="MATH"><IMG STYLE="height: 1.19ex; vertical-align: -0.10ex; " SRC="img13.svg"
- ALT="$w$"></SPAN> bits while the coefficients are scaled up by <SPAN CLASS="MATH"><IMG STYLE="height: 1.70ex; vertical-align: -0.10ex; " SRC="img14.svg"
- ALT="$2^w$"></SPAN>.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img272.svg"
- ALT="\includegraphics[width=\linewidth]{fir_fixed}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node61.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node58.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node59.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html384"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node61.html">Fixed point FIR filters</A>
-<B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
-<B> Previous:</B> <A
- HREF="node59.html">Generally FIR filters do</A>
- &nbsp; <B>  <A ID="tex2html385"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

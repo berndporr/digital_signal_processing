@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Bibliography</TITLE>
-<META NAME="description" CONTENT="Bibliography">
+<TITLE>Limitations / outlook</TITLE>
+<META NAME="description" CONTENT="Limitations / outlook">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -16,7 +16,7 @@
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
 <LINK REL="next" HREF="node89.html">
-<LINK REL="previous" HREF="node87.html">
+<LINK REL="previous" HREF="node50.html">
 <LINK REL="next" HREF="node89.html">
 </HEAD>
 
@@ -32,53 +32,140 @@
 <A
  HREF="node87.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html461"
+<A ID="tex2html464"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node89.html">About this document ...</A>
+ HREF="node89.html">Bibliography</A>
 <B> Up:</B> <A
  HREF="digital_signal_processing.html">Digital Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node87.html">Limitations / outlook</A>
- &nbsp; <B>  <A ID="tex2html462"
+ HREF="node87.html">Identifying filters from their</A>
+ &nbsp; <B>  <A ID="tex2html465"
   HREF="node1.html">Contents</A></B> 
-<BR><BR></DIV>
+<BR>
+<BR></DIV>
 <!--End of Navigation Panel-->
+
+<H1><A ID="SECTION000100000000000000000">
+Limitations / outlook</A>
+</H1>
+So far the coefficients have been constant in the filters. However,
+in many situations these coefficients need to change while the
+filter is operating. For example, an ECG with broadband muscle noise
+requires an adaptive approach because the noise level is unknown.
+The noise and the ECG overlap in their
+spectra. We need a lowpass filter which does a tradeoff between loosing
+the signal and filtering out most of the noise:
+The problem is that the signal to noise ratio is constantly changing.
+A fixed cut off is not a good option. We need to change the
+cut off all the time. One example is a Kalman filter.
+The idea is to maximise the
+<SPAN  CLASS="textsl">predictability</SPAN> of the filtered signal.
+A lowpass filter increases the predictability of a signal because
+it smoothes the signal.
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z) = \frac{b}{1 - a z^{-1}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img424.svg"
+ ALT="$\displaystyle H(z) = \frac{b}{1 - a z^{-1}}
+$"> 
+
+(<SPAN CLASS="arabic">175</SPAN>)
+</DIV>
+The parameter <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img425.svg"
+ ALT="$a$"></SPAN> determines the cutoff frequency.
+Frequency Response :
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+|H(e^{j \omega}) | = |\frac{b}{1 - a e^{-j \omega}}|
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img426.svg"
+ ALT="$\displaystyle \vert H(e^{j \omega}) \vert = \vert\frac{b}{1 - a e^{-j \omega}}\vert
+$"> 
+
+(<SPAN CLASS="arabic">176</SPAN>)
+</DIV>
+Let's re-interpret our low-pass filter in the time domain:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="img427.svg"
+ ALT="$\displaystyle \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) ...
+...estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
+$"> 
+
+(<SPAN CLASS="arabic">177</SPAN>)
+</DIV>
+We would like to have the best estimate for <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img428.svg"
+ ALT="$y(n)$"></SPAN>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="img429.svg"
+ ALT="$\displaystyle p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
+$"> 
+
+(<SPAN CLASS="arabic">178</SPAN>)
+</DIV>
+We need to minimise <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img430.svg"
+ ALT="$p$"></SPAN> which gives us equations for a and b which
+implements a Kalman filter.
+
 <P>
-<H2><A ID="SECTIONREF">Bibliography</A>
-</H2>
+Transmission line equalisation also requires an adaptive approach
+where the coefficients of the filter are determined by a known
+training sequence. The coefficients are changed until the desired
+training sequence appears at the output of the filter.
 
-<DL class="COMPACT">
-<DT><A ID="Diniz2002">
-Diniz, P. S.&nbsp;R. (2002).
-</A>
-<DD> <EM>Digital Signal Processing</EM>.
-<BR> Cambridge university press, Cambridge.
+<P>
 
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="digital_signal_processing.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html464"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<P>
-<DT><A ID="Proakis1996">
-Proakis, J.&nbsp;G. and Manolakis, D.&nbsp;G. (1996).
-</A>
-<DD> <EM>Digital Signal Processing</EM>.
-<BR> Prentice-Hall, New Jersey.
-
-<BR>
-<P>
-<DT><A ID="NumericalRec2007">
-Teukolsky, S.&nbsp;A., Vetterling, W.&nbsp;T., and Flannery, B.&nbsp;P. (2007).
-</A>
-<DD> <EM>Numerical Recipes: The Art of Scientific Computing</EM>.
-<BR> Cambridge University Press, 3rd edition.
-
-<BR>
-<P>
-</DL>
-
-<P>
-<BR><HR>
+<B> Next:</B> <A
+ HREF="node89.html">Bibliography</A>
+<B> Up:</B> <A
+ HREF="digital_signal_processing.html">Digital Signal Processing</A>
+<B> Previous:</B> <A
+ HREF="node87.html">Identifying filters from their</A>
+ &nbsp; <B>  <A ID="tex2html465"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Causality</TITLE>
-<META NAME="description" CONTENT="Causality">
+<TITLE>Motivation</TITLE>
+<META NAME="description" CONTENT="Motivation">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,50 +27,61 @@
  HREF="node52.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node49.html">
+ HREF="node50.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node50.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html356"
+<A ID="tex2html359"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node52.html">Convolution of Causal Signal</A>
+ HREF="node52.html">Causality</A>
 <B> Up:</B> <A
- HREF="node49.html">Causal Signal Processing</A>
+ HREF="node50.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node50.html">Motivation</A>
- &nbsp; <B>  <A ID="tex2html357"
+ HREF="node50.html">Causal Signal Processing</A>
+ &nbsp; <B>  <A ID="tex2html360"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00092000000000000000">
-Causality</A>
+<H2><A ID="SECTION00091000000000000000">
+Motivation</A>
 </H2>
-Fig.&nbsp;<A HREF="node50.html#causality">12</A> illustrates the concept of causality.
-Causal systems cannot look into the future. They can only react
-to a certain input. Causal signals are kept zero for <SPAN CLASS="MATH"><IMG STYLE="height: 1.75ex; vertical-align: -0.16ex; " SRC="img11.svg"
- ALT="$t&lt;0$"></SPAN>
-per definition.
+
+<P>
+Here are some randomly chosen reasons why we need causal
+signal processing:
+
+<UL>
+<LI>Fourier transform is <SPAN  CLASS="textsl">not real time</SPAN>.  
+We need the whole signal from the first to the last sample.
+</LI>
+<LI>Reaction time: in time critical systems (robotics) we
+want to react as fast as possible and with as little delay as possible!
+</LI>
+<LI>We would like to &ldquo;recycle&rdquo; our analogue math.
+</LI>
+</UL>
 
 <P>
 
-<DIV class="CENTER"><A ID="convolution"></A><A ID="1613"></A>
+<DIV class="CENTER"><A ID="causality"></A><A ID="1614"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 13:</STRONG>
-Illustration of the convolution. The shaded area
-shows the integration for <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.10ex; " SRC="img12.svg"
- ALT="$t=1$"></SPAN>.
+<CAPTION class="BOTTOM"><STRONG>Figure 12:</STRONG>
+A causal system only <SPAN  CLASS="textsl">reacts</SPAN> to it's input.
+Causal signals only evolve in positive time. Per definition the
+signal is zero for <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img11.svg"
+ ALT="$t&lt;0$"></SPAN>.
 </CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img202.svg"
- ALT="\includegraphics[width=0.75\textwidth]{convol}">
+ SRC="img201.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{causality}">
 
 </DIV></TD></TR>
 </TABLE>

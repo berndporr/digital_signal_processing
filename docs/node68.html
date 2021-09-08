@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Signal Detection</TITLE>
-<META NAME="description" CONTENT="Signal Detection">
+<TITLE>FIR filter design with Python's high level functions</TITLE>
+<META NAME="description" CONTENT="FIR filter design with Python's high level functions">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,8 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node69.html">
-<LINK REL="previous" HREF="node58.html">
+<LINK REL="previous" HREF="node67.html">
 <LINK REL="next" HREF="node69.html">
 </HEAD>
 
@@ -27,142 +26,45 @@
  HREF="node69.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node49.html">
+ HREF="node59.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node67.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html400"
+<A ID="tex2html403"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node69.html">IIR Filter</A>
+ HREF="node69.html">Signal Detection</A>
 <B> Up:</B> <A
- HREF="node49.html">Causal Signal Processing</A>
+ HREF="node59.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node67.html">FIR filter design with</A>
- &nbsp; <B>  <A ID="tex2html401"
+ HREF="node67.html">Design steps for FIR</A>
+ &nbsp; <B>  <A ID="tex2html404"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00099000000000000000">
-Signal Detection</A>
-</H2>
-How can I detect a certain event in a signal? With a correlator.
-Definition of a correlator?
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-e(t) = \int_{0}^{t} \underbrace{s(\tau)}_{\mbox{signal}} \underbrace{r(\tau)}_{\mbox{template}} d(\tau)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 7.79ex; vertical-align: -4.65ex; " SRC="img335.svg"
- ALT="$\displaystyle e(t) = \int_{0}^{t} \underbrace{s(\tau)}_{\mbox{signal}} \underbrace{r(\tau)}_{\mbox{template}} d(\tau)
-$"> 
-
-(<SPAN CLASS="arabic">135</SPAN>)
-</DIV>
+<H3><A ID="SECTION00098900000000000000">
+FIR filter design with Python's high level functions</A>
+</H3>
+The &ldquo;firwin&rdquo; command generates the impulse response of
+a filter with m taps and also applies a default window function. For example:
+<PRE>
+from scipy.signal import firwin
+h = firwin(m,2*f)
+</PRE>
+generates a lowpass FIR filter with the normalised frequency f. Note the
+factor two because in scipy the normalisation is <SPAN  CLASS="textsl">not</SPAN> the sampling rate
+but the <SPAN  CLASS="textsl">nyquist frequency</SPAN>. To be compatible with the math here the
+easiest approach is to multiply the frequency by 2. With this command
+one can also design high pass, bandstop and bandpass filters. Type <SPAN  CLASS="texttt">help(firwin)</SPAN>
+which provides examples for all filter types and which parameters need
+to be set.
 
 <P>
-How to build a correlator with a filter? Definition of filtering?
-
-<P>
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-e(t) = \int_{0}^{\infty} s(\tau) h(t - \tau) d\tau
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.63ex; vertical-align: -1.76ex; " SRC="img336.svg"
- ALT="$\displaystyle e(t) = \int_{0}^{\infty} s(\tau) h(t - \tau) d\tau
-$"> 
-
-(<SPAN CLASS="arabic">136</SPAN>)
-</DIV>
-NB. h - integration runs backwards.  However we used an int forward!
-<!-- MATH
- $h(t) : = r(T - \tau)$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img337.svg"
- ALT="$h(t) : = r(T - \tau)$"></SPAN>, only valid for <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img338.svg"
- ALT="$0\ldots T$"></SPAN>.
-
-<P>
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-e(t) & = & \int_{0}^{T} s(\tau) r \left(T - (t - \tau)\right) d\tau \\
-     & = & \int_{0}^{T} s(\tau) r(T - t + \tau) d\tau
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.51ex; vertical-align: -0.68ex; " SRC="img339.svg"
- ALT="$\displaystyle e(t)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.02ex; vertical-align: -1.76ex; " SRC="img340.svg"
- ALT="$\displaystyle \int_{0}^{T} s(\tau) r \left(T - (t - \tau)\right) d\tau$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">137</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.03ex; vertical-align: -0.10ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.02ex; vertical-align: -1.76ex; " SRC="img341.svg"
- ALT="$\displaystyle \int_{0}^{T} s(\tau) r(T - t + \tau) d\tau$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">138</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-for <SPAN CLASS="MATH"><IMG STYLE="height: 1.77ex; vertical-align: -0.10ex; " SRC="img342.svg"
- ALT="$t: = T$"></SPAN> we get:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-e(T) = \int_{0}^{\infty} s(\tau) r (\tau) d\tau
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.63ex; vertical-align: -1.76ex; " SRC="img343.svg"
- ALT="$\displaystyle e(T) = \int_{0}^{\infty} s(\tau) r (\tau) d\tau
-$"> 
-
-(<SPAN CLASS="arabic">139</SPAN>)
-</DIV>
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\underbrace{h(t) : = r(T - t)}_{ matched \quad  filter!}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.78ex; vertical-align: -3.96ex; " SRC="img344.svg"
- ALT="$\displaystyle \underbrace{h(t) : = r(T - t)}_{ matched \quad filter!}
-$"> 
-
-(<SPAN CLASS="arabic">140</SPAN>)
-</DIV>
-In order to design a detector we just create an impulse
-response <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.10ex; " SRC="img207.svg"
- ALT="$h$"></SPAN> by reversing the template <SPAN CLASS="MATH"><IMG STYLE="height: 1.19ex; vertical-align: -0.10ex; " SRC="img18.svg"
- ALT="$r$"></SPAN> in time and
-constructing an FIR filter with it.
-
-<P>
-How to improve the matching process? Square the output of the filter!
-
-<P>
-
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
