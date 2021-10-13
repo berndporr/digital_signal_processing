@@ -1981,6 +1981,60 @@ constructing an FIR filter with it.
 
 How to improve the matching process? Square the output of the filter!
 
+\begin{figure}[!hbt]
+\begin{center}
+\mbox{\includegraphics[width=\linewidth]{fir_lms}}
+\caption{Adaptive FIR filter \label{fir_lms}}
+\end{center}
+\end{figure}
+
+\subsection{Adaptive FIR filters}
+So far the coefficients of the FIR filter have been constant but now we are
+going to allow them to change \textsl{slowly} while the FIR filter is operating.
+The idea is to use an error signal $e(n)$ to tune the coefficients of
+the FIR filter (see Fig.~\ref{fir_lms}) by comparing its
+output $y(n)$ with a desired output $d(n)$:
+\begin{equation}
+  e(n) = d(n) - y(n) \label{lmserror}
+\end{equation}
+Now we need to derive how the error can change the coefficients so
+that the error is minimised.  That can be simply expressed as a
+gradient descent which minimises the squared error, as of course both a positive
+or a negative error are as bad:
+\begin{equation}
+  \Delta h_j = - \mu \frac{\partial \frac{1}{2}e(n)^2}{\partial h_j} \label{graddes}
+\end{equation}
+Note here the change in notation for the FIR filter coefficients $h_j$. These
+changing much \textsl{slower} than the sampled signals $e(n), d(n)$ and $y(n)$.
+Eq~\ref{graddes} can simply understood if we test what happens if we change
+the FIR coefficient $h_j$  a little bit, for example, by the small
+amount of $\epsilon$: $h_j := h_j + \epsilon$. Then we can observe two
+cases:
+\begin{enumerate}
+\item The error $\frac{1}{2}e(n)^2$ increases so we need to decrease $h_j$ as it makes it worse.
+\item The error $\frac{1}{2}e(n)^2$ decreases so we need to increase $h_j$ as it makes it better.
+\end{enumerate}
+This also works in the same way if we decrease $h_j$ by a small amount. Thus from
+both directions this always minimises the error. This is basically a carrot \& stick
+approach where coefficients $h_j$ are being ``rewarded'' if they minimise the error and
+``punished'' if they make the error larger.
+In order to arrive at a so called ``learning rule'' we just need to calculate the
+partial derivative of Eq.~\ref{graddes} by substituting Eq.~\ref{lmserror} into it.
+\begin{eqnarray}
+  \Delta h_j & = & - \mu \frac{\partial \frac{1}{2}\left(d(n)-y(n)\right)^2}{\partial h_j} \\
+             & = & - \mu \frac{\partial \frac{1}{2}\left(d(n)-\sum_j x_j(n) h_j(n)\right)^2}{\partial h_j} \\
+             & = & \mu \left(d(n)-y(n)\right) x_j(n) \\
+             & = & \mu e(n) x_j(n)
+\end{eqnarray}
+where $\mu$ is the learning rate. Note that $x_j(n)$ emerges because
+of the chain rule when partially differentiating the output
+$y(n)$ which depends on the sum of the delay lines of the FIR
+filter.
+
+Imagine you want to remove noise from the signal $x(n)$ then one
+would provide the pure noise as $d(n)$ so that then the filter
+learns to remove that noise. At first counter-intuitive the signal
+$e(n)$ is then also the \textsl{output} of the filter.
 
 \clearpage
 \subsection{IIR Filter}

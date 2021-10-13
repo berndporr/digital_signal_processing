@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Poles</TITLE>
-<META NAME="description" CONTENT="Poles">
+<TITLE>Zeros</TITLE>
+<META NAME="description" CONTENT="Zeros">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,117 +27,194 @@
  HREF="node85.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node82.html">
+ HREF="node83.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node83.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html456"
+<A ID="tex2html460"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node85.html">Stability</A>
+ HREF="node85.html">Poles</A>
 <B> Up:</B> <A
- HREF="node82.html">The role of poles</A>
+ HREF="node83.html">The role of poles</A>
 <B> Previous:</B> <A
- HREF="node83.html">Zeros</A>
- &nbsp; <B>  <A ID="tex2html457"
+ HREF="node83.html">The role of poles</A>
+ &nbsp; <B>  <A ID="tex2html461"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000911200000000000000">
-Poles</A>
+<H3><A ID="SECTION000912100000000000000">
+Zeros</A>
 </H3>
-While zeros knock out frequencies, poles amplify frequencies.
-Let's investigate complex conjugate poles:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z) = \frac{1}{\underbrace{(1 - r e^{j \omega_{0}} z^{-1})(1 - r e^{-j \omega_{0}} z^{-1})}_{2 poles!}}
-\end{equation}
- -->
- &nbsp;  <A ID="resonatorz"></A><IMG STYLE="height: 8.49ex; vertical-align: -5.46ex; " SRC="img413.svg"
- ALT="$\displaystyle H(z) = \frac{1}{\underbrace{(1 - r e^{j \omega_{0}} z^{-1})(1 - r e^{-j \omega_{0}} z^{-1})}_{2 poles!}}
-$"> 
-
-(<SPAN CLASS="arabic">170</SPAN>)
-</DIV>
-which are characterised by their resonance frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img17.svg"
- ALT="$\omega _0$"></SPAN>
-and the amplification <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img414.svg"
- ALT="$0&lt;r&lt;1$"></SPAN>.
-
-<P>
-In order to obtain a data flow diagram we need to get powers of <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img365.svg"
- ALT="$z^{-1}$"></SPAN>
-because they represent delays.
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z) = \frac{1}{1 - 2 r \cos(\omega_{0}) z^{-1} + r^{2} z^{-2}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.25ex; vertical-align: -2.20ex; " SRC="img415.svg"
- ALT="$\displaystyle H(z) = \frac{1}{1 - 2 r \cos(\omega_{0}) z^{-1} + r^{2} z^{-2}}
-$"> 
-
-(<SPAN CLASS="arabic">171</SPAN>)
-</DIV>
-which we multiply with the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img416.svg"
- ALT="$Y(z)$"></SPAN>:
+Let's look at the transfer function:
 <BR>
 <DIV ALIGN="CENTER">
 
 <!-- MATH
  \begin{eqnarray}
-Y(z) & = & X(z) \frac{1}{1 - 2 r \cos (\omega) z^{-1} + r^{2} z^{-2}} \\
-X(z) & = & Y(z) - Y(z) 2r \cos (\omega_{0}) z^{-1} + Y(z) r^{2} z^{-2} \\
-Y(z) & = & X(z) + z^{-1} Y(z) 2r \cos (\omega_{0}) - z^{-2} Y(z) r^{2}
+H(z) & = & (1 - e^{j\omega_0} z^{-1})(1 - e^{-j\omega_0} z^{-1}) \\
+     & = & 1 - z^{-1} e^{j \omega-{0}} + z^{-2} \\
+     & = & 1 - z^{-1} (e^{j \omega_{0}} + e^{-j \omega_{0}}) + z^{-2} \\
+     & = & 1 - z^{-1} 2 \cos \omega_{0} + z^{-2}
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img361.svg"
- ALT="$\displaystyle Y(z)$"></TD>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img369.svg"
+ ALT="$\displaystyle H(z)$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.25ex; vertical-align: -2.20ex; " SRC="img417.svg"
- ALT="$\displaystyle X(z) \frac{1}{1 - 2 r \cos (\omega) z^{-1} + r^{2} z^{-2}}$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="img418.svg"
+ ALT="$\displaystyle (1 - e^{j\omega_0} z^{-1})(1 - e^{-j\omega_0} z^{-1})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">169</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.29ex; vertical-align: -0.28ex; " SRC="img419.svg"
+ ALT="$\displaystyle 1 - z^{-1} e^{j \omega-{0}} + z^{-2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">170</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="img420.svg"
+ ALT="$\displaystyle 1 - z^{-1} (e^{j \omega_{0}} + e^{-j \omega_{0}}) + z^{-2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">171</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.41ex; vertical-align: -0.43ex; " SRC="img421.svg"
+ ALT="$\displaystyle 1 - z^{-1} 2 \cos \omega_{0} + z^{-2}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">172</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img418.svg"
- ALT="$\displaystyle X(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="img419.svg"
- ALT="$\displaystyle Y(z) - Y(z) 2r \cos (\omega_{0}) z^{-1} + Y(z) r^{2} z^{-2}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">173</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img361.svg"
- ALT="$\displaystyle Y(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="img420.svg"
- ALT="$\displaystyle X(z) + z^{-1} Y(z) 2r \cos (\omega_{0}) - z^{-2} Y(z) r^{2}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">174</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
-This gives us a second order recursive filter (IIR) which is
-shown in Fig&nbsp;<A HREF="node83.html#iir_stop">24</A>. These complex
-conjugate poles generate a resonance at <SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img421.svg"
- ALT="$\pm\omega_0$"></SPAN> where the
-amplitude is determined by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img18.svg"
- ALT="$r$"></SPAN>.
+which leads to the data flow diagram shown in Fig&nbsp;<A HREF="node83.html#fir_stop">24</A>.
 
 <P>
-<BR><HR>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(e^{j\omega}) = \underbrace{(1 - e^{j\omega_0}e^{-j\omega})(1 - e^{-j\omega_0} e^{-j\omega})}_{\mbox{2 zeros}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.97ex; vertical-align: -3.98ex; " SRC="img422.svg"
+ ALT="$\displaystyle H(e^{j\omega}) = \underbrace{(1 - e^{j\omega_0}e^{-j\omega})(1 - e^{-j\omega_0} e^{-j\omega})}_{\mbox{2 zeros}}
+$"> 
+
+(<SPAN CLASS="arabic">173</SPAN>)
+</DIV>
+
+<P>
+The zeroes at 
+<!-- MATH
+ $e^{j \omega_{0}}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="img423.svg"
+ ALT="$e^{j \omega_{0}}$"></SPAN> and <!-- MATH
+ $e^{-j \omega_0}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="img424.svg"
+ ALT="$e^{-j \omega_0}$"></SPAN> 
+eliminate the frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img425.svg"
+ ALT="$\omega_{0}$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img426.svg"
+ ALT="$-\omega_{0}$"></SPAN>. 
+
+<P>
+A special case is <!-- MATH
+ $\omega_{0} = 0$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.97ex; vertical-align: -0.43ex; " SRC="img427.svg"
+ ALT="$\omega_{0} = 0$"></SPAN>
+which gives us:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+H(z) & = & (1 - e^{0} z^{-1})(1 - e^{0} z^{-1}) \\
+     & = & 1 - 2 z^{-1} + z^{-2}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img369.svg"
+ ALT="$\displaystyle H(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="img428.svg"
+ ALT="$\displaystyle (1 - e^{0} z^{-1})(1 - e^{0} z^{-1})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">174</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.26ex; vertical-align: -0.28ex; " SRC="img429.svg"
+ ALT="$\displaystyle 1 - 2 z^{-1} + z^{-2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">175</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+a DC filter.
+
+<P>
+In summary: zeros eliminate frequencies (and change phase).
+That's the idea of an FIR filter where loads of zeros (or loads of taps)
+knock out the frequencies in the stopband.
+
+<P>
+
+<DIV class="CENTER"><A ID="iir_stop"></A><A ID="1731"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 25:</STRONG>
+A two tap IIR resonator for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img17.svg"
+ ALT="$\omega _0$"></SPAN> and with
+the amplification <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img18.svg"
+ ALT="$r$"></SPAN>.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img430.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{iir_stop}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html460"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node85.html">Poles</A>
+<B> Up:</B> <A
+ HREF="node83.html">The role of poles</A>
+<B> Previous:</B> <A
+ HREF="node83.html">The role of poles</A>
+ &nbsp; <B>  <A ID="tex2html461"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

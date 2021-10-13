@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Limitations / outlook</TITLE>
-<META NAME="description" CONTENT="Limitations / outlook">
+<TITLE>Identifying filters from their poles and zeroes</TITLE>
+<META NAME="description" CONTENT="Identifying filters from their poles and zeroes">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,8 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node89.html">
-<LINK REL="previous" HREF="node50.html">
+<LINK REL="previous" HREF="node87.html">
 <LINK REL="next" HREF="node89.html">
 </HEAD>
 
@@ -27,145 +26,40 @@
  HREF="node89.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="digital_signal_processing.html">
+ HREF="node83.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node87.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html464"
+<A ID="tex2html468"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node89.html">Bibliography</A>
+ HREF="node89.html">Limitations / outlook</A>
 <B> Up:</B> <A
- HREF="digital_signal_processing.html">Digital Signal Processing</A>
+ HREF="node83.html">The role of poles</A>
 <B> Previous:</B> <A
- HREF="node87.html">Identifying filters from their</A>
- &nbsp; <B>  <A ID="tex2html465"
+ HREF="node87.html">Design of an IIR</A>
+ &nbsp; <B>  <A ID="tex2html469"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION000100000000000000000">
-Limitations / outlook</A>
-</H1>
-So far the coefficients have been constant in the filters. However,
-in many situations these coefficients need to change while the
-filter is operating. For example, an ECG with broadband muscle noise
-requires an adaptive approach because the noise level is unknown.
-The noise and the ECG overlap in their
-spectra. We need a lowpass filter which does a tradeoff between loosing
-the signal and filtering out most of the noise:
-The problem is that the signal to noise ratio is constantly changing.
-A fixed cut off is not a good option. We need to change the
-cut off all the time. One example is a Kalman filter.
-The idea is to maximise the
-<SPAN  CLASS="textsl">predictability</SPAN> of the filtered signal.
-A lowpass filter increases the predictability of a signal because
-it smoothes the signal.
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z) = \frac{b}{1 - a z^{-1}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img426.svg"
- ALT="$\displaystyle H(z) = \frac{b}{1 - a z^{-1}}
-$"> 
-
-(<SPAN CLASS="arabic">176</SPAN>)
-</DIV>
-The parameter <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img427.svg"
- ALT="$a$"></SPAN> determines the cutoff frequency.
-Frequency Response :
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-|H(e^{j \omega}) | = |\frac{b}{1 - a e^{-j \omega}}|
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img428.svg"
- ALT="$\displaystyle \vert H(e^{j \omega}) \vert = \vert\frac{b}{1 - a e^{-j \omega}}\vert
-$"> 
-
-(<SPAN CLASS="arabic">177</SPAN>)
-</DIV>
-Let's re-interpret our low-pass filter in the time domain:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="img429.svg"
- ALT="$\displaystyle \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) ...
-...estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
-$"> 
-
-(<SPAN CLASS="arabic">178</SPAN>)
-</DIV>
-We would like to have the best estimate for <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img430.svg"
- ALT="$y(n)$"></SPAN>
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="img431.svg"
- ALT="$\displaystyle p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
-$"> 
-
-(<SPAN CLASS="arabic">179</SPAN>)
-</DIV>
-We need to minimise <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img432.svg"
- ALT="$p$"></SPAN> which gives us equations for a and b which
-implements a Kalman filter.
+<H3><A ID="SECTION000912500000000000000">
+Identifying filters from their poles and zeroes</A>
+</H3>
+<A
+ HREF="node90.html#Proakis1996">Proakis and Manolakis (1996, pp.333)</A> has an excellent section about this topic
+and we refer the reader to have a look. As a rule of thumb a digital
+lowpass filter has poles where their real parts are positive and a
+highpass filter has poles with negative real part of the complex
+poles. In both cases they reside within the unit circle to guarantee
+stability.
 
 <P>
-Transmission line equalisation also requires an adaptive approach
-where the coefficients of the filter are determined by a known
-training sequence. The coefficients are changed until the desired
-training sequence appears at the output of the filter.
-
-<P>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node89.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="digital_signal_processing.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node87.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html464"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node89.html">Bibliography</A>
-<B> Up:</B> <A
- HREF="digital_signal_processing.html">Digital Signal Processing</A>
-<B> Previous:</B> <A
- HREF="node87.html">Identifying filters from their</A>
- &nbsp; <B>  <A ID="tex2html465"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

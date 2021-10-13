@@ -7,7 +7,7 @@ $external_labels{$key} = "$URL/" . q|node44.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/ExpoFunktion/;
-$external_labels{$key} = "$URL/" . q|node71.html|; 
+$external_labels{$key} = "$URL/" . q|node72.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/FIRa/;
@@ -39,19 +39,19 @@ $external_labels{$key} = "$URL/" . q|node64.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/IIReq/;
-$external_labels{$key} = "$URL/" . q|node71.html|; 
+$external_labels{$key} = "$URL/" . q|node72.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/IIRfilter/;
-$external_labels{$key} = "$URL/" . q|node71.html|; 
+$external_labels{$key} = "$URL/" . q|node72.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/IIRtime/;
-$external_labels{$key} = "$URL/" . q|node72.html|; 
+$external_labels{$key} = "$URL/" . q|node73.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/Verg/;
-$external_labels{$key} = "$URL/" . q|node72.html|; 
+$external_labels{$key} = "$URL/" . q|node73.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/anti_alias/;
@@ -63,7 +63,7 @@ $external_labels{$key} = "$URL/" . q|node47.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/butterworth_poles/;
-$external_labels{$key} = "$URL/" . q|node75.html|; 
+$external_labels{$key} = "$URL/" . q|node76.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/causality/;
@@ -71,15 +71,15 @@ $external_labels{$key} = "$URL/" . q|node51.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/cite_Diniz2002/;
-$external_labels{$key} = "$URL/" . q|node89.html|; 
+$external_labels{$key} = "$URL/" . q|node90.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/cite_NumericalRec2007/;
-$external_labels{$key} = "$URL/" . q|node89.html|; 
+$external_labels{$key} = "$URL/" . q|node90.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/cite_Proakis1996/;
-$external_labels{$key} = "$URL/" . q|node89.html|; 
+$external_labels{$key} = "$URL/" . q|node90.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/compactDFT/;
@@ -126,8 +126,12 @@ $key = q/fir_fixed/;
 $external_labels{$key} = "$URL/" . q|node61.html|; 
 $noresave{$key} = "$nosave";
 
+$key = q/fir_lms/;
+$external_labels{$key} = "$URL/" . q|node69.html|; 
+$noresave{$key} = "$nosave";
+
 $key = q/fir_stop/;
-$external_labels{$key} = "$URL/" . q|node82.html|; 
+$external_labels{$key} = "$URL/" . q|node83.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fold_down/;
@@ -140,6 +144,10 @@ $noresave{$key} = "$nosave";
 
 $key = q/frequency_response/;
 $external_labels{$key} = "$URL/" . q|node57.html|; 
+$noresave{$key} = "$nosave";
+
+$key = q/graddes/;
+$external_labels{$key} = "$URL/" . q|node70.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/grpdelay/;
@@ -155,19 +163,19 @@ $external_labels{$key} = "$URL/" . q|node66.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fir_stop/;
-$external_labels{$key} = "$URL/" . q|node85.html|; 
+$external_labels{$key} = "$URL/" . q|node86.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fixed/;
-$external_labels{$key} = "$URL/" . q|node74.html|; 
+$external_labels{$key} = "$URL/" . q|node75.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_stop/;
-$external_labels{$key} = "$URL/" . q|node83.html|; 
+$external_labels{$key} = "$URL/" . q|node84.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_types/;
-$external_labels{$key} = "$URL/" . q|node73.html|; 
+$external_labels{$key} = "$URL/" . q|node74.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/imp1/;
@@ -179,11 +187,15 @@ $external_labels{$key} = "$URL/" . q|node63.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/impInv/;
-$external_labels{$key} = "$URL/" . q|node71.html|; 
+$external_labels{$key} = "$URL/" . q|node72.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/lapltrans/;
 $external_labels{$key} = "$URL/" . q|node54.html|; 
+$noresave{$key} = "$nosave";
+
+$key = q/lmserror/;
+$external_labels{$key} = "$URL/" . q|node70.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/mappingsz/;
@@ -191,7 +203,7 @@ $external_labels{$key} = "$URL/" . q|node58.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/matchedz/;
-$external_labels{$key} = "$URL/" . q|node71.html|; 
+$external_labels{$key} = "$URL/" . q|node72.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/max_sampl/;
@@ -211,7 +223,7 @@ $external_labels{$key} = "$URL/" . q|node42.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/prewarp/;
-$external_labels{$key} = "$URL/" . q|node79.html|; 
+$external_labels{$key} = "$URL/" . q|node80.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/quant_err/;
@@ -223,7 +235,7 @@ $external_labels{$key} = "$URL/" . q|node34.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/resonatorz/;
-$external_labels{$key} = "$URL/" . q|node84.html|; 
+$external_labels{$key} = "$URL/" . q|node85.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/sFunktion/;
@@ -255,7 +267,7 @@ $external_labels{$key} = "$URL/" . q|node44.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/translpoles/;
-$external_labels{$key} = "$URL/" . q|node71.html|; 
+$external_labels{$key} = "$URL/" . q|node72.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/transmin/;
@@ -263,7 +275,7 @@ $external_labels{$key} = "$URL/" . q|node63.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/transzeros/;
-$external_labels{$key} = "$URL/" . q|node71.html|; 
+$external_labels{$key} = "$URL/" . q|node72.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/visualisation/;
@@ -294,7 +306,7 @@ $external_latex_labels{$key} = q|49|;
 $noresave{$key} = "$nosave";
 
 $key = q/ExpoFunktion/;
-$external_latex_labels{$key} = q|143|; 
+$external_latex_labels{$key} = q|149|; 
 $noresave{$key} = "$nosave";
 
 $key = q/FIRa/;
@@ -322,19 +334,19 @@ $external_latex_labels{$key} = q|121|;
 $noresave{$key} = "$nosave";
 
 $key = q/IIReq/;
-$external_latex_labels{$key} = q|149|; 
+$external_latex_labels{$key} = q|155|; 
 $noresave{$key} = "$nosave";
 
 $key = q/IIRfilter/;
-$external_latex_labels{$key} = q|19|; 
+$external_latex_labels{$key} = q|20|; 
 $noresave{$key} = "$nosave";
 
 $key = q/IIRtime/;
-$external_latex_labels{$key} = q|156|; 
+$external_latex_labels{$key} = q|162|; 
 $noresave{$key} = "$nosave";
 
 $key = q/Verg/;
-$external_latex_labels{$key} = q|155|; 
+$external_latex_labels{$key} = q|161|; 
 $noresave{$key} = "$nosave";
 
 $key = q/_/;
@@ -350,7 +362,7 @@ $external_latex_labels{$key} = q|72|;
 $noresave{$key} = "$nosave";
 
 $key = q/butterworth_poles/;
-$external_latex_labels{$key} = q|22|; 
+$external_latex_labels{$key} = q|23|; 
 $noresave{$key} = "$nosave";
 
 $key = q/causality/;
@@ -401,8 +413,12 @@ $key = q/fir_fixed/;
 $external_latex_labels{$key} = q|17|; 
 $noresave{$key} = "$nosave";
 
+$key = q/fir_lms/;
+$external_latex_labels{$key} = q|19|; 
+$noresave{$key} = "$nosave";
+
 $key = q/fir_stop/;
-$external_latex_labels{$key} = q|23|; 
+$external_latex_labels{$key} = q|24|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fold_down/;
@@ -415,6 +431,10 @@ $noresave{$key} = "$nosave";
 
 $key = q/frequency_response/;
 $external_latex_labels{$key} = q|15|; 
+$noresave{$key} = "$nosave";
+
+$key = q/graddes/;
+$external_latex_labels{$key} = q|144|; 
 $noresave{$key} = "$nosave";
 
 $key = q/grpdelay/;
@@ -430,19 +450,19 @@ $external_latex_labels{$key} = q|133|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fir_stop/;
-$external_latex_labels{$key} = q|25|; 
+$external_latex_labels{$key} = q|26|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fixed/;
-$external_latex_labels{$key} = q|21|; 
+$external_latex_labels{$key} = q|22|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_stop/;
-$external_latex_labels{$key} = q|24|; 
+$external_latex_labels{$key} = q|25|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_types/;
-$external_latex_labels{$key} = q|20|; 
+$external_latex_labels{$key} = q|21|; 
 $noresave{$key} = "$nosave";
 
 $key = q/imp1/;
@@ -454,11 +474,15 @@ $external_latex_labels{$key} = q|118|;
 $noresave{$key} = "$nosave";
 
 $key = q/impInv/;
-$external_latex_labels{$key} = q|150|; 
+$external_latex_labels{$key} = q|156|; 
 $noresave{$key} = "$nosave";
 
 $key = q/lapltrans/;
 $external_latex_labels{$key} = q|78|; 
+$noresave{$key} = "$nosave";
+
+$key = q/lmserror/;
+$external_latex_labels{$key} = q|143|; 
 $noresave{$key} = "$nosave";
 
 $key = q/mappingsz/;
@@ -466,7 +490,7 @@ $external_latex_labels{$key} = q|100|;
 $noresave{$key} = "$nosave";
 
 $key = q/matchedz/;
-$external_latex_labels{$key} = q|152|; 
+$external_latex_labels{$key} = q|158|; 
 $noresave{$key} = "$nosave";
 
 $key = q/max_sampl/;
@@ -486,7 +510,7 @@ $external_latex_labels{$key} = q|5|;
 $noresave{$key} = "$nosave";
 
 $key = q/prewarp/;
-$external_latex_labels{$key} = q|163|; 
+$external_latex_labels{$key} = q|169|; 
 $noresave{$key} = "$nosave";
 
 $key = q/quant_err/;
@@ -498,7 +522,7 @@ $external_latex_labels{$key} = q|3|;
 $noresave{$key} = "$nosave";
 
 $key = q/resonatorz/;
-$external_latex_labels{$key} = q|171|; 
+$external_latex_labels{$key} = q|177|; 
 $noresave{$key} = "$nosave";
 
 $key = q/sFunktion/;
@@ -530,7 +554,7 @@ $external_latex_labels{$key} = q|7|;
 $noresave{$key} = "$nosave";
 
 $key = q/translpoles/;
-$external_latex_labels{$key} = q|151|; 
+$external_latex_labels{$key} = q|157|; 
 $noresave{$key} = "$nosave";
 
 $key = q/transmin/;
@@ -538,7 +562,7 @@ $external_latex_labels{$key} = q|115|;
 $noresave{$key} = "$nosave";
 
 $key = q/transzeros/;
-$external_latex_labels{$key} = q|152|; 
+$external_latex_labels{$key} = q|158|; 
 $noresave{$key} = "$nosave";
 
 $key = q/visualisation/;
