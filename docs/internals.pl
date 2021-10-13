@@ -18,6 +18,10 @@ $key = q/FIRd/;
 $ref_files{$key} = "$dir".q|node59.html|; 
 $noresave{$key} = "$nosave";
 
+$key = q/FIRdefault/;
+$ref_files{$key} = "$dir".q|node59.html|; 
+$noresave{$key} = "$nosave";
+
 $key = q/FIRfilter/;
 $ref_files{$key} = "$dir".q|node58.html|; 
 $noresave{$key} = "$nosave";
@@ -112,6 +116,10 @@ $noresave{$key} = "$nosave";
 
 $key = q/filter/;
 $ref_files{$key} = "$dir".q|node54.html|; 
+$noresave{$key} = "$nosave";
+
+$key = q/fir_digital/;
+$ref_files{$key} = "$dir".q|node59.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fir_fixed/;

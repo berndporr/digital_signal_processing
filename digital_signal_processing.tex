@@ -1450,15 +1450,6 @@ periodic! This is a subtle implication of the sampling theorem.
 
 
 
-\begin{figure}[!hbt]
-\begin{center}
-\mbox{\includegraphics[width=\linewidth]{fir}}
-\caption{FIR filter \label{FIRfilter}}
-\end{center}
-\end{figure}
-
-
-
 \clearpage
 \subsection{FIR Filter}
 What happens if we sample the impulse response $h(t)$ of an
@@ -1500,19 +1491,32 @@ can hold $N=100$ samples:
 H(z)X(z)=\underbrace{\sum_{n=0}^N h(nT) z^{-n}}_{H(z)} X(z) \label{FIRfromAnalogue}
 \end{equation}
 
+\begin{figure}[!hbt]
+\begin{center}
+\mbox{\includegraphics[width=\linewidth]{fir_digital}}
+\caption{Digital FIR filter with normalised frequency \label{fir_digital}}
+\end{center}
+\end{figure}
+
 This is the formula of an Finite Impulse Response filter where we have
 sampled an analogue impulse response $h(t)$ at time intervals of $T$.
-However, often the impulse response of the filter is derived directly
-in the digital domain where the argument of $h(n)$ represent just sample
-indices $n$ and the sampling interval is implicitly the inverse of the sampling
+However, usually the impulse response of the filter is directly derived
+in the digital domain where the argument $n$ of $h(n)$ represents just the sample
+index $n$ and the sampling interval is implicitly the inverse of the sampling
 rate. For that reason one needs to distinguish between:
 
 \begin{eqnarray}
 H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize{analogue}}(nT) z^{-n} \, X(z) \label{FIRa} \\
-H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize{digital}}(n) z^{-n} \, X(z) \label{FIRd}
+H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize{digital}}(n) z^{-n} \, X(z) \label{FIRd} \\
+         & = & \sum_{n=0}^N h_(n) z^{-n} \, X(z) \label{FIRdefault}
 \end{eqnarray}
 
-This is usually clear from the context which impulse response is meant.
+Eq~\ref{FIRa} is the filter where the impulse response is based on an analogue
+filter and Eq.~\ref{FIRd} is based on the impulse response originating from a digital filter
+design (see section~\ref{freqsamp} and \ref{idealFilt}) where the frequencies
+are normalised frequencies from $0$ to $0.5$. From now on we will
+always refer to the ``digital'' one (Eq.~\ref{FIRd}) and the subscript will be
+omitted (Eq.~\ref{FIRdefault} \& Fig.~\ref{fir_digital})).
 
 \subsubsection{Generally FIR filters do not perform a convolution operation}
 

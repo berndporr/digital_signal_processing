@@ -55,15 +55,15 @@ method">
 Python code: 
 impulse response from the inverse DFT - The frequency sampling
 method
-</H3> Imagine that we want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img311.svg"
+</H3> Imagine that we want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img313.svg"
  ALT="$50Hz$"></SPAN> from a
-signal with sampling rate of <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img312.svg"
+signal with sampling rate of <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img314.svg"
  ALT="$1kHz$"></SPAN>. We define an FIR filter with 100
-taps. The midpoint <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img313.svg"
- ALT="$N/2=50$"></SPAN> corresponds to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img314.svg"
- ALT="$500Hz$"></SPAN>. The <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img311.svg"
+taps. The midpoint <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img315.svg"
+ ALT="$N/2=50$"></SPAN> corresponds to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img316.svg"
+ ALT="$500Hz$"></SPAN>. The <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img313.svg"
  ALT="$50Hz$"></SPAN>
-correspond to index <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img315.svg"
+correspond to index <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img317.svg"
  ALT="$5$"></SPAN>.
 <PRE>
 f_resp=np.ones(100)
@@ -80,7 +80,7 @@ h_shift[50:100]=h[0:50]
 h_wind=h_shift*hamming(100)
 </PRE>
 To get a nice symmetric impulse response we need to shift the
-inverse around <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img316.svg"
+inverse around <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img318.svg"
  ALT="$50$"></SPAN> samples.
 
 <P>

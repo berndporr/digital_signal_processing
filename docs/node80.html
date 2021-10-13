@@ -53,16 +53,16 @@ IIR filter design steps:</A>
 </H4>
 
 <OL>
-<LI>Choose the cut-off frequency of your digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img392.svg"
+<LI>Choose the cut-off frequency of your digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img394.svg"
  ALT="$\omega_{c}$"></SPAN>.
 </LI>
 <LI>Calculate the analogue cutoff frequency <!-- MATH
  $\omega_{c} \rightarrow
   \Omega_{c}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img393.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img395.svg"
  ALT="$\omega_{c} \rightarrow
-\Omega_{c}$"></SPAN> with Eq.&nbsp;<A HREF="node79.html#prewarp">162</A>
+\Omega_{c}$"></SPAN> with Eq.&nbsp;<A HREF="node79.html#prewarp">163</A>
 </LI>
 <LI>Choose your favourite analogue lowpass filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img245.svg"
  ALT="$H(s)$"></SPAN>,
@@ -74,18 +74,18 @@ for example Butterworth.
  ALT="$H(s)$"></SPAN> by <!-- MATH
  $s = \frac{2}{T} \frac{z - 1}{z + 1}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.96ex; vertical-align: -1.03ex; " SRC="img394.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.96ex; vertical-align: -1.03ex; " SRC="img396.svg"
  ALT="$s = \frac{2}{T} \frac{z - 1}{z + 1}$"></SPAN> 
-to obtain the digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img262.svg"
+to obtain the digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
  ALT="$H(z)$"></SPAN>
 </LI>
-<LI>Change the transfer function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img262.svg"
+<LI>Change the transfer function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
  ALT="$H(z)$"></SPAN> so that it only contains
 negative powers of <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img248.svg"
  ALT="$z$"></SPAN> (<!-- MATH
  $z^{-1}, z^{-2}, \ldots$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.40ex; vertical-align: -0.53ex; " SRC="img395.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.40ex; vertical-align: -0.53ex; " SRC="img397.svg"
  ALT="$z^{-1}, z^{-2}, \ldots$"></SPAN>) which can be
 interpreted as delay lines.
 </LI>
@@ -98,7 +98,7 @@ For filter-orders higher than two one needs to develop a different
 strategy because the bilinear transform is a real <SPAN  CLASS="textsl">pain</SPAN> to
 calculate for anything above the order of two. Nobody wants to
 transform high order analogue transfer functions <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img245.svg"
- ALT="$H(s)$"></SPAN> to the <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img262.svg"
+ ALT="$H(s)$"></SPAN> to the <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
  ALT="$H(z)$"></SPAN>
 domain. However, there is an important property of all analogue
 transfer functions: they generate complex conjugate pole pairs (plus
@@ -116,7 +116,7 @@ The design strategy is thus to split up the analogue transfer function
  $H(s) = H_1(s) H_2(s) H_3(s)
 \ldots$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img396.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img398.svg"
  ALT="$H(s) = H_1(s) H_2(s) H_3(s)
 \ldots$"></SPAN> and then to apply the bilinear transform on every 2nd order
 term separately. Using this strategy you only need to calculate the bilinear

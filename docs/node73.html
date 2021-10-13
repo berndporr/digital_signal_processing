@@ -60,19 +60,19 @@ A filter with forward and feedback components can be represented as:
 H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.65ex; vertical-align: -2.19ex; " SRC="img370.svg"
+ &nbsp;  <IMG STYLE="height: 5.65ex; vertical-align: -2.19ex; " SRC="img372.svg"
  ALT="$\displaystyle H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}} $"> 
 
-(<SPAN CLASS="arabic">155</SPAN>)
+(<SPAN CLASS="arabic">156</SPAN>)
 </DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img371.svg"
- ALT="$B_k$"></SPAN> are the FIR coefficients and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img372.svg"
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img373.svg"
+ ALT="$B_k$"></SPAN> are the FIR coefficients and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img374.svg"
  ALT="$A_l$"></SPAN> the recursive coefficients.
 Note the signs of the recursive coefficients are <SPAN  CLASS="textsl">inverted</SPAN> in the
 actual implementation of the filter. This can be seen when the
-function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img262.svg"
+function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
  ALT="$H(z)$"></SPAN> is actually multiplied with an input signal to
-obtain the output signal (see Eq.&nbsp;<A HREF="node72.html#IIRtime">155</A> and Fig.&nbsp;<A HREF="node71.html#IIRfilter">19</A>).
+obtain the output signal (see Eq.&nbsp;<A HREF="node72.html#IIRtime">156</A> and Fig.&nbsp;<A HREF="node71.html#IIRfilter">19</A>).
 The &ldquo;1&rdquo; in the denominator represents actually the output of
 the filter. If this factor is not one then the output will be scaled
 by that factor. However, usually this is kept one.
@@ -92,7 +92,7 @@ The &ldquo;1&rdquo; represents the output.
 
 <P>
 
-<DIV class="CENTER"><A ID="iir_types"></A><A ID="1661"></A>
+<DIV class="CENTER"><A ID="iir_types"></A><A ID="1671"></A>
 <TABLE>
 <CAPTION class="BOTTOM"><STRONG>Figure 20:</STRONG>
 A) Direct Form I filter which one accumulator and
@@ -101,7 +101,7 @@ A) Direct Form I filter which one accumulator and
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img373.svg"
+ SRC="img375.svg"
  ALT="\includegraphics[width=\textwidth]{iir_types}">
 
 </DIV></TD></TR>

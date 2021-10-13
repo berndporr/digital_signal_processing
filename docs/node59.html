@@ -62,7 +62,7 @@ analogue filter? Let's find out:
 h(t)=\sum_{n=0}^\infty h(nT) \delta(t-nT)
 \end{equation}
  -->
- &nbsp;  <A ID="sampltime"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img256.svg"
+ &nbsp;  <A ID="sampltime"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img255.svg"
  ALT="$\displaystyle
 h(t)=\sum_{n=0}^\infty h(nT) \delta(t-nT)
 $"> 
@@ -79,7 +79,7 @@ H(s)=\sum_{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_
                                            {z^{-1}}}^n
 \end{equation}
  -->
- &nbsp;  <A ID="sFunktion"></A><IMG STYLE="height: 7.56ex; vertical-align: -4.22ex; " SRC="img257.svg"
+ &nbsp;  <A ID="sFunktion"></A><IMG STYLE="height: 7.56ex; vertical-align: -4.22ex; " SRC="img256.svg"
  ALT="$\displaystyle
 H(s)=\sum_{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_
 {z^{-1}}}^n
@@ -87,10 +87,10 @@ $">
 
 (<SPAN CLASS="arabic">104</SPAN>)
 </DIV>
-Remember that <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img258.svg"
+Remember that <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img257.svg"
  ALT="$e^{-sT}$"></SPAN> has a very handy meaning: it is a delay
 by the unit time step (Eq.&nbsp;<A HREF="node54.html#shiftOperation">81</A>).
-Thus <SPAN CLASS="MATH"><IMG STYLE="height: 1.90ex; vertical-align: -0.09ex; " SRC="img259.svg"
+Thus <SPAN CLASS="MATH"><IMG STYLE="height: 1.90ex; vertical-align: -0.09ex; " SRC="img258.svg"
  ALT="$z^{-n}$"></SPAN> is a delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img45.svg"
  ALT="$n$"></SPAN> time steps.
 We can rewrite Eq.&nbsp;<A HREF="#sFunktion">105</A>:
@@ -102,7 +102,7 @@ We can rewrite Eq.&nbsp;<A HREF="#sFunktion">105</A>:
 H(z)=\sum_{n=0}^\infty h(nT) {(z^{-1})}^n
 \end{equation}
  -->
- &nbsp;  <A ID="ztrans"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img260.svg"
+ &nbsp;  <A ID="ztrans"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img259.svg"
  ALT="$\displaystyle H(z)=\sum_{n=0}^\infty h(nT) {(z^{-1})}^n
 $"> 
 
@@ -112,8 +112,8 @@ This is the z-transform of the impulse response <SPAN CLASS="MATH"><IMG STYLE="h
  ALT="$h(t)$"></SPAN> of the filter.
 
 <P>
-We filter now the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
- ALT="$X(z)$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img262.svg"
+We filter now the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img260.svg"
+ ALT="$X(z)$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
  ALT="$H(z)$"></SPAN>:
 
 <DIV class="equation">
@@ -123,7 +123,7 @@ We filter now the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical
 H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
 \end{equation}
  -->
- &nbsp;  <A ID="notFIRyet"></A><IMG STYLE="height: 9.18ex; vertical-align: -5.85ex; " SRC="img263.svg"
+ &nbsp;  <A ID="notFIRyet"></A><IMG STYLE="height: 9.18ex; vertical-align: -5.85ex; " SRC="img262.svg"
  ALT="$\displaystyle H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
 $"> 
 
@@ -131,19 +131,19 @@ $">
 </DIV>
 
 <P>
-This sum is a direct recipe how to filter the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img261.svg"
+This sum is a direct recipe how to filter the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img260.svg"
  ALT="$X(z)$"></SPAN>. We only
-need the impulse response of the filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img264.svg"
+need the impulse response of the filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img263.svg"
  ALT="$h(nT)$"></SPAN> and we can
-set up a digital filter (see Fig.&nbsp;<A HREF="node58.html#FIRfilter">16</A>). Of course
+set up a digital filter (see Fig.&nbsp;<A HREF="node58.html#FIRfilter"><IMG  ALT="[*]" SRC="crossref.png"></A>). Of course
 in practise this impulse response cannot run till infinity
 but only for a limited number of samples. These are often
-called &ldquo;taps&rdquo;. So for example a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img265.svg"
- ALT="$100$"></SPAN> samples of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img264.svg"
+called &ldquo;taps&rdquo;. So for example a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img264.svg"
+ ALT="$100$"></SPAN> samples of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img263.svg"
  ALT="$h(nT)$"></SPAN> has
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img265.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img264.svg"
  ALT="$100$"></SPAN> &ldquo;taps&rdquo;. This in turn then requires a delay line which
-can hold <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img266.svg"
+can hold <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img265.svg"
  ALT="$N=100$"></SPAN> samples:
 
 <DIV class="equation">
@@ -153,7 +153,7 @@ can hold <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex;
 H(z)X(z)=\underbrace{\sum_{n=0}^N h(nT) z^{-n}}_{H(z)} X(z)
 \end{equation}
  -->
- &nbsp;  <A ID="FIRfromAnalogue"></A><A ID="FIRz"></A><IMG STYLE="height: 9.56ex; vertical-align: -5.85ex; " SRC="img267.svg"
+ &nbsp;  <A ID="FIRfromAnalogue"></A><A ID="FIRz"></A><IMG STYLE="height: 9.56ex; vertical-align: -5.85ex; " SRC="img266.svg"
  ALT="$\displaystyle
 H(z)X(z)=\underbrace{\sum_{n=0}^N h(nT) z^{-n}}_{H(z)} X(z)
 $"> 
@@ -162,24 +162,42 @@ $">
 </DIV>
 
 <P>
+
+<DIV class="CENTER"><A ID="fir_digital"></A><A ID="1640"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 16:</STRONG>
+Digital FIR filter with normalised frequency</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img267.svg"
+ ALT="\includegraphics[width=\linewidth]{fir_digital}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
 This is the formula of an Finite Impulse Response filter where we have
 sampled an analogue impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img213.svg"
  ALT="$h(t)$"></SPAN> at time intervals of <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img25.svg"
  ALT="$T$"></SPAN>.
-However, often the impulse response of the filter is derived directly
-in the digital domain where the argument of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img268.svg"
- ALT="$h(n)$"></SPAN> represent just sample
-indices <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img45.svg"
+However, usually the impulse response of the filter is directly derived
+in the digital domain where the argument <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img45.svg"
+ ALT="$n$"></SPAN> of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img268.svg"
+ ALT="$h(n)$"></SPAN> represents just the sample
+index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img45.svg"
  ALT="$n$"></SPAN> and the sampling interval is implicitly the inverse of the sampling
 rate. For that reason one needs to distinguish between:
 
 <P>
 <BR>
-<DIV ALIGN="CENTER"><A ID="FIRa"></A><A ID="FIRd"></A>
+<DIV ALIGN="CENTER"><A ID="FIRa"></A><A ID="FIRd"></A><A ID="FIRdefault"></A>
 <!-- MATH
  \begin{eqnarray}
 H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize {analogue}}(nT) z^{-n} \, X(z)\\
-H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize {digital}}(n) z^{-n} \, X(z)
+H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize {digital}}(n) z^{-n} \, X(z)\\
+         & = & \sum_{n=0}^N h_(n) z^{-n} \, X(z)
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
@@ -199,11 +217,25 @@ H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize {digital}}(n) z^{-n} \, X(z)
  ALT="$\displaystyle \sum_{n=0}^N h_\textrm{\footnotesize {digital}}(n) z^{-n} \, X(z)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">109</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img272.svg"
+ ALT="$\displaystyle \sum_{n=0}^N h_(n) z^{-n} \, X(z)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">110</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
 
 <P>
-This is usually clear from the context which impulse response is meant.
+Eq&nbsp;<A HREF="#FIRa">109</A> is the filter where the impulse response is based on an analogue
+filter and Eq.&nbsp;<A HREF="#FIRd">110</A> is based on the impulse response originating from a digital filter
+design (see section&nbsp;<A HREF="node65.html#freqsamp">8.8.6</A> and <A HREF="node66.html#idealFilt">8.8.7</A>) where the frequencies
+are normalised frequencies from <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img273.svg"
+ ALT="$0$"></SPAN> to <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img34.svg"
+ ALT="$0.5$"></SPAN>. From now on we will
+always refer to the &ldquo;digital&rdquo; one (Eq.&nbsp;<A HREF="#FIRd">110</A>) and the subscript will be
+omitted (Eq.&nbsp;<A HREF="#FIRdefault">111</A> &amp; Fig.&nbsp;<A HREF="#fir_digital">16</A>)).
 
 <P>
 <BR><HR>
