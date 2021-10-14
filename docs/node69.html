@@ -32,7 +32,7 @@
 <A
  HREF="node68.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html409"
+<A ID="tex2html410"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
@@ -42,7 +42,7 @@
  HREF="node50.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
  HREF="node68.html">FIR filter design with</A>
- &nbsp; <B>  <A ID="tex2html410"
+ &nbsp; <B>  <A ID="tex2html411"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -61,11 +61,11 @@ Definition of a correlator?
 e(t) = \int_{0}^{t} \underbrace{s(\tau)}_{\mbox{signal}} \underbrace{r(\tau)}_{\mbox{template}} d(\tau)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 7.55ex; vertical-align: -4.51ex; " SRC="img337.svg"
+ &nbsp;  <IMG STYLE="height: 7.55ex; vertical-align: -4.51ex; " SRC="img344.svg"
  ALT="$\displaystyle e(t) = \int_{0}^{t} \underbrace{s(\tau)}_{\mbox{signal}} \underbrace{r(\tau)}_{\mbox{template}} d(\tau)
 $"> 
 
-(<SPAN CLASS="arabic">136</SPAN>)
+(<SPAN CLASS="arabic">137</SPAN>)
 </DIV>
 
 <P>
@@ -80,18 +80,18 @@ How to build a correlator with a filter? Definition of filtering?
 e(t) = \int_{0}^{\infty} s(\tau) h(t - \tau) d\tau
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img338.svg"
+ &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img345.svg"
  ALT="$\displaystyle e(t) = \int_{0}^{\infty} s(\tau) h(t - \tau) d\tau
 $"> 
 
-(<SPAN CLASS="arabic">137</SPAN>)
+(<SPAN CLASS="arabic">138</SPAN>)
 </DIV>
 NB. h - integration runs backwards.  However we used an int forward!
 <!-- MATH
  $h(t) : = r(T - \tau)$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img339.svg"
- ALT="$h(t) : = r(T - \tau)$"></SPAN>, only valid for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img340.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img346.svg"
+ ALT="$h(t) : = r(T - \tau)$"></SPAN>, only valid for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img347.svg"
  ALT="$0\ldots T$"></SPAN>.
 
 <P>
@@ -105,24 +105,24 @@ e(t) & = & \int_{0}^{T} s(\tau) r \left(T - (t - \tau)\right) d\tau \\
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img341.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img348.svg"
  ALT="$\displaystyle e(t)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img342.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img349.svg"
  ALT="$\displaystyle \int_{0}^{T} s(\tau) r \left(T - (t - \tau)\right) d\tau$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">138</SPAN>)</TD></TR>
+(<SPAN CLASS="arabic">139</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img343.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img350.svg"
  ALT="$\displaystyle \int_{0}^{T} s(\tau) r(T - t + \tau) d\tau$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">139</SPAN>)</TD></TR>
+(<SPAN CLASS="arabic">140</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
-for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img344.svg"
+for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img351.svg"
  ALT="$t: = T$"></SPAN> we get:
 
 <DIV class="equation">
@@ -132,11 +132,11 @@ for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SR
 e(T) = \int_{0}^{\infty} s(\tau) r (\tau) d\tau
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img345.svg"
+ &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img352.svg"
  ALT="$\displaystyle e(T) = \int_{0}^{\infty} s(\tau) r (\tau) d\tau
 $"> 
 
-(<SPAN CLASS="arabic">140</SPAN>)
+(<SPAN CLASS="arabic">141</SPAN>)
 </DIV>
 
 <DIV class="equation">
@@ -146,15 +146,15 @@ $">
 \underbrace{h(t) : = r(T - t)}_{ matched \quad  filter!}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.60ex; vertical-align: -3.84ex; " SRC="img346.svg"
+ &nbsp;  <IMG STYLE="height: 5.60ex; vertical-align: -3.84ex; " SRC="img353.svg"
  ALT="$\displaystyle \underbrace{h(t) : = r(T - t)}_{ matched \quad filter!}
 $"> 
 
-(<SPAN CLASS="arabic">141</SPAN>)
+(<SPAN CLASS="arabic">142</SPAN>)
 </DIV>
 In order to design a detector we just create an impulse
-response <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img207.svg"
- ALT="$h$"></SPAN> by reversing the template <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img18.svg"
+response <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img213.svg"
+ ALT="$h$"></SPAN> by reversing the template <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
  ALT="$r$"></SPAN> in time and
 constructing an FIR filter with it.
 
@@ -163,14 +163,25 @@ How to improve the matching process? Square the output of the filter!
 
 <P>
 
-<DIV class="CENTER"><A ID="fir_lms"></A><A ID="1698"></A>
+<DIV class="CENTER"><A ID="fir_lms"></A><A ID="1718"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 19:</STRONG>
-Adaptive FIR filter</CAPTION>
+<CAPTION class="BOTTOM"><STRONG>Figure 20:</STRONG>
+Adaptive FIR filter: A) Negative feedback
+  loop where a desired signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN> is compared with the output
+  of the FIR filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
+ ALT="$y(n)$"></SPAN> and creates the error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> which
+  then tunes the FIR filter. B) Internal workings of the adaptive FIR
+  filter where the error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> is multiplied with the delayed input signal
+  <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img20.svg"
+ ALT="$x(n-m)$"></SPAN> and then changes the FIR filter coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN>.</CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img347.svg"
+ SRC="img354.svg"
  ALT="\includegraphics[width=\linewidth]{fir_lms}">
 
 </DIV></TD></TR>
@@ -178,7 +189,31 @@ Adaptive FIR filter</CAPTION>
 </DIV>
 
 <P>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html410"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node70.html">Adaptive FIR filters</A>
+<B> Up:</B> <A
+ HREF="node50.html">Causal Signal Processing</A>
+<B> Previous:</B> <A
+ HREF="node68.html">FIR filter design with</A>
+ &nbsp; <B>  <A ID="tex2html411"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

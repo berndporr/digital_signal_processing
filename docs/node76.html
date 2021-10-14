@@ -32,7 +32,7 @@
 <A
  HREF="node75.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html434"
+<A ID="tex2html435"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
@@ -42,7 +42,7 @@
  HREF="node71.html">IIR Filter</A>
 <B> Previous:</B> <A
  HREF="node75.html">IIR filter topologies</A>
- &nbsp; <B>  <A ID="tex2html435"
+ &nbsp; <B>  <A ID="tex2html436"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -51,19 +51,19 @@
 <H3><A ID="SECTION000911500000000000000">
 Fixed point IIR filters</A>
 </H3>
-Fig.&nbsp;<A HREF="node75.html#iir_fixed">22</A> shows the implementation of a fixed point IIR
+Fig.&nbsp;<A HREF="node75.html#iir_fixed">23</A> shows the implementation of a fixed point IIR
 filter. It's a Direct Form I filter with one accumulator so that
 temporary overflows can be compensated. The original floating point
-IIR coefficients are scaled up by factor <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.09ex; " SRC="img14.svg"
+IIR coefficients are scaled up by factor <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.09ex; " SRC="img15.svg"
  ALT="$2^w$"></SPAN> so that they max out
 the range of the integer coefficients. After the addition operation
-they are shifted back by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img13.svg"
+they are shifted back by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img14.svg"
  ALT="$w$"></SPAN>&nbsp;bits to their original values.
 
 <P>
 For example if the largest IIR coefficient is 1.9 and we use 16 bit
 signed numbers (max number is 32767) then one could multiply all
-coefficients with <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img395.svg"
+coefficients with <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img402.svg"
  ALT="$2^{14}$"></SPAN>.
 
 <P>
@@ -71,10 +71,10 @@ Then one needs to assess the maximum value in the accumulator which
 is much more difficult than for FIR filters. For example,
 resonators can generate high output values with even small input values
 so that it's advisable to have a large overhead in the accumulator.
-For example if the input signal is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img283.svg"
+For example if the input signal is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img290.svg"
  ALT="$16$"></SPAN>&nbsp;bit and the scaling factor is
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img396.svg"
- ALT="$14$"></SPAN>&nbsp;bits then the signal will certainly occupy <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img397.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img403.svg"
+ ALT="$14$"></SPAN>&nbsp;bits then the signal will certainly occupy <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img404.svg"
  ALT="$16+14=30$"></SPAN>&nbsp;bits. With
 an accumulator of 32 bits that gives only a headroom of 2&nbsp;bits so the
 output can only be 4 times larger than the input. A 64 bit accumulator
@@ -82,14 +82,14 @@ is a safe bet.
 
 <P>
 
-<DIV class="CENTER"><A ID="butterworth_poles"></A><A ID="1717"></A>
+<DIV class="CENTER"><A ID="butterworth_poles"></A><A ID="1736"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 23:</STRONG>
+<CAPTION class="BOTTOM"><STRONG>Figure 24:</STRONG>
 Pole placements of the Butterworth filter. Its analogue
   cutoff frequency is <!-- MATH
  $\Omega = 2\pi F$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img16.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img22.svg"
  ALT="$\Omega = 2\pi F$"></SPAN> where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img3.svg"
  ALT="$F$"></SPAN> is the
   analogue cutoff frequency in Hertz. This filter can be implemented
@@ -99,7 +99,7 @@ Pole placements of the Butterworth filter. Its analogue
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img398.svg"
+ SRC="img405.svg"
  ALT="\includegraphics[width=0.5\textwidth]{butterworth_poles}">
 
 </DIV></TD></TR>
@@ -119,7 +119,7 @@ Pole placements of the Butterworth filter. Its analogue
 <A
  HREF="node75.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html434"
+<A ID="tex2html435"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
@@ -129,7 +129,7 @@ Pole placements of the Butterworth filter. Its analogue
  HREF="node71.html">IIR Filter</A>
 <B> Previous:</B> <A
  HREF="node75.html">IIR filter topologies</A>
- &nbsp; <B>  <A ID="tex2html435"
+ &nbsp; <B>  <A ID="tex2html436"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>

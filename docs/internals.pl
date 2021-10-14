@@ -30,6 +30,10 @@ $key = q/FIRfromAnalogue/;
 $ref_files{$key} = "$dir".q|node59.html|; 
 $noresave{$key} = "$nosave";
 
+$key = q/FIRtime/;
+$ref_files{$key} = "$dir".q|node59.html|; 
+$noresave{$key} = "$nosave";
+
 $key = q/FIRz/;
 $ref_files{$key} = "$dir".q|node59.html|; 
 $noresave{$key} = "$nosave";
@@ -192,6 +196,10 @@ $noresave{$key} = "$nosave";
 
 $key = q/lapltrans/;
 $ref_files{$key} = "$dir".q|node54.html|; 
+$noresave{$key} = "$nosave";
+
+$key = q/lmsLearn/;
+$ref_files{$key} = "$dir".q|node70.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/lmserror/;

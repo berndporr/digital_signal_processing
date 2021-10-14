@@ -1448,6 +1448,12 @@ is evaluated along the imaginary axis, in the sampled case
 it happens along the unit circle which makes the response
 periodic! This is a subtle implication of the sampling theorem.
 
+\begin{figure}[!hbt]
+\begin{center}
+\mbox{\includegraphics[width=\linewidth]{fir}}
+\caption{FIR filter using the impulse response of the analogue filter $h(t)$ \label{FIRfilter}}
+\end{center}
+\end{figure}
 
 
 \clearpage
@@ -1485,10 +1491,10 @@ in practise this impulse response cannot run till infinity
 but only for a limited number of samples. These are often
 called ``taps''. So for example a filter with $100$ samples of $h(nT)$ has
 $100$ ``taps''. This in turn then requires a delay line which
-can hold $N=100$ samples:
+can hold $M=100$ samples:
 \begin{equation}
 \label{FIRz}
-H(z)X(z)=\underbrace{\sum_{n=0}^N h(nT) z^{-n}}_{H(z)} X(z) \label{FIRfromAnalogue}
+H(z)X(z)=\underbrace{\sum_{m=0}^M h(mT) z^{-m}}_{H(z)} X(z) \label{FIRfromAnalogue}
 \end{equation}
 
 \begin{figure}[!hbt]
@@ -1506,9 +1512,9 @@ index $n$ and the sampling interval is implicitly the inverse of the sampling
 rate. For that reason one needs to distinguish between:
 
 \begin{eqnarray}
-H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize{analogue}}(nT) z^{-n} \, X(z) \label{FIRa} \\
-H(z)X(z) & = & \sum_{n=0}^N h_\textrm{\footnotesize{digital}}(n) z^{-n} \, X(z) \label{FIRd} \\
-         & = & \sum_{n=0}^N h_(n) z^{-n} \, X(z) \label{FIRdefault}
+H(z)X(z) & = & \sum_{m=0}^M h_\textrm{\footnotesize{analogue}}(mT) z^{-n} \, X(z) \label{FIRa} \\
+H(z)X(z) & = & \sum_{m=0}^M h_\textrm{\footnotesize{digital}}(m) z^{-n} \, X(z) \label{FIRd} \\
+         & = & \sum_{m=0}^M h_(m) z^{-m} \, X(z) \label{FIRdefault}
 \end{eqnarray}
 
 Eq~\ref{FIRa} is the filter where the impulse response is based on an analogue
@@ -1518,22 +1524,28 @@ are normalised frequencies from $0$ to $0.5$. From now on we will
 always refer to the ``digital'' one (Eq.~\ref{FIRd}) and the subscript will be
 omitted (Eq.~\ref{FIRdefault} \& Fig.~\ref{fir_digital})).
 
+In the time domain the FIR filter is then doing the following operation:
+\begin{equation}
+  y(n) = \sum_{m=0}^{M-1} h(m) x(n-m) \label{FIRtime}
+\end{equation}
+
 \subsubsection{Generally FIR filters do not perform a convolution operation}
 
 Remember that we have derived the FIR filters from the analogue domain
-by filtering a signal (Eq.\ref{notFIRyet}). The timedomain representation
-of this is a discrete and causal convolution operation (using the
-sampled Laplace transform). However, the problem is that this runs to
-\textsl{infinite time} and would require an infinite number of delay
-steps and thus infinite time to complete. So the FIR filter at best
-performs an approximation of the convolution operation but there
-are serious problems with the finite number of taps ($N$) which
-requires a technique called windowing which moves it even further away
-from a convolution operation. On the other hand if the impulse
-response is strictly limited in time one can use this property for
-example for matched filters. However, the bottomline is that sweeping statements
-such as that ``FIR filters perform a convolution'' are \textsl{generally wrong}
-if nothing is known of the impulse response.
+by filtering a signal (Eq.\ref{notFIRyet}). The timedomain
+representation of this is a discrete and causal convolution operation
+(using the sampled Laplace transform). However, the problem is that
+this runs to \textsl{infinite time} (see Eq~\ref{FIRtime}) and would
+require an infinite number of delay steps and thus infinite time to
+complete. So the FIR filter at best performs an approximation of the
+convolution operation but there are serious problems with the finite
+number of taps ($N$) which requires a technique called windowing which
+moves it even further away from a convolution operation. On the other
+hand if the impulse response is strictly limited in time one can use
+this property for example for matched filters. However, the bottomline
+is that sweeping statements such as that ``FIR filters perform a
+convolution'' are \textsl{generally wrong} if nothing is known of the
+impulse response.
 
 
 
@@ -1716,8 +1728,6 @@ antisymmetric and the impulse response has to be delayed by $\tau=M/2$.
 with cutoff at $f=0.1$ and 100 taps. \label{window_functions}}
 \end{center}
 \end{figure}
-
-\clearpage
 
 
 \subsubsection{Window functions}
@@ -1984,57 +1994,89 @@ How to improve the matching process? Square the output of the filter!
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=\linewidth]{fir_lms}}
-\caption{Adaptive FIR filter \label{fir_lms}}
+\caption{Adaptive FIR filter \label{fir_lms}: A) Negative feedback
+  loop where a desired signal $d(n)$ is compared with the output
+  of the FIR filter $y(n)$ and creates the error signal $e(n)$ which
+  then tunes the FIR filter. B) Internal workings of the adaptive FIR
+  filter where the error signal $e(n)$ is multiplied with the delayed input signal
+  $x(n-m)$ and then changes the FIR filter coefficients $h_m$.}
 \end{center}
 \end{figure}
 
 \subsection{Adaptive FIR filters}
-So far the coefficients of the FIR filter have been constant but now we are
-going to allow them to change \textsl{slowly} while the FIR filter is operating.
-The idea is to use an error signal $e(n)$ to tune the coefficients of
-the FIR filter (see Fig.~\ref{fir_lms}) by comparing its
-output $y(n)$ with a desired output $d(n)$:
+So far the coefficients of the FIR filter have been constant but now
+we are going to allow them to change \textsl{while} the FIR filter is
+operating so that it can learn its own coefficients. The
+idea is to use an error signal $e(n)$ to tune the coefficients $h(n)$
+of the FIR filter (see Fig.~\ref{fir_lms}A) by comparing its output
+$y(n)$ with a desired output $d(n)$:
 \begin{equation}
   e(n) = d(n) - y(n) \label{lmserror}
 \end{equation}
-Now we need to derive how the error can change the coefficients so
-that the error is minimised.  That can be simply expressed as a
-gradient descent which minimises the squared error, as of course both a positive
-or a negative error are as bad:
+and tuning the FIR filter in a negative feedback loop till the
+average of $e(n)$ is zero.
+
+We need to derive how the error $e(n)$ can change the FIR filter
+coefficients so that the error is actually minimised. This can be
+expressed as a so called ``gradient descent'' which minimises the squared
+error $\frac{1}{2} e(n)^2$ because both a positive and a negative
+error are equally bad:
 \begin{equation}
-  \Delta h_j = - \mu \frac{\partial \frac{1}{2}e(n)^2}{\partial h_j} \label{graddes}
+  \Delta h_m = - \mu \frac{\partial\left( \frac{1}{2}e(n)^2 \right)}{\partial h_m} \label{graddes}
 \end{equation}
-Note here the change in notation for the FIR filter coefficients $h_j$. These
-changing much \textsl{slower} than the sampled signals $e(n), d(n)$ and $y(n)$.
-Eq~\ref{graddes} can simply understood if we test what happens if we change
-the FIR coefficient $h_j$  a little bit, for example, by the small
-amount of $\epsilon$: $h_j := h_j + \epsilon$. Then we can observe two
-cases:
+where $\Delta h_m(n)$ is the change of the coefficient $h_m(n)$ at
+every time step: $h_m(n+1) = h_m(n) + \Delta h_m(n)$.  $\mu \ll 1$
+defines how quickly the coefficients $h_m$ change at every time step
+and is called the ``learning rate''. Note here the change in notation
+of the FIR filter coefficients $h_m$ which are changing much
+\textsl{slower} than the sampled signals $e(n), d(n)$ and $y(n)$ and
+can still be seen as constant for the realtime filtering
+operation. Thus, we have $n$ for the sample by sample processing as
+before and the index $m$ of $h_m$ for the very slowly changing FIR
+filter coefficients. To gain some intuition why
+Eq.~\ref{graddes} mimimises the error $e(n)$ we look at what happens if we
+increase the FIR coefficient $h_m$ a little bit, for example, by the
+small amount of $|\epsilon| \ll 1$: $h_m := h_m + \epsilon$. Then we can
+observe two cases:
 \begin{enumerate}
-\item The error $\frac{1}{2}e(n)^2$ increases so we need to decrease $h_j$ as it makes it worse.
-\item The error $\frac{1}{2}e(n)^2$ decreases so we need to increase $h_j$ as it makes it better.
+\item The squared error $e(n)^2$ increases so we need to decrease $h_m$ as it makes it worse.
+\item The squared error $e(n)^2$ decreases so we need to increase $h_m$ as it makes it better.
 \end{enumerate}
-This also works in the same way if we decrease $h_j$ by a small amount. Thus from
+This also works in the same way if we decrease $h_m$ by a small amount. Thus from
 both directions this always minimises the error. This is basically a carrot \& stick
-approach where coefficients $h_j$ are being ``rewarded'' if they minimise the error and
-``punished'' if they make the error larger.
-In order to arrive at a so called ``learning rule'' we just need to calculate the
-partial derivative of Eq.~\ref{graddes} by substituting Eq.~\ref{lmserror} into it.
+approach where the coefficients $h_m$ are being ``rewarded'' if they minimise the error and
+``punished'' if they make the error larger. This approach is called ``Least Mean Squares'' (LMS)
+as it minimises the squared error on average. It's also known from neural networks where
+the $h_m$ are called the ``weights'' of a neuron (see delta rule).
+
+Eq~\ref{graddes} now needs to be turned into a form which can directly run in software by
+solving its partial derivative by inserting Eqs.~\ref{lmserror} and \ref{FIRtime}.
 \begin{eqnarray}
-  \Delta h_j & = & - \mu \frac{\partial \frac{1}{2}\left(d(n)-y(n)\right)^2}{\partial h_j} \\
-             & = & - \mu \frac{\partial \frac{1}{2}\left(d(n)-\sum_j x_j(n) h_j(n)\right)^2}{\partial h_j} \\
-             & = & \mu \left(d(n)-y(n)\right) x_j(n) \\
-             & = & \mu e(n) x_j(n)
+  \Delta h_m & = & - \mu \frac{1}{2}\frac{\partial \left(d(n)-y(n)\right)^2}{\partial h_m} \\
+                & = & - \mu \frac{1}{2}\frac{\partial \left(d(n)-\sum_{m=0}^{M-1} h_m \cdot x(n-m)\right)^2}{\partial h_m} \\
+                & = & \mu \left(d(n)-y(n)\right) \cdot x(n-m) \\
+                & = & \mu \cdot e(n) \cdot x(n-m) \label{lmsLearn}
 \end{eqnarray}
-where $\mu$ is the learning rate. Note that $x_j(n)$ emerges because
+Note that $x(n-m)$ emerges because
 of the chain rule when partially differentiating the output
 $y(n)$ which depends on the sum of the delay lines of the FIR
-filter.
+filter (see Eq~\ref{FIRtime}). Eq.~\ref{lmsLearn} is now our ``learning''
+rule which can simply be applied to the FIR filter as showm in Fig~\ref{fir_lms}B.
 
-Imagine you want to remove noise from the signal $x(n)$ then one
-would provide the pure noise as $d(n)$ so that then the filter
-learns to remove that noise. At first counter-intuitive the signal
-$e(n)$ is then also the \textsl{output} of the filter.
+Now we have the recipe of an adaptive filter where the FIR filter minimises its
+own error $e(n)$ in a negative feedback loop and generating an output
+$y(n)$ which is as closely as possible to the desired signal $d(n)$. The signal
+$y(n)$ is often called ``the remover'' as it cancels out the signal $d(n)$.
+In this respect the error signal $e(n)$ is not just an error signal but it's
+a signal where $d(n)$ has been removed. Thus, this adaptive filter can be
+used to filter out noise from a signal $x(n)$ if we get hold of reference
+noise and feed it into $d(n)$.
+
+Imagine you want to remove $50$~Hz mains from the signal $x(n)$ then one
+would provide the $50$~Hz mains as $d(n)$ so that then the filter
+learns to remove the powerline interference. At first counter-intuitive, the signal
+$e(n)$ is then the \textsl{output} of the filter where the $50$~Hz has been
+removed.
 
 \clearpage
 \subsection{IIR Filter}

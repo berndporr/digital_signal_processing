@@ -32,7 +32,7 @@
 <A
  HREF="node72.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html428"
+<A ID="tex2html429"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
@@ -42,7 +42,7 @@
  HREF="node71.html">IIR Filter</A>
 <B> Previous:</B> <A
  HREF="node72.html">Introduction</A>
- &nbsp; <B>  <A ID="tex2html429"
+ &nbsp; <B>  <A ID="tex2html430"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -51,7 +51,7 @@
 <H3><A ID="SECTION000911200000000000000">
 Determining the data-flow diagram of an IIR filter</A>
 </H3>
-To get a practical implementation of Eq.&nbsp;<A HREF="node72.html#IIReq">155</A> we have
+To get a practical implementation of Eq.&nbsp;<A HREF="node72.html#IIReq">156</A> we have
 to see it with its input- and output-signals:
 <BR>
 <DIV ALIGN="CENTER"><A ID="Verg"></A>
@@ -63,32 +63,32 @@ Y(z)&=&X(z)H(z)\\
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img379.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img386.svg"
  ALT="$\displaystyle Y(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img380.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img387.svg"
  ALT="$\displaystyle X(z)H(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">158</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.87ex; vertical-align: -1.82ex; " SRC="img381.svg"
- ALT="$\displaystyle X(z) {1\over 1-e^{-bT} z^{-1}}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">159</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img75.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img382.svg"
- ALT="$\displaystyle Y(z)z^{-1}e^{-bT}+X(z)$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.87ex; vertical-align: -1.82ex; " SRC="img388.svg"
+ ALT="$\displaystyle X(z) {1\over 1-e^{-bT} z^{-1}}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">160</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img389.svg"
+ ALT="$\displaystyle Y(z)z^{-1}e^{-bT}+X(z)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">161</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
-We have to recall that <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img383.svg"
- ALT="$z^{-1}$"></SPAN> is the delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img25.svg"
+We have to recall that <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img390.svg"
+ ALT="$z^{-1}$"></SPAN> is the delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img31.svg"
  ALT="$T$"></SPAN>. With that
 information we directly have a difference equation in the
 temporal domain:
@@ -100,23 +100,23 @@ temporal domain:
 y(nT)=y([n-1]T) e^{-bT} + x(nT)
 \end{equation}
  -->
- &nbsp;  <A ID="IIRtime"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img384.svg"
+ &nbsp;  <A ID="IIRtime"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img391.svg"
  ALT="$\displaystyle y(nT)=y([n-1]T) e^{-bT} + x(nT)
 $"> 
 
-(<SPAN CLASS="arabic">161</SPAN>)
+(<SPAN CLASS="arabic">162</SPAN>)
 </DIV>
-This means that the output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img385.svg"
+This means that the output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img392.svg"
  ALT="$y(nT)$"></SPAN> is calculated by
-adding the weighted and delayed output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img386.svg"
+adding the weighted and delayed output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img393.svg"
  ALT="$y([n-1]T)$"></SPAN> 
-to the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img387.svg"
+to the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img394.svg"
  ALT="$x(nT)$"></SPAN>.
-How this actually works is shown in Fig.&nbsp;<A HREF="node72.html#IIRfilter">20</A>.
+How this actually works is shown in Fig.&nbsp;<A HREF="node72.html#IIRfilter">21</A>.
 The attention is drawn to the <SPAN  CLASS="textsl">sign inversion</SPAN> of the weighting
-factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img388.svg"
+factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img395.svg"
  ALT="$e^{-bT}$"></SPAN> in contrast to the transfer function 
-Eq.&nbsp;<A HREF="node72.html#impInv">156</A> where it is <SPAN CLASS="MATH"><IMG STYLE="height: 2.23ex; vertical-align: -0.28ex; " SRC="img389.svg"
+Eq.&nbsp;<A HREF="node72.html#impInv">157</A> where it is <SPAN CLASS="MATH"><IMG STYLE="height: 2.23ex; vertical-align: -0.28ex; " SRC="img396.svg"
  ALT="$-e^{-bT}$"></SPAN>. In general the recursive
 coefficients change sign when they are taken from the transfer
 function.

@@ -32,7 +32,7 @@
 <A
  HREF="node63.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html399"
+<A ID="tex2html400"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
@@ -42,7 +42,7 @@
  HREF="node59.html">FIR Filter</A>
 <B> Previous:</B> <A
  HREF="node63.html">Constant group delay or</A>
- &nbsp; <B>  <A ID="tex2html400"
+ &nbsp; <B>  <A ID="tex2html401"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -54,14 +54,14 @@ Window functions</A>
 So far we still have a infinite number of coefficients for 
 for the FIR filter because there's no guarantee that the 
 impulse response becomes zero
-after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img305.svg"
+after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img312.svg"
  ALT="$M/2$"></SPAN> delays. Thus, we have to find a way to truncate the
 response without distorting the filter response.
 
 <P>
 The standard technique is to multiply the coefficients with a window
 function which becomes and stays zero at a certain coefficient
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img306.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img313.svg"
  ALT="$n&gt;N$"></SPAN> so that Eq.&nbsp;<A HREF="node59.html#FIRz">108</A> need not to run to infinity:
 
 <DIV class="equation">
@@ -71,12 +71,12 @@ function which becomes and stays zero at a certain coefficient
 H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
 \end{equation}
  -->
- &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img307.svg"
+ &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img314.svg"
  ALT="$\displaystyle
 H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
 $"> 
 
-(<SPAN CLASS="arabic">120</SPAN>)
+(<SPAN CLASS="arabic">121</SPAN>)
 </DIV>
 
 <P>
@@ -99,18 +99,18 @@ The stop-band damping is poor
 w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img308.svg"
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img315.svg"
  ALT="$\displaystyle w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
 $"> 
 
-(<SPAN CLASS="arabic">121</SPAN>)
+(<SPAN CLASS="arabic">122</SPAN>)
 </DIV>
 
 <UL>
-<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img309.svg"
+<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img316.svg"
  ALT="$\alpha = 0.54$"></SPAN>
 </LI>
-<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img310.svg"
+<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img317.svg"
  ALT="$\alpha = 0.5$"></SPAN>
 </LI>
 </UL>
@@ -127,12 +127,12 @@ w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
 0.08 \cos \left( \frac{4 \pi n}{M} \right) 
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img311.svg"
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img318.svg"
  ALT="$\displaystyle w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
 0.08 \cos \left( \frac{4 \pi n}{M} \right)
 $"> 
 
-(<SPAN CLASS="arabic">122</SPAN>)
+(<SPAN CLASS="arabic">123</SPAN>)
 </DIV>
 </LI>
 <LI>Kaiser window: control over stop- and passband. No closed form
@@ -140,14 +140,14 @@ equation available.
 </LI>
 </OL>
 To illustrate how window functions influence the frequency response
-we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img312.svg"
+we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img319.svg"
  ALT="$f_c=0.1$"></SPAN>)
-and applied different window functions to it (Fig.&nbsp;<A HREF="node63.html#window_functions">18</A>).
+and applied different window functions to it (Fig.&nbsp;<A HREF="node63.html#window_functions">19</A>).
 
 <P>
 Note that the higher the damping the wider the transition from pass-
 to stopband. This can be seen when comparing the Blackman window with
-the Hamming window (Fig.&nbsp;<A HREF="node63.html#window_functions">18</A>). For the lowpass
+the Hamming window (Fig.&nbsp;<A HREF="node63.html#window_functions">19</A>). For the lowpass
 filter this seems to be quite similar. However, for a bandstop filter
 the wider transition width might lead actually to very poor stopband
 damping. In such a case a Hamming window might be a better choice.
@@ -165,7 +165,7 @@ damping. In such a case a Hamming window might be a better choice.
 <A
  HREF="node63.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html399"
+<A ID="tex2html400"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
@@ -175,7 +175,7 @@ damping. In such a case a Hamming window might be a better choice.
  HREF="node59.html">FIR Filter</A>
 <B> Previous:</B> <A
  HREF="node63.html">Constant group delay or</A>
- &nbsp; <B>  <A ID="tex2html400"
+ &nbsp; <B>  <A ID="tex2html401"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>

@@ -32,7 +32,7 @@
 <A
  HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html391"
+<A ID="tex2html392"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
@@ -42,7 +42,7 @@
  HREF="node59.html">FIR Filter</A>
 <B> Previous:</B> <A
  HREF="node59.html">FIR Filter</A>
- &nbsp; <B>  <A ID="tex2html392"
+ &nbsp; <B>  <A ID="tex2html393"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -54,20 +54,21 @@ Generally FIR filters do not perform a convolution operation</A>
 
 <P>
 Remember that we have derived the FIR filters from the analogue domain
-by filtering a signal (Eq.<A HREF="node59.html#notFIRyet">107</A>). The timedomain representation
-of this is a discrete and causal convolution operation (using the
-sampled Laplace transform). However, the problem is that this runs to
-<SPAN  CLASS="textsl">infinite time</SPAN> and would require an infinite number of delay
-steps and thus infinite time to complete. So the FIR filter at best
-performs an approximation of the convolution operation but there
-are serious problems with the finite number of taps (<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
- ALT="$N$"></SPAN>) which
-requires a technique called windowing which moves it even further away
-from a convolution operation. On the other hand if the impulse
-response is strictly limited in time one can use this property for
-example for matched filters. However, the bottomline is that sweeping statements
-such as that &ldquo;FIR filters perform a convolution&rdquo; are <SPAN  CLASS="textsl">generally wrong</SPAN>
-if nothing is known of the impulse response.
+by filtering a signal (Eq.<A HREF="node59.html#notFIRyet">107</A>). The timedomain
+representation of this is a discrete and causal convolution operation
+(using the sampled Laplace transform). However, the problem is that
+this runs to <SPAN  CLASS="textsl">infinite time</SPAN> (see Eq&nbsp;<A HREF="node59.html#FIRtime">112</A>) and would
+require an infinite number of delay steps and thus infinite time to
+complete. So the FIR filter at best performs an approximation of the
+convolution operation but there are serious problems with the finite
+number of taps (<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
+ ALT="$N$"></SPAN>) which requires a technique called windowing which
+moves it even further away from a convolution operation. On the other
+hand if the impulse response is strictly limited in time one can use
+this property for example for matched filters. However, the bottomline
+is that sweeping statements such as that &ldquo;FIR filters perform a
+convolution&rdquo; are <SPAN  CLASS="textsl">generally wrong</SPAN> if nothing is known of the
+impulse response.
 
 <P>
 <BR><HR>
