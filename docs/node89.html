@@ -73,13 +73,13 @@ it smoothes the signal.
 H(z) = \frac{b}{1 - a z^{-1}}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img451.svg"
+ &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img454.svg"
  ALT="$\displaystyle H(z) = \frac{b}{1 - a z^{-1}}
 $"> 
 
-(<SPAN CLASS="arabic">183</SPAN>)
+(<SPAN CLASS="arabic">186</SPAN>)
 </DIV>
-The parameter <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img452.svg"
+The parameter <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img455.svg"
  ALT="$a$"></SPAN> determines the cutoff frequency.
 Frequency Response :
 
@@ -90,11 +90,11 @@ Frequency Response :
 |H(e^{j \omega}) | = |\frac{b}{1 - a e^{-j \omega}}|
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img453.svg"
+ &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img456.svg"
  ALT="$\displaystyle \vert H(e^{j \omega}) \vert = \vert\frac{b}{1 - a e^{-j \omega}}\vert
 $"> 
 
-(<SPAN CLASS="arabic">184</SPAN>)
+(<SPAN CLASS="arabic">187</SPAN>)
 </DIV>
 Let's re-interpret our low-pass filter in the time domain:
 
@@ -105,12 +105,12 @@ Let's re-interpret our low-pass filter in the time domain:
 \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="img454.svg"
+ &nbsp;  <IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="img457.svg"
  ALT="$\displaystyle \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) ...
 ...estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
 $"> 
 
-(<SPAN CLASS="arabic">185</SPAN>)
+(<SPAN CLASS="arabic">188</SPAN>)
 </DIV>
 We would like to have the best estimate for <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
  ALT="$y(n)$"></SPAN>
@@ -122,13 +122,13 @@ We would like to have the best estimate for <SPAN CLASS="MATH"><IMG STYLE="heigh
 p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="img455.svg"
+ &nbsp;  <IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="img458.svg"
  ALT="$\displaystyle p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
 $"> 
 
-(<SPAN CLASS="arabic">186</SPAN>)
+(<SPAN CLASS="arabic">189</SPAN>)
 </DIV>
-We need to minimise <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img456.svg"
+We need to minimise <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img459.svg"
  ALT="$p$"></SPAN> which gives us equations for a and b which
 implements a Kalman filter.
 

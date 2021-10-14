@@ -56,7 +56,7 @@ As a next step these analogue transfer functions <SPAN CLASS="MATH"><IMG STYLE="
 transformed to digital transfer functions <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
  ALT="$H(z)$"></SPAN>. This could be done
 by the matched z-transform
-(Eq.&nbsp;<A HREF="node72.html#matchedz">159</A>). However, the problem with these methods is that
+(Eq.&nbsp;<A HREF="node72.html#matchedz">162</A>). However, the problem with these methods is that
 they map frequencies 1:1 between the digital and analogue
 domain. Remember: in the sampled domain there is no infinite frequency
 but <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
@@ -70,7 +70,7 @@ frequency.
 The solution is to map <B>all</B> analogue frequencies from <!-- MATH
  $0 \ldots \infty$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img409.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img412.svg"
  ALT="$0 \ldots \infty$"></SPAN>
 to the sampled frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img41.svg"
  ALT="$0\ldots 0.5$"></SPAN> in a non-linear way:
@@ -82,11 +82,11 @@ to the sampled frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertic
 - \infty < \Omega < \infty \Rightarrow -\pi \leq \omega \leq \pi
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.02ex; vertical-align: -0.40ex; " SRC="img410.svg"
+ &nbsp;  <IMG STYLE="height: 2.02ex; vertical-align: -0.40ex; " SRC="img413.svg"
  ALT="$\displaystyle - \infty &lt; \Omega &lt; \infty \Rightarrow -\pi \leq \omega \leq \pi
 $"> 
 
-(<SPAN CLASS="arabic">165</SPAN>)
+(<SPAN CLASS="arabic">168</SPAN>)
 </DIV>
 This is called <SPAN  CLASS="textsl">Bilinear Transformation</SPAN>:
 
@@ -97,16 +97,16 @@ This is called <SPAN  CLASS="textsl">Bilinear Transformation</SPAN>:
 s = \frac{2}{T} \quad \frac{z - 1}{z + 1}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.86ex; vertical-align: -1.81ex; " SRC="img411.svg"
+ &nbsp;  <IMG STYLE="height: 4.86ex; vertical-align: -1.81ex; " SRC="img414.svg"
  ALT="$\displaystyle s = \frac{2}{T} \quad \frac{z - 1}{z + 1}
 $"> 
 
-(<SPAN CLASS="arabic">166</SPAN>)
+(<SPAN CLASS="arabic">169</SPAN>)
 </DIV>
 This rule replaces all <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img252.svg"
  ALT="$s$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img253.svg"
  ALT="$z$"></SPAN> in our analogue transfer
-function so that it's now digital. However, the cutoff frequency <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img412.svg"
+function so that it's now digital. However, the cutoff frequency <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img415.svg"
  ALT="$\Omega_c$"></SPAN>
 is still an analogue one but if we want to design a digital filter
 we want to specify a digital cutoff frequency. Plus remember that
@@ -115,7 +115,7 @@ mapping also of the cutoff.
 
 <P>
 In the analogue domain the
-frequency is given as <SPAN CLASS="MATH"><IMG STYLE="height: 2.16ex; vertical-align: -0.53ex; " SRC="img413.svg"
+frequency is given as <SPAN CLASS="MATH"><IMG STYLE="height: 2.16ex; vertical-align: -0.53ex; " SRC="img416.svg"
  ALT="$s = j\Omega$"></SPAN> and in the sampled domain as
 <!-- MATH
  $z = e^{j \omega}$
@@ -132,11 +132,11 @@ the analogue one:
 j \Omega = \frac{2}{T} \left[\frac{e^{j \omega} - 1}{e^{j \omega} +1}\right] = \frac{2}{T} j \tan \frac{\omega}{2}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img414.svg"
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img417.svg"
  ALT="$\displaystyle j \Omega = \frac{2}{T} \left[\frac{e^{j \omega} - 1}{e^{j \omega} +1}\right] = \frac{2}{T} j \tan \frac{\omega}{2}
 $"> 
 
-(<SPAN CLASS="arabic">167</SPAN>)
+(<SPAN CLASS="arabic">170</SPAN>)
 </DIV>
 This derivation is useful for two purposes. It shows the non-linear
 mapping between the digital and analogue world and it provides
@@ -145,7 +145,7 @@ a recipe how to calculate our analogue cutoff frequency.
 <P>
 That the bilinear transform is a 
 <B>non</B>linear mapping between the analogue world and the digital
-world can be directly seen by just omitting the <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img415.svg"
+world can be directly seen by just omitting the <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img418.svg"
  ALT="$j$"></SPAN>:
 
 <DIV class="equation">
@@ -155,11 +155,11 @@ world can be directly seen by just omitting the <SPAN CLASS="MATH"><IMG STYLE="h
 \Omega = \frac{2}{T} tan \frac{\omega}{2}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img416.svg"
+ &nbsp;  <IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img419.svg"
  ALT="$\displaystyle \Omega = \frac{2}{T} tan \frac{\omega}{2}
 $"> 
 
-(<SPAN CLASS="arabic">168</SPAN>)
+(<SPAN CLASS="arabic">171</SPAN>)
 </DIV>
 
 <P>
@@ -174,11 +174,11 @@ transformation to the cutoff frequency itself:
 \Omega_{c} = \frac{2}{T} tan \frac {\omega_{c}}{2}
 \end{equation}
  -->
- &nbsp;  <A ID="prewarp"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img417.svg"
+ &nbsp;  <A ID="prewarp"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img420.svg"
  ALT="$\displaystyle \Omega_{c} = \frac{2}{T} tan \frac {\omega_{c}}{2}
 $"> 
 
-(<SPAN CLASS="arabic">169</SPAN>)
+(<SPAN CLASS="arabic">172</SPAN>)
 </DIV>
 where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img31.svg"
  ALT="$T$"></SPAN> is the sampling interval. This is often called &ldquo;pre-warp&rdquo;
@@ -190,8 +190,8 @@ specify our cut-off in the sampled domain in normalised frequencies
 <!-- MATH
  $\omega_{c} = 2\pi f_{c}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img418.svg"
- ALT="$\omega_{c} = 2\pi f_{c}$"></SPAN> by using Eq.&nbsp;<A HREF="#prewarp">170</A>. After all we
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img421.svg"
+ ALT="$\omega_{c} = 2\pi f_{c}$"></SPAN> by using Eq.&nbsp;<A HREF="#prewarp">173</A>. After all we
 just use the analogue filter as a vehicle to design a digital filter.
 
 <P>

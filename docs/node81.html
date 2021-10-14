@@ -53,16 +53,16 @@ IIR filter design steps:</A>
 </H4>
 
 <OL>
-<LI>Choose the cut-off frequency of your digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img419.svg"
+<LI>Choose the cut-off frequency of your digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img422.svg"
  ALT="$\omega_{c}$"></SPAN>.
 </LI>
 <LI>Calculate the analogue cutoff frequency <!-- MATH
  $\omega_{c} \rightarrow
   \Omega_{c}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img420.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img423.svg"
  ALT="$\omega_{c} \rightarrow
-\Omega_{c}$"></SPAN> with Eq.&nbsp;<A HREF="node80.html#prewarp">170</A>
+\Omega_{c}$"></SPAN> with Eq.&nbsp;<A HREF="node80.html#prewarp">173</A>
 </LI>
 <LI>Choose your favourite analogue lowpass filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
  ALT="$H(s)$"></SPAN>,
@@ -74,7 +74,7 @@ for example Butterworth.
  ALT="$H(s)$"></SPAN> by <!-- MATH
  $s = \frac{2}{T} \frac{z - 1}{z + 1}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.96ex; vertical-align: -1.03ex; " SRC="img421.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.96ex; vertical-align: -1.03ex; " SRC="img424.svg"
  ALT="$s = \frac{2}{T} \frac{z - 1}{z + 1}$"></SPAN> 
 to obtain the digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
  ALT="$H(z)$"></SPAN>
@@ -85,7 +85,7 @@ negative powers of <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align
  ALT="$z$"></SPAN> (<!-- MATH
  $z^{-1}, z^{-2}, \ldots$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.40ex; vertical-align: -0.53ex; " SRC="img422.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.40ex; vertical-align: -0.53ex; " SRC="img425.svg"
  ALT="$z^{-1}, z^{-2}, \ldots$"></SPAN>) which can be
 interpreted as delay lines.
 </LI>
@@ -116,7 +116,7 @@ The design strategy is thus to split up the analogue transfer function
  $H(s) = H_1(s) H_2(s) H_3(s)
 \ldots$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img423.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img426.svg"
  ALT="$H(s) = H_1(s) H_2(s) H_3(s)
 \ldots$"></SPAN> and then to apply the bilinear transform on every 2nd order
 term separately. Using this strategy you only need to calculate the bilinear

@@ -2067,17 +2067,27 @@ Now we have the recipe of an adaptive filter where the FIR filter minimises its
 own error $e(n)$ in a negative feedback loop and generating an output
 $y(n)$ which is as closely as possible to the desired signal $d(n)$. The signal
 $y(n)$ is often called ``the remover'' as it cancels out the signal $d(n)$.
-In this respect the error signal $e(n)$ is not just an error signal but it's
-a signal where $d(n)$ has been removed. Thus, this adaptive filter can be
-used to filter out noise from a signal if we get hold of the reference
-noise.
+However, not everything in $d(n)$ is cancelled out but \textsl{only} what
+is correlated with the input $x(n)$. This means that the error signal
+$e(n)$ will not be zero but will contain any signal components which are
+\textsl{not} correlated with $x(n)$. This means that the error signal actually
+is also the cleaned up output signal of the adaptive filter.
 
-Imagine you want to remove $50$~Hz mains from a signal then one would
-provide the $50$~Hz mains as $x(n)$ so that then the filter learns to
-remove the powerline interference from $d(n)$. At first
-counter-intuitive, the signal $e(n)$ is then the \textsl{output} of
-the filter where the $50$~Hz has been removed and $d(n)$ is the input
-of the filter containing both the signal and the noise.
+Imagine you want to remove $50$~Hz mains from a signal
+\begin{equation}
+d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
+\end{equation}
+then one would provide $50$~Hz mains
+via
+\begin{equation}
+  x(n) = \mathrm{50Hz~noise}(n)
+\end{equation}  
+so that then the filter learns to remove the powerline
+interference. The cleaned up signal will be identical to the error
+signal:
+\begin{equation}
+  e(n) = \mathrm{signal}(n)
+\end{equation}  
 
 \clearpage
 \subsection{IIR Filter}

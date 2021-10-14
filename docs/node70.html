@@ -226,27 +226,67 @@ own error <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex
 <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
  ALT="$y(n)$"></SPAN> is often called &ldquo;the remover&rdquo; as it cancels out the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
  ALT="$d(n)$"></SPAN>.
-In this respect the error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
- ALT="$e(n)$"></SPAN> is not just an error signal but it's
-a signal where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
- ALT="$d(n)$"></SPAN> has been removed. Thus, this adaptive filter can be
-used to filter out noise from a signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN> if we get hold of reference
-noise and feed it into <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
- ALT="$d(n)$"></SPAN>.
+However, not everything in <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN> is cancelled out but <SPAN  CLASS="textsl">only</SPAN> what
+is correlated with the input <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>. This means that the error signal
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> will not be zero but will contain any signal components which are
+<SPAN  CLASS="textsl">not</SPAN> correlated with <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>. This means that the error signal actually
+is also the cleaned up output signal of the adaptive filter.
 
 <P>
 Imagine you want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
- ALT="$50$"></SPAN>&nbsp;Hz mains from the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN> then one
-would provide the <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
- ALT="$50$"></SPAN>&nbsp;Hz mains as <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
- ALT="$d(n)$"></SPAN> so that then the filter
-learns to remove the powerline interference. At first counter-intuitive, the signal
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
- ALT="$e(n)$"></SPAN> is then the <SPAN  CLASS="textsl">output</SPAN> of the filter where the <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
- ALT="$50$"></SPAN>&nbsp;Hz has been
-removed.
+ ALT="$50$"></SPAN>&nbsp;Hz mains from a signal
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img372.svg"
+ ALT="$\displaystyle d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
+$"> 
+
+(<SPAN CLASS="arabic">149</SPAN>)
+</DIV>
+then one would provide <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
+ ALT="$50$"></SPAN>&nbsp;Hz mains
+via
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x(n) = \mathrm{50Hz~noise}(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img373.svg"
+ ALT="$\displaystyle x(n) = \mathrm{50Hz~noise}(n)
+$"> 
+
+(<SPAN CLASS="arabic">150</SPAN>)
+</DIV>
+so that then the filter learns to remove the powerline
+interference. The cleaned up signal will be identical to the error
+signal:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+e(n) = \mathrm{signal}(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img374.svg"
+ ALT="$\displaystyle e(n) = \mathrm{signal}(n)
+$"> 
+
+(<SPAN CLASS="arabic">151</SPAN>)
+</DIV>  
 
 <P>
 
