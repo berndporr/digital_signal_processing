@@ -2069,14 +2069,15 @@ $y(n)$ which is as closely as possible to the desired signal $d(n)$. The signal
 $y(n)$ is often called ``the remover'' as it cancels out the signal $d(n)$.
 In this respect the error signal $e(n)$ is not just an error signal but it's
 a signal where $d(n)$ has been removed. Thus, this adaptive filter can be
-used to filter out noise from a signal $x(n)$ if we get hold of reference
-noise and feed it into $d(n)$.
+used to filter out noise from a signal if we get hold of the reference
+noise.
 
-Imagine you want to remove $50$~Hz mains from the signal $x(n)$ then one
-would provide the $50$~Hz mains as $d(n)$ so that then the filter
-learns to remove the powerline interference. At first counter-intuitive, the signal
-$e(n)$ is then the \textsl{output} of the filter where the $50$~Hz has been
-removed.
+Imagine you want to remove $50$~Hz mains from a signal then one would
+provide the $50$~Hz mains as $x(n)$ so that then the filter learns to
+remove the powerline interference from $d(n)$. At first
+counter-intuitive, the signal $e(n)$ is then the \textsl{output} of
+the filter where the $50$~Hz has been removed and $d(n)$ is the input
+of the filter containing both the signal and the noise.
 
 \clearpage
 \subsection{IIR Filter}
