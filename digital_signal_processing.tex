@@ -2663,21 +2663,13 @@ poles. In both cases they reside within the unit circle to guarantee
 stability.
 
 
-\section{Limitations / outlook}
-So far the coefficients have been constant in the filters. However,
-in many situations these coefficients need to change while the
-filter is operating. For example, an ECG with broadband muscle noise
-requires an adaptive approach because the noise level is unknown.
-The noise and the ECG overlap in their
-spectra. We need a lowpass filter which does a tradeoff between loosing
-the signal and filtering out most of the noise:
-The problem is that the signal to noise ratio is constantly changing.
-A fixed cut off is not a good option. We need to change the
-cut off all the time. One example is a Kalman filter.
-The idea is to maximise the
-\textsl{predictability} of the filtered signal.
-A lowpass filter increases the predictability of a signal because
-it smoothes the signal.
+\subsubsection{Adaptive IIR filter: The Kalman filter}
+Often signals are contaminated by high frequency noise where the
+signal to noise ratio is constantly changing.  A fixed cut off low
+pass filter is not a good option so that we need to change the cut-off continuously.
+One example is a Kalman filter which maximises the
+\textsl{predictability} of the filtered signal. It's an adaptive lowpass filter
+which increases the predictability of a signal because it smoothes it.
 \begin{equation} 
 H(z) = \frac{b}{1 - a z^{-1}}
 \end{equation}
@@ -2696,11 +2688,6 @@ p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
 \end{equation}
 We need to minimise $p$ which gives us equations for a and b which
 implements a Kalman filter.
-
-Transmission line equalisation also requires an adaptive approach
-where the coefficients of the filter are determined by a known
-training sequence. The coefficients are changed until the desired
-training sequence appears at the output of the filter.
 
 \bibliographystyle{apalike}
 
