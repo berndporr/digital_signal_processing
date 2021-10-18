@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Adaptive IIR filter: The Kalman filter</TITLE>
-<META NAME="description" CONTENT="Adaptive IIR filter: The Kalman filter">
+<TITLE>Identifying filters from their poles and zeroes</TITLE>
+<META NAME="description" CONTENT="Identifying filters from their poles and zeroes">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -26,7 +26,7 @@
  HREF="node90.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node83.html">
+ HREF="node84.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node88.html">
@@ -38,90 +38,25 @@
 <B> Next:</B> <A
  HREF="node90.html">Bibliography</A>
 <B> Up:</B> <A
- HREF="node83.html">The role of poles</A>
+ HREF="node84.html">The role of poles</A>
 <B> Previous:</B> <A
- HREF="node88.html">Identifying filters from their</A>
+ HREF="node88.html">Design of an IIR</A>
  &nbsp; <B>  <A ID="tex2html473"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION000910600000000000000">
-Adaptive IIR filter: The Kalman filter</A>
+<H3><A ID="SECTION000910500000000000000">
+Identifying filters from their poles and zeroes</A>
 </H3>
-Often signals are contaminated by high frequency noise where the
-signal to noise ratio is constantly changing.  A fixed cut off low
-pass filter is not a good option so that we need to change the cut-off continuously.
-One example is a Kalman filter which maximises the
-<SPAN  CLASS="textsl">predictability</SPAN> of the filtered signal. It's an adaptive lowpass filter
-which increases the predictability of a signal because it smoothes it.
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z) = \frac{b}{1 - a z^{-1}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img454.svg"
- ALT="$\displaystyle H(z) = \frac{b}{1 - a z^{-1}}
-$"> 
-
-(<SPAN CLASS="arabic">186</SPAN>)
-</DIV>
-The parameter <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img455.svg"
- ALT="$a$"></SPAN> determines the cutoff frequency.
-Frequency Response :
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-|H(e^{j \omega}) | = |\frac{b}{1 - a e^{-j \omega}}|
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img456.svg"
- ALT="$\displaystyle \vert H(e^{j \omega}) \vert = \vert\frac{b}{1 - a e^{-j \omega}}\vert
-$"> 
-
-(<SPAN CLASS="arabic">187</SPAN>)
-</DIV>
-Let's re-interpret our low-pass filter in the time domain:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="img457.svg"
- ALT="$\displaystyle \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) ...
-...estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
-$"> 
-
-(<SPAN CLASS="arabic">188</SPAN>)
-</DIV>
-We would like to have the best estimate for <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
- ALT="$y(n)$"></SPAN>
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="img458.svg"
- ALT="$\displaystyle p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
-$"> 
-
-(<SPAN CLASS="arabic">189</SPAN>)
-</DIV>
-We need to minimise <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img459.svg"
- ALT="$p$"></SPAN> which gives us equations for a and b which
-implements a Kalman filter.
+<A
+ HREF="node90.html#Proakis1996">Proakis and Manolakis (1996, pp.333)</A> has an excellent section about this topic
+and we refer the reader to have a look. As a rule of thumb a digital
+lowpass filter has poles where their real parts are positive and a
+highpass filter has poles with negative real part of the complex
+poles. In both cases they reside within the unit circle to guarantee
+stability.
 
 <P>
 

@@ -135,7 +135,7 @@ $ref_files{$key} = "$dir".q|node69.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/fir_stop/;
-$ref_files{$key} = "$dir".q|node83.html|; 
+$ref_files{$key} = "$dir".q|node84.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fold_down/;
@@ -167,7 +167,7 @@ $ref_files{$key} = "$dir".q|node66.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fir_stop/;
-$ref_files{$key} = "$dir".q|node86.html|; 
+$ref_files{$key} = "$dir".q|node87.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fixed/;
@@ -175,7 +175,7 @@ $ref_files{$key} = "$dir".q|node75.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_stop/;
-$ref_files{$key} = "$dir".q|node84.html|; 
+$ref_files{$key} = "$dir".q|node85.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_types/;
@@ -243,7 +243,7 @@ $ref_files{$key} = "$dir".q|node34.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/resonatorz/;
-$ref_files{$key} = "$dir".q|node85.html|; 
+$ref_files{$key} = "$dir".q|node86.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/sFunktion/;

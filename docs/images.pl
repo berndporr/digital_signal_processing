@@ -25,7 +25,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; "
  ALT="$-0.75$">|; 
 
 $key = q/-1ldots+1;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="|."$dir".q|img451.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="|."$dir".q|img457.svg"
  ALT="$-1
 \ldots +1$">|; 
 
@@ -51,7 +51,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 1.68ex; vertical-align: -0.28ex; "
  ALT="$-\omega$">|; 
 
 $key = q/-omega_{0};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img436.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img442.svg"
  ALT="$-\omega_{0}$">|; 
 
 $key = q/0.5;MSF=1.6;LFS=12;AAT/;
@@ -63,7 +63,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; "
  ALT="$0$">|; 
 
 $key = q/0<r<1;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="|."$dir".q|img442.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="|."$dir".q|img448.svg"
  ALT="$0&lt;r&lt;1$">|; 
 
 $key = q/0ldots0.5;MSF=1.6;LFS=12;AAT/;
@@ -409,11 +409,11 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; "
  ALT="$X_{q}(n) \rightarrow$">|; 
 
 $key = q/Y(z);MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img444.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img450.svg"
  ALT="$Y(z)$">|; 
 
 $key = q/a;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="|."$dir".q|img455.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="|."$dir".q|img428.svg"
  ALT="$a$">|; 
 
 $key = q/alpha=0.54;MSF=1.6;LFS=12;AAT/;
@@ -461,11 +461,11 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; "
  ALT="$d(n)$">|; 
 
 $key = q/displaystyle(1-e^{0}z^{-1})(1-e^{0}z^{-1});MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img438.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img444.svg"
  ALT="$\displaystyle (1 - e^{0} z^{-1})(1 - e^{0} z^{-1})$">|; 
 
 $key = q/displaystyle(1-e^{jomega_0}z^{-1})(1-e^{-jomega_0}z^{-1});MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img428.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img434.svg"
  ALT="$\displaystyle (1 - e^{j\omega_0} z^{-1})(1 - e^{-j\omega_0} z^{-1})$">|; 
 
 $key = q/displaystyle-frac{Delta}{2}lee(n)lefrac{Delta}{2};MSF=1.6;LFS=12;AAT/;
@@ -487,19 +487,19 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 5.63ex; vertical-align: -1.97ex; "
  ALT="$\displaystyle - \mu \frac{1}{2}\frac{\partial \left(d(n)-y(n)\right)^2}{\partial h_m}$">|; 
 
 $key = q/displaystyle1-2z^{-1}+z^{-2};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.26ex; vertical-align: -0.28ex; " SRC="|."$dir".q|img439.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.26ex; vertical-align: -0.28ex; " SRC="|."$dir".q|img445.svg"
  ALT="$\displaystyle 1 - 2 z^{-1} + z^{-2}$">|; 
 
 $key = q/displaystyle1-z^{-1}(e^{jomega_{0}}+e^{-jomega_{0}})+z^{-2};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img430.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img436.svg"
  ALT="$\displaystyle 1 - z^{-1} (e^{j \omega_{0}} + e^{-j \omega_{0}}) + z^{-2}$">|; 
 
 $key = q/displaystyle1-z^{-1}2cosomega_{0}+z^{-2};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.41ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img431.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.41ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img437.svg"
  ALT="$\displaystyle 1 - z^{-1} 2 \cos \omega_{0} + z^{-2}$">|; 
 
 $key = q/displaystyle1-z^{-1}e^{jomega-{0}}+z^{-2};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.29ex; vertical-align: -0.28ex; " SRC="|."$dir".q|img429.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.29ex; vertical-align: -0.28ex; " SRC="|."$dir".q|img435.svg"
  ALT="$\displaystyle 1 - z^{-1} e^{j \omega-{0}} + z^{-2}$">|; 
 
 $key = q/displaystyleA=I+W+log_2M;MSF=1.6;LFS=12;AAT/;
@@ -570,7 +570,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; "
 $">|; 
 
 $key = q/displaystyleH(e^{jomega})=underbrace{(1-e^{jomega_0}e^{-jomega})(1-e^{-jomega_0}e^{-jomega})}_{mbox{2zeros}};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 5.97ex; vertical-align: -3.98ex; " SRC="|."$dir".q|img432.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 5.97ex; vertical-align: -3.98ex; " SRC="|."$dir".q|img438.svg"
  ALT="$\displaystyle H(e^{j\omega}) = \underbrace{(1 - e^{j\omega_0}e^{-j\omega})(1 - e^{-j\omega_0} e^{-j\omega})}_{\mbox{2 zeros}}
 $">|; 
 
@@ -602,22 +602,22 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; "
  ALT="$\displaystyle H(z)$">|; 
 
 $key = q/displaystyleH(z)=frac{1-2cos(omega_{0})z^{-1}+z^{-2}}{1-2rcos(omega_{0})z^{-1}+r^{2}z^{-2}};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 5.58ex; vertical-align: -2.20ex; " SRC="|."$dir".q|img452.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 5.58ex; vertical-align: -2.20ex; " SRC="|."$dir".q|img458.svg"
  ALT="$\displaystyle H(z) = \frac {1 - 2 \cos (\omega_{0}) z^{-1} + z^{-2}}{1 - 2r \cos (\omega_{0}) z^{-1} + r^{2} z^{-2}}
 $">|; 
 
 $key = q/displaystyleH(z)=frac{1}{1-2rcos(omega_{0})z^{-1}+r^{2}z^{-2}};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 5.25ex; vertical-align: -2.20ex; " SRC="|."$dir".q|img443.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 5.25ex; vertical-align: -2.20ex; " SRC="|."$dir".q|img449.svg"
  ALT="$\displaystyle H(z) = \frac{1}{1 - 2 r \cos(\omega_{0}) z^{-1} + r^{2} z^{-2}}
 $">|; 
 
 $key = q/displaystyleH(z)=frac{1}{underbrace{(1-re^{jomega_{0}}z^{-1})(1-re^{-jomega_{0}}z^{-1})}_{2poles!}};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 8.49ex; vertical-align: -5.46ex; " SRC="|."$dir".q|img441.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 8.49ex; vertical-align: -5.46ex; " SRC="|."$dir".q|img447.svg"
  ALT="$\displaystyle H(z) = \frac{1}{\underbrace{(1 - r e^{j \omega_{0}} z^{-1})(1 - r e^{-j \omega_{0}} z^{-1})}_{2 poles!}}
 $">|; 
 
 $key = q/displaystyleH(z)=frac{b}{1-az^{-1}};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="|."$dir".q|img454.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="|."$dir".q|img427.svg"
  ALT="$\displaystyle H(z) = \frac{b}{1 - a z^{-1}}
 $">|; 
 
@@ -744,11 +744,11 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; "
  ALT="$\displaystyle X(s)$">|; 
 
 $key = q/displaystyleX(z)+z^{-1}Y(z)2rcos(omega_{0})-z^{-2}Y(z)r^{2};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img448.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img454.svg"
  ALT="$\displaystyle X(z) + z^{-1} Y(z) 2r \cos (\omega_{0}) - z^{-2} Y(z) r^{2}$">|; 
 
 $key = q/displaystyleX(z);MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img446.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img452.svg"
  ALT="$\displaystyle X(z)$">|; 
 
 $key = q/displaystyleX(z)H(z);MSF=1.6;LFS=12;AAT/;
@@ -756,7 +756,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; "
  ALT="$\displaystyle X(z)H(z)$">|; 
 
 $key = q/displaystyleX(z)frac{1}{1-2rcos(omega)z^{-1}+r^{2}z^{-2}};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 5.25ex; vertical-align: -2.20ex; " SRC="|."$dir".q|img445.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 5.25ex; vertical-align: -2.20ex; " SRC="|."$dir".q|img451.svg"
  ALT="$\displaystyle X(z) \frac{1}{1 - 2 r \cos (\omega) z^{-1} + r^{2} z^{-2}}$">|; 
 
 $key = q/displaystyleX(z){1over1-e^{-bT}z^{-1}};MSF=1.6;LFS=12;AAT/;
@@ -813,7 +813,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 5.94ex; vertical-align: -2.59ex; "
 $">|; 
 
 $key = q/displaystyleY(z)-Y(z)2rcos(omega_{0})z^{-1}+Y(z)r^{2}z^{-2};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img447.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img453.svg"
  ALT="$\displaystyle Y(z) - Y(z) 2r \cos (\omega_{0}) z^{-1} + Y(z) r^{2} z^{-2}$">|; 
 
 $key = q/displaystyleY(z);MSF=1.6;LFS=12;AAT/;
@@ -1187,7 +1187,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; "
  ALT="$\displaystyle \mu \left(d(n)-y(n)\right) \cdot x(n-m)$">|; 
 
 $key = q/displaystylep(n)=E[left(y(k)-y_{real}(k)right)^{2}];MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img458.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="|."$dir".q|img431.svg"
  ALT="$\displaystyle p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
 $">|; 
 
@@ -1295,7 +1295,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 5.60ex; vertical-align: -3.84ex; "
 $">|; 
 
 $key = q/displaystyleunderbrace{y(n)}_{mbox{{footnotesize{actualestimate}}=a(n)underbrace+b(n)underbrace{x(n)}_{mbox{{footnotesize{currentdatasample}};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="|."$dir".q|img457.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="|."$dir".q|img430.svg"
  ALT="$\displaystyle \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) ...
 ...estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
 $">|; 
@@ -1471,7 +1471,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 6.06ex; vertical-align: -4.07ex; "
 $">|; 
 
 $key = q/displaystyle|H(e^{jomega})|=|frac{b}{1-ae^{-jomega}}|;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="|."$dir".q|img456.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="|."$dir".q|img429.svg"
  ALT="$\displaystyle \vert H(e^{j \omega}) \vert = \vert\frac{b}{1 - a e^{-j \omega}}\vert
 $">|; 
 
@@ -1497,7 +1497,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; "
  ALT="$e^{-bT}$">|; 
 
 $key = q/e^{-jomega_0};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="|."$dir".q|img434.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="|."$dir".q|img440.svg"
  ALT="$e^{-j \omega_0}$">|; 
 
 $key = q/e^{-sT};MSF=1.6;LFS=12;AAT/;
@@ -1513,7 +1513,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; "
  ALT="$e^{2i\phi}$">|; 
 
 $key = q/e^{jomega_{0}};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="|."$dir".q|img433.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="|."$dir".q|img439.svg"
  ALT="$e^{j \omega_{0}}$">|; 
 
 $key = q/f;MSF=1.6;LFS=12;AAT/;
@@ -1675,7 +1675,7 @@ $cached_env_img{$key} = q|<IMG STYLE=""
 
 $key = q/includegraphics[width=0.75textwidth]{fir_stop};LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG STYLE=""
- SRC="|."$dir".q|img427.svg"
+ SRC="|."$dir".q|img433.svg"
  ALT="\includegraphics[width=0.75\textwidth]{fir_stop}">|; 
 
 $key = q/includegraphics[width=0.75textwidth]{frequency_response};LFS=12;AAT/;
@@ -1685,7 +1685,7 @@ $cached_env_img{$key} = q|<IMG STYLE=""
 
 $key = q/includegraphics[width=0.75textwidth]{iir_stop};LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG STYLE=""
- SRC="|."$dir".q|img440.svg"
+ SRC="|."$dir".q|img446.svg"
  ALT="\includegraphics[width=0.75\textwidth]{iir_stop}">|; 
 
 $key = q/includegraphics[width=0.75textwidth]{max_sampl};LFS=12;AAT/;
@@ -1824,11 +1824,11 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; "
  ALT="$\omega_c=2\pi f_c$">|; 
 
 $key = q/omega_{0};MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img435.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img441.svg"
  ALT="$\omega_{0}$">|; 
 
 $key = q/omega_{0}=0;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.97ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img437.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.97ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img443.svg"
  ALT="$\omega_{0} = 0$">|; 
 
 $key = q/omega_{1,2}=2pif_{1,2};MSF=1.6;LFS=12;AAT/;
@@ -1853,7 +1853,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; "
  ALT="$\omega\tau+\phi$">|; 
 
 $key = q/p;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="|."$dir".q|img459.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="|."$dir".q|img432.svg"
  ALT="$p$">|; 
 
 $key = q/phi;MSF=1.6;LFS=12;AAT/;
@@ -1861,7 +1861,7 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; "
  ALT="$\phi$">|; 
 
 $key = q/pmomega_0;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img449.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="|."$dir".q|img455.svg"
  ALT="$\pm\omega_0$">|; 
 
 $key = q/r;MSF=1.6;LFS=12;AAT/;
@@ -1869,11 +1869,11 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; "
  ALT="$r$">|; 
 
 $key = q/r<1;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="|."$dir".q|img453.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="|."$dir".q|img459.svg"
  ALT="$r&lt;1$">|; 
 
 $key = q/r>1;MSF=1.6;LFS=12;AAT/;
-$cached_env_img{$key} = q|<IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="|."$dir".q|img450.svg"
+$cached_env_img{$key} = q|<IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="|."$dir".q|img456.svg"
  ALT="$r&gt;1$">|; 
 
 $key = q/s;MSF=1.6;LFS=12;AAT/;

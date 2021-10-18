@@ -135,7 +135,7 @@ $external_labels{$key} = "$URL/" . q|node69.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/fir_stop/;
-$external_labels{$key} = "$URL/" . q|node83.html|; 
+$external_labels{$key} = "$URL/" . q|node84.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fold_down/;
@@ -167,7 +167,7 @@ $external_labels{$key} = "$URL/" . q|node66.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fir_stop/;
-$external_labels{$key} = "$URL/" . q|node86.html|; 
+$external_labels{$key} = "$URL/" . q|node87.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fixed/;
@@ -175,7 +175,7 @@ $external_labels{$key} = "$URL/" . q|node75.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_stop/;
-$external_labels{$key} = "$URL/" . q|node84.html|; 
+$external_labels{$key} = "$URL/" . q|node85.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_types/;
@@ -243,7 +243,7 @@ $external_labels{$key} = "$URL/" . q|node34.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/resonatorz/;
-$external_labels{$key} = "$URL/" . q|node85.html|; 
+$external_labels{$key} = "$URL/" . q|node86.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/sFunktion/;
@@ -542,7 +542,7 @@ $external_latex_labels{$key} = q|3|;
 $noresave{$key} = "$nosave";
 
 $key = q/resonatorz/;
-$external_latex_labels{$key} = q|181|; 
+$external_latex_labels{$key} = q|185|; 
 $noresave{$key} = "$nosave";
 
 $key = q/sFunktion/;
