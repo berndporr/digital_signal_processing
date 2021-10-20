@@ -127,7 +127,7 @@ before and the index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-ali
  ALT="$m$"></SPAN> of <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> for the very slowly changing FIR
 filter coefficients. To gain some intuition why
-Eq.&nbsp;<A HREF="#graddes">145</A> mimimises the error <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+Eq.&nbsp;<A HREF="#graddes">144</A> mimimises the error <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
  ALT="$e(n)$"></SPAN> we look at what happens if we
 increase the FIR coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> a little bit, for example, by the
@@ -163,8 +163,8 @@ the <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SR
  ALT="$h_m$"></SPAN> are called the &ldquo;weights&rdquo; of a neuron (see delta rule).
 
 <P>
-Eq&nbsp;<A HREF="#graddes">145</A> now needs to be turned into a form which can directly run in software by
-solving its partial derivative by inserting Eqs.&nbsp;<A HREF="#lmserror">144</A> and <A HREF="node59.html#FIRtime">112</A>.
+Eq&nbsp;<A HREF="#graddes">144</A> now needs to be turned into a form which can directly run in software by
+solving its partial derivative by inserting Eqs.&nbsp;<A HREF="#lmserror">143</A> and <A HREF="node59.html#FIRtime">111</A>.
 <BR>
 <DIV ALIGN="CENTER"><A ID="lmsLearn"></A>
 <!-- MATH
@@ -212,7 +212,7 @@ Note that <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex
 of the chain rule when partially differentiating the output
 <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
  ALT="$y(n)$"></SPAN> which depends on the sum of the delay lines of the FIR
-filter (see Eq&nbsp;<A HREF="node59.html#FIRtime">112</A>). Eq.&nbsp;<A HREF="#lmsLearn">149</A> is now our &ldquo;learning&rdquo;
+filter (see Eq&nbsp;<A HREF="node59.html#FIRtime">111</A>). Eq.&nbsp;<A HREF="#lmsLearn">148</A> is now our &ldquo;learning&rdquo;
 rule which can simply be applied to the FIR filter as showm in Fig&nbsp;<A HREF="node69.html#fir_lms">20</A>B.
 
 <P>
