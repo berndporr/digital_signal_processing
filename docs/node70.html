@@ -270,7 +270,15 @@ $">
 (<SPAN CLASS="arabic">150</SPAN>)
 </DIV>
 so that then the filter learns to remove the powerline
-interference. The cleaned up signal will be identical to the error
+interference. One might think that the filter will remove everything from
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN> because it will try to minimise the error <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> but only the
+50&nbsp;Hz in the contaminated signal will be removed because only signal components
+which are correlated between <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN> will be removed.
+The cleaned up signal will be identical to the error
 signal:
 
 <DIV class="equation">

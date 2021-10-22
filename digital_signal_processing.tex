@@ -2087,7 +2087,11 @@ via
   x(n) = \mathrm{50Hz~noise}(n)
 \end{equation}  
 so that then the filter learns to remove the powerline
-interference. The cleaned up signal will be identical to the error
+interference. One might think that the filter will remove everything from
+$d(n)$ because it will try to minimise the error $e(n)$ but only the
+50~Hz in the contaminated signal will be removed because only signal components
+which are correlated between $x(n)$ and $d(n)$ will be removed.
+The cleaned up signal will be identical to the error
 signal:
 \begin{equation}
   e(n) = \mathrm{signal}(n)
