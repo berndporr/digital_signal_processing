@@ -3,12 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>FIR filter design from ideal frequency response &ndash;
-The analytical way
-</TITLE>
-<META NAME="description" CONTENT="FIR filter design from ideal frequency response &ndash;
-The analytical way
-">
+<TITLE>Design steps for FIR filters</TITLE>
+<META NAME="description" CONTENT="Design steps for FIR filters">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -31,371 +27,68 @@ The analytical way
  HREF="node67.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node59.html">
+ HREF="node58.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node65.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html404"
+<A ID="tex2html401"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node67.html">Design steps for FIR</A>
+ HREF="node67.html">FIR filter design with</A>
 <B> Up:</B> <A
- HREF="node59.html">FIR Filter</A>
+ HREF="node58.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node65.html">Python code: impulse response</A>
- &nbsp; <B>  <A ID="tex2html405"
+ HREF="node65.html">FIR filter design from</A>
+ &nbsp; <B>  <A ID="tex2html402"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00098700000000000000"></A><A ID="idealFilt"></A>
-<BR>
-FIR filter design from ideal frequency response &ndash;
-The analytical way
-
+<H3><A ID="SECTION00097800000000000000">
+Design steps for FIR filters</A>
 </H3>
-For many cases the impulse response can be calculated analytically.
-The idea is always the same: define a function with the ideal frequency
-response
+Here are the design steps for an <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
+ ALT="$M$"></SPAN> tap FIR filter.
 
-<DIV class="equation">
+<OL>
+<LI>Get yourself an impulse response for your filter:
 
-<!-- MATH
- \begin{equation}
-|H(e^{j\omega})| = \underbrace{B(e^{j\omega})}_{\mbox{real}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 6.06ex; vertical-align: -4.07ex; " SRC="img326.svg"
- ALT="$\displaystyle \vert H(e^{j\omega})\vert = \underbrace{B(e^{j\omega})}_{\mbox{real}}
-$"> 
-
-(<SPAN CLASS="arabic">124</SPAN>)
-</DIV>
-and perform an inverse Fourier transform to get the impulse response
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
- ALT="$h(n)$"></SPAN>.
-
-<P>
-We demonstrate this with a lowpass filter:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-|H(e^{j\omega})| =
-\left\{
-\begin{array}{ll}
-1 & \mbox{for } |\omega| \leq \omega_{c} \\
-0 & \mbox{for } \omega_c < |\omega| \leq \pi
-\end{array}
-\right.
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img327.svg"
- ALT="$\displaystyle \vert H(e^{j\omega})\vert =
-\left\{
-\begin{array}{ll}
-1 &amp; \mbox{f...
-...c} \\
-0 &amp; \mbox{for } \omega_c &lt; \vert\omega\vert \leq \pi
-\end{array}\right.
-$"> 
-
-(<SPAN CLASS="arabic">125</SPAN>)
-</DIV>
-
-<P>
-Use the inverse Fourier transform to get the impulse response:
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-h(n) & = & \frac{1}{2 \pi} \int_{-\pi}^{\pi} H(e^{j \omega}) e^{j \omega n} d\omega \\
-     & = & \frac{1}{2 \pi} \int_{- \omega_{c}}^{+ \omega_{c}} e^{j \omega n} d\omega \\
-     & = & \frac{1}{2 \pi} \left[\frac{1}{jn} e^{j \omega n} \right]_{- \omega_{c}}^{+ \omega_{c}} \\
-     & = & \frac{1}{2 \pi jn} \left( e^{j \omega_{c} n} - e^{-j \omega_{c}n} \right)
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img328.svg"
- ALT="$\displaystyle h(n)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img329.svg"
- ALT="$\displaystyle \frac{1}{2 \pi} \int_{-\pi}^{\pi} H(e^{j \omega}) e^{j \omega n} d\omega$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">126</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.94ex; vertical-align: -1.90ex; " SRC="img330.svg"
- ALT="$\displaystyle \frac{1}{2 \pi} \int_{- \omega_{c}}^{+ \omega_{c}} e^{j \omega n} d\omega$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">127</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.38ex; vertical-align: -2.63ex; " SRC="img331.svg"
- ALT="$\displaystyle \frac{1}{2 \pi} \left[\frac{1}{jn} e^{j \omega n} \right]_{- \omega_{c}}^{+ \omega_{c}}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">128</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="img332.svg"
- ALT="$\displaystyle \frac{1}{2 \pi jn} \left( e^{j \omega_{c} n} - e^{-j \omega_{c}n} \right)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">129</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-With these handy equations:
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-\sin z & = & \frac{1}{2j} (e^{zj} - e^{-zj})\\
-\cos z & = & \frac{1}{2} (e^{zj} + e^{-zj})
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.68ex; vertical-align: -0.09ex; " SRC="img333.svg"
- ALT="$\displaystyle \sin z$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="img334.svg"
- ALT="$\displaystyle \frac{1}{2j} (e^{zj} - e^{-zj})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">130</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img335.svg"
- ALT="$\displaystyle \cos z$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img336.svg"
- ALT="$\displaystyle \frac{1}{2} (e^{zj} + e^{-zj})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">131</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-we get for the filter:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n) =
-\left\{
-\begin{array}{cc}
-\frac{1}{\pi n} \sin \omega_{c}n & \mbox{for } n \neq 0 \\
-\frac{\omega_{c}}{\pi} & \mbox{for }n = 0
-\end{array}
-\right.
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img337.svg"
- ALT="$\displaystyle h(n) =
-\left\{
-\begin{array}{cc}
-\frac{1}{\pi n} \sin \omega_{c}...
-...or } n \neq 0 \\
-\frac{\omega_{c}}{\pi} &amp; \mbox{for }n = 0
-\end{array}\right.
-$"> 
-
-(<SPAN CLASS="arabic">132</SPAN>)
-</DIV>
-This response is a-causal! However we know that we can shift the response 
-by any number of samples to make it causal! And we have to window the
-response to get rid of any remaining negative contribution and to
-improve the frequency response.
-
-<P>
-Highpass, bandstop and bandpass can be calculated in exactly the same
-way and lead to the following ideal filter characteristics:
-
-<UL>
-<LI><SPAN  CLASS="textbf">Lowpass</SPAN> with cutoff frequency <!-- MATH
- $\omega_c=2\pi f_c$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img338.svg"
- ALT="$\omega_c=2\pi f_c$"></SPAN>:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n) =
-\left\{
-\begin{array}{ll}
-\frac{\omega_c}{\pi} & \mbox{for $n=0$} \\
-\frac{1}{\pi n} \sin(\omega_c n) & \mbox{for $n\neq 0$}
-\end{array}
-\right.
-\end{equation}
- -->
- &nbsp;  <A ID="idealLP"></A><IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img339.svg"
- ALT="$\displaystyle h(n) =
-\left\{
-\begin{array}{ll}
-\frac{\omega_c}{\pi} &amp; \mbox{fo...
-...\\
-\frac{1}{\pi n} \sin(\omega_c n) &amp; \mbox{for $n\neq 0$}
-\end{array}\right.
-$"> 
-
-(<SPAN CLASS="arabic">133</SPAN>)
-</DIV>
+<OL>
+<LI>Create a frequency response &ldquo;by hand&rdquo; just by filling an array
+with the desired frequency response. Then, perform an inverse Fourier transform
+(see section&nbsp;<A HREF="node64.html#freqsamp">8.7.6</A>).
+</LI>
+<LI>Define a frequency response analytically. Do an inverse Fourier
+transform (see section&nbsp;<A HREF="node65.html#idealFilt">8.7.7</A>).
+</LI>
+<LI>Use an analogue circuit, get its impulse response and use
+these as filter coefficients.
+</LI>
+<LI>Dream up directly an impulse response (for example, averagers,
+differentiators, etc)
+</LI>
+</OL>
 
 <P>
 </LI>
-<LI><SPAN  CLASS="textbf">Highpass</SPAN> with the cutoff frequency <!-- MATH
- $\omega_c=2\pi f_c$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img338.svg"
- ALT="$\omega_c=2\pi f_c$"></SPAN>:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n)=
-\left\{
-\begin{array}{ll}
-1-\frac{\omega_c}{\pi} & \mbox{for $n=0$} \\
--\frac{1}{\pi n} \sin(\omega_c n) & \mbox{for $n\neq 0$}
-\end{array}
-\right.
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img340.svg"
- ALT="$\displaystyle h(n)=
-\left\{
-\begin{array}{ll}
-1-\frac{\omega_c}{\pi} &amp; \mbox{f...
-...\
--\frac{1}{\pi n} \sin(\omega_c n) &amp; \mbox{for $n\neq 0$}
-\end{array}\right.
-$"> 
-
-(<SPAN CLASS="arabic">134</SPAN>)
-</DIV>
-
-<P>
+<LI>Mirror the impulse response (if not already symmetrical)
 </LI>
-<LI><SPAN  CLASS="textbf">Bandpass</SPAN> with the passband frequencies <!-- MATH
- $\omega_{1,2}=2\pi f_{1,2}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img341.svg"
- ALT="$\omega_{1,2}=2\pi f_{1,2}$"></SPAN>:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n)=
-\left\{
-\begin{array}{ll}
-\frac{\omega_2-\omega_1}{\pi} & \mbox{for $n=0$} \\
-\frac{1}{\pi n}(\sin(\omega_2 n)-\sin(\omega_1 n)) & \mbox{for $n\neq 0$}
-\end{array}
-\right.
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img342.svg"
- ALT="$\displaystyle h(n)=
-\left\{
-\begin{array}{ll}
-\frac{\omega_2-\omega_1}{\pi} &amp; ...
-...}(\sin(\omega_2 n)-\sin(\omega_1 n)) &amp; \mbox{for $n\neq 0$}
-\end{array}\right.
-$"> 
-
-(<SPAN CLASS="arabic">135</SPAN>)
-</DIV>
-
-<P>
+<LI>Window the impulse response from an infinite number of samples
+to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
+ ALT="$M$"></SPAN> samples.
 </LI>
-<LI><SPAN  CLASS="textbf">Bandstop</SPAN> with the notch frequencies <!-- MATH
- $\omega_{1,2}=2\pi f_{1,2}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img341.svg"
- ALT="$\omega_{1,2}=2\pi f_{1,2}$"></SPAN>:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n)=
-\left\{
-\begin{array}{ll}
-1-\frac{\omega_2-\omega_1}{\pi} & \mbox{for $n=0$} \\
-\frac{1}{\pi n}(\sin(\omega_1 n)-\sin(\omega_2 n)) & \mbox{for $n\neq 0$}
-\end{array}
-\right.
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img343.svg"
- ALT="$\displaystyle h(n)=
-\left\{
-\begin{array}{ll}
-1-\frac{\omega_2-\omega_1}{\pi} ...
-...}(\sin(\omega_1 n)-\sin(\omega_2 n)) &amp; \mbox{for $n\neq 0$}
-\end{array}\right.
-$"> 
-
-(<SPAN CLASS="arabic">136</SPAN>)
-</DIV>
+<LI>Move the impulse response to positive time so that it becomes causal
+(move it <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img312.svg"
+ ALT="$M/2$"></SPAN> steps to the right).
 </LI>
-</UL>
-See <A
- HREF="node90.html#Diniz2002">Diniz (2002, p.195)</A> for more impulse responses.
+</OL>
 
 <P>
-Here is an example code for a bandstop filter which fills the array
-<SPAN  CLASS="texttt">h</SPAN> with the analytically calculated impulse response:
-<PRE>
-f1 = 45.0/fs
-f2 = 55.0/fs
-n = np.arange(-200,200)
-h = (1/(n*np.pi))*(np.sin(f1*2*np.pi*n)-np.sin(f2*2*np.pi*n))
-h[200] = 1+(f1*2*np.pi-f2*2*np.pi)/np.pi;
-h = h * np.hamming(400)
-</PRE>
-After the function has been calculated it is windowed so that the
-cut off is smooth. It's not very elegant as it's causes a division by zero first and
-then the coeffecient at 200 is fixed. Do it better!
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node67.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node59.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node65.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html404"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node67.html">Design steps for FIR</A>
-<B> Up:</B> <A
- HREF="node59.html">FIR Filter</A>
-<B> Previous:</B> <A
- HREF="node65.html">Python code: impulse response</A>
- &nbsp; <B>  <A ID="tex2html405"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

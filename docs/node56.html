@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>How to characterise filters?</TITLE>
-<META NAME="description" CONTENT="How to characterise filters?">
+<TITLE>The z-transform</TITLE>
+<META NAME="description" CONTENT="The z-transform">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,8 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="previous" HREF="node55.html">
+<LINK REL="next" HREF="node57.html">
+<LINK REL="previous" HREF="node54.html">
 <LINK REL="next" HREF="node57.html">
 </HEAD>
 
@@ -26,128 +27,114 @@
  HREF="node57.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node55.html">
+ HREF="node50.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node55.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html373"
+<A ID="tex2html370"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node57.html">The z-transform</A>
+ HREF="node57.html">Frequency response of a</A>
 <B> Up:</B> <A
- HREF="node55.html">Filters</A>
+ HREF="node50.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node55.html">Filters</A>
- &nbsp; <B>  <A ID="tex2html374"
+ HREF="node55.html">How to characterise filters?</A>
+ &nbsp; <B>  <A ID="tex2html371"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00095100000000000000">
-How to characterise filters?</A>
-</H3>
+<H2><A ID="SECTION00095000000000000000">
+The z-transform</A>
+</H2>
+The Laplace transform is for continuous causal signals but in DSP
+we have sampled signals. So, we need to investigate what happens
+if we feed a sampled signal:
 
-<P>
+<DIV class="equation">
 
-<OL>
-<LI><B>Impulse Response</B>
+<!-- MATH
+ \begin{equation}
+x(t) = \sum_{n = 0}^{\infty} x(n) \delta(t - nT) \qquad \mbox{Sampled signal}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img242.svg"
+ ALT="$\displaystyle x(t) = \sum_{n = 0}^{\infty} x(n) \delta(t - nT) \qquad \mbox{Sampled signal}
+$"> 
+
+(<SPAN CLASS="arabic">94</SPAN>)
+</DIV>
+into the Laplace transform:
 <BR>
 <DIV ALIGN="CENTER">
 
 <!-- MATH
  \begin{eqnarray}
-x(t) & = & \delta(t) \qquad \leftarrow \mbox{delta pulse} \\
-h(t) & = & y(t) \qquad \leftarrow \mbox{impulse response}
+X(s) & = & \sum_{n = 0}^{\infty} x(n) e^{-snT} \\
+     & = & \int_{0}^{\infty} x(n) e^{-st} dt \\
+     & = & \sum_{n = 0}^{\infty} x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-sT}} \\
+     & = & \sum_{n = 0}^{\infty} x(n) (z^{-1})^{n} \qquad \mbox{z-transform}
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img105.svg"
- ALT="$\displaystyle x(t)$"></TD>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img243.svg"
+ ALT="$\displaystyle X(s)$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img233.svg"
- ALT="$\displaystyle \delta(t) \qquad \leftarrow \mbox{delta pulse}$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img244.svg"
+ ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) e^{-snT}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">89</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img234.svg"
- ALT="$\displaystyle h(t)$"></TD>
+(<SPAN CLASS="arabic">95</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img235.svg"
- ALT="$\displaystyle y(t) \qquad \leftarrow \mbox{impulse response}$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img245.svg"
+ ALT="$\displaystyle \int_{0}^{\infty} x(n) e^{-st} dt$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">90</SPAN>)</TD></TR>
+(<SPAN CLASS="arabic">96</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.04ex; vertical-align: -3.70ex; " SRC="img246.svg"
+ ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-sT}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">97</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img247.svg"
+ ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) (z^{-1})^{n} \qquad \mbox{z-transform}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">98</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
-The filter is fully characterised by its impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
- ALT="$h(t)$"></SPAN>
+What is <!-- MATH
+ $e^{-sT} = z^{-1}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img248.svg"
+ ALT="$e^{-sT} = z^{-1}$"></SPAN>? It's a unit delay (see Eq.&nbsp;<A HREF="node53.html#shiftOperation">81</A>).
 
 <P>
-</LI>
-<LI><B>Transfer function</B>
-The Laplace transform of the impulse response is called
-<SPAN  CLASS="textsl">Transfer Function</SPAN>. With the argument <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img236.svg"
- ALT="$j\omega$"></SPAN> we
-get the frequency
-response of the filter. What does the frequency response tell us about
-the filter?  The absolute value of the
 
-<DIV class="equation">
+<DIV class="CENTER"><A ID="frequency_response"></A><A ID="1696"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 15:</STRONG>
+Comparing the calculation of the frequency response
+in the continuous case and sampled case.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img249.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{frequency_response}">
 
-<!-- MATH
- \begin{equation}
-|H(i \omega)|
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img237.svg"
- ALT="$\displaystyle \vert H(i \omega)\vert
-$"> 
-
-(<SPAN CLASS="arabic">91</SPAN>)
+</DIV></TD></TR>
+</TABLE>
 </DIV>
-gives us the amplitude or magnitude for every frequency
-(compare the Fourier transform).
-The angle of the term <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img238.svg"
- ALT="$H(j\omega)$"></SPAN> gives us the phase shift:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\phi = \arg\left(H(i \omega) \right)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img239.svg"
- ALT="$\displaystyle \phi = \arg\left(H(i \omega) \right)
-$"> 
-
-(<SPAN CLASS="arabic">92</SPAN>)
-</DIV>
-of the filter. In this context the <SPAN  CLASS="textsl">group delay</SPAN> can
-be defined as:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\tau_{\omega} = \frac{d \phi (\omega)}{d\omega}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="img240.svg"
- ALT="$\displaystyle \tau_{\omega} = \frac{d \phi (\omega)}{d\omega}
-$"> 
-
-(<SPAN CLASS="arabic">93</SPAN>)
-</DIV>
-which is delay for a certain frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img241.svg"
- ALT="$\omega$"></SPAN>. In many applications
-this should be kept constant for all frequencies.
-</LI>
-</OL>
 
 <P>
 <BR><HR>

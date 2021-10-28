@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Design steps for FIR filters</TITLE>
-<META NAME="description" CONTENT="Design steps for FIR filters">
+<TITLE>FIR filter design with Python's high level functions</TITLE>
+<META NAME="description" CONTENT="FIR filter design with Python's high level functions">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,65 +27,43 @@
  HREF="node68.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node59.html">
+ HREF="node58.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node66.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html406"
+<A ID="tex2html403"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node68.html">FIR filter design with</A>
+ HREF="node68.html">Signal Detection: Matched filter</A>
 <B> Up:</B> <A
- HREF="node59.html">FIR Filter</A>
+ HREF="node58.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node66.html">FIR filter design from</A>
- &nbsp; <B>  <A ID="tex2html407"
+ HREF="node66.html">Design steps for FIR</A>
+ &nbsp; <B>  <A ID="tex2html404"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00098800000000000000">
-Design steps for FIR filters</A>
+<H3><A ID="SECTION00097900000000000000">
+FIR filter design with Python's high level functions</A>
 </H3>
-Here are the design steps for an <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
- ALT="$M$"></SPAN> tap FIR filter.
-
-<OL>
-<LI>Get yourself an impulse response for your filter:
-
-<OL>
-<LI>Create a frequency response &ldquo;by hand&rdquo; just by filling an array
-with the desired frequency response. Then, perform an inverse Fourier transform
-(see section&nbsp;<A HREF="node65.html#freqsamp">8.8.6</A>).
-</LI>
-<LI>Define a frequency response analytically. Do an inverse Fourier
-transform (see section&nbsp;<A HREF="node66.html#idealFilt">8.8.7</A>).
-</LI>
-<LI>Use an analogue circuit, get its impulse response and use
-these as filter coefficients.
-</LI>
-<LI>Dream up directly an impulse response (for example, averagers,
-differentiators, etc)
-</LI>
-</OL>
-
-<P>
-</LI>
-<LI>Mirror the impulse response (if not already symmetrical)
-</LI>
-<LI>Window the impulse response from an infinite number of samples
-to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
- ALT="$M$"></SPAN> samples.
-</LI>
-<LI>Move the impulse response to positive time so that it becomes causal
-(move it <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img312.svg"
- ALT="$M/2$"></SPAN> steps to the right).
-</LI>
-</OL>
+The &ldquo;firwin&rdquo; command generates the impulse response of
+a filter with m taps and also applies a default window function. For example:
+<PRE>
+from scipy.signal import firwin
+h = firwin(m,2*f)
+</PRE>
+generates a lowpass FIR filter with the normalised frequency f. Note the
+factor two because in scipy the normalisation is <SPAN  CLASS="textsl">not</SPAN> the sampling rate
+but the <SPAN  CLASS="textsl">nyquist frequency</SPAN>. To be compatible with the math here the
+easiest approach is to multiply the frequency by 2. With this command
+one can also design high pass, bandstop and bandpass filters. Type <SPAN  CLASS="texttt">help(firwin)</SPAN>
+which provides examples for all filter types and which parameters need
+to be set.
 
 <P>
 <BR><HR>

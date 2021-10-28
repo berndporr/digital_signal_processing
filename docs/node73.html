@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Determining the data-flow diagram of an IIR filter</TITLE>
-<META NAME="description" CONTENT="Determining the data-flow diagram of an IIR filter">
+<TITLE>General form of IIR filters</TITLE>
+<META NAME="description" CONTENT="General form of IIR filters">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,99 +27,86 @@
  HREF="node74.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node71.html">
+ HREF="node70.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node72.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html430"
+<A ID="tex2html427"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node74.html">General form of IIR</A>
+ HREF="node74.html">IIR filter topologies</A>
 <B> Up:</B> <A
- HREF="node71.html">IIR Filter</A>
+ HREF="node70.html">IIR Filter</A>
 <B> Previous:</B> <A
- HREF="node72.html">Introduction</A>
- &nbsp; <B>  <A ID="tex2html431"
+ HREF="node72.html">Determining the data-flow diagram</A>
+ &nbsp; <B>  <A ID="tex2html428"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00099200000000000000">
-Determining the data-flow diagram of an IIR filter</A>
+<H3><A ID="SECTION00098300000000000000">
+General form of IIR filters</A>
 </H3>
-To get a practical implementation of Eq.&nbsp;<A HREF="node72.html#IIReq">158</A> we have
-to see it with its input- and output-signals:
-<BR>
-<DIV ALIGN="CENTER"><A ID="Verg"></A>
-<!-- MATH
- \begin{eqnarray}
-Y(z)&=&X(z)H(z)\\
-    &=&X(z) {1\over 1-e^{-bT} z^{-1}} \\
-    &=&Y(z)z^{-1}e^{-bT}+X(z)
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img389.svg"
- ALT="$\displaystyle Y(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img390.svg"
- ALT="$\displaystyle X(z)H(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">162</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.87ex; vertical-align: -1.82ex; " SRC="img391.svg"
- ALT="$\displaystyle X(z) {1\over 1-e^{-bT} z^{-1}}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">163</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img392.svg"
- ALT="$\displaystyle Y(z)z^{-1}e^{-bT}+X(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">164</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-We have to recall that <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img393.svg"
- ALT="$z^{-1}$"></SPAN> is the delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img31.svg"
- ALT="$T$"></SPAN>. With that
-information we directly have a difference equation in the
-temporal domain:
+A filter with forward and feedback components can be represented as:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-y(nT)=y([n-1]T) e^{-bT} + x(nT)
+H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}}
 \end{equation}
  -->
- &nbsp;  <A ID="IIRtime"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img394.svg"
- ALT="$\displaystyle y(nT)=y([n-1]T) e^{-bT} + x(nT)
-$"> 
+ &nbsp;  <IMG STYLE="height: 5.65ex; vertical-align: -2.19ex; " SRC="img400.svg"
+ ALT="$\displaystyle H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}} $"> 
 
-(<SPAN CLASS="arabic">165</SPAN>)
+(<SPAN CLASS="arabic">166</SPAN>)
 </DIV>
-This means that the output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img395.svg"
- ALT="$y(nT)$"></SPAN> is calculated by
-adding the weighted and delayed output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img396.svg"
- ALT="$y([n-1]T)$"></SPAN> 
-to the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img397.svg"
- ALT="$x(nT)$"></SPAN>.
-How this actually works is shown in Fig.&nbsp;<A HREF="node72.html#IIRfilter">21</A>.
-The attention is drawn to the <SPAN  CLASS="textsl">sign inversion</SPAN> of the weighting
-factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img398.svg"
- ALT="$e^{-bT}$"></SPAN> in contrast to the transfer function 
-Eq.&nbsp;<A HREF="node72.html#impInv">159</A> where it is <SPAN CLASS="MATH"><IMG STYLE="height: 2.23ex; vertical-align: -0.28ex; " SRC="img399.svg"
- ALT="$-e^{-bT}$"></SPAN>. In general the recursive
-coefficients change sign when they are taken from the transfer
-function.
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img401.svg"
+ ALT="$B_k$"></SPAN> are the FIR coefficients and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img402.svg"
+ ALT="$A_l$"></SPAN> the recursive coefficients.
+Note the signs of the recursive coefficients are <SPAN  CLASS="textsl">inverted</SPAN> in the
+actual implementation of the filter. This can be seen when the
+function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
+ ALT="$H(z)$"></SPAN> is actually multiplied with an input signal to
+obtain the output signal (see Eq.&nbsp;<A HREF="node72.html#IIRtime">165</A> and Fig.&nbsp;<A HREF="node71.html#IIRfilter">21</A>).
+The &ldquo;1&rdquo; in the denominator represents actually the output of
+the filter. If this factor is not one then the output will be scaled
+by that factor. However, usually this is kept one.
+
+<P>
+In Python filtering is performed with the command:
+<PRE>
+import scipy.signal as signal
+Y = signal.lfilter(B,A,X)
+</PRE>
+where B are the FIR coefficients, A the IIR coefficients and X is the input.
+For a pure FIR filter we just have:
+<PRE>
+Y = signal.lfilter(B,1,X)
+</PRE>
+The &ldquo;1&rdquo; represents the output.
+
+<P>
+
+<DIV class="CENTER"><A ID="iir_types"></A><A ID="1740"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 22:</STRONG>
+A) Direct Form I filter which one accumulator and
+  B) Direct Form II filter with two accumlators.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img403.svg"
+ ALT="\includegraphics[width=\textwidth]{iir_types}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
 <BR><HR>

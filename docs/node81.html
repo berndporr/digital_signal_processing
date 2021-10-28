@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>IIR filter design steps:</TITLE>
-<META NAME="description" CONTENT="IIR filter design steps:">
+<TITLE>Time or frequency domain?</TITLE>
+<META NAME="description" CONTENT="Time or frequency domain?">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,6 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node82.html">
 <LINK REL="previous" HREF="node80.html">
 <LINK REL="next" HREF="node82.html">
 </HEAD>
@@ -27,130 +26,61 @@
  HREF="node82.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node77.html">
+ HREF="node76.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node80.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html451"
+<A ID="tex2html448"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node82.html">Time or frequency domain?</A>
+ HREF="node82.html">Adaptive IIR filter: The</A>
 <B> Up:</B> <A
- HREF="node77.html">Filter design based on</A>
+ HREF="node76.html">Filter design based on</A>
 <B> Previous:</B> <A
- HREF="node80.html">Bilinear Transform: transforming the</A>
- &nbsp; <B>  <A ID="tex2html452"
+ HREF="node80.html">IIR filter design steps:</A>
+ &nbsp; <B>  <A ID="tex2html449"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H4><A ID="SECTION00099640000000000000">
-IIR filter design steps:</A>
+<H4><A ID="SECTION00098650000000000000">
+Time or frequency domain?</A>
 </H4>
-
-<OL>
-<LI>Choose the cut-off frequency of your digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img422.svg"
- ALT="$\omega_{c}$"></SPAN>.
-</LI>
-<LI>Calculate the analogue cutoff frequency <!-- MATH
- $\omega_{c} \rightarrow
-  \Omega_{c}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img423.svg"
- ALT="$\omega_{c} \rightarrow
-\Omega_{c}$"></SPAN> with Eq.&nbsp;<A HREF="node80.html#prewarp">172</A>
-</LI>
-<LI>Choose your favourite analogue lowpass filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
- ALT="$H(s)$"></SPAN>,
-for example Butterworth.
-</LI>
-<LI>Replace all <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img252.svg"
- ALT="$s$"></SPAN> in the analogue transfer function
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
- ALT="$H(s)$"></SPAN> by <!-- MATH
- $s = \frac{2}{T} \frac{z - 1}{z + 1}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.96ex; vertical-align: -1.03ex; " SRC="img424.svg"
- ALT="$s = \frac{2}{T} \frac{z - 1}{z + 1}$"></SPAN> 
-to obtain the digital filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$H(z)$"></SPAN>
-</LI>
-<LI>Change the transfer function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$H(z)$"></SPAN> so that it only contains
-negative powers of <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img253.svg"
- ALT="$z$"></SPAN> (<!-- MATH
- $z^{-1}, z^{-2}, \ldots$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.40ex; vertical-align: -0.53ex; " SRC="img425.svg"
- ALT="$z^{-1}, z^{-2}, \ldots$"></SPAN>) which can be
-interpreted as delay lines.
-</LI>
-<LI>Build your IIR filter!
-</LI>
-</OL>
+The transforms from analogue to digital alter both the temporal
+response and the frequency response. However the different transforms
+have different impact. The bilinear transform guarantees that the
+digital filter uses the whole frequency range of the analogue filter
+from zero to infinity which is the best solution for frequency domain
+problems. However, if one needs to reproduce the temporal response an
+analogue filter as faithfully as possible then the matched z transform
+is best because it's based (as the name suggests) on the impulse
+invariance method which aims to preserve the temporal behaviour of the
+filter (exact for pole-only transfer functions).
 
 <P>
-For filter-orders higher than two one needs to develop a different
-strategy because the bilinear transform is a real <SPAN  CLASS="textsl">pain</SPAN> to
-calculate for anything above the order of two. Nobody wants to
-transform high order analogue transfer functions <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
- ALT="$H(s)$"></SPAN> to the <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$H(z)$"></SPAN>
-domain. However, there is an important property of all analogue
-transfer functions: they generate complex conjugate pole pairs (plus
-one real pole if of of odd order) which suggest a chain of 2nd order IIR
-filters straight away (see Fig.&nbsp;<A HREF="node76.html#butterworth_poles">24</A>). Remember
-that a complex conjugate pole pair creates a 2nd order IIR filter with
-with two delay steps. A real pole is a 1st order IIR filter with one
-delay but is often also implemented as a 2nd order filter where the
-coefficients of the 2nd delay are kept zero.
+<DIV class="CENTER">
+<TABLE class="PAD " style="">
+<TR><TD CLASS="LEFT">Identical frequency response required:</TD>
+<TD CLASS="LEFT">Bilinear transform</TD>
+</TR>
+<TR><TD CLASS="LEFT">Identical temporal behaviour required:</TD>
+<TD CLASS="LEFT">Matched z-transform</TD>
+</TR>
+</TABLE>
+</DIV>
 
 <P>
-The design strategy is thus to split up the analogue transfer function
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
- ALT="$H(s)$"></SPAN> in a chain of 2nd order filters <!-- MATH
- $H(s) = H_1(s) H_2(s) H_3(s)
-\ldots$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img426.svg"
- ALT="$H(s) = H_1(s) H_2(s) H_3(s)
-\ldots$"></SPAN> and then to apply the bilinear transform on every 2nd order
-term separately. Using this strategy you only need to calculate the bilinear
-transform once for a 2nd order system (or if the order is odd then
-also for a 1st order one) but then there is no need to do any more
-painful bilinear transforms. This is standard practise in IIR filter
-design.
+Of course a 100% match won't be achieved but in practise this
+can be assumed. In most cases the bilinear transform is the
+transform of choice. The matched z transform can be very useful,
+for example in robotics where timing is important.
 
 <P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node82.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node77.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node80.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html451"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node82.html">Time or frequency domain?</A>
-<B> Up:</B> <A
- HREF="node77.html">Filter design based on</A>
-<B> Previous:</B> <A
- HREF="node80.html">Bilinear Transform: transforming the</A>
- &nbsp; <B>  <A ID="tex2html452"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

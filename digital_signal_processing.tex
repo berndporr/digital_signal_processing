@@ -1227,17 +1227,22 @@ the phase might be of interest which is calculated as $\arg(X(F))$.
 
 \section{Causal Signal Processing}
 
-\subsection{Motivation}
+In realtime systems and any systems processing data as it
+arrives the future samples are not known. This is as in
+an analogue system where we send for example a signal into
+an amplifier and it needs to process it as it arrives.
 
-Here are some randomly chosen reasons why we need causal
-signal processing:
-\begin{itemize}
-\item Fourier transform is \textsl{not real time}.  
+However, the Fourier transform is \textsl{not real time}.  
 We need the whole signal from the first to the last sample.
-\item Reaction time: in time critical systems (robotics) we
-want to react as fast as possible and with as little delay as possible!
-\item We would like to ``recycle'' our analogue math.
-\end{itemize}
+For that reason we need to develop a new mathematical framework
+which we call ``Causal Signal Processing''. These systems
+should ideally react as an analogue system, namely as fast
+as possible with little latency as possible.
+
+In the next section we are now developing a mathematical
+framework for causal digital signal processing. We draw
+here heavily from analoge circuit design as this is by
+its own nature a realtime causal processor.
 
 
 \begin{figure}[!hbt]
