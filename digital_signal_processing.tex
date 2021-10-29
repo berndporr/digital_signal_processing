@@ -1227,22 +1227,24 @@ the phase might be of interest which is calculated as $\arg(X(F))$.
 
 \section{Causal Signal Processing}
 
-In realtime systems and any systems processing data as it
-arrives the future samples are not known. This is as in
-an analogue system where we send for example a signal into
-an amplifier and it needs to process it as it arrives.
+In realtime systems and any system where data is processed as it
+arrives the values of the future samples are not known. This is as in
+an analogue system where we send for example a signal into an
+amplifier and it needs to process it as it arrives. The amplifier
+won't know if the next music track is Mozart or Jimmy Hendrix. It just
+needs to react to what it's fed into it.
 
-However, the Fourier transform is \textsl{not real time}.  
-We need the whole signal from the first to the last sample.
-For that reason we need to develop a new mathematical framework
-which we call ``Causal Signal Processing''. These systems
-should ideally react as an analogue system, namely as fast
-as possible with little latency as possible.
+However, the Fourier Transform is \textsl{not real time}.  We need the
+whole signal from the first to the last sample.  For that reason we
+need to develop a new mathematical framework which we call ``Causal
+Signal Processing''. These systems should ideally react to an incoming
+signal as an analogue system does, namely as fast as possible with
+little latency as possible.
 
 In the next section we are now developing a mathematical
 framework for causal digital signal processing. We draw
 here heavily from analoge circuit design as this is by
-its own nature a realtime causal processor.
+its own nature performs realtime causal processing.
 
 
 \begin{figure}[!hbt]
