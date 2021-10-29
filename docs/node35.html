@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Quantisation of analogue signals</TITLE>
-<META NAME="description" CONTENT="Quantisation of analogue signals">
+<TITLE>Frequency representation of signals</TITLE>
+<META NAME="description" CONTENT="Frequency representation of signals">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,8 +15,8 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node37.html">
-<LINK REL="previous" HREF="node31.html">
+<LINK REL="next" HREF="node48.html">
+<LINK REL="previous" HREF="node28.html">
 <LINK REL="next" HREF="node36.html">
 </HEAD>
 
@@ -32,71 +32,34 @@
 <A
  HREF="node34.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html268"
+<A ID="tex2html265"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node36.html">Quantisation error</A>
+ HREF="node36.html">Continuous time and frequency</A>
 <B> Up:</B> <A
  HREF="digital_signal_processing.html">Digital Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node34.html">Reconstruction of an analogue</A>
- &nbsp; <B>  <A ID="tex2html269"
+ HREF="node34.html">Quantisation error</A>
+ &nbsp; <B>  <A ID="tex2html266"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A ID="SECTION00070000000000000000">
-Quantisation of analogue signals</A>
+<H1><A ID="SECTION00060000000000000000">
+Frequency representation of signals</A>
 </H1>
-A/D converters have a certain resolution. For example, the MAX1271 has a
-resolution of 12 bits which means that it divides the input range into
-4096 equal steps (see Fig&nbsp;<A HREF="node34.html#quant_overv">3</A>).
+Often we are more interested in the frequency representation
+of signals than the evolution in time.
 
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\Delta = \mbox{quantisation step} =
-\frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.79ex; vertical-align: -1.82ex; " SRC="img71.svg"
- ALT="$\displaystyle \Delta = \mbox{quantisation step} =
-\frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
-$"> 
-
-(<SPAN CLASS="arabic">18</SPAN>)
-</DIV>
-where <!-- MATH
- $x_{\mbox{max}} - x_{\mbox{min}}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.24ex; vertical-align: -0.84ex; " SRC="img72.svg"
- ALT="$x_{\mbox{max}} - x_{\mbox{min}}$"></SPAN> is the dynamic range in volt
-(for example <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img73.svg"
- ALT="$4.096V$"></SPAN>) and <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img74.svg"
- ALT="$L$"></SPAN> is the number of quantisation steps
-(for example, 4096). <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img1.svg"
- ALT="$\Delta $"></SPAN> is the quantisation step which defines
-minimal voltage change which is needed to see a change in the output
-of the quantiser. The operation of the quantiser can be written down
-as:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-x_{q}(n) = Q[x(n)]
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img75.svg"
- ALT="$\displaystyle x_{q}(n) = Q[x(n)]
-$"> 
-
-(<SPAN CLASS="arabic">19</SPAN>)
-</DIV>
+<P>
+We will use small letters for time domain representation
+and capital letters for the frequency representation, for example
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img89.svg"
+ ALT="$X(F)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
+ ALT="$x(t)$"></SPAN>.
 
 <P>
 <BR><HR>
@@ -104,8 +67,37 @@ $">
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
+<LI><A ID="tex2html267"
+  HREF="node36.html">Continuous time and frequency</A>
+<UL>
+<LI><A ID="tex2html268"
+  HREF="node37.html">Periodic signals</A>
+<LI><A ID="tex2html269"
+  HREF="node38.html">A-periodic signals</A>
+</UL>
+<BR>
 <LI><A ID="tex2html270"
-  HREF="node36.html">Quantisation error</A>
+  HREF="node39.html">Sampled time and/or frequency</A>
+<UL>
+<LI><A ID="tex2html271"
+  HREF="node40.html">Discrete time Fourier Transform (DTFT)</A>
+<LI><A ID="tex2html272"
+  HREF="node41.html">The effect of time domain sampling on the spectrum (Sampling
+theorem)</A>
+<LI><A ID="tex2html273"
+  HREF="node42.html">Discrete Fourier Transform (DFT)</A>
+<LI><A ID="tex2html274"
+  HREF="node43.html">Properties of the DFT</A>
+<LI><A ID="tex2html275"
+  HREF="node44.html">Problems with finite length DFTs</A>
+<LI><A ID="tex2html276"
+  HREF="node45.html">Fast Fourier Transform</A>
+</UL>
+<BR>
+<LI><A ID="tex2html277"
+  HREF="node46.html">Software</A>
+<LI><A ID="tex2html278"
+  HREF="node47.html">Visualisation</A>
 </UL>
 <!--End of Table of Child-Links-->
 <BR><HR>

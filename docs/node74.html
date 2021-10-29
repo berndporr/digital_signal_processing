@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>IIR filter topologies</TITLE>
-<META NAME="description" CONTENT="IIR filter topologies">
+<TITLE>Filter design based on analogue filters</TITLE>
+<META NAME="description" CONTENT="Filter design based on analogue filters">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node75.html">
+<LINK REL="next" HREF="node80.html">
 <LINK REL="previous" HREF="node73.html">
 <LINK REL="next" HREF="node75.html">
 </HEAD>
@@ -27,137 +27,57 @@
  HREF="node75.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node70.html">
+ HREF="node68.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node73.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html429"
+<A ID="tex2html425"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node75.html">Fixed point IIR filters</A>
+ HREF="node75.html">A list of popular</A>
 <B> Up:</B> <A
- HREF="node70.html">IIR Filter</A>
+ HREF="node68.html">IIR Filter</A>
 <B> Previous:</B> <A
- HREF="node73.html">General form of IIR</A>
- &nbsp; <B>  <A ID="tex2html430"
+ HREF="node73.html">Fixed point IIR filters</A>
+ &nbsp; <B>  <A ID="tex2html426"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00098400000000000000">
-IIR filter topologies</A>
+<H3><A ID="SECTION00078600000000000000">
+Filter design based on analogue filters</A>
 </H3>
-In real applications one would create a <SPAN  CLASS="textsl">chain of 2nd order
-IIR filters</SPAN>. This has numerous advantages:
-
-<OL>
-<LI>The optimisation can be done within these simple structures,
-  for example omitting array operations completely and coding
-  the 2nd order filters in assembly while keeping the higher
-  level operations in C or C++.
-</LI>
-<LI>Control of stability issues: high order recursive
-  systems might become unstable and it is very hard to predict
-  when this might happen. On the other hand a chain of 2nd order
-  filters can be made stable with ease. One can focus on
-  stability in 2nd order systems which is well understood and
-  manageable.
-</LI>
-<LI>Complex conjugate pole pairs are generated naturally
-  in analogue filter design and directly translate to 2nd
-  order IIR structures. Analogue design is usually described
-  as 2nd order structures (=LCR) so that any transform from analogue
-  to digital just needs to be of 2nd order!
-</LI>
-</OL>
+Most IIR filters are designed from analogue filters by transforming
+from the continuous domain (<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img409.svg"
+ ALT="$h(t),H(s)$"></SPAN>) to the sampled domain
+(<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img410.svg"
+ ALT="$h(n),H(z)$"></SPAN>).
 
 <P>
-Fig.&nbsp;<A HREF="node73.html#iir_types">22</A> shows the most popular filter topologies:
-Direct Form I and II. Because of the linear operation of the filter
-one is allowed to do the FIR and IIR operations in different orders.
-In Direct From I we have one accumulator and two delay lines whereas
-in the Direct Form II we have two accumulators and one delay line.
-Only the Direct Form I is suitable for integer operations.
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<P>
-A Python class of a direct form II filter can be implemented
-with a few lines:
-<PRE>
-class IIR_filter:
-    def __init__(self,_num,_den):
-        self.numerator = _num
-        self.denominator = _den
-        self.buffer1 = 0
-        self.buffer2 = 0
-
-    def filter(self,v):
-        input=0.0
-        output=0.0
-        input=v
-        output=(self.numerator[1]*self.buffer1)
-        input=input-(self.denominator[1]*self.buffer1)
-        output=output+(self.numerator[2]*self.buffer2)
-        input=input-(self.denominator[2]*self.buffer2)
-        output=output+input*self.numerator[0]
-        self.buffer2=self.buffer1
-        self.buffer1=input
-        return output
-</PRE>
-Here, the two delay steps are represented by two variables
-<SPAN  CLASS="texttt">buffer1</SPAN> and <SPAN  CLASS="texttt">buffer2</SPAN>.
-
-<P>
-In order to achive higher order filters one can then just
-chain these 2nd order filters. In Python this can be achieved
-by storing these in an array of instances of this class.
-
-<P>
-
-<DIV class="CENTER"><A ID="iir_fixed"></A><A ID="1742"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 23:</STRONG>
-Direct Form I filter with fixed point arithmetic.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img404.svg"
- ALT="\includegraphics[width=0.5\textwidth]{iir_fixed}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node75.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node70.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node73.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html429"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node75.html">Fixed point IIR filters</A>
-<B> Up:</B> <A
- HREF="node70.html">IIR Filter</A>
-<B> Previous:</B> <A
- HREF="node73.html">General form of IIR</A>
- &nbsp; <B>  <A ID="tex2html430"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html427"
+  HREF="node75.html">A list of popular analogue transfer functions being
+used for IIR filter design:</A>
+<LI><A ID="tex2html428"
+  HREF="node76.html">How to transform the analogue lowpass filters into
+  highpass, bandstop or bandpass filters?</A>
+<LI><A ID="tex2html429"
+  HREF="node77.html">Bilinear Transform: transforming the analoge transfer function into a digital one:</A>
+<LI><A ID="tex2html430"
+  HREF="node78.html">IIR filter design steps:</A>
+<LI><A ID="tex2html431"
+  HREF="node79.html">Time or frequency domain?</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

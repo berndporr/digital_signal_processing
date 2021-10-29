@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Determining the data-flow diagram of an IIR filter</TITLE>
-<META NAME="description" CONTENT="Determining the data-flow diagram of an IIR filter">
+<TITLE>IIR filter topologies</TITLE>
+<META NAME="description" CONTENT="IIR filter topologies">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,102 +27,137 @@
  HREF="node73.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node70.html">
+ HREF="node68.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node71.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html425"
+<A ID="tex2html421"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node73.html">General form of IIR</A>
+ HREF="node73.html">Fixed point IIR filters</A>
 <B> Up:</B> <A
- HREF="node70.html">IIR Filter</A>
+ HREF="node68.html">IIR Filter</A>
 <B> Previous:</B> <A
- HREF="node71.html">Introduction</A>
- &nbsp; <B>  <A ID="tex2html426"
+ HREF="node71.html">General form of IIR</A>
+ &nbsp; <B>  <A ID="tex2html422"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00098200000000000000">
-Determining the data-flow diagram of an IIR filter</A>
+<H3><A ID="SECTION00078400000000000000">
+IIR filter topologies</A>
 </H3>
-To get a practical implementation of Eq.&nbsp;<A HREF="node71.html#IIReq">158</A> we have
-to see it with its input- and output-signals:
-<BR>
-<DIV ALIGN="CENTER"><A ID="Verg"></A>
-<!-- MATH
- \begin{eqnarray}
-Y(z)&=&X(z)H(z)\\
-    &=&X(z) {1\over 1-e^{-bT} z^{-1}} \\
-    &=&Y(z)z^{-1}e^{-bT}+X(z)
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img389.svg"
- ALT="$\displaystyle Y(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img390.svg"
- ALT="$\displaystyle X(z)H(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">162</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.87ex; vertical-align: -1.82ex; " SRC="img391.svg"
- ALT="$\displaystyle X(z) {1\over 1-e^{-bT} z^{-1}}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">163</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img392.svg"
- ALT="$\displaystyle Y(z)z^{-1}e^{-bT}+X(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">164</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-We have to recall that <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img393.svg"
- ALT="$z^{-1}$"></SPAN> is the delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img31.svg"
- ALT="$T$"></SPAN>. With that
-information we directly have a difference equation in the
-temporal domain:
+In real applications one would create a <SPAN  CLASS="textsl">chain of 2nd order
+IIR filters</SPAN>. This has numerous advantages:
 
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-y(nT)=y([n-1]T) e^{-bT} + x(nT)
-\end{equation}
- -->
- &nbsp;  <A ID="IIRtime"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img394.svg"
- ALT="$\displaystyle y(nT)=y([n-1]T) e^{-bT} + x(nT)
-$"> 
-
-(<SPAN CLASS="arabic">165</SPAN>)
-</DIV>
-This means that the output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img395.svg"
- ALT="$y(nT)$"></SPAN> is calculated by
-adding the weighted and delayed output signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img396.svg"
- ALT="$y([n-1]T)$"></SPAN> 
-to the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img397.svg"
- ALT="$x(nT)$"></SPAN>.
-How this actually works is shown in Fig.&nbsp;<A HREF="node71.html#IIRfilter">21</A>.
-The attention is drawn to the <SPAN  CLASS="textsl">sign inversion</SPAN> of the weighting
-factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img398.svg"
- ALT="$e^{-bT}$"></SPAN> in contrast to the transfer function 
-Eq.&nbsp;<A HREF="node71.html#impInv">159</A> where it is <SPAN CLASS="MATH"><IMG STYLE="height: 2.23ex; vertical-align: -0.28ex; " SRC="img399.svg"
- ALT="$-e^{-bT}$"></SPAN>. In general the recursive
-coefficients change sign when they are taken from the transfer
-function.
+<OL>
+<LI>The optimisation can be done within these simple structures,
+  for example omitting array operations completely and coding
+  the 2nd order filters in assembly while keeping the higher
+  level operations in C or C++.
+</LI>
+<LI>Control of stability issues: high order recursive
+  systems might become unstable and it is very hard to predict
+  when this might happen. On the other hand a chain of 2nd order
+  filters can be made stable with ease. One can focus on
+  stability in 2nd order systems which is well understood and
+  manageable.
+</LI>
+<LI>Complex conjugate pole pairs are generated naturally
+  in analogue filter design and directly translate to 2nd
+  order IIR structures. Analogue design is usually described
+  as 2nd order structures (=LCR) so that any transform from analogue
+  to digital just needs to be of 2nd order!
+</LI>
+</OL>
 
 <P>
-<BR><HR>
+Fig.&nbsp;<A HREF="node71.html#iir_types">22</A> shows the most popular filter topologies:
+Direct Form I and II. Because of the linear operation of the filter
+one is allowed to do the FIR and IIR operations in different orders.
+In Direct From I we have one accumulator and two delay lines whereas
+in the Direct Form II we have two accumulators and one delay line.
+Only the Direct Form I is suitable for integer operations.
+
+<P>
+A Python class of a direct form II filter can be implemented
+with a few lines:
+<PRE>
+class IIR_filter:
+    def __init__(self,_num,_den):
+        self.numerator = _num
+        self.denominator = _den
+        self.buffer1 = 0
+        self.buffer2 = 0
+
+    def filter(self,v):
+        input=0.0
+        output=0.0
+        input=v
+        output=(self.numerator[1]*self.buffer1)
+        input=input-(self.denominator[1]*self.buffer1)
+        output=output+(self.numerator[2]*self.buffer2)
+        input=input-(self.denominator[2]*self.buffer2)
+        output=output+input*self.numerator[0]
+        self.buffer2=self.buffer1
+        self.buffer1=input
+        return output
+</PRE>
+Here, the two delay steps are represented by two variables
+<SPAN  CLASS="texttt">buffer1</SPAN> and <SPAN  CLASS="texttt">buffer2</SPAN>.
+
+<P>
+In order to achive higher order filters one can then just
+chain these 2nd order filters. In Python this can be achieved
+by storing these in an array of instances of this class.
+
+<P>
+
+<DIV class="CENTER"><A ID="iir_fixed"></A><A ID="1733"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 23:</STRONG>
+Direct Form I filter with fixed point arithmetic.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img404.svg"
+ ALT="\includegraphics[width=0.5\textwidth]{iir_fixed}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node73.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node68.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node71.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html421"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node73.html">Fixed point IIR filters</A>
+<B> Up:</B> <A
+ HREF="node68.html">IIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node71.html">General form of IIR</A>
+ &nbsp; <B>  <A ID="tex2html422"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

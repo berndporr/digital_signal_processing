@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>FIR filter design with Python's high level functions</TITLE>
-<META NAME="description" CONTENT="FIR filter design with Python's high level functions">
+<TITLE>Adaptive FIR Least Mean Squares (LMS) filters</TITLE>
+<META NAME="description" CONTENT="Adaptive FIR Least Mean Squares (LMS) filters">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,6 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node68.html">
 <LINK REL="previous" HREF="node66.html">
 <LINK REL="next" HREF="node68.html">
 </HEAD>
@@ -27,46 +26,301 @@
  HREF="node68.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node58.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node66.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html403"
+<A ID="tex2html399"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node68.html">Signal Detection: Matched filter</A>
+ HREF="node68.html">IIR Filter</A>
 <B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
+ HREF="node56.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node66.html">Design steps for FIR</A>
- &nbsp; <B>  <A ID="tex2html404"
+ HREF="node66.html">Signal Detection: Matched filter</A>
+ &nbsp; <B>  <A ID="tex2html400"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00097900000000000000">
-FIR filter design with Python's high level functions</A>
+<H3><A ID="SECTION000771100000000000000">
+Adaptive FIR Least Mean Squares (LMS) filters</A>
 </H3>
-The &ldquo;firwin&rdquo; command generates the impulse response of
-a filter with m taps and also applies a default window function. For example:
-<PRE>
-from scipy.signal import firwin
-h = firwin(m,2*f)
-</PRE>
-generates a lowpass FIR filter with the normalised frequency f. Note the
-factor two because in scipy the normalisation is <SPAN  CLASS="textsl">not</SPAN> the sampling rate
-but the <SPAN  CLASS="textsl">nyquist frequency</SPAN>. To be compatible with the math here the
-easiest approach is to multiply the frequency by 2. With this command
-one can also design high pass, bandstop and bandpass filters. Type <SPAN  CLASS="texttt">help(firwin)</SPAN>
-which provides examples for all filter types and which parameters need
-to be set.
+So far the coefficients of the FIR filter have been constant but now
+we are going to allow them to change <SPAN  CLASS="textsl">while</SPAN> the FIR filter is
+operating so that it can learn its own coefficients. The
+idea is to use an error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> to tune the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
+ ALT="$h(n)$"></SPAN>
+of the FIR filter (see Fig.&nbsp;<A HREF="node66.html#fir_lms">20</A>A) by comparing its output
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
+ ALT="$y(n)$"></SPAN> with a desired output <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+e(n) = d(n) - y(n)
+\end{equation}
+ -->
+ &nbsp;  <A ID="lmserror"></A><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img355.svg"
+ ALT="$\displaystyle e(n) = d(n) - y(n)
+$"> 
+
+(<SPAN CLASS="arabic">142</SPAN>)
+</DIV>
+and tuning the FIR filter in a negative feedback loop till the
+average of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> is zero.
 
 <P>
-<BR><HR>
+We need to derive how the error <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> can change the FIR filter
+coefficients so that the error is actually minimised. This can be
+expressed as a so called &ldquo;gradient descent&rdquo; which minimises the squared
+error <!-- MATH
+ $\frac{1}{2} e(n)^2$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img356.svg"
+ ALT="$\frac{1}{2} e(n)^2$"></SPAN> because both a positive and a negative
+error are equally bad:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\Delta h_m = - \mu \frac{\partial\left( \frac{1}{2}e(n)^2 \right)}{\partial h_m}
+\end{equation}
+ -->
+ &nbsp;  <A ID="graddes"></A><IMG STYLE="height: 6.25ex; vertical-align: -1.97ex; " SRC="img357.svg"
+ ALT="$\displaystyle \Delta h_m = - \mu \frac{\partial\left( \frac{1}{2}e(n)^2 \right)}{\partial h_m}
+$"> 
+
+(<SPAN CLASS="arabic">143</SPAN>)
+</DIV>
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img358.svg"
+ ALT="$\Delta h_m(n)$"></SPAN> is the change of the coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img359.svg"
+ ALT="$h_m(n)$"></SPAN> at
+every time step: <!-- MATH
+ $h_m(n+1) = h_m(n) + \Delta h_m(n)$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img360.svg"
+ ALT="$h_m(n+1) = h_m(n) + \Delta h_m(n)$"></SPAN>.  <SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img361.svg"
+ ALT="$\mu \ll 1$"></SPAN>
+defines how quickly the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> change at every time step
+and is called the &ldquo;learning rate&rdquo;. Note here the change in notation
+of the FIR filter coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> which are changing much
+<SPAN  CLASS="textsl">slower</SPAN> than the sampled signals <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img362.svg"
+ ALT="$e(n), d(n)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
+ ALT="$y(n)$"></SPAN> and
+can still be seen as constant for the realtime filtering
+operation. Thus, we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
+ ALT="$n$"></SPAN> for the sample by sample processing as
+before and the index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img363.svg"
+ ALT="$m$"></SPAN> of <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> for the very slowly changing FIR
+filter coefficients. To gain some intuition why
+Eq.&nbsp;<A HREF="#graddes">143</A> mimimises the error <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> we look at what happens if we
+increase the FIR coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> a little bit, for example, by the
+small amount of <!-- MATH
+ $|\epsilon| \ll 1$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img364.svg"
+ ALT="$\vert\epsilon\vert \ll 1$"></SPAN>: <!-- MATH
+ $h_m := h_m + \epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img365.svg"
+ ALT="$h_m := h_m + \epsilon$"></SPAN>. Then we can
+observe two cases:
+
+<OL>
+<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img366.svg"
+ ALT="$e(n)^2$"></SPAN> increases so we need to decrease <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> as it makes it worse.
+</LI>
+<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img366.svg"
+ ALT="$e(n)^2$"></SPAN> decreases so we need to increase <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> as it makes it better.
+</LI>
+</OL>
+This also works in the same way if we decrease <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> by a small amount. Thus from
+both directions this always minimises the error. This is basically a carrot &amp; stick
+approach where the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> are being &ldquo;rewarded&rdquo; if they minimise the error and
+&ldquo;punished&rdquo; if they make the error larger. This approach is called &ldquo;Least Mean Squares&rdquo; (LMS)
+as it minimises the squared error on average. It's also known from neural networks where
+the <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN> are called the &ldquo;weights&rdquo; of a neuron (see delta rule).
+
+<P>
+Eq&nbsp;<A HREF="#graddes">143</A> now needs to be turned into a form which can directly run in software by
+solving its partial derivative by inserting Eqs.&nbsp;<A HREF="#lmserror">142</A> and <A HREF="node56.html#FIRtime">110</A>.
+<BR>
+<DIV ALIGN="CENTER"><A ID="lmsLearn"></A>
+<!-- MATH
+ \begin{eqnarray}
+\Delta h_m & = & - \mu \frac{1}{2}\frac{\partial \left(d(n)-y(n)\right)^2}{\partial h_m} \\
+                & = & - \mu \frac{1}{2}\frac{\partial \left(d(n)-\sum_{m=0}^{M-1} h_m \cdot x(n-m)\right)^2}{\partial h_m} \\
+                & = & \mu \left(d(n)-y(n)\right) \cdot x(n-m) \\
+                & = & \mu \cdot e(n) \cdot x(n-m)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img367.svg"
+ ALT="$\displaystyle \Delta h_m$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.63ex; vertical-align: -1.97ex; " SRC="img368.svg"
+ ALT="$\displaystyle - \mu \frac{1}{2}\frac{\partial \left(d(n)-y(n)\right)^2}{\partial h_m}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">144</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.62ex; vertical-align: -1.97ex; " SRC="img369.svg"
+ ALT="$\displaystyle - \mu \frac{1}{2}\frac{\partial \left(d(n)-\sum_{m=0}^{M-1} h_m \cdot x(n-m)\right)^2}{\partial h_m}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">145</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img370.svg"
+ ALT="$\displaystyle \mu \left(d(n)-y(n)\right) \cdot x(n-m)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">146</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img371.svg"
+ ALT="$\displaystyle \mu \cdot e(n) \cdot x(n-m)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">147</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img20.svg"
+ ALT="$x(n-m)$"></SPAN> emerges because
+of the chain rule when partially differentiating the output
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
+ ALT="$y(n)$"></SPAN> which depends on the sum of the delay lines of the FIR
+filter (see Eq&nbsp;<A HREF="node56.html#FIRtime">110</A>). Eq.&nbsp;<A HREF="#lmsLearn">147</A> is now our &ldquo;learning&rdquo;
+rule which can simply be applied to the FIR filter as showm in Fig&nbsp;<A HREF="node66.html#fir_lms">20</A>B.
+
+<P>
+Now we have the recipe of an adaptive filter where the FIR filter minimises its
+own error <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> in a negative feedback loop and generating an output
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
+ ALT="$y(n)$"></SPAN> which is as closely as possible to the desired signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN>. The signal
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
+ ALT="$y(n)$"></SPAN> is often called &ldquo;the remover&rdquo; as it cancels out the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN>.
+However, not everything in <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN> is cancelled out but <SPAN  CLASS="textsl">only</SPAN> what
+is correlated with the input <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>. This means that the error signal
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> will not be zero but will contain any signal components which are
+<SPAN  CLASS="textsl">not</SPAN> correlated with <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>. This means that the error signal actually
+is also the cleaned up output signal of the adaptive filter.
+
+<P>
+Imagine you want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
+ ALT="$50$"></SPAN>&nbsp;Hz mains from a signal
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img372.svg"
+ ALT="$\displaystyle d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
+$"> 
+
+(<SPAN CLASS="arabic">148</SPAN>)
+</DIV>
+then one would provide <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
+ ALT="$50$"></SPAN>&nbsp;Hz mains
+via
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x(n) = \mathrm{50Hz~noise}(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img373.svg"
+ ALT="$\displaystyle x(n) = \mathrm{50Hz~noise}(n)
+$"> 
+
+(<SPAN CLASS="arabic">149</SPAN>)
+</DIV>
+so that then the filter learns to remove the powerline
+interference. One might think that the filter will remove everything from
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN> because it will try to minimise the error <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> but only the
+50&nbsp;Hz in the contaminated signal will be removed because only signal components
+which are correlated between <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN> will be removed.
+The cleaned up signal will be identical to the error
+signal:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+e(n) = \mathrm{signal}(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img374.svg"
+ ALT="$\displaystyle e(n) = \mathrm{signal}(n)
+$"> 
+
+(<SPAN CLASS="arabic">150</SPAN>)
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node68.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node56.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node66.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html399"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node68.html">IIR Filter</A>
+<B> Up:</B> <A
+ HREF="node56.html">FIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node66.html">Signal Detection: Matched filter</A>
+ &nbsp; <B>  <A ID="tex2html400"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

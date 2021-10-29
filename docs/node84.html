@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Zeros</TITLE>
-<META NAME="description" CONTENT="Zeros">
+<TITLE>Stability</TITLE>
+<META NAME="description" CONTENT="Stability">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,163 +27,72 @@
  HREF="node85.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node83.html">
+ HREF="node81.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node83.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html459"
+<A ID="tex2html455"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node85.html">Poles</A>
+ HREF="node85.html">Design of an IIR</A>
 <B> Up:</B> <A
- HREF="node83.html">The role of poles</A>
+ HREF="node81.html">The role of poles</A>
 <B> Previous:</B> <A
- HREF="node83.html">The role of poles</A>
- &nbsp; <B>  <A ID="tex2html460"
+ HREF="node83.html">Poles</A>
+ &nbsp; <B>  <A ID="tex2html456"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00099100000000000000">
-Zeros</A>
+<H3><A ID="SECTION00079300000000000000">
+Stability</A>
 </H3>
-Let's look at the transfer function:
-<BR>
-<DIV ALIGN="CENTER">
+A transfer function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
+ ALT="$H(z)$"></SPAN> is only stable if the poles lie inside the
+unit circle. This is equivalent to the analog case where the poles of
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
+ ALT="$H(s)$"></SPAN> have to lie on the left hand side of the complex plane (see
+Eq.&nbsp;<A HREF="node69.html#translpoles">159</A>). Looking at Eq.&nbsp;<A HREF="node83.html#resonatorz">183</A> it becomes
+clear that <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
+ ALT="$r$"></SPAN> determines the radius of the two complex conjugate poles. If
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img456.svg"
+ ALT="$r&gt;1$"></SPAN> then the filter becomes unstable. The same applies to poles on
+the real axis. Their the real values have to stay within the range <SPAN CLASS="MATH"><IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="img457.svg"
+ ALT="$-1
+\ldots +1$"></SPAN>.
 
-<!-- MATH
- \begin{eqnarray}
-H(z) & = & (1 - e^{j\omega_0} z^{-1})(1 - e^{-j\omega_0} z^{-1}) \\
-     & = & 1 - z^{-1} e^{j \omega-{0}} + z^{-2} \\
-     & = & 1 - z^{-1} (e^{j \omega_{0}} + e^{-j \omega_{0}}) + z^{-2} \\
-     & = & 1 - z^{-1} 2 \cos \omega_{0} + z^{-2}
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img379.svg"
- ALT="$\displaystyle H(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="img434.svg"
- ALT="$\displaystyle (1 - e^{j\omega_0} z^{-1})(1 - e^{-j\omega_0} z^{-1})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">177</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.29ex; vertical-align: -0.28ex; " SRC="img435.svg"
- ALT="$\displaystyle 1 - z^{-1} e^{j \omega-{0}} + z^{-2}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">178</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="img436.svg"
- ALT="$\displaystyle 1 - z^{-1} (e^{j \omega_{0}} + e^{-j \omega_{0}}) + z^{-2}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">179</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.41ex; vertical-align: -0.43ex; " SRC="img437.svg"
- ALT="$\displaystyle 1 - z^{-1} 2 \cos \omega_{0} + z^{-2}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">180</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-which leads to the data flow diagram shown in Fig&nbsp;<A HREF="node83.html#fir_stop">25</A>.
+<P>
+In summary: poles generate resonances and amplify frequencies. The
+amplification is strongest the closer the poles move towards the unit
+circle. The poles need to stay within the unit circle to guarantee
+stability. 
+
+<P>
+Note that in real implementations the coefficients of the
+filters are limited in precision. This means that a filter might
+work perfectly in python but will fail on a DSP with its limited
+precision. You can simlate this by forcing a certain datatype
+in python or you write it properly in C.
 
 <P>
 
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(e^{j\omega}) = \underbrace{(1 - e^{j\omega_0}e^{-j\omega})(1 - e^{-j\omega_0} e^{-j\omega})}_{\mbox{2 zeros}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.97ex; vertical-align: -3.98ex; " SRC="img438.svg"
- ALT="$\displaystyle H(e^{j\omega}) = \underbrace{(1 - e^{j\omega_0}e^{-j\omega})(1 - e^{-j\omega_0} e^{-j\omega})}_{\mbox{2 zeros}}
-$"> 
-
-(<SPAN CLASS="arabic">181</SPAN>)
-</DIV>
-
-<P>
-The zeroes at 
-<!-- MATH
- $e^{j \omega_{0}}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="img439.svg"
- ALT="$e^{j \omega_{0}}$"></SPAN> and <!-- MATH
- $e^{-j \omega_0}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="img440.svg"
- ALT="$e^{-j \omega_0}$"></SPAN> 
-eliminate the frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img441.svg"
- ALT="$\omega_{0}$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img442.svg"
- ALT="$-\omega_{0}$"></SPAN>. 
-
-<P>
-A special case is <!-- MATH
- $\omega_{0} = 0$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.97ex; vertical-align: -0.43ex; " SRC="img443.svg"
- ALT="$\omega_{0} = 0$"></SPAN>
-which gives us:
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-H(z) & = & (1 - e^{0} z^{-1})(1 - e^{0} z^{-1}) \\
-     & = & 1 - 2 z^{-1} + z^{-2}
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img379.svg"
- ALT="$\displaystyle H(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="img444.svg"
- ALT="$\displaystyle (1 - e^{0} z^{-1})(1 - e^{0} z^{-1})$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">182</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.26ex; vertical-align: -0.28ex; " SRC="img445.svg"
- ALT="$\displaystyle 1 - 2 z^{-1} + z^{-2}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">183</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-a DC filter.
-
-<P>
-In summary: zeros eliminate frequencies (and change phase).
-That's the idea of an FIR filter where loads of zeros (or loads of taps)
-knock out the frequencies in the stopband.
-
-<P>
-
-<DIV class="CENTER"><A ID="iir_stop"></A><A ID="1763"></A>
+<DIV class="CENTER"><A ID="iir_fir_stop"></A><A ID="1760"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 26:</STRONG>
-A two tap IIR resonator for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
- ALT="$\omega _0$"></SPAN> and with
-the amplification <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
- ALT="$r$"></SPAN>.
+<CAPTION class="BOTTOM"><STRONG>Figure 27:</STRONG>
+A two tap IIR bandstop filter with tuneable stopband width <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
+ ALT="$r$"></SPAN>
+for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
+ ALT="$\omega _0$"></SPAN>.
 </CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img446.svg"
- ALT="\includegraphics[width=0.75\textwidth]{iir_stop}">
+ SRC="./iir_fir_stop.png"
+ ALT="Image iir_fir_stop">
 
 </DIV></TD></TR>
 </TABLE>
@@ -197,22 +106,22 @@ the amplification <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align:
  HREF="node85.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node83.html">
+ HREF="node81.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node83.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html459"
+<A ID="tex2html455"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node85.html">Poles</A>
+ HREF="node85.html">Design of an IIR</A>
 <B> Up:</B> <A
- HREF="node83.html">The role of poles</A>
+ HREF="node81.html">The role of poles</A>
 <B> Previous:</B> <A
- HREF="node83.html">The role of poles</A>
- &nbsp; <B>  <A ID="tex2html460"
+ HREF="node83.html">Poles</A>
+ &nbsp; <B>  <A ID="tex2html456"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>

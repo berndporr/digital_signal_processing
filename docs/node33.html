@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Nyquist frequency</TITLE>
-<META NAME="description" CONTENT="Nyquist frequency">
+<TITLE>Quantisation of analogue signals</TITLE>
+<META NAME="description" CONTENT="Quantisation of analogue signals">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,8 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node34.html">
-<LINK REL="previous" HREF="node32.html">
+<LINK REL="previous" HREF="node29.html">
 <LINK REL="next" HREF="node34.html">
 </HEAD>
 
@@ -27,190 +26,88 @@
  HREF="node34.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node31.html">
+ HREF="node28.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node32.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html264"
+<A ID="tex2html260"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node34.html">Reconstruction of an analogue</A>
+ HREF="node34.html">Quantisation error</A>
 <B> Up:</B> <A
- HREF="node31.html">Sampling of Analogue Signals</A>
+ HREF="node28.html">Signal conversion</A>
 <B> Previous:</B> <A
- HREF="node32.html">Normalised frequency</A>
- &nbsp; <B>  <A ID="tex2html265"
+ HREF="node32.html">Reconstruction of an analogue</A>
+ &nbsp; <B>  <A ID="tex2html261"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00062000000000000000">
-Nyquist frequency</A>
+<H2><A ID="SECTION00052000000000000000">
+Quantisation of analogue signals</A>
 </H2>
-Recall that the max value for the normalised frequency <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img4.svg"
- ALT="$f$"></SPAN> is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img40.svg"
- ALT="$0.5$"></SPAN>
-and that:
+A/D converters have a certain resolution. For example, the MAX1271 has a
+resolution of 12 bits which means that it divides the input range into
+4096 equal steps (see Fig&nbsp;<A HREF="node32.html#quant_overv">3</A>).
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-X_{a}(n) = A \cos (2 \pi n f)
+\Delta = \mbox{quantisation step} =
+\frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img50.svg"
- ALT="$\displaystyle X_{a}(n) = A \cos (2 \pi n f)
+ &nbsp;  <IMG STYLE="height: 4.79ex; vertical-align: -1.82ex; " SRC="img71.svg"
+ ALT="$\displaystyle \Delta = \mbox{quantisation step} =
+\frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
 $"> 
 
-(<SPAN CLASS="arabic">10</SPAN>)
+(<SPAN CLASS="arabic">17</SPAN>)
 </DIV>
-with <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
- ALT="$n$"></SPAN> as an integer because
-we are sampling.
-
-<P>
-What happens above <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img52.svg"
- ALT="$f&gt;0.5$"></SPAN>? Imagine <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img53.svg"
- ALT="$f = 1$"></SPAN>
+where <!-- MATH
+ $x_{\mbox{max}} - x_{\mbox{min}}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.24ex; vertical-align: -0.84ex; " SRC="img72.svg"
+ ALT="$x_{\mbox{max}} - x_{\mbox{min}}$"></SPAN> is the dynamic range in volt
+(for example <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img73.svg"
+ ALT="$4.096V$"></SPAN>) and <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img74.svg"
+ ALT="$L$"></SPAN> is the number of quantisation steps
+(for example, 4096). <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img1.svg"
+ ALT="$\Delta $"></SPAN> is the quantisation step which defines
+minimal voltage change which is needed to see a change in the output
+of the quantiser. The operation of the quantiser can be written down
+as:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-X_{a}(n) = \cos (2 \pi n) = 1 \qquad f=1
+x_{q}(n) = Q[x(n)]
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img54.svg"
- ALT="$\displaystyle X_{a}(n) = \cos (2 \pi n) = 1 \qquad f=1
+ &nbsp;  <IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img75.svg"
+ ALT="$\displaystyle x_{q}(n) = Q[x(n)]
 $"> 
 
-(<SPAN CLASS="arabic">11</SPAN>)
-</DIV>
-which gives us DC or zero frequency. The same is true for
-<!-- MATH
- $f = 2, 3, 4, \ldots$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img55.svg"
- ALT="$f = 2, 3, 4, \ldots$"></SPAN>. We see that above <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img49.svg"
- ALT="$f=0.5$"></SPAN> we never
-get higher frequencies. Instead they will always stay between
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img41.svg"
- ALT="$0\ldots 0.5$"></SPAN> for the simple reason that it is not possible
-to represent higher frequencies. This will be discussed later
-in greater detail.
-
-<P>
-The ratio <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img56.svg"
- ALT="$F/F_s$"></SPAN> must  be lower than <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img40.svg"
- ALT="$0.5$"></SPAN> to avoid ambiguity
-or in other words the maximum frequency in a signal must be lower than 
-<!-- MATH
- $\frac{1}{2} F_s$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img57.svg"
- ALT="$\frac{1}{2} F_s$"></SPAN>. This is the Nyquist frequency.
-
-<P>
-If there are higher frequencies in the signal then these frequencies
-are &ldquo;folded down&rdquo; into the frequency range of <!-- MATH
- $0\ldots \frac{1}{2} F_s$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img58.svg"
- ALT="$0\ldots \frac{1}{2} F_s$"></SPAN>
-and creating an alias of its original frequency in the so called
-&ldquo;baseband&rdquo; (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img59.svg"
- ALT="$f=0\ldots 0.5$"></SPAN>). As long as the alias is not overlapping
-with other signal components in the baseband this can be used to
-downmix a signal. This leads to the general definition of the
-sampling theorem which states that the bandwidth <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img60.svg"
- ALT="$B$"></SPAN> of the input signal
-must be half of the sampling rate <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img5.svg"
- ALT="$F_s$"></SPAN>:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-B < \frac{1}{2}F_s
-\end{equation}
- -->
- &nbsp;  <A ID="samplingTheorem"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img61.svg"
- ALT="$\displaystyle B &lt; \frac{1}{2}F_s
-$"> 
-
-(<SPAN CLASS="arabic">12</SPAN>)
-</DIV>
-The frequency <!-- MATH
- $\frac{1}{2}F_s$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img57.svg"
- ALT="$\frac{1}{2} F_s$"></SPAN> is called the Nyquist frequency.
-
-<P>
-
-<DIV class="CENTER"><A ID="anti_alias"></A><A ID="1637"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 2:</STRONG>
-Anti alias filtering. A) with a lowpass filter. B)
-with a sigma delta converter with very high sampling rate.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img62.svg"
- ALT="\includegraphics[width=0.75\textwidth]{anti_alias}">
-
-</DIV></TD></TR>
-</TABLE>
+(<SPAN CLASS="arabic">18</SPAN>)
 </DIV>
 
 <P>
-What do we do if the signal contains frequencies above 
-<!-- MATH
- $\frac{1}{2} F_s$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img57.svg"
- ALT="$\frac{1}{2} F_s$"></SPAN>? There are two ways to tackle this problem:
-The classical way is
-to use a lowpass filter (see Fig.&nbsp;<A HREF="#anti_alias">2</A>A) which filters
-out all frequencies above the Nyquist frequency. However this
-might be difficult in applications with high resolution A/D converters.
-Alternatively one can use a much higher sampling rate to avoid
-aliasing. This is the idea of the sigma delta converter
-which operates at sampling rates hundred times higher than the
-Nyquist frequency.
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node34.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node31.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node32.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html264"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node34.html">Reconstruction of an analogue</A>
-<B> Up:</B> <A
- HREF="node31.html">Sampling of Analogue Signals</A>
-<B> Previous:</B> <A
- HREF="node32.html">Normalised frequency</A>
- &nbsp; <B>  <A ID="tex2html265"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html262"
+  HREF="node34.html">Quantisation error</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

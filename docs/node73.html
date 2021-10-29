@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>General form of IIR filters</TITLE>
-<META NAME="description" CONTENT="General form of IIR filters">
+<TITLE>Fixed point IIR filters</TITLE>
+<META NAME="description" CONTENT="Fixed point IIR filters">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,89 +27,111 @@
  HREF="node74.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node70.html">
+ HREF="node68.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node72.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html427"
+<A ID="tex2html423"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node74.html">IIR filter topologies</A>
+ HREF="node74.html">Filter design based on</A>
 <B> Up:</B> <A
- HREF="node70.html">IIR Filter</A>
+ HREF="node68.html">IIR Filter</A>
 <B> Previous:</B> <A
- HREF="node72.html">Determining the data-flow diagram</A>
- &nbsp; <B>  <A ID="tex2html428"
+ HREF="node72.html">IIR filter topologies</A>
+ &nbsp; <B>  <A ID="tex2html424"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00098300000000000000">
-General form of IIR filters</A>
+<H3><A ID="SECTION00078500000000000000">
+Fixed point IIR filters</A>
 </H3>
-A filter with forward and feedback components can be represented as:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.65ex; vertical-align: -2.19ex; " SRC="img400.svg"
- ALT="$\displaystyle H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}} $"> 
-
-(<SPAN CLASS="arabic">166</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img401.svg"
- ALT="$B_k$"></SPAN> are the FIR coefficients and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img402.svg"
- ALT="$A_l$"></SPAN> the recursive coefficients.
-Note the signs of the recursive coefficients are <SPAN  CLASS="textsl">inverted</SPAN> in the
-actual implementation of the filter. This can be seen when the
-function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$H(z)$"></SPAN> is actually multiplied with an input signal to
-obtain the output signal (see Eq.&nbsp;<A HREF="node72.html#IIRtime">165</A> and Fig.&nbsp;<A HREF="node71.html#IIRfilter">21</A>).
-The &ldquo;1&rdquo; in the denominator represents actually the output of
-the filter. If this factor is not one then the output will be scaled
-by that factor. However, usually this is kept one.
+Fig.&nbsp;<A HREF="node72.html#iir_fixed">23</A> shows the implementation of a fixed point IIR
+filter. It's a Direct Form I filter with one accumulator so that
+temporary overflows can be compensated. The original floating point
+IIR coefficients are scaled up by factor <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.09ex; " SRC="img15.svg"
+ ALT="$2^w$"></SPAN> so that they max out
+the range of the integer coefficients. After the addition operation
+they are shifted back by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img14.svg"
+ ALT="$w$"></SPAN>&nbsp;bits to their original values.
 
 <P>
-In Python filtering is performed with the command:
-<PRE>
-import scipy.signal as signal
-Y = signal.lfilter(B,A,X)
-</PRE>
-where B are the FIR coefficients, A the IIR coefficients and X is the input.
-For a pure FIR filter we just have:
-<PRE>
-Y = signal.lfilter(B,1,X)
-</PRE>
-The &ldquo;1&rdquo; represents the output.
+For example if the largest IIR coefficient is 1.9 and we use 16 bit
+signed numbers (max number is 32767) then one could multiply all
+coefficients with <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img405.svg"
+ ALT="$2^{14}$"></SPAN>.
+
+<P>
+Then one needs to assess the maximum value in the accumulator which
+is much more difficult than for FIR filters. For example,
+resonators can generate high output values with even small input values
+so that it's advisable to have a large overhead in the accumulator.
+For example if the input signal is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img290.svg"
+ ALT="$16$"></SPAN>&nbsp;bit and the scaling factor is
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img406.svg"
+ ALT="$14$"></SPAN>&nbsp;bits then the signal will certainly occupy <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img407.svg"
+ ALT="$16+14=30$"></SPAN>&nbsp;bits. With
+an accumulator of 32 bits that gives only a headroom of 2&nbsp;bits so the
+output can only be 4 times larger than the input. A 64 bit accumulator
+is a safe bet.
 
 <P>
 
-<DIV class="CENTER"><A ID="iir_types"></A><A ID="1740"></A>
+<DIV class="CENTER"><A ID="butterworth_poles"></A><A ID="1735"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 22:</STRONG>
-A) Direct Form I filter which one accumulator and
-  B) Direct Form II filter with two accumlators.
+<CAPTION class="BOTTOM"><STRONG>Figure 24:</STRONG>
+Pole placements of the Butterworth filter. Its analogue
+  cutoff frequency is <!-- MATH
+ $\Omega = 2\pi F$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img22.svg"
+ ALT="$\Omega = 2\pi F$"></SPAN> where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img3.svg"
+ ALT="$F$"></SPAN> is the
+  analogue cutoff frequency in Hertz. This filter can be implemented
+  as a chain of 2nd order IIR filters (biquads) by using the
+  complex conjugate pairs for the different 2nd order IIR filters.
 </CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img403.svg"
- ALT="\includegraphics[width=\textwidth]{iir_types}">
+ SRC="img408.svg"
+ ALT="\includegraphics[width=0.5\textwidth]{butterworth_poles}">
 
 </DIV></TD></TR>
 </TABLE>
 </DIV>
 
 <P>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node68.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html423"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node74.html">Filter design based on</A>
+<B> Up:</B> <A
+ HREF="node68.html">IIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node72.html">IIR filter topologies</A>
+ &nbsp; <B>  <A ID="tex2html424"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

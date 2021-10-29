@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node31.html">
+<LINK REL="next" HREF="node35.html">
 <LINK REL="previous" HREF="node7.html">
 <LINK REL="next" HREF="node29.html">
 </HEAD>
@@ -32,17 +32,17 @@
 <A
  HREF="node27.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html249"
+<A ID="tex2html241"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node29.html">A/D conversion</A>
+ HREF="node29.html">Sampling of Analogue Signals</A>
 <B> Up:</B> <A
  HREF="digital_signal_processing.html">Digital Signal Processing</A>
 <B> Previous:</B> <A
  HREF="node27.html">WAV files</A>
- &nbsp; <B>  <A ID="tex2html250"
+ &nbsp; <B>  <A ID="tex2html242"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -53,22 +53,67 @@ Signal conversion</A>
 </H1>
 
 <P>
+We start with a few definitions when we transform an analogue signal into the digital
+domain and back:
+
+<P>
+
+<OL>
+<LI><B>sampling</B>
+
+<P>
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-\mbox{Analogue} \rightarrow \mbox{A/D} \rightarrow \mbox{Digital processing}
-\rightarrow \mbox{D/A} \rightarrow \mbox{Analogue}
+\underbrace{x_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img28.svg"
- ALT="$\displaystyle \mbox{Analogue} \rightarrow \mbox{A/D} \rightarrow \mbox{Digital processing}
-\rightarrow \mbox{D/A} \rightarrow \mbox{Analogue}
+ &nbsp;  <IMG STYLE="height: 6.26ex; vertical-align: -4.51ex; " SRC="img28.svg"
+ ALT="$\displaystyle \underbrace{x_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
 $"> 
 
 (<SPAN CLASS="arabic">1</SPAN>)
 </DIV>
+
+<P>
+
+<UL>
+<LI><SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img29.svg"
+ ALT="$x_a(t)$"></SPAN>: analogue signal
+</LI>
+<LI><SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img30.svg"
+ ALT="$T$"></SPAN>: sampling interval, <!-- MATH
+ $\frac{1}{T}=F_s$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img31.svg"
+ ALT="$\frac{1}{T}=F_s$"></SPAN> is the sampling rate
+</LI>
+<LI><SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>: discrete data
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><B>quantisation:</B> 
+Continuous value into discrete steps. <!-- MATH
+ $x(n) \rightarrow x_{q}(n)$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img32.svg"
+ ALT="$x(n) \rightarrow x_{q}(n)$"></SPAN>
+
+<P>
+</LI>
+<LI><B>Coding</B>
+<!-- MATH
+ $x_{q}(n) \rightarrow$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img33.svg"
+ ALT="$x_{q}(n) \rightarrow$"></SPAN> into binary sequence or integer numbers.
+</LI>
+</OL>
 
 <P>
 <BR><HR>
@@ -76,11 +121,23 @@ $">
 <A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A ID="tex2html251"
-  HREF="node29.html">A/D conversion</A>
-<LI><A ID="tex2html252"
-  HREF="node30.html">D/A Conversion</A>
+<LI><A ID="tex2html243"
+  HREF="node29.html">Sampling of Analogue Signals</A>
+<UL>
+<LI><A ID="tex2html244"
+  HREF="node30.html">Normalised frequency</A>
+<LI><A ID="tex2html245"
+  HREF="node31.html">Nyquist frequency</A>
+<LI><A ID="tex2html246"
+  HREF="node32.html">Reconstruction of an analogue signal: Sampling theorem</A>
 </UL>
+<BR>
+<LI><A ID="tex2html247"
+  HREF="node33.html">Quantisation of analogue signals</A>
+<UL>
+<LI><A ID="tex2html248"
+  HREF="node34.html">Quantisation error</A>
+</UL></UL>
 <!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>

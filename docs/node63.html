@@ -3,8 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Window functions</TITLE>
-<META NAME="description" CONTENT="Window functions">
+<TITLE>FIR filter design from ideal frequency response &ndash;
+The analytical way
+</TITLE>
+<META NAME="description" CONTENT="FIR filter design from ideal frequency response &ndash;
+The analytical way
+">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,130 +31,344 @@
  HREF="node64.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node58.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node62.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html395"
+<A ID="tex2html391"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node64.html">Python code: impulse response</A>
+ HREF="node64.html">Design steps for FIR</A>
 <B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
+ HREF="node56.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node62.html">Constant group delay or</A>
- &nbsp; <B>  <A ID="tex2html396"
+ HREF="node62.html">Python code: impulse response</A>
+ &nbsp; <B>  <A ID="tex2html392"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00097500000000000000">
-Window functions</A>
+<H3><A ID="SECTION00077700000000000000"></A><A ID="idealFilt"></A>
+<BR>
+FIR filter design from ideal frequency response &ndash;
+The analytical way
+
 </H3>
-So far we still have a infinite number of coefficients for 
-for the FIR filter because there's no guarantee that the 
-impulse response becomes zero
-after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img312.svg"
- ALT="$M/2$"></SPAN> delays. Thus, we have to find a way to truncate the
-response without distorting the filter response.
-
-<P>
-The standard technique is to multiply the coefficients with a window
-function which becomes and stays zero at a certain coefficient
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img313.svg"
- ALT="$n&gt;N$"></SPAN> so that Eq.&nbsp;<A HREF="node58.html#FIRz">107</A> need not to run to infinity:
+For many cases the impulse response can be calculated analytically.
+The idea is always the same: define a function with the ideal frequency
+response
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
+|H(e^{j\omega})| = \underbrace{B(e^{j\omega})}_{\mbox{real}}
 \end{equation}
  -->
- &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img314.svg"
- ALT="$\displaystyle
-H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
-$"> 
-
-(<SPAN CLASS="arabic">121</SPAN>)
-</DIV>
-
-<P>
-
-<OL>
-<LI>Rectangular window: truncating the impulse response.
-Problem: we get ripples in the frequency-response.
-The stop-band damping is poor
-
-<P>
-</LI>
-<LI>Triangular or Bartlett window: greatly improved stop-band attenuation.
-</LI>
-<LI>Hanning and Hamming window: standard windows in many applications.
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img315.svg"
- ALT="$\displaystyle w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
-$"> 
-
-(<SPAN CLASS="arabic">122</SPAN>)
-</DIV>
-
-<UL>
-<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img316.svg"
- ALT="$\alpha = 0.54$"></SPAN>
-</LI>
-<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img317.svg"
- ALT="$\alpha = 0.5$"></SPAN>
-</LI>
-</UL>
-
-<P>
-</LI>
-<LI>Blackman window:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
-0.08 \cos \left( \frac{4 \pi n}{M} \right) 
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img318.svg"
- ALT="$\displaystyle w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
-0.08 \cos \left( \frac{4 \pi n}{M} \right)
+ &nbsp;  <IMG STYLE="height: 6.06ex; vertical-align: -4.07ex; " SRC="img326.svg"
+ ALT="$\displaystyle \vert H(e^{j\omega})\vert = \underbrace{B(e^{j\omega})}_{\mbox{real}}
 $"> 
 
 (<SPAN CLASS="arabic">123</SPAN>)
 </DIV>
-</LI>
-<LI>Kaiser window: control over stop- and passband. No closed form
-equation available.
-</LI>
-</OL>
-To illustrate how window functions influence the frequency response
-we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img319.svg"
- ALT="$f_c=0.1$"></SPAN>)
-and applied different window functions to it (Fig.&nbsp;<A HREF="node62.html#window_functions">19</A>).
+and perform an inverse Fourier transform to get the impulse response
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
+ ALT="$h(n)$"></SPAN>.
 
 <P>
-Note that the higher the damping the wider the transition from pass-
-to stopband. This can be seen when comparing the Blackman window with
-the Hamming window (Fig.&nbsp;<A HREF="node62.html#window_functions">19</A>). For the lowpass
-filter this seems to be quite similar. However, for a bandstop filter
-the wider transition width might lead actually to very poor stopband
-damping. In such a case a Hamming window might be a better choice.
+We demonstrate this with a lowpass filter:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+|H(e^{j\omega})| =
+\left\{
+\begin{array}{ll}
+1 & \mbox{for } |\omega| \leq \omega_{c} \\
+0 & \mbox{for } \omega_c < |\omega| \leq \pi
+\end{array}
+\right.
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img327.svg"
+ ALT="$\displaystyle \vert H(e^{j\omega})\vert =
+\left\{
+\begin{array}{ll}
+1 &amp; \mbox{f...
+...c} \\
+0 &amp; \mbox{for } \omega_c &lt; \vert\omega\vert \leq \pi
+\end{array}\right.
+$"> 
+
+(<SPAN CLASS="arabic">124</SPAN>)
+</DIV>
+
+<P>
+Use the inverse Fourier transform to get the impulse response:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+h(n) & = & \frac{1}{2 \pi} \int_{-\pi}^{\pi} H(e^{j \omega}) e^{j \omega n} d\omega \\
+     & = & \frac{1}{2 \pi} \int_{- \omega_{c}}^{+ \omega_{c}} e^{j \omega n} d\omega \\
+     & = & \frac{1}{2 \pi} \left[\frac{1}{jn} e^{j \omega n} \right]_{- \omega_{c}}^{+ \omega_{c}} \\
+     & = & \frac{1}{2 \pi jn} \left( e^{j \omega_{c} n} - e^{-j \omega_{c}n} \right)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img328.svg"
+ ALT="$\displaystyle h(n)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img329.svg"
+ ALT="$\displaystyle \frac{1}{2 \pi} \int_{-\pi}^{\pi} H(e^{j \omega}) e^{j \omega n} d\omega$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">125</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.94ex; vertical-align: -1.90ex; " SRC="img330.svg"
+ ALT="$\displaystyle \frac{1}{2 \pi} \int_{- \omega_{c}}^{+ \omega_{c}} e^{j \omega n} d\omega$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">126</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.38ex; vertical-align: -2.63ex; " SRC="img331.svg"
+ ALT="$\displaystyle \frac{1}{2 \pi} \left[\frac{1}{jn} e^{j \omega n} \right]_{- \omega_{c}}^{+ \omega_{c}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">127</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="img332.svg"
+ ALT="$\displaystyle \frac{1}{2 \pi jn} \left( e^{j \omega_{c} n} - e^{-j \omega_{c}n} \right)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">128</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+With these handy equations:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\sin z & = & \frac{1}{2j} (e^{zj} - e^{-zj})\\
+\cos z & = & \frac{1}{2} (e^{zj} + e^{-zj})
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.68ex; vertical-align: -0.09ex; " SRC="img333.svg"
+ ALT="$\displaystyle \sin z$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="img334.svg"
+ ALT="$\displaystyle \frac{1}{2j} (e^{zj} - e^{-zj})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">129</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img335.svg"
+ ALT="$\displaystyle \cos z$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img336.svg"
+ ALT="$\displaystyle \frac{1}{2} (e^{zj} + e^{-zj})$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">130</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+we get for the filter:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n) =
+\left\{
+\begin{array}{cc}
+\frac{1}{\pi n} \sin \omega_{c}n & \mbox{for } n \neq 0 \\
+\frac{\omega_{c}}{\pi} & \mbox{for }n = 0
+\end{array}
+\right.
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img337.svg"
+ ALT="$\displaystyle h(n) =
+\left\{
+\begin{array}{cc}
+\frac{1}{\pi n} \sin \omega_{c}...
+...or } n \neq 0 \\
+\frac{\omega_{c}}{\pi} &amp; \mbox{for }n = 0
+\end{array}\right.
+$"> 
+
+(<SPAN CLASS="arabic">131</SPAN>)
+</DIV>
+This response is a-causal! However we know that we can shift the response 
+by any number of samples to make it causal! And we have to window the
+response to get rid of any remaining negative contribution and to
+improve the frequency response.
+
+<P>
+Highpass, bandstop and bandpass can be calculated in exactly the same
+way and lead to the following ideal filter characteristics:
+
+<UL>
+<LI><SPAN  CLASS="textbf">Lowpass</SPAN> with cutoff frequency <!-- MATH
+ $\omega_c=2\pi f_c$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img338.svg"
+ ALT="$\omega_c=2\pi f_c$"></SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n) =
+\left\{
+\begin{array}{ll}
+\frac{\omega_c}{\pi} & \mbox{for $n=0$} \\
+\frac{1}{\pi n} \sin(\omega_c n) & \mbox{for $n\neq 0$}
+\end{array}
+\right.
+\end{equation}
+ -->
+ &nbsp;  <A ID="idealLP"></A><IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img339.svg"
+ ALT="$\displaystyle h(n) =
+\left\{
+\begin{array}{ll}
+\frac{\omega_c}{\pi} &amp; \mbox{fo...
+...\\
+\frac{1}{\pi n} \sin(\omega_c n) &amp; \mbox{for $n\neq 0$}
+\end{array}\right.
+$"> 
+
+(<SPAN CLASS="arabic">132</SPAN>)
+</DIV>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Highpass</SPAN> with the cutoff frequency <!-- MATH
+ $\omega_c=2\pi f_c$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img338.svg"
+ ALT="$\omega_c=2\pi f_c$"></SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n)=
+\left\{
+\begin{array}{ll}
+1-\frac{\omega_c}{\pi} & \mbox{for $n=0$} \\
+-\frac{1}{\pi n} \sin(\omega_c n) & \mbox{for $n\neq 0$}
+\end{array}
+\right.
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img340.svg"
+ ALT="$\displaystyle h(n)=
+\left\{
+\begin{array}{ll}
+1-\frac{\omega_c}{\pi} &amp; \mbox{f...
+...\
+-\frac{1}{\pi n} \sin(\omega_c n) &amp; \mbox{for $n\neq 0$}
+\end{array}\right.
+$"> 
+
+(<SPAN CLASS="arabic">133</SPAN>)
+</DIV>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Bandpass</SPAN> with the passband frequencies <!-- MATH
+ $\omega_{1,2}=2\pi f_{1,2}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img341.svg"
+ ALT="$\omega_{1,2}=2\pi f_{1,2}$"></SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n)=
+\left\{
+\begin{array}{ll}
+\frac{\omega_2-\omega_1}{\pi} & \mbox{for $n=0$} \\
+\frac{1}{\pi n}(\sin(\omega_2 n)-\sin(\omega_1 n)) & \mbox{for $n\neq 0$}
+\end{array}
+\right.
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img342.svg"
+ ALT="$\displaystyle h(n)=
+\left\{
+\begin{array}{ll}
+\frac{\omega_2-\omega_1}{\pi} &amp; ...
+...}(\sin(\omega_2 n)-\sin(\omega_1 n)) &amp; \mbox{for $n\neq 0$}
+\end{array}\right.
+$"> 
+
+(<SPAN CLASS="arabic">134</SPAN>)
+</DIV>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Bandstop</SPAN> with the notch frequencies <!-- MATH
+ $\omega_{1,2}=2\pi f_{1,2}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img341.svg"
+ ALT="$\omega_{1,2}=2\pi f_{1,2}$"></SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n)=
+\left\{
+\begin{array}{ll}
+1-\frac{\omega_2-\omega_1}{\pi} & \mbox{for $n=0$} \\
+\frac{1}{\pi n}(\sin(\omega_1 n)-\sin(\omega_2 n)) & \mbox{for $n\neq 0$}
+\end{array}
+\right.
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img343.svg"
+ ALT="$\displaystyle h(n)=
+\left\{
+\begin{array}{ll}
+1-\frac{\omega_2-\omega_1}{\pi} ...
+...}(\sin(\omega_1 n)-\sin(\omega_2 n)) &amp; \mbox{for $n\neq 0$}
+\end{array}\right.
+$"> 
+
+(<SPAN CLASS="arabic">135</SPAN>)
+</DIV>
+</LI>
+</UL>
+See <A
+ HREF="node87.html#Diniz2002">Diniz (2002, p.195)</A> for more impulse responses.
+
+<P>
+Here is an example code for a bandstop filter which fills the array
+<SPAN  CLASS="texttt">h</SPAN> with the analytically calculated impulse response:
+<PRE>
+f1 = 45.0/fs
+f2 = 55.0/fs
+n = np.arange(-200,200)
+h = (1/(n*np.pi))*(np.sin(f1*2*np.pi*n)-np.sin(f2*2*np.pi*n))
+h[200] = 1+(f1*2*np.pi-f2*2*np.pi)/np.pi;
+h = h * np.hamming(400)
+</PRE>
+After the function has been calculated it is windowed so that the
+cut off is smooth. It's not very elegant as it's causes a division by zero first and
+then the coeffecient at 200 is fixed. Do it better!
 
 <P>
 
@@ -160,22 +378,22 @@ damping. In such a case a Hamming window might be a better choice.
  HREF="node64.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node58.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node62.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html395"
+<A ID="tex2html391"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node64.html">Python code: impulse response</A>
+ HREF="node64.html">Design steps for FIR</A>
 <B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
+ HREF="node56.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node62.html">Constant group delay or</A>
- &nbsp; <B>  <A ID="tex2html396"
+ HREF="node62.html">Python code: impulse response</A>
+ &nbsp; <B>  <A ID="tex2html392"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>

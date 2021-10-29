@@ -472,51 +472,39 @@ whereas 'fs' is the sampling rate and y3 the data -- usually normalised between
 
 \section{Signal conversion}
 
-\begin{equation}
-\mbox{Analogue} \rightarrow \mbox{A/D} \rightarrow \mbox{Digital processing}
-\rightarrow \mbox{D/A} \rightarrow \mbox{Analogue}
-\end{equation}
-
-\subsection{A/D conversion}
+We start with a few definitions when we transform an analogue signal into the digital
+domain and back:
 
 \begin{enumerate}
 
 \item {\bf sampling}
 
 \begin{equation}
-\underbrace{X_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
+\underbrace{x_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
 \end{equation}
 
 \begin{itemize}
-\item $X_a$: analogue signal
+\item $x_a(t)$: analogue signal
 \item $T$: sampling interval, $\frac{1}{T}=F_s$ is the sampling rate
 \item $x(n)$: discrete data
 \end{itemize}
 
 \item {\bf quantisation:} 
-Continuous value into discrete steps. $X(n) \rightarrow X_{q}(n)$
+Continuous value into discrete steps. $x(n) \rightarrow x_{q}(n)$
 
 \item {\bf Coding}
-$X_{q}(n) \rightarrow$  into binary sequence or integer numbers.
+$x_{q}(n) \rightarrow$  into binary sequence or integer numbers.
 \end{enumerate}
 
 
-\subsection{D/A Conversion}
-Back to analogue. The D/A converter needs to interpolate between the samples
-to get the original signal back without error! This is usually
-done by a simple low pass filter.
-
-
-
-
-\section{Sampling of Analogue Signals}
+\subsection{Sampling of Analogue Signals}
 The analogue signal $X_a$ is sampled at intervals $T$ to get
 the sampled signal $X(n)$.
 \begin{equation}
-X(n) = X_{a}(nT),  \qquad -\infty < n < +\infty
+x(n) = x_{a}(nT),  \qquad -\infty < n < +\infty
 \end{equation}
 
-\subsection{Normalised frequency}
+\subsubsection{Normalised frequency}
 Note that the sampling frequency
 \begin{equation}
 F_{s} = \frac{1}{T_s}
@@ -524,7 +512,7 @@ F_{s} = \frac{1}{T_s}
 is lost and needs to be stored additionally so that the analogue
 signal can be reconstructed:
 \begin{equation}
-X_{a}(t) = X_{a}(nT) = X_{a}(\frac{n}{F_{s}})
+x_{a}(t) = x_{a}(nT) = x_{a}(\frac{n}{F_{s}})
 \end{equation}
 
 \begin{figure}[!hbt]
@@ -546,7 +534,7 @@ between normalised frequency and sampling rate?
 
 Let's have a look at the analog signal $X_{a}(t)$ with the frequency $F$:
 \begin{equation}
-X_{a}(t) = A\cos (2\pi F t)
+x_{a}(t) = A\cos (2\pi F t)
 \end{equation}
 and we sample it only at:
 \begin{equation}
@@ -554,7 +542,7 @@ t = n/F_s
 \end{equation}
 Then the digital signal is:
 \begin{equation}
-X_{a}(n) = A \cos (2 \pi F/F_s n)
+x_{a}(n) = A \cos (2 \pi F/F_s n)
 \end{equation}
 
 Now, we can define the normalised frequency as:
@@ -569,18 +557,18 @@ words $f_{\mbox{scipy}}=1$ is the Nyquist frequency instead
 of $f=0.5$ as normally defined.}
 
 
-\subsection{Nyquist frequency}
+\subsubsection{Nyquist frequency}
 Recall that the max value for the normalised frequency $f$ is $0.5$
 and that:
 \begin{equation}
-X_{a}(n) = A \cos (2 \pi n f)
+x_{a}(n) = A \cos (2 \pi n f)
 \end{equation}
 with $n$ as an integer because
 we are sampling.
 
 What happens above $f>0.5$? Imagine $f = 1$
 \begin{equation}
-X_{a}(n) = \cos (2 \pi n) = 1 \qquad f=1
+x_{a}(n) = \cos (2 \pi n) = 1 \qquad f=1
 \end{equation}
 which gives us DC or zero frequency. The same is true for
 $f = 2, 3, 4, \ldots$. We see that above $f=0.5$ we never
@@ -628,7 +616,7 @@ which operates at sampling rates hundred times higher than the
 Nyquist frequency.
 
 
-\subsection{Reconstruction of an analogue signal: Sampling theorem}
+\subsubsection{Reconstruction of an analogue signal: Sampling theorem}
 Is it possible to reconstruct an analogue signal from a digital signal
 which contains only frequencies below the Nyquist frequency?
 
@@ -668,7 +656,7 @@ x_{a}(t) = \sum_{h= -a}^{a}x_{a}(\frac{n}{F_s})g(t - \frac{h}{F_s})
 
 
 
-\section{Quantisation of analogue signals}
+\subsection{Quantisation of analogue signals}
 A/D converters have a certain resolution. For example, the MAX1271 has a
 resolution of 12 bits which means that it divides the input range into
 4096 equal steps (see Fig~\ref{quant_overv}).
@@ -686,7 +674,7 @@ as:
 x_{q}(n) = Q[x(n)]
 \end{equation}
 
-\subsection{Quantisation error}
+\subsubsection{Quantisation error}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{quant_err}}

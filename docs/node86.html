@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Stability</TITLE>
-<META NAME="description" CONTENT="Stability">
+<TITLE>Identifying filters from their poles and zeroes</TITLE>
+<META NAME="description" CONTENT="Identifying filters from their poles and zeroes">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,6 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node87.html">
 <LINK REL="previous" HREF="node85.html">
 <LINK REL="next" HREF="node87.html">
 </HEAD>
@@ -27,103 +26,42 @@
  HREF="node87.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node83.html">
+ HREF="node81.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node85.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html463"
+<A ID="tex2html459"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node87.html">Design of an IIR</A>
+ HREF="node87.html">Bibliography</A>
 <B> Up:</B> <A
- HREF="node83.html">The role of poles</A>
+ HREF="node81.html">The role of poles</A>
 <B> Previous:</B> <A
- HREF="node85.html">Poles</A>
- &nbsp; <B>  <A ID="tex2html464"
+ HREF="node85.html">Design of an IIR</A>
+ &nbsp; <B>  <A ID="tex2html460"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00099300000000000000">
-Stability</A>
+<H3><A ID="SECTION00079500000000000000">
+Identifying filters from their poles and zeroes</A>
 </H3>
-A transfer function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$H(z)$"></SPAN> is only stable if the poles lie inside the
-unit circle. This is equivalent to the analog case where the poles of
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
- ALT="$H(s)$"></SPAN> have to lie on the left hand side of the complex plane (see
-Eq.&nbsp;<A HREF="node71.html#translpoles">160</A>). Looking at Eq.&nbsp;<A HREF="node85.html#resonatorz">184</A> it becomes
-clear that <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
- ALT="$r$"></SPAN> determines the radius of the two complex conjugate poles. If
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img456.svg"
- ALT="$r&gt;1$"></SPAN> then the filter becomes unstable. The same applies to poles on
-the real axis. Their the real values have to stay within the range <SPAN CLASS="MATH"><IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="img457.svg"
- ALT="$-1
-\ldots +1$"></SPAN>.
-
-<P>
-In summary: poles generate resonances and amplify frequencies. The
-amplification is strongest the closer the poles move towards the unit
-circle. The poles need to stay within the unit circle to guarantee
-stability. 
-
-<P>
-Note that in real implementations the coefficients of the
-filters are limited in precision. This means that a filter might
-work perfectly in python but will fail on a DSP with its limited
-precision. You can simlate this by forcing a certain datatype
-in python or you write it properly in C.
-
-<P>
-
-<DIV class="CENTER"><A ID="iir_fir_stop"></A><A ID="1769"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 27:</STRONG>
-A two tap IIR bandstop filter with tuneable stopband width <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
- ALT="$r$"></SPAN>
-for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
- ALT="$\omega _0$"></SPAN>.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="./iir_fir_stop.png"
- ALT="Image iir_fir_stop">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
 <A
- HREF="node87.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node83.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node85.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html463"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node87.html">Design of an IIR</A>
-<B> Up:</B> <A
- HREF="node83.html">The role of poles</A>
-<B> Previous:</B> <A
- HREF="node85.html">Poles</A>
- &nbsp; <B>  <A ID="tex2html464"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+ HREF="node87.html#Proakis1996">Proakis and Manolakis (1996, pp.333)</A> has an excellent section about this topic
+and we refer the reader to have a look. As a rule of thumb a digital
+lowpass filter has poles where their real parts are positive and a
+highpass filter has poles with negative real part of the complex
+poles. In both cases they reside within the unit circle to guarantee
+stability.
+
+<P>
+
+<P>
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

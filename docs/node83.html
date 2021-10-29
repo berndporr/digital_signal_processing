@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>The role of poles and zeros</TITLE>
-<META NAME="description" CONTENT="The role of poles and zeros">
+<TITLE>Poles</TITLE>
+<META NAME="description" CONTENT="Poles">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,8 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="previous" HREF="node70.html">
+<LINK REL="next" HREF="node84.html">
+<LINK REL="previous" HREF="node82.html">
 <LINK REL="next" HREF="node84.html">
 </HEAD>
 
@@ -26,77 +27,116 @@
  HREF="node84.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node50.html">
+ HREF="node81.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node82.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html452"
+<A ID="tex2html453"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node84.html">Zeros</A>
+ HREF="node84.html">Stability</A>
 <B> Up:</B> <A
- HREF="node50.html">Causal Signal Processing</A>
+ HREF="node81.html">The role of poles</A>
 <B> Previous:</B> <A
- HREF="node82.html">Adaptive IIR filter: The</A>
- &nbsp; <B>  <A ID="tex2html453"
+ HREF="node82.html">Zeros</A>
+ &nbsp; <B>  <A ID="tex2html454"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00099000000000000000">
-The role of poles and zeros</A>
-</H2>
-Transfer functions contain poles and zeros. To gain a deeper
-understanding of the transfer functions we need to understand
-how poles and zeros shape the frequency response of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$H(z)$"></SPAN>.
-The position of the poles also determines the stability of the filter
-which is important for real world applications.
+<H3><A ID="SECTION00079200000000000000">
+Poles</A>
+</H3>
+While zeros knock out frequencies, poles amplify frequencies.
+Let's investigate complex conjugate poles:
 
-<P>
-We are going to explore the roles of poles and zeros first with
-an instructional example which leads to a 2nd order bandstop filter.
+<DIV class="equation">
 
-<P>
+<!-- MATH
+ \begin{equation}
+H(z) = \frac{1}{\underbrace{(1 - r e^{j \omega_{0}} z^{-1})(1 - r e^{-j \omega_{0}} z^{-1})}_{2 poles!}}
+\end{equation}
+ -->
+ &nbsp;  <A ID="resonatorz"></A><IMG STYLE="height: 8.49ex; vertical-align: -5.46ex; " SRC="img447.svg"
+ ALT="$\displaystyle H(z) = \frac{1}{\underbrace{(1 - r e^{j \omega_{0}} z^{-1})(1 - r e^{-j \omega_{0}} z^{-1})}_{2 poles!}}
+$"> 
 
-<DIV class="CENTER"><A ID="fir_stop"></A><A ID="1755"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 25:</STRONG>
-A two tap FIR stopband filter for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
- ALT="$\omega _0$"></SPAN>.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img433.svg"
- ALT="\includegraphics[width=0.75\textwidth]{fir_stop}">
-
-</DIV></TD></TR>
-</TABLE>
+(<SPAN CLASS="arabic">183</SPAN>)
 </DIV>
+which are characterised by their resonance frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
+ ALT="$\omega _0$"></SPAN>
+and the amplification <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img448.svg"
+ ALT="$0&lt;r&lt;1$"></SPAN>.
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+In order to obtain a data flow diagram we need to get powers of <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img393.svg"
+ ALT="$z^{-1}$"></SPAN>
+because they represent delays.
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html454"
-  HREF="node84.html">Zeros</A>
-<LI><A ID="tex2html455"
-  HREF="node85.html">Poles</A>
-<LI><A ID="tex2html456"
-  HREF="node86.html">Stability</A>
-<LI><A ID="tex2html457"
-  HREF="node87.html">Design of an IIR notch filter</A>
-<LI><A ID="tex2html458"
-  HREF="node88.html">Identifying filters from their poles and zeroes</A>
-</UL>
-<!--End of Table of Child-Links-->
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z) = \frac{1}{1 - 2 r \cos(\omega_{0}) z^{-1} + r^{2} z^{-2}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.25ex; vertical-align: -2.20ex; " SRC="img449.svg"
+ ALT="$\displaystyle H(z) = \frac{1}{1 - 2 r \cos(\omega_{0}) z^{-1} + r^{2} z^{-2}}
+$"> 
+
+(<SPAN CLASS="arabic">184</SPAN>)
+</DIV>
+which we multiply with the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img450.svg"
+ ALT="$Y(z)$"></SPAN>:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+Y(z) & = & X(z) \frac{1}{1 - 2 r \cos (\omega) z^{-1} + r^{2} z^{-2}} \\
+X(z) & = & Y(z) - Y(z) 2r \cos (\omega_{0}) z^{-1} + Y(z) r^{2} z^{-2} \\
+Y(z) & = & X(z) + z^{-1} Y(z) 2r \cos (\omega_{0}) - z^{-2} Y(z) r^{2}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img389.svg"
+ ALT="$\displaystyle Y(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.25ex; vertical-align: -2.20ex; " SRC="img451.svg"
+ ALT="$\displaystyle X(z) \frac{1}{1 - 2 r \cos (\omega) z^{-1} + r^{2} z^{-2}}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">185</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img452.svg"
+ ALT="$\displaystyle X(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="img453.svg"
+ ALT="$\displaystyle Y(z) - Y(z) 2r \cos (\omega_{0}) z^{-1} + Y(z) r^{2} z^{-2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">186</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img389.svg"
+ ALT="$\displaystyle Y(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.64ex; vertical-align: -0.66ex; " SRC="img454.svg"
+ ALT="$\displaystyle X(z) + z^{-1} Y(z) 2r \cos (\omega_{0}) - z^{-2} Y(z) r^{2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">187</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This gives us a second order recursive filter (IIR) which is
+shown in Fig&nbsp;<A HREF="node82.html#iir_stop">26</A>. These complex
+conjugate poles generate a resonance at <SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img455.svg"
+ ALT="$\pm\omega_0$"></SPAN> where the
+amplitude is determined by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
+ ALT="$r$"></SPAN>.
+
+<P>
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

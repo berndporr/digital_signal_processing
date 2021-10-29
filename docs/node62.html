@@ -3,8 +3,10 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Constant group delay or linear phase filter</TITLE>
-<META NAME="description" CONTENT="Constant group delay or linear phase filter">
+<TITLE>Python code: impulse response from the inverse DFT - The frequency sampling
+method</TITLE>
+<META NAME="description" CONTENT="Python code: impulse response from the inverse DFT - The frequency sampling
+method">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,237 +29,62 @@
  HREF="node63.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node58.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node61.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html393"
+<A ID="tex2html389"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node63.html">Window functions</A>
+ HREF="node63.html">FIR filter design from</A>
 <B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
+ HREF="node56.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node61.html">Fixed point FIR filters</A>
- &nbsp; <B>  <A ID="tex2html394"
+ HREF="node61.html">Window functions</A>
+ &nbsp; <B>  <A ID="tex2html390"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00097400000000000000">
-Constant group delay or linear phase filter</A>
-</H3>
-So far the FIR filter has
-no constant group delay which is defined by:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\tau_\omega={d\phi(\omega)\over d\omega}
-\end{equation}
- -->
- &nbsp;  <A ID="grpdelay"></A><IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="img292.svg"
- ALT="$\displaystyle \tau_\omega={d\phi(\omega)\over d\omega}
-$"> 
-
-(<SPAN CLASS="arabic">114</SPAN>)
-</DIV>
-This means that different frequencies arrive at the output of the
-filter earlier or later. This is not desirable. The group delay
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img293.svg"
- ALT="$\tau_\omega$"></SPAN> should be constant for all frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img241.svg"
- ALT="$\omega$"></SPAN> so that
-all frequencies arrive at the same time at the output <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img151.svg"
- ALT="$y$"></SPAN> of the
-filter.
-
-<P>
-A constant group delay can be achieved by restricting ourselves to
-the transfer function:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(e^{i\omega})=B(\omega)e^{-i\omega\tau+i\phi}
-\end{equation}
- -->
- &nbsp;  <A ID="transmin"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img294.svg"
- ALT="$\displaystyle H(e^{i\omega})=B(\omega)e^{-i\omega\tau+i\phi}
-$"> 
-
-(<SPAN CLASS="arabic">115</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img295.svg"
- ALT="$B(\omega)$"></SPAN> is real and the phase is only defined by the exponential.
-The phase of this transfer function is then trivially <!-- MATH
- $\omega\tau+\phi$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img296.svg"
- ALT="$\omega\tau+\phi$"></SPAN>. The
-group delay is the derivative of this term which is constant.
-
-<P>
-Eq.&nbsp;<A HREF="#transmin">115</A> now imposes restrictions on the impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
- ALT="$h(t)$"></SPAN>
-of the filter. To show this we use the inverse Fourier transform of
-Eq.&nbsp;<A HREF="#transmin">115</A> to get the impulse response:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n)=\frac{1}{2\pi}\int_{-\infty}^{+\infty} H(e^{i\omega})
-e^{i\omega n}d \omega
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img297.svg"
- ALT="$\displaystyle h(n)=\frac{1}{2\pi}\int_{-\infty}^{+\infty} H(e^{i\omega})
-e^{i\omega n}d \omega
-$"> 
-
-(<SPAN CLASS="arabic">116</SPAN>)
-</DIV>
-After some transformations we get:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b(n)
-\end{equation}
- -->
- &nbsp;  <A ID="imp1"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img298.svg"
- ALT="$\displaystyle h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b(n)
-$"> 
-
-(<SPAN CLASS="arabic">117</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img299.svg"
- ALT="$b(n)$"></SPAN> represents the Fourier coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img295.svg"
- ALT="$B(\omega)$"></SPAN>. Since <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img60.svg"
- ALT="$B$"></SPAN> is
-real the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img299.svg"
- ALT="$b(n)$"></SPAN> have the property <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img300.svg"
- ALT="$b(n)=b^*(-n)$"></SPAN>.
-Thus we get a second impulse response:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b^*(-n)
-\end{equation}
- -->
- &nbsp;  <A ID="imp2"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img301.svg"
- ALT="$\displaystyle h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b^*(-n)
-$"> 
-
-(<SPAN CLASS="arabic">118</SPAN>)
-</DIV>
-Now we can eliminate <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img302.svg"
- ALT="$b$"></SPAN> by equating Eq.&nbsp;<A HREF="#imp1">117</A> and Eq.&nbsp;<A HREF="#imp2">118</A> which
-yields:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n+\tau)=e^{2i\phi} n^*(-n+\tau)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img303.svg"
- ALT="$\displaystyle h(n+\tau)=e^{2i\phi} n^*(-n+\tau)
-$"> 
-
-(<SPAN CLASS="arabic">119</SPAN>)
-</DIV>
-With the shift <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img304.svg"
- ALT="$\tau$"></SPAN> we have the chance to make the filter &ldquo;more&rdquo;
-causal. We can shift the impulse response in positive time to get
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
- ALT="$h(n)$"></SPAN> zero for <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img305.svg"
- ALT="$n&lt;0$"></SPAN>. In a practical application we shift the impulse
-response by half the number of delays. If we have a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
- ALT="$M$"></SPAN>
-taps we have to delay by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img306.svg"
- ALT="$\tau=M/2$"></SPAN>.
-
-<P>
-The factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img307.svg"
- ALT="$e^{2i\phi}$"></SPAN> restricts the values of <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img308.svg"
- ALT="$\phi$"></SPAN> because the impulse
-response must be real. This gives us the final FIR design rule:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n+M/2)=(-1)^k h(-n+M/2)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img309.svg"
- ALT="$\displaystyle h(n+M/2)=(-1)^k h(-n+M/2)
-$"> 
-
-(<SPAN CLASS="arabic">120</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img310.svg"
- ALT="$k=0$"></SPAN> or <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img96.svg"
- ALT="$1$"></SPAN>. This means that the filter is either symmetric or
-antisymmetric and the impulse response has to be delayed by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img306.svg"
- ALT="$\tau=M/2$"></SPAN>.
-
-<P>
-
-<DIV class="CENTER"><A ID="window_functions"></A><A ID="1711"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
-Different window functions applied to a low pass filter 
-(Eq.&nbsp;<A HREF="node65.html#idealLP">133</A>) 
-with cutoff at <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img16.svg"
- ALT="$f=0.1$"></SPAN> and 100 taps.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img311.svg"
- ALT="\includegraphics[width=\linewidth]{window_functions}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node63.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node58.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node61.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html393"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<H3><A ID="SECTION00077600000000000000"></A><A ID="freqsamp"></A>
 <BR>
-<B> Next:</B> <A
- HREF="node63.html">Window functions</A>
-<B> Up:</B> <A
- HREF="node58.html">FIR Filter</A>
-<B> Previous:</B> <A
- HREF="node61.html">Fixed point FIR filters</A>
- &nbsp; <B>  <A ID="tex2html394"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+Python code: 
+impulse response from the inverse DFT - The frequency sampling
+method
+</H3> Imagine that we want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img320.svg"
+ ALT="$50Hz$"></SPAN> from a
+signal with sampling rate of <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img321.svg"
+ ALT="$1kHz$"></SPAN>. We define an FIR filter with 100
+taps. The midpoint <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img322.svg"
+ ALT="$N/2=50$"></SPAN> corresponds to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img323.svg"
+ ALT="$500Hz$"></SPAN>. The <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img320.svg"
+ ALT="$50Hz$"></SPAN>
+correspond to index <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img324.svg"
+ ALT="$5$"></SPAN>.
+<PRE>
+f_resp=np.ones(100)
+# note we need to add "+1" to the end because the end of
+# the range is not included.
+f_resp[4:6+1]=0
+f_resp[94:96+1]=0
+hc=np.fft.ifft(f_resp)
+h=np.real(hc)
+# this is from index 0 to index 49 on the left
+# and on the right hand side from index 50 to index 99
+h_shift[0:50]=h[50:100]
+h_shift[50:100]=h[0:50]
+h_wind=h_shift*hamming(100)
+</PRE>
+To get a nice symmetric impulse response we need to shift the
+inverse around <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
+ ALT="$50$"></SPAN> samples.
+
+<P>
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

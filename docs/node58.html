@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>FIR Filter</TITLE>
-<META NAME="description" CONTENT="FIR Filter">
+<TITLE>FIR filter implementations</TITLE>
+<META NAME="description" CONTENT="FIR filter implementations">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node70.html">
+<LINK REL="next" HREF="node59.html">
 <LINK REL="previous" HREF="node57.html">
 <LINK REL="next" HREF="node59.html">
 </HEAD>
@@ -27,267 +27,121 @@
  HREF="node59.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node50.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node57.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html374"
+<A ID="tex2html381"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node59.html">Generally FIR filters do</A>
+ HREF="node59.html">Fixed point FIR filters</A>
 <B> Up:</B> <A
- HREF="node50.html">Causal Signal Processing</A>
+ HREF="node56.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node57.html">Frequency response of a</A>
- &nbsp; <B>  <A ID="tex2html375"
+ HREF="node57.html">Generally FIR filters do</A>
+ &nbsp; <B>  <A ID="tex2html382"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00097000000000000000">
-FIR Filter</A>
-</H2>
-What happens if we sample the impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
- ALT="$h(t)$"></SPAN> of an
-analogue filter? Let's find out:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(t)=\sum_{n=0}^\infty h(nT) \delta(t-nT)
-\end{equation}
- -->
- &nbsp;  <A ID="sampltime"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img261.svg"
- ALT="$\displaystyle
-h(t)=\sum_{n=0}^\infty h(nT) \delta(t-nT)
-$"> 
-
-(<SPAN CLASS="arabic">103</SPAN>)
-</DIV>
-If we transform it to the Laplace space it looks like this:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(s)=\sum_{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_
-                                           {z^{-1}}}^n
-\end{equation}
- -->
- &nbsp;  <A ID="sFunktion"></A><IMG STYLE="height: 7.56ex; vertical-align: -4.22ex; " SRC="img262.svg"
- ALT="$\displaystyle
-H(s)=\sum_{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_
-{z^{-1}}}^n
-$"> 
-
-(<SPAN CLASS="arabic">104</SPAN>)
-</DIV>
-Remember that <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img263.svg"
- ALT="$e^{-sT}$"></SPAN> has a very handy meaning: it is a delay
-by the unit time step (Eq.&nbsp;<A HREF="node53.html#shiftOperation">81</A>).
-Thus <SPAN CLASS="MATH"><IMG STYLE="height: 1.90ex; vertical-align: -0.09ex; " SRC="img264.svg"
- ALT="$z^{-n}$"></SPAN> is a delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
- ALT="$n$"></SPAN> time steps.
-We can rewrite Eq.&nbsp;<A HREF="#sFunktion">104</A>:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z)=\sum_{n=0}^\infty h(nT) {(z^{-1})}^n
-\end{equation}
- -->
- &nbsp;  <A ID="ztrans"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img265.svg"
- ALT="$\displaystyle H(z)=\sum_{n=0}^\infty h(nT) {(z^{-1})}^n
-$"> 
-
-(<SPAN CLASS="arabic">105</SPAN>)
-</DIV>
-This is the z-transform of the impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
- ALT="$h(t)$"></SPAN> of the filter.
-
-<P>
-We filter now the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img266.svg"
- ALT="$X(z)$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$H(z)$"></SPAN>:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
-\end{equation}
- -->
- &nbsp;  <A ID="notFIRyet"></A><IMG STYLE="height: 9.18ex; vertical-align: -5.85ex; " SRC="img268.svg"
- ALT="$\displaystyle H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
-$"> 
-
-(<SPAN CLASS="arabic">106</SPAN>)
-</DIV>
-
-<P>
-This sum is a direct recipe how to filter the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img266.svg"
- ALT="$X(z)$"></SPAN>. We only
-need the impulse response of the filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img269.svg"
- ALT="$h(nT)$"></SPAN> and we can
-set up a digital filter (see Fig.&nbsp;<A HREF="node57.html#FIRfilter">16</A>). Of course
-in practise this impulse response cannot run till infinity
-but only for a limited number of samples. These are often
-called &ldquo;taps&rdquo;. So for example a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img270.svg"
- ALT="$100$"></SPAN> samples of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img269.svg"
- ALT="$h(nT)$"></SPAN> has
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img270.svg"
- ALT="$100$"></SPAN> &ldquo;taps&rdquo;. This in turn then requires a delay line which
-can hold <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img271.svg"
- ALT="$M=100$"></SPAN> samples:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z)X(z)=\underbrace{\sum_{m=0}^M h(mT) z^{-m}}_{H(z)} X(z)
-\end{equation}
- -->
- &nbsp;  <A ID="FIRfromAnalogue"></A><A ID="FIRz"></A><IMG STYLE="height: 9.56ex; vertical-align: -5.85ex; " SRC="img272.svg"
- ALT="$\displaystyle
-H(z)X(z)=\underbrace{\sum_{m=0}^M h(mT) z^{-m}}_{H(z)} X(z)
-$"> 
-
-(<SPAN CLASS="arabic">107</SPAN>)
-</DIV>
+<H3><A ID="SECTION00077200000000000000">
+FIR filter implementations</A>
+</H3>
+No matter the design process the implementation is always the same: we
+need a delay line for the incoming signal and then weight the delayed
+outputs by the different coefficients and for that reason are called
+(water-) &ldquo;taps&rdquo; (see Eqs.&nbsp;<A HREF="node56.html#FIRa">107</A> &amp; <A HREF="node56.html#FIRd">108</A>). We are now presenting
+different implementations.
 
 <P>
 
-<DIV class="CENTER"><A ID="fir_digital"></A><A ID="1705"></A>
+<UL>
+<LI>C++:
+This is a simple example of a filter which stores the values
+in a simple linear buffer <SPAN  CLASS="texttt">bufferFIR</SPAN> which stores the
+delayed values. The coefficients are stored in <SPAN  CLASS="texttt">coeffFIR</SPAN>.
+<PRE>
+  float filter(float value) {
+    // shift
+    for (int i=taps-1;i&gt;0;i--)  {
+      bufferFIR[i]=bufferFIR[i-l];
+    }
+    //store new value
+    bufferFIR[0]=value;
+    //calculate result
+    for (int i=0;i&lt;taps;i++)  {
+      output +=bufferFIR[i]*coeffFIR[i];
+    }
+  return output;
+  }
+</PRE>
+
+<P>
+</LI>
+<LI>Python: Here, the FIR filter is implemented as a
+  class which receives the FIR filter coefficients
+  in the constructor and then filters a signal sample
+  by sample in the function filter:
+
+<P>
+<PRE>
+class FIR_filter:
+    def __init__(self,_coefficients):
+        self.ntaps = len(_coefficients)
+        self.coefficients = _coefficients
+        self.buffer = np.zeros(self.ntaps)
+
+    def filter(self,v):
+        self.buffer = np.roll(self.buffer,1)
+        self.buffer[0] = v
+        return np.inner(self.buffer,self.coefficients)
+</PRE>
+which again processes the signal sample by sample. It uses
+the numpy &ldquo;roll&rdquo; command to shift the samples and then
+the inner product to calculate the weighted sum between
+the buffer and the coefficients.
+
+<P>
+If one wants
+to filter a whole array one can use Python's lfilter command:
+<PRE>
+import scipy.signal as signal
+y = signal.lfilter(h,1,x)
+</PRE>
+This filters the signal <SPAN  CLASS="texttt">x</SPAN> with the impulse response
+<SPAN  CLASS="texttt">h</SPAN>. Note that this operation is on an array and thus
+a-causal.
+</LI>
+</UL>
+More sophisticated code can be found in <A
+ HREF="node87.html#NumericalRec2007">Teukolsky et&nbsp;al. (2007)</A>.
+This book is strongly recommended for any C programmer who
+needs efficient solutions.
+
+<P>
+
+<DIV class="CENTER"><A ID="fir_fixed"></A><A ID="1700"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 17:</STRONG>
-Digital FIR filter with normalised frequency</CAPTION>
+<CAPTION class="BOTTOM"><STRONG>Figure 18:</STRONG>
+Fixed point FIR filter. The output signal is bit shifted to the
+  right by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img14.svg"
+ ALT="$w$"></SPAN> bits while the coefficients are scaled up by <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.09ex; " SRC="img15.svg"
+ ALT="$2^w$"></SPAN>.</CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img273.svg"
- ALT="\includegraphics[width=\linewidth]{fir_digital}">
+ SRC="img281.svg"
+ ALT="\includegraphics[width=\linewidth]{fir_fixed}">
 
 </DIV></TD></TR>
 </TABLE>
 </DIV>
 
 <P>
-This is the formula of an Finite Impulse Response filter where we have
-sampled an analogue impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
- ALT="$h(t)$"></SPAN> at time intervals of <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img31.svg"
- ALT="$T$"></SPAN>.
-However, usually the impulse response of the filter is directly derived
-in the digital domain where the argument <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
- ALT="$n$"></SPAN> of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
- ALT="$h(n)$"></SPAN> represents just the sample
-index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
- ALT="$n$"></SPAN> and the sampling interval is implicitly the inverse of the sampling
-rate. For that reason one needs to distinguish between:
-
-<P>
-<BR>
-<DIV ALIGN="CENTER"><A ID="FIRa"></A><A ID="FIRd"></A><A ID="FIRdefault"></A>
-<!-- MATH
- \begin{eqnarray}
-H(z)X(z) & = & \sum_{m=0}^M h_\textrm{\footnotesize {analogue}}(mT) z^{-n} \, X(z)\\
-H(z)X(z) & = & \sum_{m=0}^M h_\textrm{\footnotesize {digital}}(m) z^{-n} \, X(z)\\
-         & = & \sum_{m=0}^M h_(m) z^{-m} \, X(z)
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
- ALT="$\displaystyle H(z)X(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img276.svg"
- ALT="$\displaystyle \sum_{m=0}^M h_\textrm{\footnotesize {analogue}}(mT) z^{-n} \, X(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">108</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
- ALT="$\displaystyle H(z)X(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img277.svg"
- ALT="$\displaystyle \sum_{m=0}^M h_\textrm{\footnotesize {digital}}(m) z^{-n} \, X(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">109</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img278.svg"
- ALT="$\displaystyle \sum_{m=0}^M h_(m) z^{-m} \, X(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">110</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-Eq&nbsp;<A HREF="#FIRa">108</A> is the filter where the impulse response is based on an analogue
-filter and Eq.&nbsp;<A HREF="#FIRd">109</A> is based on the impulse response originating from a digital filter
-design (see section&nbsp;<A HREF="node64.html#freqsamp">8.7.6</A> and <A HREF="node65.html#idealFilt">8.7.7</A>) where the frequencies
-are normalised frequencies from <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img279.svg"
- ALT="$0$"></SPAN> to <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img40.svg"
- ALT="$0.5$"></SPAN>. From now on we will
-always refer to the &ldquo;digital&rdquo; one (Eq.&nbsp;<A HREF="#FIRd">109</A>) and the subscript will be
-omitted (Eq.&nbsp;<A HREF="#FIRdefault">110</A> &amp; Fig.&nbsp;<A HREF="#fir_digital">17</A>).
-
-<P>
-In the time domain the FIR filter is then doing the following operation:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-y(n) = \sum_{m=0}^{M-1} h(m) x(n-m)
-\end{equation}
- -->
- &nbsp;  <A ID="FIRtime"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img280.svg"
- ALT="$\displaystyle y(n) = \sum_{m=0}^{M-1} h(m) x(n-m)
-$"> 
-
-(<SPAN CLASS="arabic">111</SPAN>)
-</DIV>
-
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html376"
-  HREF="node59.html">Generally FIR filters do not perform a convolution operation</A>
-<LI><A ID="tex2html377"
-  HREF="node60.html">FIR filter implementations</A>
-<LI><A ID="tex2html378"
-  HREF="node61.html">Fixed point FIR filters</A>
-<LI><A ID="tex2html379"
-  HREF="node62.html">Constant group delay or linear phase filter</A>
-<LI><A ID="tex2html380"
-  HREF="node63.html">Window functions</A>
-<LI><A ID="tex2html381"
-  HREF="node64.html">Python code: 
-impulse response from the inverse DFT - The frequency sampling
-method</A>
-<LI><A ID="tex2html382"
-  HREF="node65.html">FIR filter design from ideal frequency response &ndash;
-The analytical way
-</A>
-<LI><A ID="tex2html383"
-  HREF="node66.html">Design steps for FIR filters</A>
-<LI><A ID="tex2html384"
-  HREF="node67.html">FIR filter design with Python's high level functions</A>
-<LI><A ID="tex2html385"
-  HREF="node68.html">Signal Detection: Matched filter</A>
-<LI><A ID="tex2html386"
-  HREF="node69.html">Adaptive FIR Least Mean Squares (LMS) filters</A>
-</UL>
-<!--End of Table of Child-Links-->
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
@@ -295,22 +149,22 @@ The analytical way
  HREF="node59.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node50.html">
+ HREF="node56.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node57.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html374"
+<A ID="tex2html381"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node59.html">Generally FIR filters do</A>
+ HREF="node59.html">Fixed point FIR filters</A>
 <B> Up:</B> <A
- HREF="node50.html">Causal Signal Processing</A>
+ HREF="node56.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node57.html">Frequency response of a</A>
- &nbsp; <B>  <A ID="tex2html375"
+ HREF="node57.html">Generally FIR filters do</A>
+ &nbsp; <B>  <A ID="tex2html382"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>

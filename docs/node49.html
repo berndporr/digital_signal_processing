@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Visualisation</TITLE>
-<META NAME="description" CONTENT="Visualisation">
+<TITLE>Causality</TITLE>
+<META NAME="description" CONTENT="Causality">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,6 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
+<LINK REL="next" HREF="node50.html">
 <LINK REL="previous" HREF="node48.html">
 <LINK REL="next" HREF="node50.html">
 </HEAD>
@@ -26,48 +27,54 @@
  HREF="node50.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node37.html">
+ HREF="node48.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node48.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html317"
+<A ID="tex2html351"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node50.html">Causal Signal Processing</A>
+ HREF="node50.html">Convolution of Causal Signal</A>
 <B> Up:</B> <A
- HREF="node37.html">Frequency representation of signals</A>
+ HREF="node48.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node48.html">Software</A>
- &nbsp; <B>  <A ID="tex2html318"
+ HREF="node48.html">Causal Signal Processing</A>
+ &nbsp; <B>  <A ID="tex2html352"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00084000000000000000">
-Visualisation</A>
+<H2><A ID="SECTION00071000000000000000">
+Causality</A>
 </H2>
-The Fourier spectrum is a complex function of frequency which cannot
-be displayed in a convenient way. Usually the amplitude or magnitude
-of the spectrum is of interest (see Fig.&nbsp;<A HREF="node48.html#visualisation">11</A>) which is calculated as the
-absolute value <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img205.svg"
- ALT="$\vert X(F)\vert$"></SPAN> of the Fourier spectrum X(F). In addition
-the phase might be of interest which is calculated as <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img206.svg"
- ALT="$\arg(X(F))$"></SPAN>.
-
-<UL>
-<LI>Magnitude or Amplitude: <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img205.svg"
- ALT="$\vert X(F)\vert$"></SPAN>
-</LI>
-<LI>Phase: <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img206.svg"
- ALT="$\arg(X(F))$"></SPAN>
-</LI>
-</UL>
+Fig.&nbsp;<A HREF="node48.html#causality">12</A> illustrates the concept of causality.
+Causal systems cannot look into the future. They can only react
+to a certain input. Causal signals are kept zero for <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img11.svg"
+ ALT="$t&lt;0$"></SPAN>
+per definition.
 
 <P>
+
+<DIV class="CENTER"><A ID="convolution"></A><A ID="1680"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 13:</STRONG>
+Illustration of the convolution. The shaded area
+shows the integration for <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img12.svg"
+ ALT="$t=1$"></SPAN>.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img208.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{convol}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
 <BR><HR>

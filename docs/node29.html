@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>A/D conversion</TITLE>
-<META NAME="description" CONTENT="A/D conversion">
+<TITLE>Sampling of Analogue Signals</TITLE>
+<META NAME="description" CONTENT="Sampling of Analogue Signals">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node30.html">
+<LINK REL="next" HREF="node33.html">
 <LINK REL="previous" HREF="node28.html">
 <LINK REL="next" HREF="node30.html">
 </HEAD>
@@ -32,86 +32,59 @@
 <A
  HREF="node28.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html253"
+<A ID="tex2html249"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node30.html">D/A Conversion</A>
+ HREF="node30.html">Normalised frequency</A>
 <B> Up:</B> <A
  HREF="node28.html">Signal conversion</A>
 <B> Previous:</B> <A
  HREF="node28.html">Signal conversion</A>
- &nbsp; <B>  <A ID="tex2html254"
+ &nbsp; <B>  <A ID="tex2html250"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A ID="SECTION00051000000000000000">
-A/D conversion</A>
+Sampling of Analogue Signals</A>
 </H2>
-
-<P>
-
-<OL>
-<LI><B>sampling</B>
-
-<P>
+The analogue signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img34.svg"
+ ALT="$X_a$"></SPAN> is sampled at intervals <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img30.svg"
+ ALT="$T$"></SPAN> to get
+the sampled signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img35.svg"
+ ALT="$X(n)$"></SPAN>.
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-\underbrace{X_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
+x(n) = x_{a}(nT),  \qquad -\infty < n < +\infty
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 6.26ex; vertical-align: -4.51ex; " SRC="img29.svg"
- ALT="$\displaystyle \underbrace{X_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img36.svg"
+ ALT="$\displaystyle x(n) = x_{a}(nT), \qquad -\infty &lt; n &lt; +\infty
 $"> 
 
 (<SPAN CLASS="arabic">2</SPAN>)
 </DIV>
 
 <P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL>
-<LI><SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img30.svg"
- ALT="$X_a$"></SPAN>: analogue signal
-</LI>
-<LI><SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img31.svg"
- ALT="$T$"></SPAN>: sampling interval, <!-- MATH
- $\frac{1}{T}=F_s$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img32.svg"
- ALT="$\frac{1}{T}=F_s$"></SPAN> is the sampling rate
-</LI>
-<LI><SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN>: discrete data
-</LI>
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html251"
+  HREF="node30.html">Normalised frequency</A>
+<LI><A ID="tex2html252"
+  HREF="node31.html">Nyquist frequency</A>
+<LI><A ID="tex2html253"
+  HREF="node32.html">Reconstruction of an analogue signal: Sampling theorem</A>
 </UL>
-
-<P>
-</LI>
-<LI><B>quantisation:</B> 
-Continuous value into discrete steps. <!-- MATH
- $X(n) \rightarrow X_{q}(n)$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img33.svg"
- ALT="$X(n) \rightarrow X_{q}(n)$"></SPAN>
-
-<P>
-</LI>
-<LI><B>Coding</B>
-<!-- MATH
- $X_{q}(n) \rightarrow$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img34.svg"
- ALT="$X_{q}(n) \rightarrow$"></SPAN> into binary sequence or integer numbers.
-</LI>
-</OL>
-
-<P>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
