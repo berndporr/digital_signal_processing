@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Time or frequency domain?</TITLE>
-<META NAME="description" CONTENT="Time or frequency domain?">
+<TITLE>Adaptive IIR filter: The Kalman filter</TITLE>
+<META NAME="description" CONTENT="Adaptive IIR filter: The Kalman filter">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="previous" HREF="node78.html">
+<LINK REL="previous" HREF="node73.html">
 <LINK REL="next" HREF="node80.html">
 </HEAD>
 
@@ -26,58 +26,102 @@
  HREF="node80.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node74.html">
+ HREF="node67.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node78.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html440"
+<A ID="tex2html437"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node80.html">Adaptive IIR filter: The</A>
+ HREF="node80.html">The role of poles</A>
 <B> Up:</B> <A
- HREF="node74.html">Filter design based on</A>
+ HREF="node67.html">IIR Filter</A>
 <B> Previous:</B> <A
- HREF="node78.html">IIR filter design steps:</A>
- &nbsp; <B>  <A ID="tex2html441"
+ HREF="node78.html">Time or frequency domain?</A>
+ &nbsp; <B>  <A ID="tex2html438"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H4><A ID="SECTION00078650000000000000">
-Time or frequency domain?</A>
-</H4>
-The transforms from analogue to digital alter both the temporal
-response and the frequency response. However the different transforms
-have different impact. The bilinear transform guarantees that the
-digital filter uses the whole frequency range of the analogue filter
-from zero to infinity which is the best solution for frequency domain
-problems. However, if one needs to reproduce the temporal response an
-analogue filter as faithfully as possible then the matched z transform
-is best because it's based (as the name suggests) on the impulse
-invariance method which aims to preserve the temporal behaviour of the
-filter (exact for pole-only transfer functions).
+<H3><A ID="SECTION00078700000000000000">
+Adaptive IIR filter: The Kalman filter</A>
+</H3>
+Often signals are contaminated by high frequency noise where the
+spectrum of the noise is changing or not known. The cutoff of a fixed low
+pass filter is not known or might be changing so that we need to adapt the cut-off continuously.
+One example is a Kalman filter which maximises the
+<SPAN  CLASS="textsl">predictability</SPAN> of the filtered signal. It's an adaptive lowpass filter
+which increases the predictability of a signal because it smoothes it.
 
-<P>
-<DIV class="CENTER">
-<TABLE class="PAD " style="">
-<TR><TD CLASS="LEFT">Identical frequency response required:</TD>
-<TD CLASS="LEFT">Bilinear transform</TD>
-</TR>
-<TR><TD CLASS="LEFT">Identical temporal behaviour required:</TD>
-<TD CLASS="LEFT">Matched z-transform</TD>
-</TR>
-</TABLE>
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+H(z) = \frac{b}{1 - a z^{-1}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img427.svg"
+ ALT="$\displaystyle H(z) = \frac{b}{1 - a z^{-1}}
+$"> 
+
+(<SPAN CLASS="arabic">172</SPAN>)
 </DIV>
+The parameter <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img428.svg"
+ ALT="$a$"></SPAN> determines the cutoff frequency.
+Frequency Response :
 
-<P>
-Of course a 100% match won't be achieved but in practise this
-can be assumed. In most cases the bilinear transform is the
-transform of choice. The matched z transform can be very useful,
-for example in robotics where timing is important.
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+|H(e^{j \omega}) | = |\frac{b}{1 - a e^{-j \omega}}|
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img429.svg"
+ ALT="$\displaystyle \vert H(e^{j \omega}) \vert = \vert\frac{b}{1 - a e^{-j \omega}}\vert
+$"> 
+
+(<SPAN CLASS="arabic">173</SPAN>)
+</DIV>
+Let's re-interpret our low-pass filter in the time domain:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="img430.svg"
+ ALT="$\displaystyle \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) ...
+...estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
+$"> 
+
+(<SPAN CLASS="arabic">174</SPAN>)
+</DIV>
+We would like to have the best estimate for <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
+ ALT="$y(n)$"></SPAN>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="img431.svg"
+ ALT="$\displaystyle p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
+$"> 
+
+(<SPAN CLASS="arabic">175</SPAN>)
+</DIV>
+We need to minimise <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img432.svg"
+ ALT="$p$"></SPAN> which gives us equations for a and b which
+implements a Kalman filter.
 
 <P>
 <BR><HR>

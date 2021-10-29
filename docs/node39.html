@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Sampled time and/or frequency</TITLE>
-<META NAME="description" CONTENT="Sampled time and/or frequency">
+<TITLE>Discrete time Fourier Transform (DTFT)</TITLE>
+<META NAME="description" CONTENT="Discrete time Fourier Transform (DTFT)">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,8 +15,8 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node46.html">
-<LINK REL="previous" HREF="node36.html">
+<LINK REL="next" HREF="node40.html">
+<LINK REL="previous" HREF="node38.html">
 <LINK REL="next" HREF="node40.html">
 </HEAD>
 
@@ -27,52 +27,110 @@
  HREF="node40.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node35.html">
+ HREF="node38.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node38.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html287"
+<A ID="tex2html290"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node40.html">Discrete time Fourier Transform</A>
+ HREF="node40.html">The effect of time</A>
 <B> Up:</B> <A
- HREF="node35.html">Frequency representation of signals</A>
+ HREF="node38.html">Sampled time and/or frequency</A>
 <B> Previous:</B> <A
- HREF="node38.html">A-periodic signals</A>
- &nbsp; <B>  <A ID="tex2html288"
+ HREF="node38.html">Sampled time and/or frequency</A>
+ &nbsp; <B>  <A ID="tex2html291"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00062000000000000000">
-Sampled time and/or frequency</A>
-</H2>
+<H3><A ID="SECTION00062100000000000000">
+Discrete time Fourier Transform (DTFT)</A>
+</H3>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+The signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> is discrete whereas the resulting frequency
+spectrum is considered as continuous (arbitrary signals).
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html289"
-  HREF="node40.html">Discrete time Fourier Transform (DTFT)</A>
-<LI><A ID="tex2html290"
-  HREF="node41.html">The effect of time domain sampling on the spectrum (Sampling
-theorem)</A>
-<LI><A ID="tex2html291"
-  HREF="node42.html">Discrete Fourier Transform (DFT)</A>
-<LI><A ID="tex2html292"
-  HREF="node43.html">Properties of the DFT</A>
-<LI><A ID="tex2html293"
-  HREF="node44.html">Problems with finite length DFTs</A>
-<LI><A ID="tex2html294"
-  HREF="node45.html">Fast Fourier Transform</A>
+<P>
+
+<UL>
+<LI>Analysis or direct transform:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X(\omega)=\sum_{n=-\infty}^{\infty} x(n) e^{-j\omega n}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.94ex; vertical-align: -2.59ex; " SRC="img114.svg"
+ ALT="$\displaystyle X(\omega)=\sum_{n=-\infty}^{\infty} x(n) e^{-j\omega n}
+$"> 
+
+(<SPAN CLASS="arabic">37</SPAN>)
+</DIV>
+
+<P>
+</LI>
+<LI>Synthesis or inverse transform:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+x(n) & = & \frac{1}{2\pi} \int_{-\pi}^{\pi} X(\omega) e^{j\omega n} d\omega \\
+     & = & \frac{1}{2\pi} \int_{-0.5}^{0.5} X(f) e^{j 2\pi f n} dt
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img115.svg"
+ ALT="$\displaystyle x(n)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img116.svg"
+ ALT="$\displaystyle \frac{1}{2\pi} \int_{-\pi}^{\pi} X(\omega) e^{j\omega n} d\omega$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">38</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.96ex; vertical-align: -1.86ex; " SRC="img117.svg"
+ ALT="$\displaystyle \frac{1}{2\pi} \int_{-0.5}^{0.5} X(f) e^{j 2\pi f n} dt$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">39</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+note the range here. <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img4.svg"
+ ALT="$f$"></SPAN> is the normalised frequency.
+
+<P>
+</LI>
 </UL>
-<!--End of Table of Child-Links-->
+
+<P>
+
+<DIV class="CENTER"><A ID="periodic_ny"></A><A ID="1642"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 5:</STRONG>
+Effect of sampling on the spectrum.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img118.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{periodic_ny}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

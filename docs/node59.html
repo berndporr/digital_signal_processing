@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Fixed point FIR filters</TITLE>
-<META NAME="description" CONTENT="Fixed point FIR filters">
+<TITLE>Constant group delay or linear phase filter</TITLE>
+<META NAME="description" CONTENT="Constant group delay or linear phase filter">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,100 +27,210 @@
  HREF="node60.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node56.html">
+ HREF="node55.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node58.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html383"
+<A ID="tex2html380"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node60.html">Constant group delay or</A>
+ HREF="node60.html">Window functions</A>
 <B> Up:</B> <A
- HREF="node56.html">FIR Filter</A>
+ HREF="node55.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node58.html">FIR filter implementations</A>
- &nbsp; <B>  <A ID="tex2html384"
+ HREF="node58.html">Fixed point FIR filters</A>
+ &nbsp; <B>  <A ID="tex2html381"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00077300000000000000">
-Fixed point FIR filters</A>
+<H3><A ID="SECTION00077400000000000000">
+Constant group delay or linear phase filter</A>
 </H3>
-These filters receive integer numbers as input, perform integer multiplications/additions
-and their outputs are integer as well. Thus, these filters do not require
-a floating point unit on a processor.
-
-<P>
-Fig.&nbsp;<A HREF="node58.html#fir_fixed">18</A> shows a fixed point FIR filter. The input <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN> is an integer
-variable with I bit integers, the accumulator is an integer variable with A bits and
-the output as well (usually the same as the input in terms of bit width).
-
-<P>
-In contrast to a floating point FIR filter we need to scale up the
-coefficients so that they use full the integer range to avoid
-quantisation errors. For example if the coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
- ALT="$h(n)$"></SPAN> range
-from <SPAN CLASS="MATH"><IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="img282.svg"
- ALT="$-0.75$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img283.svg"
- ALT="$+0.75$"></SPAN> and we have signed 16 bit integers then the
-scaling factor is <SPAN CLASS="MATH"><IMG STYLE="height: 2.46ex; vertical-align: -0.53ex; " SRC="img284.svg"
- ALT="$2^W, W=15$"></SPAN>.
-
-<P>
-However, the accumulator A which collects the data needs to have more
-bits because it receives scaled input values at I bits precision and
-these multiplied by factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img285.svg"
- ALT="$2^W$"></SPAN>. If we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
- ALT="$M$"></SPAN> taps then the additional
-bits we need is <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img287.svg"
- ALT="$\log_2 M$"></SPAN>. The total number of bits we need in the accumulator
-in the worst case are:
+So far the FIR filter has
+no constant group delay which is defined by:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-A = I + W + \log_2 M
+\tau_\omega={d\phi(\omega)\over d\omega}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img288.svg"
- ALT="$\displaystyle A = I + W + \log_2 M
+ &nbsp;  <A ID="grpdelay"></A><IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="img292.svg"
+ ALT="$\displaystyle \tau_\omega={d\phi(\omega)\over d\omega}
 $"> 
 
-(<SPAN CLASS="arabic">111</SPAN>)
+(<SPAN CLASS="arabic">113</SPAN>)
 </DIV>
-However, this is the worst case scenario because if the gain of the
-FIR filter is below one then the summations by the <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
- ALT="$M$"></SPAN> taps will only
-create <SPAN  CLASS="textsl">temporary</SPAN> overflows because integer numbers are
-cyclic in their representation. In case the gain of the FIR filter
-is below one this can be relaxed:
+This means that different frequencies arrive at the output of the
+filter earlier or later. This is not desirable. The group delay
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img293.svg"
+ ALT="$\tau_\omega$"></SPAN> should be constant for all frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img241.svg"
+ ALT="$\omega$"></SPAN> so that
+all frequencies arrive at the same time at the output <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img151.svg"
+ ALT="$y$"></SPAN> of the
+filter.
+
+<P>
+A constant group delay can be achieved by restricting ourselves to
+the transfer function:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-A = I + W
+H(e^{i\omega})=B(\omega)e^{-i\omega\tau+i\phi}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 1.89ex; vertical-align: -0.27ex; " SRC="img289.svg"
- ALT="$\displaystyle A = I + W
+ &nbsp;  <A ID="transmin"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img294.svg"
+ ALT="$\displaystyle H(e^{i\omega})=B(\omega)e^{-i\omega\tau+i\phi}
 $"> 
 
-(<SPAN CLASS="arabic">112</SPAN>)
+(<SPAN CLASS="arabic">114</SPAN>)
 </DIV>
-The actual bitwidth of the accumulator is usually the next integer size
-available and also makes sure that in case the gain goes slightly over one
-in an unexpected case that the filter still works. For example if I
-has <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img290.svg"
- ALT="$16$"></SPAN>&nbsp;bits the accumulator has probably <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img291.svg"
- ALT="$32$"></SPAN>&nbsp;bits.
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img295.svg"
+ ALT="$B(\omega)$"></SPAN> is real and the phase is only defined by the exponential.
+The phase of this transfer function is then trivially <!-- MATH
+ $\omega\tau+\phi$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img296.svg"
+ ALT="$\omega\tau+\phi$"></SPAN>. The
+group delay is the derivative of this term which is constant.
+
+<P>
+Eq.&nbsp;<A HREF="#transmin">114</A> now imposes restrictions on the impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
+ ALT="$h(t)$"></SPAN>
+of the filter. To show this we use the inverse Fourier transform of
+Eq.&nbsp;<A HREF="#transmin">114</A> to get the impulse response:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n)=\frac{1}{2\pi}\int_{-\infty}^{+\infty} H(e^{i\omega})
+e^{i\omega n}d \omega
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img297.svg"
+ ALT="$\displaystyle h(n)=\frac{1}{2\pi}\int_{-\infty}^{+\infty} H(e^{i\omega})
+e^{i\omega n}d \omega
+$"> 
+
+(<SPAN CLASS="arabic">115</SPAN>)
+</DIV>
+After some transformations we get:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b(n)
+\end{equation}
+ -->
+ &nbsp;  <A ID="imp1"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img298.svg"
+ ALT="$\displaystyle h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b(n)
+$"> 
+
+(<SPAN CLASS="arabic">116</SPAN>)
+</DIV>
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img299.svg"
+ ALT="$b(n)$"></SPAN> represents the Fourier coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img295.svg"
+ ALT="$B(\omega)$"></SPAN>. Since <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img60.svg"
+ ALT="$B$"></SPAN> is
+real the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img299.svg"
+ ALT="$b(n)$"></SPAN> have the property <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img300.svg"
+ ALT="$b(n)=b^*(-n)$"></SPAN>.
+Thus we get a second impulse response:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b^*(-n)
+\end{equation}
+ -->
+ &nbsp;  <A ID="imp2"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img301.svg"
+ ALT="$\displaystyle h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b^*(-n)
+$"> 
+
+(<SPAN CLASS="arabic">117</SPAN>)
+</DIV>
+Now we can eliminate <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img302.svg"
+ ALT="$b$"></SPAN> by equating Eq.&nbsp;<A HREF="#imp1">116</A> and Eq.&nbsp;<A HREF="#imp2">117</A> which
+yields:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n+\tau)=e^{2i\phi} n^*(-n+\tau)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img303.svg"
+ ALT="$\displaystyle h(n+\tau)=e^{2i\phi} n^*(-n+\tau)
+$"> 
+
+(<SPAN CLASS="arabic">118</SPAN>)
+</DIV>
+With the shift <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img304.svg"
+ ALT="$\tau$"></SPAN> we have the chance to make the filter &ldquo;more&rdquo;
+causal. We can shift the impulse response in positive time to get
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
+ ALT="$h(n)$"></SPAN> zero for <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img305.svg"
+ ALT="$n&lt;0$"></SPAN>. In a practical application we shift the impulse
+response by half the number of delays. If we have a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
+ ALT="$M$"></SPAN>
+taps we have to delay by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img306.svg"
+ ALT="$\tau=M/2$"></SPAN>.
+
+<P>
+The factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img307.svg"
+ ALT="$e^{2i\phi}$"></SPAN> restricts the values of <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img308.svg"
+ ALT="$\phi$"></SPAN> because the impulse
+response must be real. This gives us the final FIR design rule:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+h(n+M/2)=(-1)^k h(-n+M/2)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img309.svg"
+ ALT="$\displaystyle h(n+M/2)=(-1)^k h(-n+M/2)
+$"> 
+
+(<SPAN CLASS="arabic">119</SPAN>)
+</DIV>
+where <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img310.svg"
+ ALT="$k=0$"></SPAN> or <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img96.svg"
+ ALT="$1$"></SPAN>. This means that the filter is either symmetric or
+antisymmetric and the impulse response has to be delayed by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img306.svg"
+ ALT="$\tau=M/2$"></SPAN>.
+
+<P>
+
+<DIV class="CENTER"><A ID="window_functions"></A><A ID="1703"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Different window functions applied to a low pass filter 
+(Eq.&nbsp;<A HREF="node62.html#idealLP">132</A>) 
+with cutoff at <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img16.svg"
+ ALT="$f=0.1$"></SPAN> and 100 taps.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img311.svg"
+ ALT="\includegraphics[width=\linewidth]{window_functions}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 
 <P>
 
@@ -130,22 +240,22 @@ has <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SR
  HREF="node60.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node56.html">
+ HREF="node55.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node58.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html383"
+<A ID="tex2html380"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node60.html">Constant group delay or</A>
+ HREF="node60.html">Window functions</A>
 <B> Up:</B> <A
- HREF="node56.html">FIR Filter</A>
+ HREF="node55.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node58.html">FIR filter implementations</A>
- &nbsp; <B>  <A ID="tex2html384"
+ HREF="node58.html">Fixed point FIR filters</A>
+ &nbsp; <B>  <A ID="tex2html381"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>

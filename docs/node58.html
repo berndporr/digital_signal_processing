@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>FIR filter implementations</TITLE>
-<META NAME="description" CONTENT="FIR filter implementations">
+<TITLE>Fixed point FIR filters</TITLE>
+<META NAME="description" CONTENT="Fixed point FIR filters">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,119 +27,100 @@
  HREF="node59.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node56.html">
+ HREF="node55.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node57.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html381"
+<A ID="tex2html378"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node59.html">Fixed point FIR filters</A>
+ HREF="node59.html">Constant group delay or</A>
 <B> Up:</B> <A
- HREF="node56.html">FIR Filter</A>
+ HREF="node55.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node57.html">Generally FIR filters do</A>
- &nbsp; <B>  <A ID="tex2html382"
+ HREF="node57.html">FIR filter implementations</A>
+ &nbsp; <B>  <A ID="tex2html379"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00077200000000000000">
-FIR filter implementations</A>
+<H3><A ID="SECTION00077300000000000000">
+Fixed point FIR filters</A>
 </H3>
-No matter the design process the implementation is always the same: we
-need a delay line for the incoming signal and then weight the delayed
-outputs by the different coefficients and for that reason are called
-(water-) &ldquo;taps&rdquo; (see Eqs.&nbsp;<A HREF="node56.html#FIRa">107</A> &amp; <A HREF="node56.html#FIRd">108</A>). We are now presenting
-different implementations.
+These filters receive integer numbers as input, perform integer multiplications/additions
+and their outputs are integer as well. Thus, these filters do not require
+a floating point unit on a processor.
 
 <P>
-
-<UL>
-<LI>C++:
-This is a simple example of a filter which stores the values
-in a simple linear buffer <SPAN  CLASS="texttt">bufferFIR</SPAN> which stores the
-delayed values. The coefficients are stored in <SPAN  CLASS="texttt">coeffFIR</SPAN>.
-<PRE>
-  float filter(float value) {
-    // shift
-    for (int i=taps-1;i&gt;0;i--)  {
-      bufferFIR[i]=bufferFIR[i-l];
-    }
-    //store new value
-    bufferFIR[0]=value;
-    //calculate result
-    for (int i=0;i&lt;taps;i++)  {
-      output +=bufferFIR[i]*coeffFIR[i];
-    }
-  return output;
-  }
-</PRE>
+Fig.&nbsp;<A HREF="node57.html#fir_fixed">18</A> shows a fixed point FIR filter. The input <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> is an integer
+variable with I bit integers, the accumulator is an integer variable with A bits and
+the output as well (usually the same as the input in terms of bit width).
 
 <P>
-</LI>
-<LI>Python: Here, the FIR filter is implemented as a
-  class which receives the FIR filter coefficients
-  in the constructor and then filters a signal sample
-  by sample in the function filter:
+In contrast to a floating point FIR filter we need to scale up the
+coefficients so that they use full the integer range to avoid
+quantisation errors. For example if the coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
+ ALT="$h(n)$"></SPAN> range
+from <SPAN CLASS="MATH"><IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="img282.svg"
+ ALT="$-0.75$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img283.svg"
+ ALT="$+0.75$"></SPAN> and we have signed 16 bit integers then the
+scaling factor is <SPAN CLASS="MATH"><IMG STYLE="height: 2.46ex; vertical-align: -0.53ex; " SRC="img284.svg"
+ ALT="$2^W, W=15$"></SPAN>.
 
 <P>
-<PRE>
-class FIR_filter:
-    def __init__(self,_coefficients):
-        self.ntaps = len(_coefficients)
-        self.coefficients = _coefficients
-        self.buffer = np.zeros(self.ntaps)
+However, the accumulator A which collects the data needs to have more
+bits because it receives scaled input values at I bits precision and
+these multiplied by factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img285.svg"
+ ALT="$2^W$"></SPAN>. If we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
+ ALT="$M$"></SPAN> taps then the additional
+bits we need is <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img287.svg"
+ ALT="$\log_2 M$"></SPAN>. The total number of bits we need in the accumulator
+in the worst case are:
 
-    def filter(self,v):
-        self.buffer = np.roll(self.buffer,1)
-        self.buffer[0] = v
-        return np.inner(self.buffer,self.coefficients)
-</PRE>
-which again processes the signal sample by sample. It uses
-the numpy &ldquo;roll&rdquo; command to shift the samples and then
-the inner product to calculate the weighted sum between
-the buffer and the coefficients.
+<DIV class="equation">
 
-<P>
-If one wants
-to filter a whole array one can use Python's lfilter command:
-<PRE>
-import scipy.signal as signal
-y = signal.lfilter(h,1,x)
-</PRE>
-This filters the signal <SPAN  CLASS="texttt">x</SPAN> with the impulse response
-<SPAN  CLASS="texttt">h</SPAN>. Note that this operation is on an array and thus
-a-causal.
-</LI>
-</UL>
-More sophisticated code can be found in <A
- HREF="node87.html#NumericalRec2007">Teukolsky et&nbsp;al. (2007)</A>.
-This book is strongly recommended for any C programmer who
-needs efficient solutions.
+<!-- MATH
+ \begin{equation}
+A = I + W + \log_2 M
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img288.svg"
+ ALT="$\displaystyle A = I + W + \log_2 M
+$"> 
 
-<P>
-
-<DIV class="CENTER"><A ID="fir_fixed"></A><A ID="1700"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 18:</STRONG>
-Fixed point FIR filter. The output signal is bit shifted to the
-  right by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img14.svg"
- ALT="$w$"></SPAN> bits while the coefficients are scaled up by <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.09ex; " SRC="img15.svg"
- ALT="$2^w$"></SPAN>.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img281.svg"
- ALT="\includegraphics[width=\linewidth]{fir_fixed}">
-
-</DIV></TD></TR>
-</TABLE>
+(<SPAN CLASS="arabic">111</SPAN>)
 </DIV>
+However, this is the worst case scenario because if the gain of the
+FIR filter is below one then the summations by the <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
+ ALT="$M$"></SPAN> taps will only
+create <SPAN  CLASS="textsl">temporary</SPAN> overflows because integer numbers are
+cyclic in their representation. In case the gain of the FIR filter
+is below one this can be relaxed:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+A = I + W
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 1.89ex; vertical-align: -0.27ex; " SRC="img289.svg"
+ ALT="$\displaystyle A = I + W
+$"> 
+
+(<SPAN CLASS="arabic">112</SPAN>)
+</DIV>
+The actual bitwidth of the accumulator is usually the next integer size
+available and also makes sure that in case the gain goes slightly over one
+in an unexpected case that the filter still works. For example if I
+has <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img290.svg"
+ ALT="$16$"></SPAN>&nbsp;bits the accumulator has probably <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img291.svg"
+ ALT="$32$"></SPAN>&nbsp;bits.
 
 <P>
 
@@ -149,22 +130,22 @@ Fixed point FIR filter. The output signal is bit shifted to the
  HREF="node59.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node56.html">
+ HREF="node55.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node57.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html381"
+<A ID="tex2html378"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node59.html">Fixed point FIR filters</A>
+ HREF="node59.html">Constant group delay or</A>
 <B> Up:</B> <A
- HREF="node56.html">FIR Filter</A>
+ HREF="node55.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node57.html">Generally FIR filters do</A>
- &nbsp; <B>  <A ID="tex2html382"
+ HREF="node57.html">FIR filter implementations</A>
+ &nbsp; <B>  <A ID="tex2html379"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>

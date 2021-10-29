@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Quantisation of analogue signals</TITLE>
-<META NAME="description" CONTENT="Quantisation of analogue signals">
+<TITLE>Quantisation</TITLE>
+<META NAME="description" CONTENT="Quantisation">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -31,24 +31,24 @@
 <A
  HREF="node32.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html260"
+<A ID="tex2html258"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node34.html">Quantisation error</A>
+ HREF="node34.html">Frequency representation of signals</A>
 <B> Up:</B> <A
  HREF="node28.html">Signal conversion</A>
 <B> Previous:</B> <A
  HREF="node32.html">Reconstruction of an analogue</A>
- &nbsp; <B>  <A ID="tex2html261"
+ &nbsp; <B>  <A ID="tex2html259"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
 <H2><A ID="SECTION00052000000000000000">
-Quantisation of analogue signals</A>
+Quantisation</A>
 </H2>
 A/D converters have a certain resolution. For example, the MAX1271 has a
 resolution of 12 bits which means that it divides the input range into
@@ -98,16 +98,191 @@ $">
 </DIV>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html262"
-  HREF="node34.html">Quantisation error</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
+<DIV class="CENTER"><A ID="quant_err"></A><A ID="1640"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 4:</STRONG>
+Illustration of the quantisation error. It is zero at <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img2.svg"
+ ALT="$t=0$"></SPAN>
+and increases to the edges of the sampling interval. Illustrated
+is the worst case scenario. This repeats in the next sampling interval
+and so forth.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img76.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{quant_err}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Fig.&nbsp;<A HREF="#quant_err">4</A> shows error produced by the quantiser in the
+worst case scenario. From that it can be seen that the maximum quantisation
+error is half the quantisation step:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+- \frac{\Delta}{2} \le e(n) \le \frac{\Delta}{2}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.77ex; vertical-align: -1.64ex; " SRC="img77.svg"
+ ALT="$\displaystyle - \frac{\Delta}{2} \le e(n) \le \frac{\Delta}{2}
+$"> 
+
+(<SPAN CLASS="arabic">19</SPAN>)
+</DIV>
+The smaller the quantisation step <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img1.svg"
+ ALT="$\Delta $"></SPAN> the lower the error!
+
+<P>
+What is the mean square error <SPAN CLASS="MATH"><IMG STYLE="height: 2.35ex; vertical-align: -0.72ex; " SRC="img78.svg"
+ ALT="$P_{q}$"></SPAN>?
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+P_{q} = \frac {1}{\tau} \int_{0}^{\tau} e_{q}^{2}(t)  dt
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.76ex; vertical-align: -1.71ex; " SRC="img79.svg"
+ ALT="$\displaystyle P_{q} = \frac {1}{\tau} \int_{0}^{\tau} e_{q}^{2}(t) dt
+$"> 
+
+(<SPAN CLASS="arabic">20</SPAN>)
+</DIV>
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+P_{q} & = & \frac{1}{\tau} \int_0^\tau \left(\frac{\Delta}{2\tau}\right)^2 t^2 dt \\
+      & = & \frac{\Delta^2}{4 \tau^3} \int_0^\tau t^2 dt
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.35ex; vertical-align: -0.72ex; " SRC="img80.svg"
+ ALT="$\displaystyle P_{q}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.29ex; vertical-align: -1.78ex; " SRC="img82.svg"
+ ALT="$\displaystyle \frac{1}{\tau} \int_0^\tau \left(\frac{\Delta}{2\tau}\right)^2 t^2 dt$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">21</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.09ex; vertical-align: -1.71ex; " SRC="img83.svg"
+ ALT="$\displaystyle \frac{\Delta^2}{4 \tau^3} \int_0^\tau t^2 dt$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">22</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+P_{q} = \frac{\Delta^2}{12\tau^3} \tau^3 =\frac{\Delta^2}{12}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 5.02ex; vertical-align: -1.64ex; " SRC="img84.svg"
+ ALT="$\displaystyle P_{q} = \frac{\Delta^2}{12\tau^3} \tau^3 =\frac{\Delta^2}{12}$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">23</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+What is the relative error to a sine wave?
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+P_x = \frac{1}{T_p} \int_{0}^{T_p}(A \cos \Omega t)^2 dt = \frac{A^2}{2}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img85.svg"
+ ALT="$\displaystyle P_x = \frac{1}{T_p} \int_{0}^{T_p}(A \cos \Omega t)^2 dt = \frac{A^2}{2}
+$"> 
+
+(<SPAN CLASS="arabic">24</SPAN>)
+</DIV>
+
+<P>
+Ratio to signal power to noise:
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\mbox {SQNR} &=& \frac {P_x}{P_q} = \frac{A^2}{2} . \frac{12}{\Delta^2} \\
+             &=& \frac{6A^2}{\Delta^2}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.02ex; vertical-align: -0.38ex; " SRC="img86.svg"
+ ALT="$\displaystyle \mbox {SQNR}$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img87.svg"
+ ALT="$\displaystyle \frac {P_x}{P_q} = \frac{A^2}{2} . \frac{12}{\Delta^2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">25</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.02ex; vertical-align: -1.64ex; " SRC="img88.svg"
+ ALT="$\displaystyle \frac{6A^2}{\Delta^2}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">26</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This equation needs to be interpreted with care because increasing
+the amplitude of the input signal might lead to saturation if the
+input range of the A/D converter is exceeded.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node28.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html258"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node34.html">Frequency representation of signals</A>
+<B> Up:</B> <A
+ HREF="node28.html">Signal conversion</A>
+<B> Previous:</B> <A
+ HREF="node32.html">Reconstruction of an analogue</A>
+ &nbsp; <B>  <A ID="tex2html259"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

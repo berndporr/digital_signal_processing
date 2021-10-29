@@ -477,7 +477,7 @@ domain and back:
 
 \begin{enumerate}
 
-\item {\bf sampling}
+\item {\bf Sampling}
 
 \begin{equation}
 \underbrace{x_{a}(nT)}_{\mbox{analogue signal}}~ \equiv \underbrace{x(n)}_{\mbox{discrete data}}
@@ -489,7 +489,7 @@ domain and back:
 \item $x(n)$: discrete data
 \end{itemize}
 
-\item {\bf quantisation:} 
+\item {\bf Quantisation} 
 Continuous value into discrete steps. $x(n) \rightarrow x_{q}(n)$
 
 \item {\bf Coding}
@@ -497,7 +497,7 @@ $x_{q}(n) \rightarrow$  into binary sequence or integer numbers.
 \end{enumerate}
 
 
-\subsection{Sampling of Analogue Signals}
+\subsection{Sampling}
 The analogue signal $X_a$ is sampled at intervals $T$ to get
 the sampled signal $X(n)$.
 \begin{equation}
@@ -616,7 +616,7 @@ which operates at sampling rates hundred times higher than the
 Nyquist frequency.
 
 
-\subsubsection{Reconstruction of an analogue signal: Sampling theorem}
+\subsubsection{Sampling theorem}
 Is it possible to reconstruct an analogue signal from a digital signal
 which contains only frequencies below the Nyquist frequency?
 
@@ -643,6 +643,11 @@ B = F_{\mbox{max}}
 x_{a}(t) = \sum_{h= -a}^{a}x_{a}(\frac{n}{F_s})g(t - \frac{h}{F_s})
 \end{equation}
 
+The problem is that $g(t)$ runs from negative time to positive time
+and as we see later is a-causal so that this cannot be implemented
+for real but approximations of $g(t)$ are possible and are analogue
+lowpass filters which smooth out the step like outout of an digital
+to analogue converter.
 
 
 
@@ -656,7 +661,7 @@ x_{a}(t) = \sum_{h= -a}^{a}x_{a}(\frac{n}{F_s})g(t - \frac{h}{F_s})
 
 
 
-\subsection{Quantisation of analogue signals}
+\subsection{Quantisation}
 A/D converters have a certain resolution. For example, the MAX1271 has a
 resolution of 12 bits which means that it divides the input range into
 4096 equal steps (see Fig~\ref{quant_overv}).
@@ -674,7 +679,6 @@ as:
 x_{q}(n) = Q[x(n)]
 \end{equation}
 
-\subsubsection{Quantisation error}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{quant_err}}
@@ -1261,11 +1265,8 @@ shows the integration for $t=1$.
 \label{convolution}}
 \end{figure}
 
-
-
-
-\subsection{Convolution of Causal Signal}
-After having defined causality we can define the convolution:
+\subsection{Convolution of Causal Signals}
+After having defined causality we can define the convolution in continous time:
 \begin{eqnarray} 
   y(t) & = & h(t) * x(t) = \int_{-\infty}^{\infty} h(t - \tau) x(\tau) d\tau \\
   y(n) & = & h(n) * x(n) = \sum_{n = -\infty}^\infty h(n) x(m - n)
@@ -1291,7 +1292,7 @@ filter.
 \subsection{Laplace transform}
 The Fourier transform is not suitable for causal systems
 because it requires the whole signal from $-\infty < t < +\infty$.
-What we need is a transform which works with causal signals.
+What we need is a transform which works with continuous causal signals.
 This is the Laplace transform:
 \begin{equation} 
 \lapl{h(t)} = H(s) = \int_{0}^{\infty} h(t) e^{-st} dt
@@ -1342,7 +1343,7 @@ either with its impulse response or with it's Laplace transforms.
 
 
 \subsection{Filters}
-Fig.~\ref{filter} presents a causal filter as a black box. We
+Fig.~\ref{filter} presents a causal filter as a black box in continuous time. We
 send in a signal and and we get a signal out of it. The
 operation of the filter is that of a convolution of the input
 signal or a multiplication in the Laplace space:
@@ -1385,8 +1386,8 @@ this should be kept constant for all frequencies.
 \end{enumerate}
 
 \subsection{The z-transform}
-The Laplace transform is for continuous causal signals but in DSP
-we have sampled signals. So, we need to investigate what happens
+The Laplace transform is for \textsl{continuous} causal signals but in DSP
+we have \textsl{sampled} signals. So, we need to investigate what happens
 if we feed a sampled signal:
 \begin{equation}
 x(t) = \sum_{n = 0}^{\infty} x(n) \delta(t - nT) \qquad \mbox{Sampled signal} 
@@ -1412,9 +1413,9 @@ in the continuous case and sampled case.
 
 
 \subsection{Frequency response of a sampled filter}
-Reminder: for analogue Signals we had $H(s)$ with $s=j \omega$.
-Let's substitute $s$ by $z$: $z^{-1} = e^{-sT}$ which
-gives us in general a mapping between the continuous domain and
+Reminder: for analogue Signals we had $H(s)$ with $s=j \omega$ for the
+frequency response. Let's substitute $s$ by $z$: $z^{-1} = e^{-sT}$
+which gives us in general a mapping between the continuous domain and
 the sampled domain:
 \begin{equation}
 z = e^{sT}

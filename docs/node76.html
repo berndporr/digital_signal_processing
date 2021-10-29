@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>How to transform the analogue lowpass filters into highpass, bandstop or bandpass filters?</TITLE>
-<META NAME="description" CONTENT="How to transform the analogue lowpass filters into highpass, bandstop or bandpass filters?">
+<TITLE>Bilinear Transform: transforming the analoge transfer function into a digital one:</TITLE>
+<META NAME="description" CONTENT="Bilinear Transform: transforming the analoge transfer function into a digital one:">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,40 +27,202 @@
  HREF="node77.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node74.html">
+ HREF="node73.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node75.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html434"
+<A ID="tex2html431"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node77.html">Bilinear Transform: transforming the</A>
+ HREF="node77.html">IIR filter design steps:</A>
 <B> Up:</B> <A
- HREF="node74.html">Filter design based on</A>
+ HREF="node73.html">Filter design based on</A>
 <B> Previous:</B> <A
- HREF="node75.html">A list of popular</A>
- &nbsp; <B>  <A ID="tex2html435"
+ HREF="node75.html">How to transform the</A>
+ &nbsp; <B>  <A ID="tex2html432"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H4><A ID="SECTION00078620000000000000">
-How to transform the analogue lowpass filters into
-  highpass, bandstop or bandpass filters?</A>
+<H4><A ID="SECTION00078630000000000000">
+Bilinear Transform: transforming the analoge transfer function into a digital one:</A>
 </H4>
-All the analogue transfer functions above are lowpass
-filters. However this is not a limitation because there are handy transforms
-which take an analogue lowpass transfer function or poles/zeros
-and then transforms them into highpass, bandpass and stopband
-filters. These rules can be found in any good analogue filter
-design book and industry handouts, for example from Analog Devices.
+As a next step these analogue transfer functions <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
+ ALT="$H(s)$"></SPAN> need to be
+transformed to digital transfer functions <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
+ ALT="$H(z)$"></SPAN>. This could be done
+by the matched z-transform
+(Eq.&nbsp;<A HREF="node68.html#matchedz">160</A>). However, the problem with these methods is that
+they map frequencies 1:1 between the digital and analogue
+domain. Remember: in the sampled domain there is no infinite frequency
+but <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
+ ALT="$F_s/2$"></SPAN> which is the Nyquist frequency.  This means that we never
+get more damping than at Nyquist <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
+ ALT="$F_s/2$"></SPAN>.  This is especially a
+problem for lowpass filters where damping increases the higher the
+frequency.
 
 <P>
-<BR><HR>
+The solution is to map <B>all</B> analogue frequencies from <!-- MATH
+ $0 \ldots \infty$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img412.svg"
+ ALT="$0 \ldots \infty$"></SPAN>
+to the sampled frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img41.svg"
+ ALT="$0\ldots 0.5$"></SPAN> in a non-linear way:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+- \infty < \Omega < \infty \Rightarrow -\pi \leq \omega \leq \pi
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.02ex; vertical-align: -0.40ex; " SRC="img413.svg"
+ ALT="$\displaystyle - \infty &lt; \Omega &lt; \infty \Rightarrow -\pi \leq \omega \leq \pi
+$"> 
+
+(<SPAN CLASS="arabic">167</SPAN>)
+</DIV>
+This is called <SPAN  CLASS="textsl">Bilinear Transformation</SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+s = \frac{2}{T} \quad \frac{z - 1}{z + 1}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.86ex; vertical-align: -1.81ex; " SRC="img414.svg"
+ ALT="$\displaystyle s = \frac{2}{T} \quad \frac{z - 1}{z + 1}
+$"> 
+
+(<SPAN CLASS="arabic">168</SPAN>)
+</DIV>
+This rule replaces all <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img252.svg"
+ ALT="$s$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img253.svg"
+ ALT="$z$"></SPAN> in our analogue transfer
+function so that it's now digital. However, the cutoff frequency <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img415.svg"
+ ALT="$\Omega_c$"></SPAN>
+is still an analogue one but if we want to design a digital filter
+we want to specify a digital cutoff frequency. Plus remember that
+the frequency mapping is non-linear so that there is non-linear
+mapping also of the cutoff. 
+
+<P>
+In the analogue domain the
+frequency is given as <SPAN CLASS="MATH"><IMG STYLE="height: 2.16ex; vertical-align: -0.53ex; " SRC="img416.svg"
+ ALT="$s = j\Omega$"></SPAN> and in the sampled domain as
+<!-- MATH
+ $z = e^{j \omega}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="img256.svg"
+ ALT="$z = e^{j \omega}$"></SPAN>. With the definition of the bilinear transform
+we can establish how to map from our desired digital cutoff to
+the analogue one:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+j \Omega = \frac{2}{T} \left[\frac{e^{j \omega} - 1}{e^{j \omega} +1}\right] = \frac{2}{T} j \tan \frac{\omega}{2}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img417.svg"
+ ALT="$\displaystyle j \Omega = \frac{2}{T} \left[\frac{e^{j \omega} - 1}{e^{j \omega} +1}\right] = \frac{2}{T} j \tan \frac{\omega}{2}
+$"> 
+
+(<SPAN CLASS="arabic">169</SPAN>)
+</DIV>
+This derivation is useful for two purposes. It shows the non-linear
+mapping between the digital and analogue world and it provides
+a recipe how to calculate our analogue cutoff frequency.
+
+<P>
+That the bilinear transform is a 
+<B>non</B>linear mapping between the analogue world and the digital
+world can be directly seen by just omitting the <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img418.svg"
+ ALT="$j$"></SPAN>:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\Omega = \frac{2}{T} tan \frac{\omega}{2}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img419.svg"
+ ALT="$\displaystyle \Omega = \frac{2}{T} tan \frac{\omega}{2}
+$"> 
+
+(<SPAN CLASS="arabic">170</SPAN>)
+</DIV>
+
+<P>
+This also means that the cut-off frequency of our analogue filter is changed
+by the bilinear transformation. Consequently, we need to apply the same
+transformation to the cutoff frequency itself:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\Omega_{c} = \frac{2}{T} tan \frac {\omega_{c}}{2}
+\end{equation}
+ -->
+ &nbsp;  <A ID="prewarp"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img420.svg"
+ ALT="$\displaystyle \Omega_{c} = \frac{2}{T} tan \frac {\omega_{c}}{2}
+$"> 
+
+(<SPAN CLASS="arabic">171</SPAN>)
+</DIV>
+where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img30.svg"
+ ALT="$T$"></SPAN> is the sampling interval. This is often called &ldquo;pre-warp&rdquo;
+but is simply the application of the same rule to the cut-off
+frequency as what the bilinear transform does to the transfer function
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
+ ALT="$H(s)$"></SPAN>. It has also another important result: we can now finally
+specify our cut-off in the sampled domain in normalised frequencies
+<!-- MATH
+ $\omega_{c} = 2\pi f_{c}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img421.svg"
+ ALT="$\omega_{c} = 2\pi f_{c}$"></SPAN> by using Eq.&nbsp;<A HREF="#prewarp">171</A>. After all we
+just use the analogue filter as a vehicle to design a digital filter.
+
+<P>
+We can now list our design steps.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node73.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html431"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node77.html">IIR filter design steps:</A>
+<B> Up:</B> <A
+ HREF="node73.html">Filter design based on</A>
+<B> Previous:</B> <A
+ HREF="node75.html">How to transform the</A>
+ &nbsp; <B>  <A ID="tex2html432"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

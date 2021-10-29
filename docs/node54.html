@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>The z-transform</TITLE>
-<META NAME="description" CONTENT="The z-transform">
+<TITLE>Frequency response of a sampled filter</TITLE>
+<META NAME="description" CONTENT="Frequency response of a sampled filter">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -16,7 +16,7 @@
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
 <LINK REL="next" HREF="node55.html">
-<LINK REL="previous" HREF="node52.html">
+<LINK REL="previous" HREF="node53.html">
 <LINK REL="next" HREF="node55.html">
 </HEAD>
 
@@ -27,116 +27,139 @@
  HREF="node55.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node48.html">
+ HREF="node47.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node53.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html362"
+<A ID="tex2html359"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node55.html">Frequency response of a</A>
+ HREF="node55.html">FIR Filter</A>
 <B> Up:</B> <A
- HREF="node48.html">Causal Signal Processing</A>
+ HREF="node47.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node53.html">How to characterise filters?</A>
- &nbsp; <B>  <A ID="tex2html363"
+ HREF="node53.html">The z-transform</A>
+ &nbsp; <B>  <A ID="tex2html360"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00075000000000000000">
-The z-transform</A>
+<H2><A ID="SECTION00076000000000000000">
+Frequency response of a sampled filter</A>
 </H2>
-The Laplace transform is for continuous causal signals but in DSP
-we have sampled signals. So, we need to investigate what happens
-if we feed a sampled signal:
+Reminder: for analogue Signals we had <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img250.svg"
+ ALT="$H(s)$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img251.svg"
+ ALT="$s=j \omega$"></SPAN> for the
+frequency response. Let's substitute <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img252.svg"
+ ALT="$s$"></SPAN> by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img253.svg"
+ ALT="$z$"></SPAN>: <!-- MATH
+ $z^{-1} = e^{-sT}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img254.svg"
+ ALT="$z^{-1} = e^{-sT}$"></SPAN>
+which gives us in general a mapping between the continuous domain and
+the sampled domain:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-x(t) = \sum_{n = 0}^{\infty} x(n) \delta(t - nT) \qquad \mbox{Sampled signal}
+z = e^{sT}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img242.svg"
- ALT="$\displaystyle x(t) = \sum_{n = 0}^{\infty} x(n) \delta(t - nT) \qquad \mbox{Sampled signal}
+ &nbsp;  <A ID="mappingsz"></A><IMG STYLE="height: 2.13ex; vertical-align: -0.09ex; " SRC="img255.svg"
+ ALT="$\displaystyle z = e^{sT}
 $"> 
 
-(<SPAN CLASS="arabic">93</SPAN>)
+(<SPAN CLASS="arabic">98</SPAN>)
 </DIV>
-into the Laplace transform:
-<BR>
-<DIV ALIGN="CENTER">
+With <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img251.svg"
+ ALT="$s=j \omega$"></SPAN> this gives us <!-- MATH
+ $z = e^{j \omega}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.99ex; vertical-align: -0.09ex; " SRC="img256.svg"
+ ALT="$z = e^{j \omega}$"></SPAN> and therefore
+the frequency response of the digital filter is:
+
+<DIV class="equation">
 
 <!-- MATH
- \begin{eqnarray}
-X(s) & = & \sum_{n = 0}^{\infty} x(n) e^{-snT} \\
-     & = & \int_{0}^{\infty} x(n) e^{-st} dt \\
-     & = & \sum_{n = 0}^{\infty} x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-sT}} \\
-     & = & \sum_{n = 0}^{\infty} x(n) (z^{-1})^{n} \qquad \mbox{z-transform}
-\end{eqnarray}
+ \begin{equation}
+H(e^{j \omega})
+\end{equation}
  -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img243.svg"
- ALT="$\displaystyle X(s)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img244.svg"
- ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) e^{-snT}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">94</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img245.svg"
- ALT="$\displaystyle \int_{0}^{\infty} x(n) e^{-st} dt$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">95</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.04ex; vertical-align: -3.70ex; " SRC="img246.svg"
- ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-sT}}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">96</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img247.svg"
- ALT="$\displaystyle \sum_{n = 0}^{\infty} x(n) (z^{-1})^{n} \qquad \mbox{z-transform}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">97</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-What is <!-- MATH
- $e^{-sT} = z^{-1}$
+ &nbsp;  <IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="img257.svg"
+ ALT="$\displaystyle H(e^{j \omega})
+$"> 
+
+(<SPAN CLASS="arabic">99</SPAN>)
+</DIV>
+which then leads to the amplitude and phase response:
+
+<UL>
+<LI>Amplitude/Magnitude: 
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+|H(e^{i \omega})|
+\end{equation}
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img248.svg"
- ALT="$e^{-sT} = z^{-1}$"></SPAN>? It's a unit delay (see Eq.&nbsp;<A HREF="node51.html#shiftOperation">80</A>).
+ &nbsp;  <IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="img258.svg"
+ ALT="$\displaystyle \vert H(e^{i \omega})\vert
+$"> 
+
+(<SPAN CLASS="arabic">100</SPAN>)
+</DIV>
+</LI>
+<LI>Phase
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\arg H(e^{i \omega})
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.66ex; vertical-align: -0.66ex; " SRC="img259.svg"
+ ALT="$\displaystyle \arg H(e^{i \omega})
+$"> 
+
+(<SPAN CLASS="arabic">101</SPAN>)
+</DIV>
+</LI>
+</UL>
+Fig.&nbsp;<A HREF="node53.html#frequency_response">15</A> shows the difference between
+continuous and sampled signal. While in the continuous case
+the frequency response
+is evaluated along the imaginary axis, in the sampled case
+it happens along the unit circle which makes the response
+periodic! This is a subtle implication of the sampling theorem.
 
 <P>
 
-<DIV class="CENTER"><A ID="frequency_response"></A><A ID="1687"></A>
+<DIV class="CENTER"><A ID="FIRfilter"></A><A ID="1690"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 15:</STRONG>
-Comparing the calculation of the frequency response
-in the continuous case and sampled case.
-</CAPTION>
+<CAPTION class="BOTTOM"><STRONG>Figure 16:</STRONG>
+FIR filter using the impulse response of the analogue filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
+ ALT="$h(t)$"></SPAN> </CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img249.svg"
- ALT="\includegraphics[width=0.75\textwidth]{frequency_response}">
+ SRC="img260.svg"
+ ALT="\includegraphics[width=\linewidth]{fir}">
 
 </DIV></TD></TR>
 </TABLE>
 </DIV>
 
 <P>
+
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

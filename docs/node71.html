@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>General form of IIR filters</TITLE>
-<META NAME="description" CONTENT="General form of IIR filters">
+<TITLE>IIR filter topologies</TITLE>
+<META NAME="description" CONTENT="IIR filter topologies">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,89 +27,137 @@
  HREF="node72.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node68.html">
+ HREF="node67.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node70.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html419"
+<A ID="tex2html416"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node72.html">IIR filter topologies</A>
+ HREF="node72.html">Fixed point IIR filters</A>
 <B> Up:</B> <A
- HREF="node68.html">IIR Filter</A>
+ HREF="node67.html">IIR Filter</A>
 <B> Previous:</B> <A
- HREF="node70.html">Determining the data-flow diagram</A>
- &nbsp; <B>  <A ID="tex2html420"
+ HREF="node70.html">General form of IIR</A>
+ &nbsp; <B>  <A ID="tex2html417"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00078300000000000000">
-General form of IIR filters</A>
+<H3><A ID="SECTION00078400000000000000">
+IIR filter topologies</A>
 </H3>
-A filter with forward and feedback components can be represented as:
+In real applications one would create a <SPAN  CLASS="textsl">chain of 2nd order
+IIR filters</SPAN>. This has numerous advantages:
 
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.65ex; vertical-align: -2.19ex; " SRC="img400.svg"
- ALT="$\displaystyle H(z) = \frac{\sum_{k = 0}^{r} B_{k} z^{-k}}{1 + \sum_{l = 1}^{m} A_{i} z^{-l}} $"> 
-
-(<SPAN CLASS="arabic">165</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img401.svg"
- ALT="$B_k$"></SPAN> are the FIR coefficients and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img402.svg"
- ALT="$A_l$"></SPAN> the recursive coefficients.
-Note the signs of the recursive coefficients are <SPAN  CLASS="textsl">inverted</SPAN> in the
-actual implementation of the filter. This can be seen when the
-function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$H(z)$"></SPAN> is actually multiplied with an input signal to
-obtain the output signal (see Eq.&nbsp;<A HREF="node70.html#IIRtime">164</A> and Fig.&nbsp;<A HREF="node69.html#IIRfilter">21</A>).
-The &ldquo;1&rdquo; in the denominator represents actually the output of
-the filter. If this factor is not one then the output will be scaled
-by that factor. However, usually this is kept one.
+<OL>
+<LI>The optimisation can be done within these simple structures,
+  for example omitting array operations completely and coding
+  the 2nd order filters in assembly while keeping the higher
+  level operations in C or C++.
+</LI>
+<LI>Control of stability issues: high order recursive
+  systems might become unstable and it is very hard to predict
+  when this might happen. On the other hand a chain of 2nd order
+  filters can be made stable with ease. One can focus on
+  stability in 2nd order systems which is well understood and
+  manageable.
+</LI>
+<LI>Complex conjugate pole pairs are generated naturally
+  in analogue filter design and directly translate to 2nd
+  order IIR structures. Analogue design is usually described
+  as 2nd order structures (=LCR) so that any transform from analogue
+  to digital just needs to be of 2nd order!
+</LI>
+</OL>
 
 <P>
-In Python filtering is performed with the command:
+Fig.&nbsp;<A HREF="node70.html#iir_types">22</A> shows the most popular filter topologies:
+Direct Form I and II. Because of the linear operation of the filter
+one is allowed to do the FIR and IIR operations in different orders.
+In Direct From I we have one accumulator and two delay lines whereas
+in the Direct Form II we have two accumulators and one delay line.
+Only the Direct Form I is suitable for integer operations.
+
+<P>
+A Python class of a direct form II filter can be implemented
+with a few lines:
 <PRE>
-import scipy.signal as signal
-Y = signal.lfilter(B,A,X)
+class IIR_filter:
+    def __init__(self,_num,_den):
+        self.numerator = _num
+        self.denominator = _den
+        self.buffer1 = 0
+        self.buffer2 = 0
+
+    def filter(self,v):
+        input=0.0
+        output=0.0
+        input=v
+        output=(self.numerator[1]*self.buffer1)
+        input=input-(self.denominator[1]*self.buffer1)
+        output=output+(self.numerator[2]*self.buffer2)
+        input=input-(self.denominator[2]*self.buffer2)
+        output=output+input*self.numerator[0]
+        self.buffer2=self.buffer1
+        self.buffer1=input
+        return output
 </PRE>
-where B are the FIR coefficients, A the IIR coefficients and X is the input.
-For a pure FIR filter we just have:
-<PRE>
-Y = signal.lfilter(B,1,X)
-</PRE>
-The &ldquo;1&rdquo; represents the output.
+Here, the two delay steps are represented by two variables
+<SPAN  CLASS="texttt">buffer1</SPAN> and <SPAN  CLASS="texttt">buffer2</SPAN>.
+
+<P>
+In order to achive higher order filters one can then just
+chain these 2nd order filters. In Python this can be achieved
+by storing these in an array of instances of this class.
 
 <P>
 
-<DIV class="CENTER"><A ID="iir_types"></A><A ID="1731"></A>
+<DIV class="CENTER"><A ID="iir_fixed"></A><A ID="1734"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 22:</STRONG>
-A) Direct Form I filter which one accumulator and
-  B) Direct Form II filter with two accumlators.
+<CAPTION class="BOTTOM"><STRONG>Figure 23:</STRONG>
+Direct Form I filter with fixed point arithmetic.
 </CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img403.svg"
- ALT="\includegraphics[width=\textwidth]{iir_types}">
+ SRC="img404.svg"
+ ALT="\includegraphics[width=0.5\textwidth]{iir_fixed}">
 
 </DIV></TD></TR>
 </TABLE>
 </DIV>
 
 <P>
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A
+ HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
+<A
+ HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
+<A
+ HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
+<A ID="tex2html416"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A
+ HREF="node72.html">Fixed point IIR filters</A>
+<B> Up:</B> <A
+ HREF="node67.html">IIR Filter</A>
+<B> Previous:</B> <A
+ HREF="node70.html">General form of IIR</A>
+ &nbsp; <B>  <A ID="tex2html417"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

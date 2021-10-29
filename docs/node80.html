@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Adaptive IIR filter: The Kalman filter</TITLE>
-<META NAME="description" CONTENT="Adaptive IIR filter: The Kalman filter">
+<TITLE>The role of poles and zeros</TITLE>
+<META NAME="description" CONTENT="The role of poles and zeros">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -15,7 +15,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="previous" HREF="node74.html">
+<LINK REL="previous" HREF="node67.html">
 <LINK REL="next" HREF="node81.html">
 </HEAD>
 
@@ -26,104 +26,77 @@
  HREF="node81.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node68.html">
+ HREF="node47.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node79.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html442"
+<A ID="tex2html439"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node81.html">The role of poles</A>
+ HREF="node81.html">Zeros</A>
 <B> Up:</B> <A
- HREF="node68.html">IIR Filter</A>
+ HREF="node47.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node79.html">Time or frequency domain?</A>
- &nbsp; <B>  <A ID="tex2html443"
+ HREF="node79.html">Adaptive IIR filter: The</A>
+ &nbsp; <B>  <A ID="tex2html440"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00078700000000000000">
-Adaptive IIR filter: The Kalman filter</A>
-</H3>
-Often signals are contaminated by high frequency noise where the
-spectrum of the noise is changing or not known. The cutoff of a fixed low
-pass filter is not known or might be changing so that we need to adapt the cut-off continuously.
-One example is a Kalman filter which maximises the
-<SPAN  CLASS="textsl">predictability</SPAN> of the filtered signal. It's an adaptive lowpass filter
-which increases the predictability of a signal because it smoothes it.
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-H(z) = \frac{b}{1 - a z^{-1}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img427.svg"
- ALT="$\displaystyle H(z) = \frac{b}{1 - a z^{-1}}
-$"> 
-
-(<SPAN CLASS="arabic">172</SPAN>)
-</DIV>
-The parameter <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img428.svg"
- ALT="$a$"></SPAN> determines the cutoff frequency.
-Frequency Response :
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-|H(e^{j \omega}) | = |\frac{b}{1 - a e^{-j \omega}}|
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.99ex; vertical-align: -1.82ex; " SRC="img429.svg"
- ALT="$\displaystyle \vert H(e^{j \omega}) \vert = \vert\frac{b}{1 - a e^{-j \omega}}\vert
-$"> 
-
-(<SPAN CLASS="arabic">173</SPAN>)
-</DIV>
-Let's re-interpret our low-pass filter in the time domain:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.93ex; vertical-align: -4.17ex; " SRC="img430.svg"
- ALT="$\displaystyle \underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) ...
-...estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}
-$"> 
-
-(<SPAN CLASS="arabic">174</SPAN>)
-</DIV>
-We would like to have the best estimate for <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
- ALT="$y(n)$"></SPAN>
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.80ex; vertical-align: -0.66ex; " SRC="img431.svg"
- ALT="$\displaystyle p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]
-$"> 
-
-(<SPAN CLASS="arabic">175</SPAN>)
-</DIV>
-We need to minimise <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img432.svg"
- ALT="$p$"></SPAN> which gives us equations for a and b which
-implements a Kalman filter.
+<H2><A ID="SECTION00079000000000000000">
+The role of poles and zeros</A>
+</H2>
+Transfer functions contain poles and zeros. To gain a deeper
+understanding of the transfer functions we need to understand
+how poles and zeros shape the frequency response of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
+ ALT="$H(z)$"></SPAN>.
+The position of the poles also determines the stability of the filter
+which is important for real world applications.
 
 <P>
+We are going to explore the roles of poles and zeros first with
+an instructional example which leads to a 2nd order bandstop filter.
+
+<P>
+
+<DIV class="CENTER"><A ID="fir_stop"></A><A ID="1747"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 25:</STRONG>
+A two tap FIR stopband filter for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
+ ALT="$\omega _0$"></SPAN>.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img433.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{fir_stop}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html441"
+  HREF="node81.html">Zeros</A>
+<LI><A ID="tex2html442"
+  HREF="node82.html">Poles</A>
+<LI><A ID="tex2html443"
+  HREF="node83.html">Stability</A>
+<LI><A ID="tex2html444"
+  HREF="node84.html">Design of an IIR notch filter</A>
+<LI><A ID="tex2html445"
+  HREF="node85.html">Identifying filters from their poles and zeroes</A>
+</UL>
+<!--End of Table of Child-Links-->
 <BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>

@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Discrete Fourier Transform (DFT)</TITLE>
-<META NAME="description" CONTENT="Discrete Fourier Transform (DFT)">
+<TITLE>Properties of the DFT</TITLE>
+<META NAME="description" CONTENT="Properties of the DFT">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,251 +27,171 @@
  HREF="node43.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node39.html">
+ HREF="node38.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node41.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html299"
+<A ID="tex2html296"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node43.html">Properties of the DFT</A>
+ HREF="node43.html">Problems with finite length</A>
 <B> Up:</B> <A
- HREF="node39.html">Sampled time and/or frequency</A>
+ HREF="node38.html">Sampled time and/or frequency</A>
 <B> Previous:</B> <A
- HREF="node41.html">The effect of time</A>
- &nbsp; <B>  <A ID="tex2html300"
+ HREF="node41.html">Discrete Fourier Transform (DFT)</A>
+ &nbsp; <B>  <A ID="tex2html297"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00062300000000000000">
-Discrete Fourier Transform (DFT)</A>
+<H3><A ID="SECTION00062400000000000000">
+Properties of the DFT</A>
 </H3>
-So far we have only sampled in the time domain. However, on
-a digital computer the Fourier spectrum will always be a discrete
-spectrum.
 
-<P>
-The discrete Fourier Transform (DFT) is defined as:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-X(k) = \sum_{n=0}^{N-1} x(n) e^{-j2\pi kn / N} \qquad k=0,1,2, \ldots, N-1
-\end{equation}
- -->
- &nbsp;  <A ID="DFT"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img141.svg"
- ALT="$\displaystyle X(k) = \sum_{n=0}^{N-1} x(n) e^{-j2\pi kn / N} \qquad k=0,1,2, \ldots, N-1
-$"> 
-
-(<SPAN CLASS="arabic">48</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
- ALT="$N$"></SPAN> is the number of samples in both the time and frequency domain.
-
-<P>
-The inverse discrete Fourier Transform (IDFT) is defined as:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-x(n) = \frac{1}{N} \sum_{k=0}^{N-1} X(k) e^{j 2\pi kn/N} \qquad n=0,1,2,\ldots, N-1
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 6.29ex; vertical-align: -2.57ex; " SRC="img142.svg"
- ALT="$\displaystyle x(n) = \frac{1}{N} \sum_{k=0}^{N-1} X(k) e^{j 2\pi kn/N} \qquad n=0,1,2,\ldots, N-1
-$"> 
-
-(<SPAN CLASS="arabic">49</SPAN>)
-</DIV>
-
-<P>
-
-<DIV class="CENTER"><A ID="time_alias"></A><A ID="1661"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 7:</STRONG>
-Effect of sampling in the frequency domain. The
-inverse in the time domain <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN> contains repetitions of
-the original signal.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img143.svg"
- ALT="\includegraphics[width=0.75\textwidth]{time_alias}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
-
-<P>
-What is the effect in the timedomain of this discretisation<A ID="tex2html10"
-  HREF="footnode.html#foot1662"><SUP><SPAN CLASS="arabic">3</SPAN></SUP></A>? We start with
-the continuous Fourier transform
-and discretise it into N samples in the frequency domain:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-X\left(\frac{2\pi}{N}k\right) = \sum_{n = -\infty}^{\infty} x(n) e^{-j\frac{2\pi}{N}kn} \qquad k = 0, \ldots, N-1
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 5.94ex; vertical-align: -2.59ex; " SRC="img144.svg"
- ALT="$\displaystyle X\left(\frac{2\pi}{N}k\right) = \sum_{n = -\infty}^{\infty} x(n) e^{-j\frac{2\pi}{N}kn} \qquad k = 0, \ldots, N-1
-$"> 
-
-(<SPAN CLASS="arabic">50</SPAN>)
-</DIV>
-
-<P>
-Let's subdivide the sum into chunks of length <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
- ALT="$N$"></SPAN>:
+<UL>
+<LI>Periodicity:
 <BR>
 <DIV ALIGN="CENTER">
 
 <!-- MATH
  \begin{eqnarray}
-X\left(\frac{2\pi}{N}k\right)
-& = &
-\sum_{l = -\infty}^{\infty} \sum_{n=lN}^{lN+N-1} x(n)e^{-j \frac{2\pi}{N}kn} \\
-& = & \sum_{l=-\infty}^{\infty} \sum_{n=0}^{N-1} x(n-lN) e^{-j \frac{2\pi}{N} kn} \\
-& = & \sum_{n=0}^{N-1} \underbrace{\sum_{l=-\infty}^{\infty} x(n - lN)}_{\mbox{Periodic repetition!}} e^{-j \frac{2\pi}{N}kn}
+x(n + N) & = & x(n) \\
+X(k + N) & = & X(k)
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img145.svg"
- ALT="$\displaystyle X\left(\frac{2\pi}{N}k\right)$"></TD>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img152.svg"
+ ALT="$\displaystyle x(n + N)$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.47ex; vertical-align: -2.73ex; " SRC="img146.svg"
- ALT="$\displaystyle \sum_{l = -\infty}^{\infty} \sum_{n=lN}^{lN+N-1} x(n)e^{-j \frac{2\pi}{N}kn}$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img115.svg"
+ ALT="$\displaystyle x(n)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">51</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+(<SPAN CLASS="arabic">54</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img153.svg"
+ ALT="$\displaystyle X(k + N)$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.45ex; vertical-align: -2.73ex; " SRC="img147.svg"
- ALT="$\displaystyle \sum_{l=-\infty}^{\infty} \sum_{n=0}^{N-1} x(n-lN) e^{-j \frac{2\pi}{N} kn}$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img154.svg"
+ ALT="$\displaystyle X(k)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">52</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 10.29ex; vertical-align: -6.58ex; " SRC="img148.svg"
- ALT="$\displaystyle \sum_{n=0}^{N-1} \underbrace{\sum_{l=-\infty}^{\infty} x(n - lN)}_{\mbox{Periodic repetition!}} e^{-j \frac{2\pi}{N}kn}$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">53</SPAN>)</TD></TR>
+(<SPAN CLASS="arabic">55</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
 
 <P>
-We note the following:
-
-<UL>
-<LI>Ambiguity in the time domain
 </LI>
-<LI>The signal is repeated every N samples
+<LI>Symmetry: if <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> real:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x(n)\mbox{ is real} \Leftrightarrow X^*(k) = X(-k) = X(N-k)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img155.svg"
+ ALT="$\displaystyle x(n)\mbox{ is real} \Leftrightarrow X^*(k) = X(-k) = X(N-k)
+$"> 
+
+(<SPAN CLASS="arabic">56</SPAN>)
+</DIV>
+This is important when manipulating <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img7.svg"
+ ALT="$X(k)$"></SPAN> by hand.
+
+<P>
+</LI>
+<LI>Time Reversal:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+x(n) & \leftrightarrow & X(k) \\
+x(-n)& \leftrightarrow & X(N - k)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img115.svg"
+ ALT="$\displaystyle x(n)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.01ex; vertical-align: -0.09ex; " SRC="img156.svg"
+ ALT="$\textstyle \leftrightarrow$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img154.svg"
+ ALT="$\displaystyle X(k)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">57</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img157.svg"
+ ALT="$\displaystyle x(-n)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.01ex; vertical-align: -0.09ex; " SRC="img156.svg"
+ ALT="$\textstyle \leftrightarrow$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img158.svg"
+ ALT="$\displaystyle X(N - k)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">58</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textsl">Circular</SPAN> convolution:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X_{1}(k) X_{2}(k) \leftrightarrow x_1(n) * x_2(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img159.svg"
+ ALT="$\displaystyle X_{1}(k) X_{2}(k) \leftrightarrow x_1(n) * x_2(n)
+$"> 
+
+(<SPAN CLASS="arabic">59</SPAN>)
+</DIV>
+with
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x_{3}(m) = \sum_{n = 0}^{N - 1} x_{1}(n) x_{2}(m - n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img160.svg"
+ ALT="$\displaystyle x_{3}(m) = \sum_{n = 0}^{N - 1} x_{1}(n) x_{2}(m - n)
+$"> 
+
+(<SPAN CLASS="arabic">60</SPAN>)
+</DIV>
 </LI>
 </UL>
-Practically this repetition won't show up because
-the number of samples is limited to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
- ALT="$N$"></SPAN> in the inverse transform.
-However, for operations which shift signals in the frequency domain
-it is important to remember that we shift a periodic time series. If
-we shift it out at the end of the array we will get it back at the
-start of the array.
+More useful equations are at <A
+ HREF="node86.html#Proakis1996">Proakis and Manolakis (1996, pp.415)</A>.
 
 <P>
 
-<DIV class="CENTER"><A ID="dft_example"></A><A ID="1670"></A>
+<DIV class="CENTER"><A ID="windowing_dft"></A><A ID="1673"></A>
 <TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 8:</STRONG>
-Example of a DFT. The sampled signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN> is
-converted to the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img7.svg"
- ALT="$X(k)$"></SPAN>. Both have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
- ALT="$N$"></SPAN> samples.
-Note the redundancy: the spectrum is mirrored around <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img9.svg"
- ALT="$N/2$"></SPAN>.
-The first value <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img10.svg"
- ALT="$X(0)$"></SPAN> is the DC value of the signal. However
-this is the only sample which is not mirrored.
+<CAPTION class="BOTTOM"><STRONG>Figure 9:</STRONG>
+The effect of windowing on the DFT.
 </CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img149.svg"
- ALT="\includegraphics[width=0.75\textwidth]{dft_example}">
+ SRC="img161.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{windowing_dft}">
 
 </DIV></TD></TR>
 </TABLE>
 </DIV>
-Fig.&nbsp;<A HREF="#dft_example">8</A> shows an example of a DFT. It is important
-to know that the spectrum is mirrored around <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img9.svg"
- ALT="$N/2$"></SPAN>. DC is represented
-by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img10.svg"
- ALT="$X(0)$"></SPAN> and the Nyquist frequency <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
- ALT="$F_s/2$"></SPAN> is represented by
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img150.svg"
- ALT="$X(N/2)$"></SPAN>. The mirroring occurs because the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN>
-is <SPAN  CLASS="textsl">real</SPAN>. This is important if one wants to modify the
-spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img89.svg"
- ALT="$X(F)$"></SPAN> by hand, for example to eliminate 50Hz noise. One
-needs to zero two elements of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img89.svg"
- ALT="$X(F)$"></SPAN> to zero. This is illustrated
-in this python code:
-<PRE>
-import scipy as sp
-yf=sp.fft(y)
-# the sampling rate is 1kHz. We've got 2000 samples.
-# midpoint at the ifft is 1000 which corresponds to 500Hz
-# So, 100 corresponds to 50Hz
-yf[99:101+1]=0;
-# and the mirror
-yf[1899:1901+1]=0;
-#
-yi=sp.ifft(yf);
-</PRE>
-This filters out the 50Hz hum from the signal <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img151.svg"
- ALT="$y$"></SPAN> with sampling rate
-1000Hz. The signal <SPAN  CLASS="texttt">yi</SPAN> should be real valued again or contain
-only very small complex numbers due to numerical errors.
 
 <P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node43.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node39.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node41.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html299"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node43.html">Properties of the DFT</A>
-<B> Up:</B> <A
- HREF="node39.html">Sampled time and/or frequency</A>
-<B> Previous:</B> <A
- HREF="node41.html">The effect of time</A>
- &nbsp; <B>  <A ID="tex2html300"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
+<BR><HR>
 <ADDRESS>
 <a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></br>
 </ADDRESS>

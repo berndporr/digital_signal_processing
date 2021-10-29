@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Constant group delay or linear phase filter</TITLE>
-<META NAME="description" CONTENT="Constant group delay or linear phase filter">
+<TITLE>Window functions</TITLE>
+<META NAME="description" CONTENT="Window functions">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,210 +27,130 @@
  HREF="node61.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node56.html">
+ HREF="node55.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html385"
+<A ID="tex2html382"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node61.html">Window functions</A>
+ HREF="node61.html">Python code: impulse response</A>
 <B> Up:</B> <A
- HREF="node56.html">FIR Filter</A>
+ HREF="node55.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node59.html">Fixed point FIR filters</A>
- &nbsp; <B>  <A ID="tex2html386"
+ HREF="node59.html">Constant group delay or</A>
+ &nbsp; <B>  <A ID="tex2html383"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00077400000000000000">
-Constant group delay or linear phase filter</A>
+<H3><A ID="SECTION00077500000000000000">
+Window functions</A>
 </H3>
-So far the FIR filter has
-no constant group delay which is defined by:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-\tau_\omega={d\phi(\omega)\over d\omega}
-\end{equation}
- -->
- &nbsp;  <A ID="grpdelay"></A><IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="img292.svg"
- ALT="$\displaystyle \tau_\omega={d\phi(\omega)\over d\omega}
-$"> 
-
-(<SPAN CLASS="arabic">113</SPAN>)
-</DIV>
-This means that different frequencies arrive at the output of the
-filter earlier or later. This is not desirable. The group delay
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img293.svg"
- ALT="$\tau_\omega$"></SPAN> should be constant for all frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img241.svg"
- ALT="$\omega$"></SPAN> so that
-all frequencies arrive at the same time at the output <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img151.svg"
- ALT="$y$"></SPAN> of the
-filter.
+So far we still have a infinite number of coefficients for 
+for the FIR filter because there's no guarantee that the 
+impulse response becomes zero
+after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img312.svg"
+ ALT="$M/2$"></SPAN> delays. Thus, we have to find a way to truncate the
+response without distorting the filter response.
 
 <P>
-A constant group delay can be achieved by restricting ourselves to
-the transfer function:
+The standard technique is to multiply the coefficients with a window
+function which becomes and stays zero at a certain coefficient
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img313.svg"
+ ALT="$n&gt;N$"></SPAN> so that Eq.&nbsp;<A HREF="node55.html#FIRz">106</A> need not to run to infinity:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-H(e^{i\omega})=B(\omega)e^{-i\omega\tau+i\phi}
+H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
 \end{equation}
  -->
- &nbsp;  <A ID="transmin"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img294.svg"
- ALT="$\displaystyle H(e^{i\omega})=B(\omega)e^{-i\omega\tau+i\phi}
+ &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img314.svg"
+ ALT="$\displaystyle
+H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
 $"> 
 
-(<SPAN CLASS="arabic">114</SPAN>)
+(<SPAN CLASS="arabic">120</SPAN>)
 </DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img295.svg"
- ALT="$B(\omega)$"></SPAN> is real and the phase is only defined by the exponential.
-The phase of this transfer function is then trivially <!-- MATH
- $\omega\tau+\phi$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img296.svg"
- ALT="$\omega\tau+\phi$"></SPAN>. The
-group delay is the derivative of this term which is constant.
-
-<P>
-Eq.&nbsp;<A HREF="#transmin">114</A> now imposes restrictions on the impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
- ALT="$h(t)$"></SPAN>
-of the filter. To show this we use the inverse Fourier transform of
-Eq.&nbsp;<A HREF="#transmin">114</A> to get the impulse response:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n)=\frac{1}{2\pi}\int_{-\infty}^{+\infty} H(e^{i\omega})
-e^{i\omega n}d \omega
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img297.svg"
- ALT="$\displaystyle h(n)=\frac{1}{2\pi}\int_{-\infty}^{+\infty} H(e^{i\omega})
-e^{i\omega n}d \omega
-$"> 
-
-(<SPAN CLASS="arabic">115</SPAN>)
-</DIV>
-After some transformations we get:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b(n)
-\end{equation}
- -->
- &nbsp;  <A ID="imp1"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img298.svg"
- ALT="$\displaystyle h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b(n)
-$"> 
-
-(<SPAN CLASS="arabic">116</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img299.svg"
- ALT="$b(n)$"></SPAN> represents the Fourier coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img295.svg"
- ALT="$B(\omega)$"></SPAN>. Since <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img60.svg"
- ALT="$B$"></SPAN> is
-real the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img299.svg"
- ALT="$b(n)$"></SPAN> have the property <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img300.svg"
- ALT="$b(n)=b^*(-n)$"></SPAN>.
-Thus we get a second impulse response:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b^*(-n)
-\end{equation}
- -->
- &nbsp;  <A ID="imp2"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img301.svg"
- ALT="$\displaystyle h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b^*(-n)
-$"> 
-
-(<SPAN CLASS="arabic">117</SPAN>)
-</DIV>
-Now we can eliminate <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img302.svg"
- ALT="$b$"></SPAN> by equating Eq.&nbsp;<A HREF="#imp1">116</A> and Eq.&nbsp;<A HREF="#imp2">117</A> which
-yields:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n+\tau)=e^{2i\phi} n^*(-n+\tau)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img303.svg"
- ALT="$\displaystyle h(n+\tau)=e^{2i\phi} n^*(-n+\tau)
-$"> 
-
-(<SPAN CLASS="arabic">118</SPAN>)
-</DIV>
-With the shift <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img304.svg"
- ALT="$\tau$"></SPAN> we have the chance to make the filter &ldquo;more&rdquo;
-causal. We can shift the impulse response in positive time to get
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
- ALT="$h(n)$"></SPAN> zero for <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img305.svg"
- ALT="$n&lt;0$"></SPAN>. In a practical application we shift the impulse
-response by half the number of delays. If we have a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
- ALT="$M$"></SPAN>
-taps we have to delay by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img306.svg"
- ALT="$\tau=M/2$"></SPAN>.
-
-<P>
-The factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img307.svg"
- ALT="$e^{2i\phi}$"></SPAN> restricts the values of <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img308.svg"
- ALT="$\phi$"></SPAN> because the impulse
-response must be real. This gives us the final FIR design rule:
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-h(n+M/2)=(-1)^k h(-n+M/2)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img309.svg"
- ALT="$\displaystyle h(n+M/2)=(-1)^k h(-n+M/2)
-$"> 
-
-(<SPAN CLASS="arabic">119</SPAN>)
-</DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img310.svg"
- ALT="$k=0$"></SPAN> or <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img96.svg"
- ALT="$1$"></SPAN>. This means that the filter is either symmetric or
-antisymmetric and the impulse response has to be delayed by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img306.svg"
- ALT="$\tau=M/2$"></SPAN>.
 
 <P>
 
-<DIV class="CENTER"><A ID="window_functions"></A><A ID="1702"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
-Different window functions applied to a low pass filter 
-(Eq.&nbsp;<A HREF="node63.html#idealLP">132</A>) 
-with cutoff at <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img16.svg"
- ALT="$f=0.1$"></SPAN> and 100 taps.</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img311.svg"
- ALT="\includegraphics[width=\linewidth]{window_functions}">
+<OL>
+<LI>Rectangular window: truncating the impulse response.
+Problem: we get ripples in the frequency-response.
+The stop-band damping is poor
 
-</DIV></TD></TR>
-</TABLE>
+<P>
+</LI>
+<LI>Triangular or Bartlett window: greatly improved stop-band attenuation.
+</LI>
+<LI>Hanning and Hamming window: standard windows in many applications.
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img315.svg"
+ ALT="$\displaystyle w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
+$"> 
+
+(<SPAN CLASS="arabic">121</SPAN>)
 </DIV>
+
+<UL>
+<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img316.svg"
+ ALT="$\alpha = 0.54$"></SPAN>
+</LI>
+<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img317.svg"
+ ALT="$\alpha = 0.5$"></SPAN>
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI>Blackman window:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
+0.08 \cos \left( \frac{4 \pi n}{M} \right) 
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img318.svg"
+ ALT="$\displaystyle w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
+0.08 \cos \left( \frac{4 \pi n}{M} \right)
+$"> 
+
+(<SPAN CLASS="arabic">122</SPAN>)
+</DIV>
+</LI>
+<LI>Kaiser window: control over stop- and passband. No closed form
+equation available.
+</LI>
+</OL>
+To illustrate how window functions influence the frequency response
+we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img319.svg"
+ ALT="$f_c=0.1$"></SPAN>)
+and applied different window functions to it (Fig.&nbsp;<A HREF="node59.html#window_functions">19</A>).
+
+<P>
+Note that the higher the damping the wider the transition from pass-
+to stopband. This can be seen when comparing the Blackman window with
+the Hamming window (Fig.&nbsp;<A HREF="node59.html#window_functions">19</A>). For the lowpass
+filter this seems to be quite similar. However, for a bandstop filter
+the wider transition width might lead actually to very poor stopband
+damping. In such a case a Hamming window might be a better choice.
 
 <P>
 
@@ -240,22 +160,22 @@ with cutoff at <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0
  HREF="node61.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node56.html">
+ HREF="node55.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node59.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html385"
+<A ID="tex2html382"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node61.html">Window functions</A>
+ HREF="node61.html">Python code: impulse response</A>
 <B> Up:</B> <A
- HREF="node56.html">FIR Filter</A>
+ HREF="node55.html">FIR Filter</A>
 <B> Previous:</B> <A
- HREF="node59.html">Fixed point FIR filters</A>
- &nbsp; <B>  <A ID="tex2html386"
+ HREF="node59.html">Constant group delay or</A>
+ &nbsp; <B>  <A ID="tex2html383"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
 <ADDRESS>

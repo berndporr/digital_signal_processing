@@ -3,8 +3,8 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Properties of the DFT</TITLE>
-<META NAME="description" CONTENT="Properties of the DFT">
+<TITLE>Problems with finite length DFTs</TITLE>
+<META NAME="description" CONTENT="Problems with finite length DFTs">
 <META NAME="keywords" CONTENT="digital_signal_processing">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -27,168 +27,113 @@
  HREF="node44.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node39.html">
+ HREF="node38.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node42.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html301"
+<A ID="tex2html298"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node44.html">Problems with finite length</A>
+ HREF="node44.html">Fast Fourier Transform</A>
 <B> Up:</B> <A
- HREF="node39.html">Sampled time and/or frequency</A>
+ HREF="node38.html">Sampled time and/or frequency</A>
 <B> Previous:</B> <A
- HREF="node42.html">Discrete Fourier Transform (DFT)</A>
- &nbsp; <B>  <A ID="tex2html302"
+ HREF="node42.html">Properties of the DFT</A>
+ &nbsp; <B>  <A ID="tex2html299"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H3><A ID="SECTION00062400000000000000">
-Properties of the DFT</A>
+<H3><A ID="SECTION00062500000000000000">
+Problems with finite length DFTs</A>
 </H3>
 
-<UL>
-<LI>Periodicity:
-<BR>
-<DIV ALIGN="CENTER">
+<DIV class="equation">
 
 <!-- MATH
- \begin{eqnarray}
-x(n + N) & = & x(n) \\
-X(k + N) & = & X(k)
-\end{eqnarray}
+ \begin{equation}
+x_w(n) = x(n) \cdot w(n)
+\end{equation}
  -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img152.svg"
- ALT="$\displaystyle x(n + N)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img115.svg"
- ALT="$\displaystyle x(n)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">54</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img153.svg"
- ALT="$\displaystyle X(k + N)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img154.svg"
- ALT="$\displaystyle X(k)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">55</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img162.svg"
+ ALT="$\displaystyle x_w(n) = x(n) \cdot w(n)
+$"> 
+
+(<SPAN CLASS="arabic">61</SPAN>)
+</DIV>
+where <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img163.svg"
+ ALT="$x$"></SPAN> is the input signal and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img164.svg"
+ ALT="$w(n)$"></SPAN> represents a function
+which is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img96.svg"
+ ALT="$1$"></SPAN> from <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img165.svg"
+ ALT="$n=0$"></SPAN> to <SPAN CLASS="MATH"><IMG STYLE="height: 1.91ex; vertical-align: -0.28ex; " SRC="img166.svg"
+ ALT="$n=L-1$"></SPAN> so that we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img74.svg"
+ ALT="$L$"></SPAN> samples
+from the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>.
 
 <P>
-</LI>
-<LI>Symmetry: if <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
- ALT="$x(n)$"></SPAN> real:
+To illustrate the effect of this finite sequence we introduce a sine
+wave <!-- MATH
+ $x(n) = \cos \omega_0 n$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img167.svg"
+ ALT="$x(n) = \cos \omega_0 n$"></SPAN> which has just two peaks in a proper
+Fourier spectrum at <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.28ex; " SRC="img168.svg"
+ ALT="$-\omega$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.65ex; vertical-align: -0.27ex; " SRC="img169.svg"
+ ALT="$+\omega$"></SPAN>.
+
+<P>
+The spectrum of the rectangular window with the width <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img74.svg"
+ ALT="$L$"></SPAN> is:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-x(n)\mbox{ is real} \Leftrightarrow X^*(k) = X(-k) = X(N-k)
+W(\omega) = \frac{sin(\omega L /2)}{sin (\omega / 2)} e^{-j\omega (L -1)/2}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img155.svg"
- ALT="$\displaystyle x(n)\mbox{ is real} \Leftrightarrow X^*(k) = X(-k) = X(N-k)
+ &nbsp;  <IMG STYLE="height: 5.48ex; vertical-align: -2.20ex; " SRC="img170.svg"
+ ALT="$\displaystyle W(\omega) = \frac{sin(\omega L /2)}{sin (\omega / 2)} e^{-j\omega (L -1)/2}
 $"> 
 
-(<SPAN CLASS="arabic">56</SPAN>)
+(<SPAN CLASS="arabic">62</SPAN>)
 </DIV>
-This is important when manipulating <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img7.svg"
- ALT="$X(k)$"></SPAN> by hand.
 
 <P>
-</LI>
-<LI>Time Reversal:
-<BR>
-<DIV ALIGN="CENTER">
-
-<!-- MATH
- \begin{eqnarray}
-x(n) & \leftrightarrow & X(k) \\
-x(-n)& \leftrightarrow & X(N - k)
-\end{eqnarray}
- -->
-<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img115.svg"
- ALT="$\displaystyle x(n)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.01ex; vertical-align: -0.09ex; " SRC="img156.svg"
- ALT="$\textstyle \leftrightarrow$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img154.svg"
- ALT="$\displaystyle X(k)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">57</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img157.svg"
- ALT="$\displaystyle x(-n)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.01ex; vertical-align: -0.09ex; " SRC="img156.svg"
- ALT="$\textstyle \leftrightarrow$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img158.svg"
- ALT="$\displaystyle X(N - k)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">58</SPAN>)</TD></TR>
-</TABLE></DIV>
-<BR CLEAR="ALL"><P></P>
-
-<P>
-</LI>
-<LI><SPAN  CLASS="textsl">Circular</SPAN> convolution:
+The resulting spectrum is then:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-X_{1}(k) X_{2}(k) \leftrightarrow x_1(n) * x_2(n)
+X_{3}(\omega) = X(\omega) * W(\omega)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img159.svg"
- ALT="$\displaystyle X_{1}(k) X_{2}(k) \leftrightarrow x_1(n) * x_2(n)
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img171.svg"
+ ALT="$\displaystyle X_{3}(\omega) = X(\omega) * W(\omega)
 $"> 
 
-(<SPAN CLASS="arabic">59</SPAN>)
+(<SPAN CLASS="arabic">63</SPAN>)
 </DIV>
-with
-
-<DIV class="equation">
-
-<!-- MATH
- \begin{equation}
-x_{3}(m) = \sum_{n = 0}^{N - 1} x_{1}(n) x_{2}(m - n)
-\end{equation}
- -->
- &nbsp;  <IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img160.svg"
- ALT="$\displaystyle x_{3}(m) = \sum_{n = 0}^{N - 1} x_{1}(n) x_{2}(m - n)
-$"> 
-
-(<SPAN CLASS="arabic">60</SPAN>)
-</DIV>
-</LI>
-</UL>
-More useful equations are at <A
- HREF="node87.html#Proakis1996">Proakis and Manolakis (1996, pp.415)</A>.
 
 <P>
-
-<DIV class="CENTER"><A ID="windowing_dft"></A><A ID="1672"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 9:</STRONG>
-The effect of windowing on the DFT.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img161.svg"
- ALT="\includegraphics[width=0.75\textwidth]{windowing_dft}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
+Because the spectrum of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img172.svg"
+ ALT="$X(\omega)$"></SPAN> consists of just two delta functions
+the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img173.svg"
+ ALT="$X_{3}(\omega)$"></SPAN> contains the window spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img174.svg"
+ ALT="$W(\omega)$"></SPAN> twice at
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.28ex; " SRC="img168.svg"
+ ALT="$-\omega$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.65ex; vertical-align: -0.27ex; " SRC="img169.svg"
+ ALT="$+\omega$"></SPAN> (see Fig.&nbsp;<A HREF="node42.html#windowing_dft">9</A>). This
+is called <SPAN  CLASS="textsl">leakage</SPAN>. Solutions to solve the leakage problem?
+Use Windows with a narrower spectrum and with less ripples
+(see FIR filters).
 
 <P>
 <BR><HR>
