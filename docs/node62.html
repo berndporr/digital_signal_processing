@@ -363,7 +363,7 @@ f1 = 45.0/fs
 f2 = 55.0/fs
 n = np.arange(-200,200)
 h = (1/(n*np.pi))*(np.sin(f1*2*np.pi*n)-np.sin(f2*2*np.pi*n))
-h[200] = 1+(f1*2*np.pi-f2*2*np.pi)/np.pi;
+h[200] = 1-(f1*2*np.pi-f2*2*np.pi)/np.pi;
 h = h * np.hamming(400)
 </PRE>
 After the function has been calculated it is windowed so that the
