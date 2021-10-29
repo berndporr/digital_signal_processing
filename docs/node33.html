@@ -40,7 +40,7 @@
 <B> Up:</B> <A
  HREF="node28.html">Signal conversion</A>
 <B> Previous:</B> <A
- HREF="node32.html">Reconstruction of an analogue</A>
+ HREF="node32.html">Sampling theorem</A>
  &nbsp; <B>  <A ID="tex2html259"
   HREF="node1.html">Contents</A></B> 
 <BR>
@@ -62,7 +62,7 @@ resolution of 12 bits which means that it divides the input range into
 \frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.79ex; vertical-align: -1.82ex; " SRC="img71.svg"
+ &nbsp;  <IMG STYLE="height: 4.79ex; vertical-align: -1.82ex; " SRC="img72.svg"
  ALT="$\displaystyle \Delta = \mbox{quantisation step} =
 \frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}
 $"> 
@@ -72,10 +72,10 @@ $">
 where <!-- MATH
  $x_{\mbox{max}} - x_{\mbox{min}}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.24ex; vertical-align: -0.84ex; " SRC="img72.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.24ex; vertical-align: -0.84ex; " SRC="img73.svg"
  ALT="$x_{\mbox{max}} - x_{\mbox{min}}$"></SPAN> is the dynamic range in volt
-(for example <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img73.svg"
- ALT="$4.096V$"></SPAN>) and <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img74.svg"
+(for example <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img74.svg"
+ ALT="$4.096V$"></SPAN>) and <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img75.svg"
  ALT="$L$"></SPAN> is the number of quantisation steps
 (for example, 4096). <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img1.svg"
  ALT="$\Delta $"></SPAN> is the quantisation step which defines
@@ -90,7 +90,7 @@ as:
 x_{q}(n) = Q[x(n)]
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img75.svg"
+ &nbsp;  <IMG STYLE="height: 2.50ex; vertical-align: -0.72ex; " SRC="img76.svg"
  ALT="$\displaystyle x_{q}(n) = Q[x(n)]
 $"> 
 
@@ -111,7 +111,7 @@ and so forth.
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img76.svg"
+ SRC="img77.svg"
  ALT="\includegraphics[width=0.75\textwidth]{quant_err}">
 
 </DIV></TD></TR>
@@ -130,7 +130,7 @@ error is half the quantisation step:
 - \frac{\Delta}{2} \le e(n) \le \frac{\Delta}{2}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.77ex; vertical-align: -1.64ex; " SRC="img77.svg"
+ &nbsp;  <IMG STYLE="height: 4.77ex; vertical-align: -1.64ex; " SRC="img78.svg"
  ALT="$\displaystyle - \frac{\Delta}{2} \le e(n) \le \frac{\Delta}{2}
 $"> 
 
@@ -140,7 +140,7 @@ The smaller the quantisation step <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex;
  ALT="$\Delta $"></SPAN> the lower the error!
 
 <P>
-What is the mean square error <SPAN CLASS="MATH"><IMG STYLE="height: 2.35ex; vertical-align: -0.72ex; " SRC="img78.svg"
+What is the mean square error <SPAN CLASS="MATH"><IMG STYLE="height: 2.35ex; vertical-align: -0.72ex; " SRC="img79.svg"
  ALT="$P_{q}$"></SPAN>?
 
 <DIV class="equation">
@@ -150,7 +150,7 @@ What is the mean square error <SPAN CLASS="MATH"><IMG STYLE="height: 2.35ex; ver
 P_{q} = \frac {1}{\tau} \int_{0}^{\tau} e_{q}^{2}(t)  dt
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.76ex; vertical-align: -1.71ex; " SRC="img79.svg"
+ &nbsp;  <IMG STYLE="height: 4.76ex; vertical-align: -1.71ex; " SRC="img80.svg"
  ALT="$\displaystyle P_{q} = \frac {1}{\tau} \int_{0}^{\tau} e_{q}^{2}(t) dt
 $"> 
 
@@ -168,18 +168,18 @@ P_{q} & = & \frac{1}{\tau} \int_0^\tau \left(\frac{\Delta}{2\tau}\right)^2 t^2 d
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.35ex; vertical-align: -0.72ex; " SRC="img80.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.35ex; vertical-align: -0.72ex; " SRC="img81.svg"
  ALT="$\displaystyle P_{q}$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.29ex; vertical-align: -1.78ex; " SRC="img82.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.29ex; vertical-align: -1.78ex; " SRC="img83.svg"
  ALT="$\displaystyle \frac{1}{\tau} \int_0^\tau \left(\frac{\Delta}{2\tau}\right)^2 t^2 dt$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">21</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.09ex; vertical-align: -1.71ex; " SRC="img83.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.09ex; vertical-align: -1.71ex; " SRC="img84.svg"
  ALT="$\displaystyle \frac{\Delta^2}{4 \tau^3} \int_0^\tau t^2 dt$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">22</SPAN>)</TD></TR>
@@ -196,7 +196,7 @@ P_{q} = \frac{\Delta^2}{12\tau^3} \tau^3 =\frac{\Delta^2}{12}
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 5.02ex; vertical-align: -1.64ex; " SRC="img84.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 5.02ex; vertical-align: -1.64ex; " SRC="img85.svg"
  ALT="$\displaystyle P_{q} = \frac{\Delta^2}{12\tau^3} \tau^3 =\frac{\Delta^2}{12}$"></TD>
 <TD>&nbsp;</TD>
 <TD>&nbsp;</TD>
@@ -215,7 +215,7 @@ What is the relative error to a sine wave?
 P_x = \frac{1}{T_p} \int_{0}^{T_p}(A \cos \Omega t)^2 dt = \frac{A^2}{2}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img85.svg"
+ &nbsp;  <IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img86.svg"
  ALT="$\displaystyle P_x = \frac{1}{T_p} \int_{0}^{T_p}(A \cos \Omega t)^2 dt = \frac{A^2}{2}
 $"> 
 
@@ -236,18 +236,18 @@ Ratio to signal power to noise:
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.02ex; vertical-align: -0.38ex; " SRC="img86.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.02ex; vertical-align: -0.38ex; " SRC="img87.svg"
  ALT="$\displaystyle \mbox {SQNR}$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img87.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img88.svg"
  ALT="$\displaystyle \frac {P_x}{P_q} = \frac{A^2}{2} . \frac{12}{\Delta^2}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">25</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.02ex; vertical-align: -1.64ex; " SRC="img88.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.02ex; vertical-align: -1.64ex; " SRC="img89.svg"
  ALT="$\displaystyle \frac{6A^2}{\Delta^2}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">26</SPAN>)</TD></TR>
@@ -279,7 +279,7 @@ input range of the A/D converter is exceeded.
 <B> Up:</B> <A
  HREF="node28.html">Signal conversion</A>
 <B> Previous:</B> <A
- HREF="node32.html">Reconstruction of an analogue</A>
+ HREF="node32.html">Sampling theorem</A>
  &nbsp; <B>  <A ID="tex2html259"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->

@@ -54,7 +54,7 @@ So far the coefficients of the FIR filter have been constant but now
 we are going to allow them to change <SPAN  CLASS="textsl">while</SPAN> the FIR filter is
 operating so that it can learn its own coefficients. The
 idea is to use an error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
- ALT="$e(n)$"></SPAN> to tune the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
+ ALT="$e(n)$"></SPAN> to tune the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
  ALT="$h(n)$"></SPAN>
 of the FIR filter (see Fig.&nbsp;<A HREF="node65.html#fir_lms">20</A>A) by comparing its output
 <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
@@ -68,7 +68,7 @@ of the FIR filter (see Fig.&nbsp;<A HREF="node65.html#fir_lms">20</A>A) by compa
 e(n) = d(n) - y(n)
 \end{equation}
  -->
- &nbsp;  <A ID="lmserror"></A><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img355.svg"
+ &nbsp;  <A ID="lmserror"></A><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img356.svg"
  ALT="$\displaystyle e(n) = d(n) - y(n)
 $"> 
 
@@ -86,7 +86,7 @@ expressed as a so called &ldquo;gradient descent&rdquo; which minimises the squa
 error <!-- MATH
  $\frac{1}{2} e(n)^2$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img356.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img357.svg"
  ALT="$\frac{1}{2} e(n)^2$"></SPAN> because both a positive and a negative
 error are equally bad:
 
@@ -97,33 +97,33 @@ error are equally bad:
 \Delta h_m = - \mu \frac{\partial\left( \frac{1}{2}e(n)^2 \right)}{\partial h_m}
 \end{equation}
  -->
- &nbsp;  <A ID="graddes"></A><IMG STYLE="height: 6.25ex; vertical-align: -1.97ex; " SRC="img357.svg"
+ &nbsp;  <A ID="graddes"></A><IMG STYLE="height: 6.25ex; vertical-align: -1.97ex; " SRC="img358.svg"
  ALT="$\displaystyle \Delta h_m = - \mu \frac{\partial\left( \frac{1}{2}e(n)^2 \right)}{\partial h_m}
 $"> 
 
 (<SPAN CLASS="arabic">143</SPAN>)
 </DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img358.svg"
- ALT="$\Delta h_m(n)$"></SPAN> is the change of the coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img359.svg"
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img359.svg"
+ ALT="$\Delta h_m(n)$"></SPAN> is the change of the coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img360.svg"
  ALT="$h_m(n)$"></SPAN> at
 every time step: <!-- MATH
  $h_m(n+1) = h_m(n) + \Delta h_m(n)$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img360.svg"
- ALT="$h_m(n+1) = h_m(n) + \Delta h_m(n)$"></SPAN>.  <SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img361.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img361.svg"
+ ALT="$h_m(n+1) = h_m(n) + \Delta h_m(n)$"></SPAN>.  <SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img362.svg"
  ALT="$\mu \ll 1$"></SPAN>
 defines how quickly the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> change at every time step
 and is called the &ldquo;learning rate&rdquo;. Note here the change in notation
 of the FIR filter coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> which are changing much
-<SPAN  CLASS="textsl">slower</SPAN> than the sampled signals <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img362.svg"
+<SPAN  CLASS="textsl">slower</SPAN> than the sampled signals <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img363.svg"
  ALT="$e(n), d(n)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
  ALT="$y(n)$"></SPAN> and
 can still be seen as constant for the realtime filtering
 operation. Thus, we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
  ALT="$n$"></SPAN> for the sample by sample processing as
-before and the index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img363.svg"
+before and the index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img364.svg"
  ALT="$m$"></SPAN> of <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> for the very slowly changing FIR
 filter coefficients. To gain some intuition why
@@ -134,20 +134,20 @@ increase the FIR coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vert
 small amount of <!-- MATH
  $|\epsilon| \ll 1$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img364.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img365.svg"
  ALT="$\vert\epsilon\vert \ll 1$"></SPAN>: <!-- MATH
  $h_m := h_m + \epsilon$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img365.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img366.svg"
  ALT="$h_m := h_m + \epsilon$"></SPAN>. Then we can
 observe two cases:
 
 <OL>
-<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img366.svg"
+<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img367.svg"
  ALT="$e(n)^2$"></SPAN> increases so we need to decrease <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> as it makes it worse.
 </LI>
-<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img366.svg"
+<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img367.svg"
  ALT="$e(n)^2$"></SPAN> decreases so we need to increase <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> as it makes it better.
 </LI>
@@ -176,32 +176,32 @@ solving its partial derivative by inserting Eqs.&nbsp;<A HREF="#lmserror">142</A
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img367.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img368.svg"
  ALT="$\displaystyle \Delta h_m$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.63ex; vertical-align: -1.97ex; " SRC="img368.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.63ex; vertical-align: -1.97ex; " SRC="img369.svg"
  ALT="$\displaystyle - \mu \frac{1}{2}\frac{\partial \left(d(n)-y(n)\right)^2}{\partial h_m}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">144</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.62ex; vertical-align: -1.97ex; " SRC="img369.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.62ex; vertical-align: -1.97ex; " SRC="img370.svg"
  ALT="$\displaystyle - \mu \frac{1}{2}\frac{\partial \left(d(n)-\sum_{m=0}^{M-1} h_m \cdot x(n-m)\right)^2}{\partial h_m}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">145</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img370.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img371.svg"
  ALT="$\displaystyle \mu \left(d(n)-y(n)\right) \cdot x(n-m)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">146</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img371.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img372.svg"
  ALT="$\displaystyle \mu \cdot e(n) \cdot x(n-m)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">147</SPAN>)</TD></TR>
@@ -236,7 +236,7 @@ is correlated with the input <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vert
 is also the cleaned up output signal of the adaptive filter.
 
 <P>
-Imagine you want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
+Imagine you want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img326.svg"
  ALT="$50$"></SPAN>&nbsp;Hz mains from a signal
 
 <DIV class="equation">
@@ -246,13 +246,13 @@ Imagine you want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertic
 d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img372.svg"
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img373.svg"
  ALT="$\displaystyle d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
 $"> 
 
 (<SPAN CLASS="arabic">148</SPAN>)
 </DIV>
-then one would provide <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
+then one would provide <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img326.svg"
  ALT="$50$"></SPAN>&nbsp;Hz mains
 via
 
@@ -263,7 +263,7 @@ via
 x(n) = \mathrm{50Hz~noise}(n)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img373.svg"
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img374.svg"
  ALT="$\displaystyle x(n) = \mathrm{50Hz~noise}(n)
 $"> 
 
@@ -288,7 +288,7 @@ signal:
 e(n) = \mathrm{signal}(n)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img374.svg"
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img375.svg"
  ALT="$\displaystyle e(n) = \mathrm{signal}(n)
 $"> 
 

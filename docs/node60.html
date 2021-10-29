@@ -54,14 +54,14 @@ Window functions</A>
 So far we still have a infinite number of coefficients for 
 for the FIR filter because there's no guarantee that the 
 impulse response becomes zero
-after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img312.svg"
+after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img313.svg"
  ALT="$M/2$"></SPAN> delays. Thus, we have to find a way to truncate the
 response without distorting the filter response.
 
 <P>
 The standard technique is to multiply the coefficients with a window
 function which becomes and stays zero at a certain coefficient
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img313.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img314.svg"
  ALT="$n&gt;N$"></SPAN> so that Eq.&nbsp;<A HREF="node55.html#FIRz">106</A> need not to run to infinity:
 
 <DIV class="equation">
@@ -71,7 +71,7 @@ function which becomes and stays zero at a certain coefficient
 H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
 \end{equation}
  -->
- &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img314.svg"
+ &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img315.svg"
  ALT="$\displaystyle
 H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
 $"> 
@@ -99,7 +99,7 @@ The stop-band damping is poor
 w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img315.svg"
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img316.svg"
  ALT="$\displaystyle w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
 $"> 
 
@@ -107,10 +107,10 @@ $">
 </DIV>
 
 <UL>
-<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img316.svg"
+<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img317.svg"
  ALT="$\alpha = 0.54$"></SPAN>
 </LI>
-<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img317.svg"
+<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img318.svg"
  ALT="$\alpha = 0.5$"></SPAN>
 </LI>
 </UL>
@@ -127,7 +127,7 @@ w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
 0.08 \cos \left( \frac{4 \pi n}{M} \right) 
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img318.svg"
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img319.svg"
  ALT="$\displaystyle w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
 0.08 \cos \left( \frac{4 \pi n}{M} \right)
 $"> 
@@ -140,7 +140,7 @@ equation available.
 </LI>
 </OL>
 To illustrate how window functions influence the frequency response
-we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img319.svg"
+we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img320.svg"
  ALT="$f_c=0.1$"></SPAN>)
 and applied different window functions to it (Fig.&nbsp;<A HREF="node59.html#window_functions">19</A>).
 

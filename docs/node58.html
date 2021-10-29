@@ -64,21 +64,21 @@ the output as well (usually the same as the input in terms of bit width).
 <P>
 In contrast to a floating point FIR filter we need to scale up the
 coefficients so that they use full the integer range to avoid
-quantisation errors. For example if the coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img274.svg"
+quantisation errors. For example if the coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
  ALT="$h(n)$"></SPAN> range
-from <SPAN CLASS="MATH"><IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="img282.svg"
- ALT="$-0.75$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img283.svg"
+from <SPAN CLASS="MATH"><IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="img283.svg"
+ ALT="$-0.75$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img284.svg"
  ALT="$+0.75$"></SPAN> and we have signed 16 bit integers then the
-scaling factor is <SPAN CLASS="MATH"><IMG STYLE="height: 2.46ex; vertical-align: -0.53ex; " SRC="img284.svg"
+scaling factor is <SPAN CLASS="MATH"><IMG STYLE="height: 2.46ex; vertical-align: -0.53ex; " SRC="img285.svg"
  ALT="$2^W, W=15$"></SPAN>.
 
 <P>
 However, the accumulator A which collects the data needs to have more
 bits because it receives scaled input values at I bits precision and
-these multiplied by factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img285.svg"
- ALT="$2^W$"></SPAN>. If we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
+these multiplied by factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img286.svg"
+ ALT="$2^W$"></SPAN>. If we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img287.svg"
  ALT="$M$"></SPAN> taps then the additional
-bits we need is <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img287.svg"
+bits we need is <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img288.svg"
  ALT="$\log_2 M$"></SPAN>. The total number of bits we need in the accumulator
 in the worst case are:
 
@@ -89,14 +89,14 @@ in the worst case are:
 A = I + W + \log_2 M
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img288.svg"
+ &nbsp;  <IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img289.svg"
  ALT="$\displaystyle A = I + W + \log_2 M
 $"> 
 
 (<SPAN CLASS="arabic">111</SPAN>)
 </DIV>
 However, this is the worst case scenario because if the gain of the
-FIR filter is below one then the summations by the <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img286.svg"
+FIR filter is below one then the summations by the <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img287.svg"
  ALT="$M$"></SPAN> taps will only
 create <SPAN  CLASS="textsl">temporary</SPAN> overflows because integer numbers are
 cyclic in their representation. In case the gain of the FIR filter
@@ -109,7 +109,7 @@ is below one this can be relaxed:
 A = I + W
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 1.89ex; vertical-align: -0.27ex; " SRC="img289.svg"
+ &nbsp;  <IMG STYLE="height: 1.89ex; vertical-align: -0.27ex; " SRC="img290.svg"
  ALT="$\displaystyle A = I + W
 $"> 
 
@@ -118,8 +118,8 @@ $">
 The actual bitwidth of the accumulator is usually the next integer size
 available and also makes sure that in case the gain goes slightly over one
 in an unexpected case that the filter still works. For example if I
-has <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img290.svg"
- ALT="$16$"></SPAN>&nbsp;bits the accumulator has probably <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img291.svg"
+has <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img291.svg"
+ ALT="$16$"></SPAN>&nbsp;bits the accumulator has probably <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img292.svg"
  ALT="$32$"></SPAN>&nbsp;bits.
 
 <P>

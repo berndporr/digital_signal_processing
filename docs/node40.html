@@ -56,10 +56,10 @@ theorem)</A>
 </H3>
 What effect has time domain sampling on the frequency spectrum<A ID="tex2html7"
   HREF="footnode.html#foot1643"><SUP><SPAN CLASS="arabic">2</SPAN></SUP></A>? Imagine we
-have an analog spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img119.svg"
- ALT="$X_a(F)$"></SPAN> from a continuous signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
+have an analog spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img120.svg"
+ ALT="$X_a(F)$"></SPAN> from a continuous signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img91.svg"
  ALT="$x(t)$"></SPAN>. We want
-to know how the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img89.svg"
+to know how the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
  ALT="$X(F)$"></SPAN> of the discrete signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
  ALT="$x(n)$"></SPAN> looks like.
 
@@ -70,7 +70,7 @@ to know how the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical
 X(F) \Leftrightarrow X_a(F)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img120.svg"
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img121.svg"
  ALT="$\displaystyle X(F) \Leftrightarrow X_a(F)
 $"> 
 
@@ -78,9 +78,9 @@ $">
 </DIV>
 The signal is represented by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
  ALT="$x(n)$"></SPAN> so that
-we can equate the Fourier transforms of the sampled spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img89.svg"
+we can equate the Fourier transforms of the sampled spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
  ALT="$X(F)$"></SPAN> and
-of the analogue spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img119.svg"
+of the analogue spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img120.svg"
  ALT="$X_a(F)$"></SPAN>. 
 
 <DIV class="equation">
@@ -91,14 +91,14 @@ of the analogue spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical
 \int_{-\infty}^{+\infty} \underbrace{X_a(F)}_{\mbox{cont}} e^{j 2\pi n F/F_s} dF
 \end{equation}
  -->
- &nbsp;  <A ID="sampl_idea"></A><IMG STYLE="height: 7.59ex; vertical-align: -4.51ex; " SRC="img121.svg"
+ &nbsp;  <A ID="sampl_idea"></A><IMG STYLE="height: 7.59ex; vertical-align: -4.51ex; " SRC="img122.svg"
  ALT="$\displaystyle \int_{-0.5}^{0.5} \underbrace{X(f)}_{\mbox{sampled}} e^{j 2 \pi f...
 ...nt_{-\infty}^{+\infty} \underbrace{X_a(F)}_{\mbox{cont}} e^{j 2\pi n F/F_s} dF
 $"> 
 
 (<SPAN CLASS="arabic">41</SPAN>)
 </DIV>
-Obviously <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img122.svg"
+Obviously <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img123.svg"
  ALT="$X(f)$"></SPAN> must be different to accommodate the different integration
 ranges. The trick is now to divide the integral on the right hand side 
 of Eq.&nbsp;<A HREF="#sampl_idea">41</A> 
@@ -106,7 +106,7 @@ into chunks to make it compatible to the range on the left hand
 hand side.
 
 <P>
-Remember that the normalised frequency is <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img123.svg"
+Remember that the normalised frequency is <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img124.svg"
  ALT="$f=F/F_s$"></SPAN> which allows us
 to change the integration to analogue frequency on both sides:
 
@@ -119,7 +119,7 @@ to change the integration to analogue frequency on both sides:
 \int_{-\infty}^{+\infty} X_a(F) e^{j 2\pi n F/F_s} dF
 \end{equation}
  -->
- &nbsp;  <A ID="sampl_ana_dig"></A><IMG STYLE="height: 5.33ex; vertical-align: -2.08ex; " SRC="img124.svg"
+ &nbsp;  <A ID="sampl_ana_dig"></A><IMG STYLE="height: 5.33ex; vertical-align: -2.08ex; " SRC="img125.svg"
  ALT="$\displaystyle \frac{1}{F_s} \int_{-F_s/2}^{F_s/2} X(\frac{F}{F_s}) e^{j 2 \pi n F/F_s} dF
 =
 \int_{-\infty}^{+\infty} X_a(F) e^{j 2\pi n F/F_s} dF
@@ -145,26 +145,26 @@ to the integration range on the left hand side.
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 4.90ex; vertical-align: -1.86ex; " SRC="img125.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 4.90ex; vertical-align: -1.86ex; " SRC="img126.svg"
  ALT="$\displaystyle \int_{-\infty}^{+\infty} X_a(F) e^{j 2\pi n \frac{F}{F_s}} dF$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.19ex; vertical-align: -2.73ex; " SRC="img126.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.19ex; vertical-align: -2.73ex; " SRC="img127.svg"
  ALT="$\displaystyle \sum_{k=-\infty}^{\infty} \int_{-\frac{1}{2} F_s + k F_s}^{+\frac{1}{2} F_s + k F_s} X_a(F) e^{j2\pi n \frac{F}{F_s}} dF$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">43</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.11ex; vertical-align: -3.66ex; " SRC="img127.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.11ex; vertical-align: -3.66ex; " SRC="img128.svg"
  ALT="$\displaystyle \sum_{k=-\infty}^{\infty} \int_{-\frac{1}{2} F_s}^{+\frac{1}{2} F_s} X_a(F-k F_s) \underbrace{e^{j2\pi n\frac{F}{F_s}}}_{k F_s \mbox{ omit.}} dF$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">44</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 10.03ex; vertical-align: -6.58ex; " SRC="img128.svg"
- ALT="% latex2html id marker 6152
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 10.03ex; vertical-align: -6.58ex; " SRC="img129.svg"
+ ALT="% latex2html id marker 6160
 $\displaystyle \int_{-\frac{1}{2} F_s}^{+\frac{1}{2...
 ...-k F_s)}_{=X(F) \mbox{ of Eq.~\ref{sampl_ana_dig}}} e^{j2\pi n\frac{F}{F_s}} dF$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
@@ -182,54 +182,54 @@ X(f) & = & F_s \sum_{k=-\infty}^{\infty} X_a[(f-k)F_s]
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img129.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img130.svg"
  ALT="$\displaystyle X(F/F_s)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.07ex; vertical-align: -2.73ex; " SRC="img130.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.07ex; vertical-align: -2.73ex; " SRC="img131.svg"
  ALT="$\displaystyle F_s \sum_{k=-\infty}^{\infty} X_a(F-kF_s)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">46</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img131.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img132.svg"
  ALT="$\displaystyle X(f)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.07ex; vertical-align: -2.73ex; " SRC="img132.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.07ex; vertical-align: -2.73ex; " SRC="img133.svg"
  ALT="$\displaystyle F_s \sum_{k=-\infty}^{\infty} X_a[(f-k)F_s]$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">47</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
 This equation can now be interpreted. In order to get the sampled
-spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img89.svg"
+spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
  ALT="$X(F)$"></SPAN> we need to make copies of the analog spectrum
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img119.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img120.svg"
  ALT="$X_a(F)$"></SPAN> and place these copies at multiples of the sampling rate
 <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img5.svg"
  ALT="$F_s$"></SPAN> (see Fig.&nbsp;<A HREF="node39.html#periodic_ny">5</A>). This illustrates also the
 <SPAN  CLASS="textsl">sampling theorem</SPAN>: if the bandwidth of the spectrum is wider
-than <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
+than <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
  ALT="$F_s/2$"></SPAN> then the copies of the analogue spectrum will overlap and
 reconstruction would be impossible. This is called aliasing. Note that
 it is not necessary bad that the spectrum of the analogue signal lies
 within the range of the so called &ldquo;base band&rdquo; <!-- MATH
  $-F/2 \ldots F/2$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img135.svg"
  ALT="$-F/2 \ldots F/2$"></SPAN>. It
 can also lie in another frequency range further up, for example <!-- MATH
  $-F/2
 + 34 \ldots F/2 +34$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img135.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img136.svg"
  ALT="$-F/2
 + 34 \ldots F/2 +34$"></SPAN> as long as the
-<SPAN  CLASS="textsl">bandwidth</SPAN> does not exceed <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
+<SPAN  CLASS="textsl">bandwidth</SPAN> does not exceed <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
  ALT="$F_s/2$"></SPAN>. If it is placed further up
 it will automatically show up in the baseband <!-- MATH
  $-F/2 \ldots F/2$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img135.svg"
  ALT="$-F/2 \ldots F/2$"></SPAN> which
 is called &ldquo;fold down&rdquo;. This can be used for our purposes if we
 want to down mix a signal.
@@ -248,7 +248,7 @@ and sampled domain (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-alig
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img136.svg"
+ SRC="img137.svg"
  ALT="\includegraphics[width=\textwidth]{fold_down}">
 
 </DIV></TD></TR>
@@ -261,17 +261,17 @@ a plot of how analogue frequencies map onto sampled frequencies.
 Fig&nbsp;<A HREF="#fold_down">6</A> shows how the analogue frequencies <!-- MATH
  $F_\textrm{analogue}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.94ex; vertical-align: -1.32ex; " SRC="img137.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.94ex; vertical-align: -1.32ex; " SRC="img138.svg"
  ALT="$F_\textrm{analogue}$"></SPAN>
 map on the normalised frequencies <!-- MATH
  $f_\textrm{sampled}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.96ex; vertical-align: -1.32ex; " SRC="img138.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.96ex; vertical-align: -1.32ex; " SRC="img139.svg"
  ALT="$f_\textrm{sampled}$"></SPAN>.
-As long as the analogue frequencies are below <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
+As long as the analogue frequencies are below <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
  ALT="$F_s/2$"></SPAN> the mapping
 is as usual as shown in Fig&nbsp;<A HREF="#fold_down">6</A>A. 
-Between <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
+Between <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
  ALT="$F_s/2$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img5.svg"
  ALT="$F_s$"></SPAN> we have an inverse mapping:
 an increase in analogue frequency causes a decrease in frequencies.
@@ -282,7 +282,7 @@ in general if we keep a bandlimited signal within one of these
 slopes (for example from <!-- MATH
  $F_s \ldots F_s + 1/2 F_s$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img139.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img140.svg"
  ALT="$F_s \ldots F_s + 1/2 F_s$"></SPAN> as 
 shown in Fig&nbsp;<A HREF="#fold_down">6</A>B) then we can
 reproduce the signal.
@@ -291,7 +291,7 @@ reproduce the signal.
 This leads us to the generalised Nyquist theorem: if a bandpass
 filtered signal has a bandwidth of <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img60.svg"
  ALT="$B$"></SPAN> then the minimum sampling
-frequency is <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img140.svg"
+frequency is <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img141.svg"
  ALT="$F_s = 2B$"></SPAN>.
 
 <P>

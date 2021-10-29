@@ -61,7 +61,7 @@ Definition of a correlator?
 e(t) = \int_{0}^{t} \underbrace{s(\tau)}_{\mbox{signal}} \underbrace{r(\tau)}_{\mbox{template}} d(\tau)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 7.55ex; vertical-align: -4.51ex; " SRC="img344.svg"
+ &nbsp;  <IMG STYLE="height: 7.55ex; vertical-align: -4.51ex; " SRC="img345.svg"
  ALT="$\displaystyle e(t) = \int_{0}^{t} \underbrace{s(\tau)}_{\mbox{signal}} \underbrace{r(\tau)}_{\mbox{template}} d(\tau)
 $"> 
 
@@ -80,7 +80,7 @@ How to build a correlator with a filter? Definition of filtering?
 e(t) = \int_{0}^{\infty} s(\tau) h(t - \tau) d\tau
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img345.svg"
+ &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img346.svg"
  ALT="$\displaystyle e(t) = \int_{0}^{\infty} s(\tau) h(t - \tau) d\tau
 $"> 
 
@@ -90,8 +90,8 @@ NB. h - integration runs backwards.  However we used an int forward!
 <!-- MATH
  $h(t) : = r(T - \tau)$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img346.svg"
- ALT="$h(t) : = r(T - \tau)$"></SPAN>, only valid for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img347.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img347.svg"
+ ALT="$h(t) : = r(T - \tau)$"></SPAN>, only valid for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img348.svg"
  ALT="$0\ldots T$"></SPAN>.
 
 <P>
@@ -105,24 +105,24 @@ e(t) & = & \int_{0}^{T} s(\tau) r \left(T - (t - \tau)\right) d\tau \\
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img348.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img349.svg"
  ALT="$\displaystyle e(t)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img349.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img350.svg"
  ALT="$\displaystyle \int_{0}^{T} s(\tau) r \left(T - (t - \tau)\right) d\tau$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">138</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img350.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img351.svg"
  ALT="$\displaystyle \int_{0}^{T} s(\tau) r(T - t + \tau) d\tau$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">139</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
-for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img351.svg"
+for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img352.svg"
  ALT="$t: = T$"></SPAN> we get:
 
 <DIV class="equation">
@@ -132,7 +132,7 @@ for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SR
 e(T) = \int_{0}^{\infty} s(\tau) r (\tau) d\tau
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img352.svg"
+ &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img353.svg"
  ALT="$\displaystyle e(T) = \int_{0}^{\infty} s(\tau) r (\tau) d\tau
 $"> 
 
@@ -146,14 +146,14 @@ $">
 \underbrace{h(t) : = r(T - t)}_{ matched \quad  filter!}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.60ex; vertical-align: -3.84ex; " SRC="img353.svg"
+ &nbsp;  <IMG STYLE="height: 5.60ex; vertical-align: -3.84ex; " SRC="img354.svg"
  ALT="$\displaystyle \underbrace{h(t) : = r(T - t)}_{ matched \quad filter!}
 $"> 
 
 (<SPAN CLASS="arabic">141</SPAN>)
 </DIV>
 In order to design a detector we just create an impulse
-response <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img213.svg"
+response <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img214.svg"
  ALT="$h$"></SPAN> by reversing the template <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
  ALT="$r$"></SPAN> in time and
 constructing an FIR filter with it.
@@ -181,7 +181,7 @@ Adaptive FIR filter: A) Negative feedback
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img354.svg"
+ SRC="img355.svg"
  ALT="\includegraphics[width=\linewidth]{fir_lms}">
 
 </DIV></TD></TR>

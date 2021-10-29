@@ -65,7 +65,7 @@ The discrete Fourier Transform (DFT) is defined as:
 X(k) = \sum_{n=0}^{N-1} x(n) e^{-j2\pi kn / N} \qquad k=0,1,2, \ldots, N-1
 \end{equation}
  -->
- &nbsp;  <A ID="DFT"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img141.svg"
+ &nbsp;  <A ID="DFT"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img142.svg"
  ALT="$\displaystyle X(k) = \sum_{n=0}^{N-1} x(n) e^{-j2\pi kn / N} \qquad k=0,1,2, \ldots, N-1
 $"> 
 
@@ -84,7 +84,7 @@ The inverse discrete Fourier Transform (IDFT) is defined as:
 x(n) = \frac{1}{N} \sum_{k=0}^{N-1} X(k) e^{j 2\pi kn/N} \qquad n=0,1,2,\ldots, N-1
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 6.29ex; vertical-align: -2.57ex; " SRC="img142.svg"
+ &nbsp;  <IMG STYLE="height: 6.29ex; vertical-align: -2.57ex; " SRC="img143.svg"
  ALT="$\displaystyle x(n) = \frac{1}{N} \sum_{k=0}^{N-1} X(k) e^{j 2\pi kn/N} \qquad n=0,1,2,\ldots, N-1
 $"> 
 
@@ -104,7 +104,7 @@ the original signal.
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img143.svg"
+ SRC="img144.svg"
  ALT="\includegraphics[width=0.75\textwidth]{time_alias}">
 
 </DIV></TD></TR>
@@ -124,7 +124,7 @@ and discretise it into N samples in the frequency domain:
 X\left(\frac{2\pi}{N}k\right) = \sum_{n = -\infty}^{\infty} x(n) e^{-j\frac{2\pi}{N}kn} \qquad k = 0, \ldots, N-1
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.94ex; vertical-align: -2.59ex; " SRC="img144.svg"
+ &nbsp;  <IMG STYLE="height: 5.94ex; vertical-align: -2.59ex; " SRC="img145.svg"
  ALT="$\displaystyle X\left(\frac{2\pi}{N}k\right) = \sum_{n = -\infty}^{\infty} x(n) e^{-j\frac{2\pi}{N}kn} \qquad k = 0, \ldots, N-1
 $"> 
 
@@ -147,25 +147,25 @@ X\left(\frac{2\pi}{N}k\right)
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img145.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img146.svg"
  ALT="$\displaystyle X\left(\frac{2\pi}{N}k\right)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.47ex; vertical-align: -2.73ex; " SRC="img146.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.47ex; vertical-align: -2.73ex; " SRC="img147.svg"
  ALT="$\displaystyle \sum_{l = -\infty}^{\infty} \sum_{n=lN}^{lN+N-1} x(n)e^{-j \frac{2\pi}{N}kn}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">51</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.45ex; vertical-align: -2.73ex; " SRC="img147.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.45ex; vertical-align: -2.73ex; " SRC="img148.svg"
  ALT="$\displaystyle \sum_{l=-\infty}^{\infty} \sum_{n=0}^{N-1} x(n-lN) e^{-j \frac{2\pi}{N} kn}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">52</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 10.29ex; vertical-align: -6.58ex; " SRC="img148.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 10.29ex; vertical-align: -6.58ex; " SRC="img149.svg"
  ALT="$\displaystyle \sum_{n=0}^{N-1} \underbrace{\sum_{l=-\infty}^{\infty} x(n - lN)}_{\mbox{Periodic repetition!}} e^{-j \frac{2\pi}{N}kn}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">53</SPAN>)</TD></TR>
@@ -208,7 +208,7 @@ this is the only sample which is not mirrored.
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img149.svg"
+ SRC="img150.svg"
  ALT="\includegraphics[width=0.75\textwidth]{dft_example}">
 
 </DIV></TD></TR>
@@ -218,15 +218,15 @@ Fig.&nbsp;<A HREF="#dft_example">8</A> shows an example of a DFT. It is importan
 to know that the spectrum is mirrored around <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img9.svg"
  ALT="$N/2$"></SPAN>. DC is represented
 by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img10.svg"
- ALT="$X(0)$"></SPAN> and the Nyquist frequency <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img133.svg"
+ ALT="$X(0)$"></SPAN> and the Nyquist frequency <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
  ALT="$F_s/2$"></SPAN> is represented by
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img150.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img151.svg"
  ALT="$X(N/2)$"></SPAN>. The mirroring occurs because the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
  ALT="$x(n)$"></SPAN>
 is <SPAN  CLASS="textsl">real</SPAN>. This is important if one wants to modify the
-spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img89.svg"
+spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
  ALT="$X(F)$"></SPAN> by hand, for example to eliminate 50Hz noise. One
-needs to zero two elements of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img89.svg"
+needs to zero two elements of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
  ALT="$X(F)$"></SPAN> to zero. This is illustrated
 in this python code:
 <PRE>
@@ -241,7 +241,7 @@ yf[1899:1901+1]=0;
 #
 yi=sp.ifft(yf);
 </PRE>
-This filters out the 50Hz hum from the signal <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img151.svg"
+This filters out the 50Hz hum from the signal <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img152.svg"
  ALT="$y$"></SPAN> with sampling rate
 1000Hz. The signal <SPAN  CLASS="texttt">yi</SPAN> should be real valued again or contain
 only very small complex numbers due to numerical errors.

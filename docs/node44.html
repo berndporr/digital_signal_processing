@@ -61,7 +61,7 @@ We can rewrite the DFT (Eq.&nbsp;<A HREF="node41.html#DFT">48</A>) in a slightly
 X(k) = \sum_{n = 0}^{N-1}  x(n) W_{N}^{kn}
 \end{equation}
  -->
- &nbsp;  <A ID="compactDFT"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img175.svg"
+ &nbsp;  <A ID="compactDFT"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img176.svg"
  ALT="$\displaystyle X(k) = \sum_{n = 0}^{N-1} x(n) W_{N}^{kn}
 $"> 
 
@@ -76,13 +76,13 @@ with the constant:
 W_{N} = e^{-j 2\pi/N}
 \end{equation}
  -->
- &nbsp;  <A ID="constWN"></A><IMG STYLE="height: 2.57ex; vertical-align: -0.43ex; " SRC="img176.svg"
+ &nbsp;  <A ID="constWN"></A><IMG STYLE="height: 2.57ex; vertical-align: -0.43ex; " SRC="img177.svg"
  ALT="$\displaystyle W_{N} = e^{-j 2\pi/N}
 $"> 
 
 (<SPAN CLASS="arabic">65</SPAN>)
 </DIV>
-The problem with the DFT is that it needs <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img177.svg"
+The problem with the DFT is that it needs <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img178.svg"
  ALT="$N^2$"></SPAN> multiplications.
 How can we reduce the number of multiplications?
 Idea: Let's divide the DFT in an odd and an even sequence:
@@ -97,15 +97,15 @@ Idea: Let's divide the DFT in an odd and an even sequence:
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img178.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img179.svg"
  ALT="$\textstyle x(2m)$"></TD>
 <TD>&nbsp;</TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">66</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img179.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img180.svg"
  ALT="$\textstyle x(2m + 1),$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.77ex; vertical-align: -1.64ex; " SRC="img180.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.77ex; vertical-align: -1.64ex; " SRC="img181.svg"
  ALT="$\displaystyle \qquad m = 0, ..... , \frac{N}{2} - 1$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">67</SPAN>)</TD></TR>
@@ -114,7 +114,7 @@ Idea: Let's divide the DFT in an odd and an even sequence:
 which gives us with the trick <!-- MATH
  $W_N^{2mk} = W_{N/2}^{mk}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 3.02ex; vertical-align: -1.08ex; " SRC="img181.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 3.02ex; vertical-align: -1.08ex; " SRC="img182.svg"
  ALT="$W_N^{2mk} = W_{N/2}^{mk}$"></SPAN> because of the
 definition Eq.&nbsp;<A HREF="#constWN">65</A>.
 <BR>
@@ -128,49 +128,49 @@ X(k) & = & \sum_{m=0}^{N/2-1} x(2m) W_{N}^{2mk} + \sum_{m=0}^{N/2 - 1}  x(2m + 1
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img154.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img155.svg"
  ALT="$\displaystyle X(k)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.53ex; vertical-align: -2.50ex; " SRC="img182.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.53ex; vertical-align: -2.50ex; " SRC="img183.svg"
  ALT="$\displaystyle \sum_{m=0}^{N/2-1} x(2m) W_{N}^{2mk} + \sum_{m=0}^{N/2 - 1} x(2m + 1) W_{N}^{k (2m + 1)}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">68</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.53ex; vertical-align: -2.50ex; " SRC="img183.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.53ex; vertical-align: -2.50ex; " SRC="img184.svg"
  ALT="$\displaystyle \sum_{m=0}^{N/2-1} x(2m) W_{N/2}^{mk} + W_{N}^{k} \sum_{m = 0}^{N/2 - 1} x(2m + 1) W_{N/2}^{mk}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">69</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img184.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img185.svg"
  ALT="$\displaystyle F_{e}(k) + W_{N}^{k} F_{o}(k)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">70</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img185.svg"
- ALT="$F_e$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img186.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img186.svg"
+ ALT="$F_e$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img187.svg"
  ALT="$F_o$"></SPAN> have both half the length of the original sequence and
-need only <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img187.svg"
+need only <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img188.svg"
  ALT="$(N/2)^2$"></SPAN> multiplication, so in total <!-- MATH
  $2 \cdot (N/2)^2 = \frac{N^2}{2}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 3.09ex; vertical-align: -0.87ex; " SRC="img188.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 3.09ex; vertical-align: -0.87ex; " SRC="img189.svg"
  ALT="$2 \cdot (N/2)^2 = \frac{N^2}{2}$"></SPAN>.
 Basically by dividing the sequence in even and odd parts we can reduce
 the number of multiplications by 2. Obviously, the next step is then
-to subdivide the two sequences <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img189.svg"
- ALT="$F_{e}(k)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img190.svg"
+to subdivide the two sequences <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img190.svg"
+ ALT="$F_{e}(k)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img191.svg"
  ALT="$F_{o}(k)$"></SPAN> even further
 into something like <!-- MATH
  $F_{ee}(k), F_{eo}(k), F_{oe}(k)$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img191.svg"
- ALT="$F_{ee}(k), F_{eo}(k), F_{oe}(k)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img192.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img192.svg"
+ ALT="$F_{ee}(k), F_{eo}(k), F_{oe}(k)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img193.svg"
  ALT="$F_{oo}(k)$"></SPAN>.
 
 <P>
@@ -186,7 +186,7 @@ even samples.
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img193.svg"
+ SRC="img194.svg"
  ALT="\includegraphics[width=0.75\textwidth]{fft_div}">
 
 </DIV></TD></TR>
@@ -203,15 +203,15 @@ In general the recipe for the calculation of the FFT is:
 X_{i}(k) = X_{ie}(k) + W_{L}^{k} X_{io}(k)
 \end{equation}
  -->
- &nbsp;  <A ID="butterfly"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img194.svg"
+ &nbsp;  <A ID="butterfly"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img195.svg"
  ALT="$\displaystyle X_{i}(k) = X_{ie}(k) + W_{L}^{k} X_{io}(k)
 $"> 
 
 (<SPAN CLASS="arabic">71</SPAN>)
 </DIV>
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.59ex; vertical-align: -0.65ex; " SRC="img195.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.59ex; vertical-align: -0.65ex; " SRC="img196.svg"
  ALT="$W_{L}^{k}$"></SPAN> is the phase factor in front of the odd sequence.
-This is continued until we have only two point (<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img196.svg"
+This is continued until we have only two point (<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img197.svg"
  ALT="$N=2$"></SPAN>) 
 DFTs (see Eq.&nbsp;<A HREF="#compactDFT">64</A>):
 <BR>
@@ -223,19 +223,19 @@ DFTs (see Eq.&nbsp;<A HREF="#compactDFT">64</A>):
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img197.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img198.svg"
  ALT="$\displaystyle \mbox{DC:} \qquad X(0)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.44ex; vertical-align: -3.47ex; " SRC="img198.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.44ex; vertical-align: -3.47ex; " SRC="img199.svg"
  ALT="$\displaystyle x(0) + \underbrace{W_2^0}_{1} x(1) = x(0) + x(1)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">72</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img199.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img200.svg"
  ALT="$\displaystyle \mbox{Nyquist frequ.:} \qquad X(1)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img81.svg"
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.59ex; vertical-align: -3.62ex; " SRC="img200.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.59ex; vertical-align: -3.62ex; " SRC="img201.svg"
  ALT="$\displaystyle x(0) + \underbrace{W_2^1}_{-1} x(1) = x(0) - x(1)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">73</SPAN>)</TD></TR>
@@ -248,7 +248,7 @@ Eq.&nbsp;<A HREF="#nyDFT">73</A> is basically a differentiator which gives the m
 for the sequence <!-- MATH
  $1,-1,1,-1,\ldots$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img201.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img202.svg"
  ALT="$1,-1,1,-1,\ldots$"></SPAN>.  Fig.&nbsp;<A HREF="#fft_div">10</A> illustrates
 how to divide the initial sequence to arrive at 2 point DFTs. In other
 words the calculation of the full DFT is done by first calculating
@@ -256,11 +256,11 @@ words the calculation of the full DFT is done by first calculating
  ALT="$N/2$"></SPAN> 2 point DFTs and recombining the results with the help of
 Eq.&nbsp;<A HREF="#butterfly">71</A>. This is sometimes called the &ldquo;Butterfly&rdquo;
 algorithm because the data flow diagram can be drawn as a butterfly.
-The number of complex multiplications reduces in this approach to <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img202.svg"
+The number of complex multiplications reduces in this approach to <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img203.svg"
  ALT="$N
 \log_2 N$"></SPAN> which is actually the worst case scenario because many
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.59ex; vertical-align: -0.65ex; " SRC="img195.svg"
- ALT="$W_{L}^{k}$"></SPAN> usually turn out to be <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img203.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.59ex; vertical-align: -0.65ex; " SRC="img196.svg"
+ ALT="$W_{L}^{k}$"></SPAN> usually turn out to be <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img204.svg"
  ALT="$1,-1,j,-j$"></SPAN> which are just sign
 inversions or swaps of real and imaginary parts. A clever
 implementation of this algorithm will be even faster.
