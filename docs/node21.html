@@ -56,17 +56,16 @@ For example, the above average calculations can be defined as:
 
 <P>
 <PRE>
-def myaverage(g):
-    avg = 0
-    for i in range(len(y)):
-        avg = avg + y[i]
-    return (avg/len(y))
+def myaverage(y):
+    s = 0.0
+    for v in y:
+        s = s + v
+    return (s/len(y))
 </PRE>
-and then called from the main program as <SPAN  CLASS="texttt">myaverage(y)</SPAN>.
-The keyword &ldquo;def&rdquo; indicates the start of the function definition.
-Note again the 4 character indent
-for the function body and the colon after the function name. This is characteristic
-for python.
+and then called from the main program as <SPAN  CLASS="texttt">myaverage(a)</SPAN>.  The
+keyword &ldquo;def&rdquo; indicates the start of the function definition.  Note
+again the 4 character indent for the function body and the colon after
+the function name. This is characteristic for python.
 
 <P>
 <BR><HR>

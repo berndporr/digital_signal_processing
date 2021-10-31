@@ -50,20 +50,27 @@
 <H4><A ID="SECTION00044020000000000000">
 Loops</A>
 </H4>
-Loops in python are always done with the help of iterators. This
-means that we progress through the elements of a list.
 Imagine you want to calculate the average of the array <SPAN  CLASS="texttt">y</SPAN>.
 <PRE>
-avg = 0
+s = 0.0
 for i in range(len(y)):
-    avg = avg + y[i]
-    print("momentary average=",avg)
-print(avg/len(y))
+    s = s + y[i]
+print("Average:",s/len(y))
 </PRE>
-The &ldquo;for&rdquo; statement iterates through all elements of an array. In this
-case we have created a list with the &ldquo;range&rdquo; command. Important: the <SPAN  CLASS="textsl">indent</SPAN>
-indicates the commands which the loop iterates through. This is the general rule in python.
-There are also while/do loops available.
+The &ldquo;for&rdquo; statement iterates through all elements of an array with
+the help of a list created by the &ldquo;range&rdquo; command. This is very much
+C-like. However Python, as for example in C++11 or Swift, allows iterating over the array elements
+themselves:
+<PRE>
+s = 0.0
+for v in y:
+    s = s + v
+print("Average:",s/len(y))
+</PRE>
+which is a much more compact and safe way of coding as there will
+never be an out of bounds error. Important: the <SPAN  CLASS="textsl">indent</SPAN>
+indicates the commands which the loop iterates through. This is the
+general rule in python. See the Python documentation for other way of creating loops.
 
 <P>
 <BR><HR>

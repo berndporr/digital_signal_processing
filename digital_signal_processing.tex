@@ -310,20 +310,27 @@ applies for do and while loops where the body has an indent. Here, print(c)
 is always executed because it doesn't have an indent.
 
 \paragraph{Loops}
-Loops in python are always done with the help of iterators. This
-means that we progress through the elements of a list.
 Imagine you want to calculate the average of the array \texttt{y}.
 \begin{verbatim}
-avg = 0
+s = 0.0
 for i in range(len(y)):
-    avg = avg + y[i]
-    print("momentary average=",avg)
-print(avg/len(y))
+    s = s + y[i]
+print("Average:",s/len(y))
 \end{verbatim}
-The ``for'' statement iterates through all elements of an array. In this
-case we have created a list with the ``range'' command. Important: the \textsl{indent}
-indicates the commands which the loop iterates through. This is the general rule in python.
-There are also while/do loops available.
+The ``for'' statement iterates through all elements of an array with
+the help of a list created by the ``range'' command. This is very much
+C-like. However Python, as for example in C++11 or Swift, allows iterating over the array elements
+themselves:
+\begin{verbatim}
+s = 0.0
+for v in y:
+    s = s + v
+print("Average:",s/len(y))
+\end{verbatim}
+which is a much more compact and safe way of coding as there will
+never be an out of bounds error. Important: the \textsl{indent}
+indicates the commands which the loop iterates through. This is the
+general rule in python. See the Python documentation for other way of creating loops.
 
 
 \subsection{Functions}
@@ -331,17 +338,16 @@ Function definitions can happen anywhere in the program or in a separate file.
 For example, the above average calculations can be defined as:
 
 \begin{verbatim}
-def myaverage(g):
-    avg = 0
-    for i in range(len(y)):
-        avg = avg + y[i]
-    return (avg/len(y))
+def myaverage(y):
+    s = 0.0
+    for v in y:
+        s = s + v
+    return (s/len(y))
 \end{verbatim}
-and then called from the main program as \texttt{myaverage(y)}.
-The keyword ``def'' indicates the start of the function definition.
-Note again the 4 character indent
-for the function body and the colon after the function name. This is characteristic
-for python.
+and then called from the main program as \texttt{myaverage(a)}.  The
+keyword ``def'' indicates the start of the function definition.  Note
+again the 4 character indent for the function body and the colon after
+the function name. This is characteristic for python.
 
 
 \subsection{Classes}
