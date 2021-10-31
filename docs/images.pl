@@ -2,9 +2,9 @@
 # Associate images original text with physical files.
 
 
-$key = q/%latex2htmlidmarker6162displaystyleint_{-frac{1}{2}F_s}^{+frac{1}{2}F_s}underbra_{=X(F)mbox{ofEq.~ref{sampl_ana_dig}}}e^{j2pinfrac{F}{F_s}}dF;MSF=1.6;LFS=12;AAT/;
+$key = q/%latex2htmlidmarker6166displaystyleint_{-frac{1}{2}F_s}^{+frac{1}{2}F_s}underbra_{=X(F)mbox{ofEq.~ref{sampl_ana_dig}}}e^{j2pinfrac{F}{F_s}}dF;MSF=1.6;LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG STYLE="height: 10.03ex; vertical-align: -6.58ex; " SRC="|."$dir".q|img129.svg"
- ALT="% latex2html id marker 6162
+ ALT="% latex2html id marker 6166
 $\displaystyle \int_{-\frac{1}{2} F_s}^{+\frac{1}{2...
 ...-k F_s)}_{=X(F) \mbox{ of Eq.&nbsp;\ref{sampl_ana_dig}}} e^{j2\pi n\frac{F}{F_s}} dF$">|; 
 
