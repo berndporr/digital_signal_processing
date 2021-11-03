@@ -660,6 +660,7 @@ to analogue converter.
 
 
 
+\subsection{Quantisation}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{quant_overv}}
@@ -667,10 +668,6 @@ to analogue converter.
 \caption{$\Delta$ is the quantisation step.
 \label{quant_overv}}
 \end{figure}
-
-
-
-\subsection{Quantisation}
 A/D converters have a certain resolution. For example, the MAX1271 has a
 resolution of 12 bits which means that it divides the input range into
 4096 equal steps (see Fig~\ref{quant_overv}).
@@ -843,6 +840,8 @@ note the range here. $f$ is the normalised frequency.
 \end{itemize}
 
 
+\subsubsection{The effect of time domain sampling on the spectrum (Sampling
+theorem)}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{periodic_ny}}
@@ -850,10 +849,6 @@ note the range here. $f$ is the normalised frequency.
 \caption{Effect of sampling on the spectrum.
 \label{periodic_ny}}
 \end{figure}
-
-
-\subsubsection{The effect of time domain sampling on the spectrum (Sampling
-theorem)}
 What effect has time domain sampling on the frequency spectrum\footnote{This derivation is loosely based on \citet{Proakis1996}}? Imagine we
 have an analog spectrum $X_a(F)$ from a continuous signal $x(t)$. We want
 to know how the spectrum $X(F)$ of the discrete signal $x(n)$ looks like.
@@ -1068,6 +1063,7 @@ More useful equations are at \citet[pp.415]{Proakis1996}.
 
 
 
+\subsubsection{Problems with finite length DFTs}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{windowing_dft}}
@@ -1075,11 +1071,6 @@ More useful equations are at \citet[pp.415]{Proakis1996}.
 \caption{The effect of windowing on the DFT.
 \label{windowing_dft}}
 \end{figure}
-
-
-
-
-\subsubsection{Problems with finite length DFTs}
 \begin{equation}
 x_w(n) = x(n) \cdot w(n)
 \end{equation}
@@ -1199,6 +1190,7 @@ for Fourier transforms. Most Linux distros (Ubuntu, Suse, RedHat, \ldots)
 come with an excellent FFT library called \texttt{libfftw3}.
 
 
+\subsection{Visualisation}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=\textwidth]{visualisation}}
@@ -1207,9 +1199,6 @@ come with an excellent FFT library called \texttt{libfftw3}.
 An ECG signal in the time- and frequency domain.
 \label{visualisation}}
 \end{figure}
-
-
-\subsection{Visualisation}
 The Fourier spectrum is a complex function of frequency which cannot
 be displayed in a convenient way. Usually the amplitude or magnitude
 of the spectrum is of interest (see Fig.~\ref{visualisation}) which is calculated as the
@@ -1248,6 +1237,7 @@ here heavily from analoge circuit design as this is by
 its own nature performs realtime causal processing.
 
 
+\subsection{Causality}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{causality}}
@@ -1257,9 +1247,6 @@ Causal signals only evolve in positive time. Per definition the
 signal is zero for $t<0$.
 \label{causality}}
 \end{figure}
-
-
-\subsection{Causality}
 Fig.~\ref{causality} illustrates the concept of causality.
 Causal systems cannot look into the future. They can only react
 to a certain input. Causal signals are kept zero for $t<0$
@@ -1340,6 +1327,7 @@ f(t) * g(t) \Leftrightarrow F(s) G(s)
 
 
 
+\subsection{Filters}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{filter}}
@@ -1348,10 +1336,6 @@ f(t) * g(t) \Leftrightarrow F(s) G(s)
 either with its impulse response or with it's Laplace transforms.
 \label{filter}}
 \end{figure}
-
-
-
-\subsection{Filters}
 Fig.~\ref{filter} presents a causal filter as a black box in continuous time. We
 send in a signal and and we get a signal out of it. The
 operation of the filter is that of a convolution of the input
@@ -1411,6 +1395,7 @@ X(s) & = & \sum_{n = 0}^{\infty} x(n) e^{-snT} \\
 What is $e^{-sT} = z^{-1}$? It's a unit delay (see Eq.~\ref{shiftOperation}).
 
 
+\subsection{Frequency response of a sampled filter}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{frequency_response}}
@@ -1419,9 +1404,6 @@ What is $e^{-sT} = z^{-1}$? It's a unit delay (see Eq.~\ref{shiftOperation}).
 in the continuous case and sampled case.
 \label{frequency_response}}
 \end{figure}
-
-
-\subsection{Frequency response of a sampled filter}
 Reminder: for analogue Signals we had $H(s)$ with $s=j \omega$ for the
 frequency response. Let's substitute $s$ by $z$: $z^{-1} = e^{-sT}$
 which gives us in general a mapping between the continuous domain and
@@ -1453,16 +1435,14 @@ is evaluated along the imaginary axis, in the sampled case
 it happens along the unit circle which makes the response
 periodic! This is a subtle implication of the sampling theorem.
 
+\clearpage
+\subsection{FIR Filter}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=\linewidth]{fir}}
 \caption{FIR filter using the impulse response of the analogue filter $h(t)$ \label{FIRfilter}}
 \end{center}
 \end{figure}
-
-
-\clearpage
-\subsection{FIR Filter}
 What happens if we sample the impulse response $h(t)$ of an
 analogue filter? Let's find out:
 \begin{equation}
@@ -1619,6 +1599,7 @@ This book is strongly recommended for any C programmer who
 needs efficient solutions.
 
 
+\subsubsection{Fixed point FIR filters}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=\linewidth]{fir_fixed}}
@@ -1626,8 +1607,6 @@ needs efficient solutions.
   right by $w$ bits while the coefficients are scaled up by $2^w$. \label{fir_fixed}}
 \end{center}
 \end{figure}
-
-\subsubsection{Fixed point FIR filters}
 These filters receive integer numbers as input, perform integer multiplications/additions
 and their outputs are integer as well. Thus, these filters do not require
 a floating point unit on a processor.
@@ -1725,6 +1704,7 @@ antisymmetric and the impulse response has to be delayed by $\tau=M/2$.
 
 
 
+\subsubsection{Window functions}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=\linewidth]{window_functions}}
@@ -1733,9 +1713,6 @@ antisymmetric and the impulse response has to be delayed by $\tau=M/2$.
 with cutoff at $f=0.1$ and 100 taps. \label{window_functions}}
 \end{center}
 \end{figure}
-
-
-\subsubsection{Window functions}
 So far we still have a infinite number of coefficients for 
 for the FIR filter because there's no guarantee that the 
 impulse response becomes zero
@@ -1998,6 +1975,7 @@ constructing an FIR filter with it.
 
 How to improve the matching process? Square the output of the filter!
 
+\subsubsection{Adaptive FIR Least Mean Squares (LMS) filters}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=\linewidth]{fir_lms}}
@@ -2009,10 +1987,6 @@ How to improve the matching process? Square the output of the filter!
   $x(n-m)$ and then changes the FIR filter coefficients $h_m$.}
 \end{center}
 \end{figure}
-
-
-
-\subsubsection{Adaptive FIR Least Mean Squares (LMS) filters}
 So far the coefficients of the FIR filter have been constant but now
 we are going to allow them to change \textsl{while} the FIR filter is
 operating so that it can learn its own coefficients. The
@@ -2166,16 +2140,13 @@ z-transform method''. For example $H(s)=s$ turns into
 $H(z)=1-z^{-1}e^{0T}=1-z^{-1}$ which is basically a DC filter.
 
 
+\subsubsection{Determining the data-flow diagram of an IIR filter}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\linewidth]{iir}}
 \caption{IIR filter \label{IIRfilter}}
 \end{center}
 \end{figure}
-
-
-
-\subsubsection{Determining the data-flow diagram of an IIR filter}
 To get a practical implementation of Eq.~\ref{IIReq} we have
 to see it with its input- and output-signals:
 \begin{eqnarray}
@@ -2229,6 +2200,7 @@ Y = signal.lfilter(B,1,X)
 The ``1'' represents the output.
 
 
+\subsubsection{IIR filter topologies}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=\textwidth]{iir_types}}
@@ -2237,9 +2209,6 @@ The ``1'' represents the output.
   B) Direct Form II filter with two accumlators.
 \label{iir_types}}
 \end{figure}
-
-
-\subsubsection{IIR filter topologies}
 In real applications one would create a \textsl{chain of 2nd order
 IIR filters}. This has numerous advantages:
 \begin{enumerate}
@@ -2297,6 +2266,7 @@ In order to achive higher order filters one can then just
 chain these 2nd order filters. In Python this can be achieved
 by storing these in an array of instances of this class.
 
+\subsubsection{Fixed point IIR filters}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.5\textwidth]{iir_fixed}}
@@ -2304,9 +2274,6 @@ by storing these in an array of instances of this class.
 \caption{Direct Form I filter with fixed point arithmetic.
 \label{iir_fixed}}
 \end{figure}
-
-
-\subsubsection{Fixed point IIR filters}
 Fig.~\ref{iir_fixed} shows the implementation of a fixed point IIR
 filter. It's a Direct Form I filter with one accumulator so that
 temporary overflows can be compensated. The original floating point
@@ -2328,6 +2295,7 @@ an accumulator of 32 bits that gives only a headroom of 2~bits so the
 output can only be 4 times larger than the input. A 64 bit accumulator
 is a safe bet.
 
+\subsubsection{Filter design based on analogue filters}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.5\textwidth]{butterworth_poles}}
@@ -2339,10 +2307,6 @@ is a safe bet.
   complex conjugate pairs for the different 2nd order IIR filters.
 \label{butterworth_poles}}
 \end{figure}
-
-
-
-\subsubsection{Filter design based on analogue filters}
 Most IIR filters are designed from analogue filters by transforming
 from the continuous domain ($h(t),H(s)$) to the sampled domain
 ($h(n),H(z)$).
@@ -2557,6 +2521,7 @@ which is important for real world applications.
 We are going to explore the roles of poles and zeros first with
 an instructional example which leads to a 2nd order bandstop filter.
 
+\subsubsection{Zeros}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{fir_stop}}
@@ -2564,8 +2529,6 @@ an instructional example which leads to a 2nd order bandstop filter.
 \caption{A two tap FIR stopband filter for the frequency $\omega_0$.
 \label{fir_stop}}
 \end{figure}
-
-\subsubsection{Zeros}
 Let's look at the transfer function:
 \begin{eqnarray}
 H(z) & = & (1 - e^{j\omega_0} z^{-1})(1 - e^{-j\omega_0} z^{-1}) \\
@@ -2596,6 +2559,7 @@ That's the idea of an FIR filter where loads of zeros (or loads of taps)
 knock out the frequencies in the stopband.
 
 
+\subsubsection{Poles}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{iir_stop}}
@@ -2604,8 +2568,6 @@ knock out the frequencies in the stopband.
 the amplification $r$.
 \label{iir_stop}}
 \end{figure}
-
-\subsubsection{Poles}
 While zeros knock out frequencies, poles amplify frequencies.
 Let's investigate complex conjugate poles:
 \begin{equation}
@@ -2652,6 +2614,7 @@ work perfectly in python but will fail on a DSP with its limited
 precision. You can simlate this by forcing a certain datatype
 in python or you write it properly in C.
 
+\subsubsection{Design of an IIR notch filter}
 \begin{figure}[!hbt]
 \begin{center}
 \mbox{\includegraphics[width=0.75\textwidth]{iir_fir_stop}}
@@ -2660,8 +2623,6 @@ in python or you write it properly in C.
 for the frequency $\omega_0$.
 \label{iir_fir_stop}}
 \end{figure}
-
-\subsubsection{Design of an IIR notch filter}
 Now we combine the filters from the last two sections:
 \begin{equation} 
 H(z) = \frac {1 - 2 \cos (\omega_{0}) z^{-1} + z^{-2}}{1 - 2r \cos (\omega_{0}) z^{-1} + r^{2} z^{-2}} 

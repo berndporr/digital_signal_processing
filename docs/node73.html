@@ -51,6 +51,30 @@
 <H3><A ID="SECTION00078600000000000000">
 Filter design based on analogue filters</A>
 </H3>
+
+<DIV class="CENTER"><A ID="butterworth_poles"></A><A ID="1738"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 24:</STRONG>
+Pole placements of the Butterworth filter. Its analogue
+  cutoff frequency is <!-- MATH
+ $\Omega = 2\pi F$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img22.svg"
+ ALT="$\Omega = 2\pi F$"></SPAN> where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img3.svg"
+ ALT="$F$"></SPAN> is the
+  analogue cutoff frequency in Hertz. This filter can be implemented
+  as a chain of 2nd order IIR filters (biquads) by using the
+  complex conjugate pairs for the different 2nd order IIR filters.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img409.svg"
+ ALT="\includegraphics[width=0.5\textwidth]{butterworth_poles}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 Most IIR filters are designed from analogue filters by transforming
 from the continuous domain (<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img410.svg"
  ALT="$h(t),H(s)$"></SPAN>) to the sampled domain

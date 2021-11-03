@@ -51,12 +51,29 @@
 <H3><A ID="SECTION00077300000000000000">
 Fixed point FIR filters</A>
 </H3>
+
+<DIV class="CENTER"><A ID="fir_fixed"></A><A ID="1703"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 18:</STRONG>
+Fixed point FIR filter. The output signal is bit shifted to the
+  right by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img14.svg"
+ ALT="$w$"></SPAN> bits while the coefficients are scaled up by <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.09ex; " SRC="img15.svg"
+ ALT="$2^w$"></SPAN>.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img282.svg"
+ ALT="\includegraphics[width=\linewidth]{fir_fixed}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 These filters receive integer numbers as input, perform integer multiplications/additions
 and their outputs are integer as well. Thus, these filters do not require
 a floating point unit on a processor.
 
 <P>
-Fig.&nbsp;<A HREF="node57.html#fir_fixed">18</A> shows a fixed point FIR filter. The input <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+Fig.&nbsp;<A HREF="#fir_fixed">18</A> shows a fixed point FIR filter. The input <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
  ALT="$x(n)$"></SPAN> is an integer
 variable with I bit integers, the accumulator is an integer variable with A bits and
 the output as well (usually the same as the input in terms of bit width).

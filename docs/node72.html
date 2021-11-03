@@ -51,7 +51,22 @@
 <H3><A ID="SECTION00078500000000000000">
 Fixed point IIR filters</A>
 </H3>
-Fig.&nbsp;<A HREF="node71.html#iir_fixed">23</A> shows the implementation of a fixed point IIR
+
+<DIV class="CENTER"><A ID="iir_fixed"></A><A ID="1736"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 23:</STRONG>
+Direct Form I filter with fixed point arithmetic.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img405.svg"
+ ALT="\includegraphics[width=0.5\textwidth]{iir_fixed}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+Fig.&nbsp;<A HREF="#iir_fixed">23</A> shows the implementation of a fixed point IIR
 filter. It's a Direct Form I filter with one accumulator so that
 temporary overflows can be compensated. The original floating point
 IIR coefficients are scaled up by factor <SPAN CLASS="MATH"><IMG STYLE="height: 1.64ex; vertical-align: -0.09ex; " SRC="img15.svg"
@@ -79,32 +94,6 @@ For example if the input signal is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex
 an accumulator of 32 bits that gives only a headroom of 2&nbsp;bits so the
 output can only be 4 times larger than the input. A 64 bit accumulator
 is a safe bet.
-
-<P>
-
-<DIV class="CENTER"><A ID="butterworth_poles"></A><A ID="1738"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 24:</STRONG>
-Pole placements of the Butterworth filter. Its analogue
-  cutoff frequency is <!-- MATH
- $\Omega = 2\pi F$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img22.svg"
- ALT="$\Omega = 2\pi F$"></SPAN> where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img3.svg"
- ALT="$F$"></SPAN> is the
-  analogue cutoff frequency in Hertz. This filter can be implemented
-  as a chain of 2nd order IIR filters (biquads) by using the
-  complex conjugate pairs for the different 2nd order IIR filters.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img409.svg"
- ALT="\includegraphics[width=0.5\textwidth]{butterworth_poles}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
 
 <P>
 

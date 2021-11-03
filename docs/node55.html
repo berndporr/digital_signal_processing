@@ -51,6 +51,21 @@
 <H2><A ID="SECTION00077000000000000000">
 FIR Filter</A>
 </H2>
+
+<DIV class="CENTER"><A ID="FIRfilter"></A><A ID="1692"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 16:</STRONG>
+FIR filter using the impulse response of the analogue filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
+ ALT="$h(t)$"></SPAN> </CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img261.svg"
+ ALT="\includegraphics[width=\linewidth]{fir}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 What happens if we sample the impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
  ALT="$h(t)$"></SPAN> of an
 analogue filter? Let's find out:
@@ -135,7 +150,7 @@ This sum is a direct recipe how to filter the signal <SPAN CLASS="MATH"><IMG STY
  ALT="$X(z)$"></SPAN>. We only
 need the impulse response of the filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img270.svg"
  ALT="$h(nT)$"></SPAN> and we can
-set up a digital filter (see Fig.&nbsp;<A HREF="node54.html#FIRfilter">16</A>). Of course
+set up a digital filter (see Fig.&nbsp;<A HREF="#FIRfilter">16</A>). Of course
 in practise this impulse response cannot run till infinity
 but only for a limited number of samples. These are often
 called &ldquo;taps&rdquo;. So for example a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img271.svg"

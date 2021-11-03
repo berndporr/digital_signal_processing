@@ -72,7 +72,7 @@ Note the signs of the recursive coefficients are <SPAN  CLASS="textsl">inverted<
 actual implementation of the filter. This can be seen when the
 function <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img268.svg"
  ALT="$H(z)$"></SPAN> is actually multiplied with an input signal to
-obtain the output signal (see Eq.&nbsp;<A HREF="node69.html#IIRtime">164</A> and Fig.&nbsp;<A HREF="node68.html#IIRfilter">21</A>).
+obtain the output signal (see Eq.&nbsp;<A HREF="node69.html#IIRtime">164</A> and Fig.&nbsp;<A HREF="node69.html#IIRfilter">21</A>).
 The &ldquo;1&rdquo; in the denominator represents actually the output of
 the filter. If this factor is not one then the output will be scaled
 by that factor. However, usually this is kept one.
@@ -89,24 +89,6 @@ For a pure FIR filter we just have:
 Y = signal.lfilter(B,1,X)
 </PRE>
 The &ldquo;1&rdquo; represents the output.
-
-<P>
-
-<DIV class="CENTER"><A ID="iir_types"></A><A ID="1734"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 22:</STRONG>
-A) Direct Form I filter which one accumulator and
-  B) Direct Form II filter with two accumlators.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img404.svg"
- ALT="\includegraphics[width=\textwidth]{iir_types}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
 
 <P>
 <BR><HR>

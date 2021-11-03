@@ -50,13 +50,38 @@
 <H3><A ID="SECTION000771100000000000000">
 Adaptive FIR Least Mean Squares (LMS) filters</A>
 </H3>
+
+<DIV class="CENTER"><A ID="fir_lms"></A><A ID="1720"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 20:</STRONG>
+Adaptive FIR filter: A) Negative feedback
+  loop where a desired signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
+ ALT="$d(n)$"></SPAN> is compared with the output
+  of the FIR filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
+ ALT="$y(n)$"></SPAN> and creates the error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> which
+  then tunes the FIR filter. B) Internal workings of the adaptive FIR
+  filter where the error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
+ ALT="$e(n)$"></SPAN> is multiplied with the delayed input signal
+  <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img20.svg"
+ ALT="$x(n-m)$"></SPAN> and then changes the FIR filter coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
+ ALT="$h_m$"></SPAN>.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img355.svg"
+ ALT="\includegraphics[width=\linewidth]{fir_lms}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 So far the coefficients of the FIR filter have been constant but now
 we are going to allow them to change <SPAN  CLASS="textsl">while</SPAN> the FIR filter is
 operating so that it can learn its own coefficients. The
 idea is to use an error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
  ALT="$e(n)$"></SPAN> to tune the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
  ALT="$h(n)$"></SPAN>
-of the FIR filter (see Fig.&nbsp;<A HREF="node65.html#fir_lms">20</A>A) by comparing its output
+of the FIR filter (see Fig.&nbsp;<A HREF="#fir_lms">20</A>A) by comparing its output
 <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
  ALT="$y(n)$"></SPAN> with a desired output <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img17.svg"
  ALT="$d(n)$"></SPAN>:
@@ -213,7 +238,7 @@ of the chain rule when partially differentiating the output
 <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
  ALT="$y(n)$"></SPAN> which depends on the sum of the delay lines of the FIR
 filter (see Eq&nbsp;<A HREF="node55.html#FIRtime">110</A>). Eq.&nbsp;<A HREF="#lmsLearn">147</A> is now our &ldquo;learning&rdquo;
-rule which can simply be applied to the FIR filter as showm in Fig&nbsp;<A HREF="node65.html#fir_lms">20</A>B.
+rule which can simply be applied to the FIR filter as showm in Fig&nbsp;<A HREF="#fir_lms">20</A>B.
 
 <P>
 Now we have the recipe of an adaptive filter where the FIR filter minimises its

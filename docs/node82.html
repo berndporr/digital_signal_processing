@@ -51,6 +51,24 @@
 <H3><A ID="SECTION00079200000000000000">
 Poles</A>
 </H3>
+
+<DIV class="CENTER"><A ID="iir_stop"></A><A ID="1757"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 26:</STRONG>
+A two tap IIR resonator for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
+ ALT="$\omega _0$"></SPAN> and with
+the amplification <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
+ ALT="$r$"></SPAN>.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img447.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{iir_stop}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 While zeros knock out frequencies, poles amplify frequencies.
 Let's investigate complex conjugate poles:
 
@@ -130,7 +148,7 @@ Y(z) & = & X(z) + z^{-1} Y(z) 2r \cos (\omega_{0}) - z^{-2} Y(z) r^{2}
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
 This gives us a second order recursive filter (IIR) which is
-shown in Fig&nbsp;<A HREF="node81.html#iir_stop">26</A>. These complex
+shown in Fig&nbsp;<A HREF="#iir_stop">26</A>. These complex
 conjugate poles generate a resonance at <SPAN CLASS="MATH"><IMG STYLE="height: 1.83ex; vertical-align: -0.43ex; " SRC="img456.svg"
  ALT="$\pm\omega_0$"></SPAN> where the
 amplitude is determined by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"

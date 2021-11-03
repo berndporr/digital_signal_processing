@@ -23,7 +23,7 @@ $ref_files{$key} = "$dir".q|node55.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/FIRfilter/;
-$ref_files{$key} = "$dir".q|node54.html|; 
+$ref_files{$key} = "$dir".q|node55.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/FIRfromAnalogue/;
@@ -47,7 +47,7 @@ $ref_files{$key} = "$dir".q|node68.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/IIRfilter/;
-$ref_files{$key} = "$dir".q|node68.html|; 
+$ref_files{$key} = "$dir".q|node69.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/IIRtime/;
@@ -67,11 +67,11 @@ $ref_files{$key} = "$dir".q|node44.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/butterworth_poles/;
-$ref_files{$key} = "$dir".q|node72.html|; 
+$ref_files{$key} = "$dir".q|node73.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/causality/;
-$ref_files{$key} = "$dir".q|node47.html|; 
+$ref_files{$key} = "$dir".q|node48.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/cite_Diniz2002/;
@@ -119,7 +119,7 @@ $ref_files{$key} = "$dir".q|node44.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/filter/;
-$ref_files{$key} = "$dir".q|node50.html|; 
+$ref_files{$key} = "$dir".q|node51.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fir_digital/;
@@ -127,15 +127,15 @@ $ref_files{$key} = "$dir".q|node55.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/fir_fixed/;
-$ref_files{$key} = "$dir".q|node57.html|; 
+$ref_files{$key} = "$dir".q|node58.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fir_lms/;
-$ref_files{$key} = "$dir".q|node65.html|; 
+$ref_files{$key} = "$dir".q|node66.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fir_stop/;
-$ref_files{$key} = "$dir".q|node80.html|; 
+$ref_files{$key} = "$dir".q|node81.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fold_down/;
@@ -147,7 +147,7 @@ $ref_files{$key} = "$dir".q|node61.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/frequency_response/;
-$ref_files{$key} = "$dir".q|node53.html|; 
+$ref_files{$key} = "$dir".q|node54.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/graddes/;
@@ -167,19 +167,19 @@ $ref_files{$key} = "$dir".q|node62.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fir_stop/;
-$ref_files{$key} = "$dir".q|node83.html|; 
+$ref_files{$key} = "$dir".q|node84.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fixed/;
-$ref_files{$key} = "$dir".q|node71.html|; 
+$ref_files{$key} = "$dir".q|node72.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_stop/;
-$ref_files{$key} = "$dir".q|node81.html|; 
+$ref_files{$key} = "$dir".q|node82.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_types/;
-$ref_files{$key} = "$dir".q|node70.html|; 
+$ref_files{$key} = "$dir".q|node71.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/imp1/;
@@ -227,7 +227,7 @@ $ref_files{$key} = "$dir".q|node44.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/periodic_ny/;
-$ref_files{$key} = "$dir".q|node39.html|; 
+$ref_files{$key} = "$dir".q|node40.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/prewarp/;
@@ -239,7 +239,7 @@ $ref_files{$key} = "$dir".q|node33.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/quant_overv/;
-$ref_files{$key} = "$dir".q|node32.html|; 
+$ref_files{$key} = "$dir".q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/resonatorz/;
@@ -287,15 +287,15 @@ $ref_files{$key} = "$dir".q|node68.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/visualisation/;
-$ref_files{$key} = "$dir".q|node45.html|; 
+$ref_files{$key} = "$dir".q|node46.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/window_functions/;
-$ref_files{$key} = "$dir".q|node59.html|; 
+$ref_files{$key} = "$dir".q|node60.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/windowing_dft/;
-$ref_files{$key} = "$dir".q|node42.html|; 
+$ref_files{$key} = "$dir".q|node43.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/ztrans/;

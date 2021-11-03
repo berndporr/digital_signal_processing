@@ -51,6 +51,23 @@
 <H3><A ID="SECTION00077500000000000000">
 Window functions</A>
 </H3>
+
+<DIV class="CENTER"><A ID="window_functions"></A><A ID="1705"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Different window functions applied to a low pass filter 
+(Eq.&nbsp;<A HREF="node62.html#idealLP">132</A>) 
+with cutoff at <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img16.svg"
+ ALT="$f=0.1$"></SPAN> and 100 taps.</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img312.svg"
+ ALT="\includegraphics[width=\linewidth]{window_functions}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 So far we still have a infinite number of coefficients for 
 for the FIR filter because there's no guarantee that the 
 impulse response becomes zero
@@ -142,12 +159,12 @@ equation available.
 To illustrate how window functions influence the frequency response
 we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img320.svg"
  ALT="$f_c=0.1$"></SPAN>)
-and applied different window functions to it (Fig.&nbsp;<A HREF="node59.html#window_functions">19</A>).
+and applied different window functions to it (Fig.&nbsp;<A HREF="#window_functions">19</A>).
 
 <P>
 Note that the higher the damping the wider the transition from pass-
 to stopband. This can be seen when comparing the Blackman window with
-the Hamming window (Fig.&nbsp;<A HREF="node59.html#window_functions">19</A>). For the lowpass
+the Hamming window (Fig.&nbsp;<A HREF="#window_functions">19</A>). For the lowpass
 filter this seems to be quite similar. However, for a bandstop filter
 the wider transition width might lead actually to very poor stopband
 damping. In such a case a Hamming window might be a better choice.

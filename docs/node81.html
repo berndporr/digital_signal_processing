@@ -51,6 +51,22 @@
 <H3><A ID="SECTION00079100000000000000">
 Zeros</A>
 </H3>
+
+<DIV class="CENTER"><A ID="fir_stop"></A><A ID="1749"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 25:</STRONG>
+A two tap FIR stopband filter for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
+ ALT="$\omega _0$"></SPAN>.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img434.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{fir_stop}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
 Let's look at the transfer function:
 <BR>
 <DIV ALIGN="CENTER">
@@ -95,7 +111,7 @@ H(z) & = & (1 - e^{j\omega_0} z^{-1})(1 - e^{-j\omega_0} z^{-1}) \\
 (<SPAN CLASS="arabic">179</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
-which leads to the data flow diagram shown in Fig&nbsp;<A HREF="node80.html#fir_stop">25</A>.
+which leads to the data flow diagram shown in Fig&nbsp;<A HREF="#fir_stop">25</A>.
 
 <P>
 
@@ -168,26 +184,6 @@ a DC filter.
 In summary: zeros eliminate frequencies (and change phase).
 That's the idea of an FIR filter where loads of zeros (or loads of taps)
 knock out the frequencies in the stopband.
-
-<P>
-
-<DIV class="CENTER"><A ID="iir_stop"></A><A ID="1757"></A>
-<TABLE>
-<CAPTION class="BOTTOM"><STRONG>Figure 26:</STRONG>
-A two tap IIR resonator for the frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img23.svg"
- ALT="$\omega _0$"></SPAN> and with
-the amplification <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
- ALT="$r$"></SPAN>.
-</CAPTION>
-<TR><TD>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img447.svg"
- ALT="\includegraphics[width=0.75\textwidth]{iir_stop}">
-
-</DIV></TD></TR>
-</TABLE>
-</DIV>
 
 <P>
 
