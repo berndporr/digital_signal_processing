@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.2)  3 NOV 2021 15:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.2)  27 MAR 2022 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -660,10 +660,10 @@ Preview: Tightpage -32891 -32891 32891 32891
 :tex2html_wrap_inline5875:lthtmlCropMarkDepth:=0.0pt:1ex:=5.33331pt
 [24]
 Package epstopdf Info: Source file: <SchEng_mono.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 438067 bytes
 (epstopdf)             Output file: <SchEng_mono-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:30
+(epstopdf)                    date: 2021-10-20 12:03:32
 (epstopdf)                    size: 27421 bytes
 (epstopdf)             Command: <repstopdf --outfile=SchEng_mono-eps-converted-
 to.pdf SchEng_mono.eps>
@@ -747,11 +747,11 @@ df>]
 :tex2html_wrap_indisplay5934:lthtmlCropMarkDepth:=10.0314pt:1ex:=5.33331pt
 [38]
 Package epstopdf Info: Source file: <max_sampl.eps>
-(epstopdf)                    date: 2021-10-29 09:29:08
+(epstopdf)                    date: 2021-11-05 15:54:06
 (epstopdf)                    size: 40660 bytes
 (epstopdf)             Output file: <max_sampl-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:31
-(epstopdf)                    size: 4568 bytes
+(epstopdf)                    date: 2021-11-05 15:54:18
+(epstopdf)                    size: 4558 bytes
 (epstopdf)             Command: <repstopdf --outfile=max_sampl-eps-converted-to
 .pdf max_sampl.eps>
 (epstopdf)             \includegraphics on input line 404.
@@ -879,10 +879,10 @@ Package pdftex.def Info: max_sampl-eps-converted-to.pdf  used on input line 404
 :tex2html_wrap_indisplay5978:lthtmlCropMarkDepth:=8.23141pt:1ex:=5.33331pt
 [61]
 Package epstopdf Info: Source file: <anti_alias.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 80721 bytes
 (epstopdf)             Output file: <anti_alias-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:31
+(epstopdf)                    date: 2021-10-20 12:03:38
 (epstopdf)                    size: 14417 bytes
 (epstopdf)             Command: <repstopdf --outfile=anti_alias-eps-converted-t
 o.pdf anti_alias.eps>
@@ -941,11 +941,11 @@ f>]
 :tex2html_wrap_inline1864:lthtmlCropMarkDepth:=3.0pt:1ex:=5.33331pt
 [70]
 Package epstopdf Info: Source file: <quant_overv.eps>
-(epstopdf)                    date: 2021-10-29 09:30:58
+(epstopdf)                    date: 2021-11-05 15:54:06
 (epstopdf)                    size: 43843 bytes
 (epstopdf)             Output file: <quant_overv-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:32
-(epstopdf)                    size: 5745 bytes
+(epstopdf)                    date: 2021-11-05 15:54:19
+(epstopdf)                    size: 5735 bytes
 (epstopdf)             Command: <repstopdf --outfile=quant_overv-eps-converted-
 to.pdf quant_overv.eps>
 (epstopdf)             \includegraphics on input line 611.
@@ -988,11 +988,11 @@ df>]
 :tex2html_wrap_indisplay6014:lthtmlCropMarkDepth:=3.35555pt:1ex:=5.33331pt
 [76]
 Package epstopdf Info: Source file: <quant_err.eps>
-(epstopdf)                    date: 2021-10-29 09:30:58
+(epstopdf)                    date: 2021-11-05 15:54:06
 (epstopdf)                    size: 55017 bytes
 (epstopdf)             Output file: <quant_err-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:33
-(epstopdf)                    size: 8498 bytes
+(epstopdf)                    date: 2021-11-05 15:54:19
+(epstopdf)                    size: 8488 bytes
 (epstopdf)             Command: <repstopdf --outfile=quant_err-eps-converted-to
 .pdf quant_err.eps>
 (epstopdf)             \includegraphics on input line 650.
@@ -1215,10 +1215,10 @@ Package pdftex.def Info: quant_err-eps-converted-to.pdf  used on input line 650
 :tex2html_wrap_indisplay6098:lthtmlCropMarkDepth:=9.44461pt:1ex:=5.33331pt
 [118]
 Package epstopdf Info: Source file: <periodic_ny.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 79942 bytes
 (epstopdf)             Output file: <periodic_ny-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:33
+(epstopdf)                    date: 2021-10-20 12:03:39
 (epstopdf)                    size: 14604 bytes
 (epstopdf)             Command: <repstopdf --outfile=periodic_ny-eps-converted-
 to.pdf periodic_ny.eps>
@@ -1322,10 +1322,10 @@ pdf>]
 :tex2html_wrap_inline1950:lthtmlCropMarkDepth:=3.0pt:1ex:=5.33331pt
 [136]
 Package epstopdf Info: Source file: <fold_down.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 80374 bytes
 (epstopdf)             Output file: <fold_down-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:34
+(epstopdf)                    date: 2021-10-20 12:03:40
 (epstopdf)                    size: 15747 bytes
 (epstopdf)             Command: <repstopdf --outfile=fold_down-eps-converted-to
 .pdf fold_down.eps>
@@ -1374,10 +1374,10 @@ f>]
 :tex2html_wrap_indisplay6170:lthtmlCropMarkDepth:=13.22227pt:1ex:=5.33331pt
 [143]
 Package epstopdf Info: Source file: <time_alias.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 37796 bytes
 (epstopdf)             Output file: <time_alias-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:34
+(epstopdf)                    date: 2021-10-20 12:03:40
 (epstopdf)                    size: 4687 bytes
 (epstopdf)             Command: <repstopdf --outfile=time_alias-eps-converted-t
 o.pdf time_alias.eps>
@@ -1421,10 +1421,10 @@ df>]
 :tex2html_wrap_indisplay6189:lthtmlCropMarkDepth:=34.5889pt:1ex:=5.33331pt
 [149]
 Package epstopdf Info: Source file: <dft_example.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 105674 bytes
 (epstopdf)             Output file: <dft_example-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:35
+(epstopdf)                    date: 2021-10-20 12:03:40
 (epstopdf)                    size: 20649 bytes
 (epstopdf)             Command: <repstopdf --outfile=dft_example-eps-converted-
 to.pdf dft_example.eps>
@@ -1498,10 +1498,10 @@ pdf>]
 :tex2html_wrap_indisplay6235:lthtmlCropMarkDepth:=12.82228pt:1ex:=5.33331pt
 [161]
 Package epstopdf Info: Source file: <windowing_dft.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 152294 bytes
 (epstopdf)             Output file: <windowing_dft-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:36
+(epstopdf)                    date: 2021-10-20 12:03:41
 (epstopdf)                    size: 31572 bytes
 (epstopdf)             Command: <repstopdf --outfile=windowing_dft-eps-converte
 d-to.pdf windowing_dft.eps>
@@ -1675,11 +1675,11 @@ o.pdf>]
 :tex2html_wrap_inline2068:lthtmlCropMarkDepth:=3.0pt:1ex:=5.33331pt
 [193]
 Package epstopdf Info: Source file: <fft_div.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 140271 bytes
 (epstopdf)             Output file: <fft_div-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:37
-(epstopdf)                    size: 24699 bytes
+(epstopdf)                    date: 2021-10-20 12:03:41
+(epstopdf)                    size: 24685 bytes
 (epstopdf)             Command: <repstopdf --outfile=fft_div-eps-converted-to.p
 df fft_div.eps>
 (epstopdf)             \includegraphics on input line 1394.
@@ -1747,10 +1747,10 @@ Package pdftex.def Info: fft_div-eps-converted-to.pdf  used on input line 1394.
 :tex2html_wrap_inline2084:lthtmlCropMarkDepth:=2.33331pt:1ex:=5.33331pt
 [204]
 Package epstopdf Info: Source file: <visualisation.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 113806 bytes
 (epstopdf)             Output file: <visualisation-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:37
+(epstopdf)                    date: 2021-10-20 12:03:42
 (epstopdf)                    size: 22146 bytes
 (epstopdf)             Command: <repstopdf --outfile=visualisation-eps-converte
 d-to.pdf visualisation.eps>
@@ -1779,10 +1779,10 @@ o.pdf>]
 :tex2html_wrap_inline2088:lthtmlCropMarkDepth:=3.0pt:1ex:=5.33331pt
 [207]
 Package epstopdf Info: Source file: <causality.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 58935 bytes
 (epstopdf)             Output file: <causality-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:38
+(epstopdf)                    date: 2021-10-20 12:03:42
 (epstopdf)                    size: 9732 bytes
 (epstopdf)             Command: <repstopdf --outfile=causality-eps-converted-to
 .pdf causality.eps>
@@ -1801,10 +1801,10 @@ Package pdftex.def Info: causality-eps-converted-to.pdf  used on input line 148
 [208 </home/bp1/sandbox/digital_signal_processing/causality-eps-converted-to.pd
 f>]
 Package epstopdf Info: Source file: <convol.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 90003 bytes
 (epstopdf)             Output file: <convol-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:38
+(epstopdf)                    date: 2021-10-20 12:03:42
 (epstopdf)                    size: 16654 bytes
 (epstopdf)             Command: <repstopdf --outfile=convol-eps-converted-to.pd
 f convol.eps>
@@ -1931,10 +1931,10 @@ Package pdftex.def Info: convol-eps-converted-to.pdf  used on input line 1490.
 :tex2html_wrap_indisplay6379:lthtmlCropMarkDepth:=3.0pt:1ex:=5.33331pt
 [231]
 Package epstopdf Info: Source file: <filter.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 65188 bytes
 (epstopdf)             Output file: <filter-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:39
+(epstopdf)                    date: 2021-10-20 12:03:42
 (epstopdf)                    size: 11181 bytes
 (epstopdf)             Command: <repstopdf --outfile=filter-eps-converted-to.pd
 f filter.eps>
@@ -2036,10 +2036,10 @@ Package pdftex.def Info: filter-eps-converted-to.pdf  used on input line 1637.
 :tex2html_wrap_inline2128:lthtmlCropMarkDepth:=0.0pt:1ex:=5.33331pt
 [249]
 Package epstopdf Info: Source file: <frequency_response.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 135428 bytes
 (epstopdf)             Output file: <frequency_response-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:40
+(epstopdf)                    date: 2021-10-20 12:03:43
 (epstopdf)                    size: 27711 bytes
 (epstopdf)             Command: <repstopdf --outfile=frequency_response-eps-con
 verted-to.pdf frequency_response.eps>
@@ -2108,10 +2108,10 @@ ted-to.pdf>]
 :tex2html_wrap_indisplay6438:lthtmlCropMarkDepth:=3.0pt:1ex:=5.33331pt
 [260]
 Package epstopdf Info: Source file: <fir.eps>
-(epstopdf)                    date: 2021-09-29 16:43:16
+(epstopdf)                    date: 2021-10-20 12:03:00
 (epstopdf)                    size: 68624 bytes
 (epstopdf)             Output file: <fir-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:40
+(epstopdf)                    date: 2021-10-20 12:03:43
 (epstopdf)                    size: 10423 bytes
 (epstopdf)             Command: <repstopdf --outfile=fir-eps-converted-to.pdf f
 ir.eps>
@@ -2188,10 +2188,10 @@ Package pdftex.def Info: fir-eps-converted-to.pdf  used on input line 1824.
 :tex2html_wrap_indisplay6468:lthtmlCropMarkDepth:=30.6889pt:1ex:=5.33331pt
 [273]
 Package epstopdf Info: Source file: <fir_digital.eps>
-(epstopdf)                    date: 2021-09-29 16:43:22
+(epstopdf)                    date: 2021-10-20 12:03:00
 (epstopdf)                    size: 68109 bytes
 (epstopdf)             Output file: <fir_digital-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:41
+(epstopdf)                    date: 2021-10-20 12:03:44
 (epstopdf)                    size: 10424 bytes
 (epstopdf)             Command: <repstopdf --outfile=fir_digital-eps-converted-
 to.pdf fir_digital.eps>
@@ -2245,10 +2245,10 @@ pdf>]
 :tex2html_wrap_indisplay6490:lthtmlCropMarkDepth:=12.82228pt:1ex:=5.33331pt
 [281]
 Package epstopdf Info: Source file: <fir_fixed.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 95532 bytes
 (epstopdf)             Output file: <fir_fixed-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:42
+(epstopdf)                    date: 2021-10-20 12:03:44
 (epstopdf)                    size: 17631 bytes
 (epstopdf)             Command: <repstopdf --outfile=fir_fixed-eps-converted-to
 .pdf fir_fixed.eps>
@@ -2412,10 +2412,10 @@ f>]
 :tex2html_wrap_inline2252:lthtmlCropMarkDepth:=0.0pt:1ex:=5.33331pt
 [311]
 Package epstopdf Info: Source file: <window_functions.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 226795 bytes
 (epstopdf)             Output file: <window_functions-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:42
+(epstopdf)                    date: 2021-10-20 12:03:44
 (epstopdf)                    size: 46687 bytes
 (epstopdf)             Command: <repstopdf --outfile=window_functions-eps-conve
 rted-to.pdf window_functions.eps>
@@ -2644,10 +2644,10 @@ d-to.pdf>]
 :tex2html_wrap_indisplay6640:lthtmlCropMarkDepth:=19.97774pt:1ex:=5.33331pt
 [354]
 Package epstopdf Info: Source file: <fir_lms.eps>
-(epstopdf)                    date: 2021-10-14 09:06:41
+(epstopdf)                    date: 2021-10-20 12:03:00
 (epstopdf)                    size: 110798 bytes
 (epstopdf)             Output file: <fir_lms-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:43
+(epstopdf)                    date: 2021-10-20 12:03:45
 (epstopdf)                    size: 17692 bytes
 (epstopdf)             Command: <repstopdf --outfile=fir_lms-eps-converted-to.p
 df fir_lms.eps>
@@ -2880,10 +2880,10 @@ my insertion and my current dilemma will both disappear.
 :tex2html_wrap_inline2436:lthtmlCropMarkDepth:=3.0pt:1ex:=5.33331pt
 [388]
 Package epstopdf Info: Source file: <iir.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 33355 bytes
 (epstopdf)             Output file: <iir-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:44
+(epstopdf)                    date: 2021-10-20 12:03:45
 (epstopdf)                    size: 5882 bytes
 (epstopdf)             Command: <repstopdf --outfile=iir-eps-converted-to.pdf i
 ir.eps>
@@ -2970,10 +2970,10 @@ Package pdftex.def Info: iir-eps-converted-to.pdf  used on input line 2692.
 :tex2html_wrap_inline2454:lthtmlCropMarkDepth:=1.79999pt:1ex:=5.33331pt
 [403]
 Package epstopdf Info: Source file: <iir_types.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 141508 bytes
 (epstopdf)             Output file: <iir_types-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:44
+(epstopdf)                    date: 2021-10-20 12:03:45
 (epstopdf)                    size: 17200 bytes
 (epstopdf)             Command: <repstopdf --outfile=iir_types-eps-converted-to
 .pdf iir_types.eps>
@@ -2992,10 +2992,10 @@ Package pdftex.def Info: iir_types-eps-converted-to.pdf  used on input line 278
 [404 </home/bp1/sandbox/digital_signal_processing/iir_types-eps-converted-to.pd
 f>]
 Package epstopdf Info: Source file: <iir_fixed.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 60580 bytes
 (epstopdf)             Output file: <iir_fixed-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:45
+(epstopdf)                    date: 2021-10-20 12:03:46
 (epstopdf)                    size: 9234 bytes
 (epstopdf)             Command: <repstopdf --outfile=iir_fixed-eps-converted-to
 .pdf iir_fixed.eps>
@@ -3029,10 +3029,10 @@ f>]
 :tex2html_wrap_inline2468:lthtmlCropMarkDepth:=0.91663pt:1ex:=5.33331pt
 [408]
 Package epstopdf Info: Source file: <butterworth_poles.eps>
-(epstopdf)                    date: 2019-12-17 08:41:11
+(epstopdf)                    date: 2019-11-29 22:19:38
 (epstopdf)                    size: 52554 bytes
 (epstopdf)             Output file: <butterworth_poles-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:46
+(epstopdf)                    date: 2021-10-20 12:03:46
 (epstopdf)                    size: 7332 bytes
 (epstopdf)             Command: <repstopdf --outfile=butterworth_poles-eps-conv
 erted-to.pdf butterworth_poles.eps>
@@ -3171,10 +3171,10 @@ ed-to.pdf>]
 :tex2html_wrap_inline2542:lthtmlCropMarkDepth:=2.33331pt:1ex:=5.33331pt
 [433]
 Package epstopdf Info: Source file: <fir_stop.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 53006 bytes
 (epstopdf)             Output file: <fir_stop-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:46
+(epstopdf)                    date: 2021-10-20 12:03:46
 (epstopdf)                    size: 8119 bytes
 (epstopdf)             Command: <repstopdf --outfile=fir_stop-eps-converted-to.
 pdf fir_stop.eps>
@@ -3253,10 +3253,10 @@ Package pdftex.def Info: fir_stop-eps-converted-to.pdf  used on input line 2987
 :tex2html_wrap_indisplay6903:lthtmlCropMarkDepth:=1.0pt:1ex:=5.33331pt
 [446]
 Package epstopdf Info: Source file: <iir_stop.eps>
-(epstopdf)                    date: 2018-11-28 08:05:46
+(epstopdf)                    date: 2018-11-27 23:02:48
 (epstopdf)                    size: 54860 bytes
 (epstopdf)             Output file: <iir_stop-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-10-29 09:31:47
+(epstopdf)                    date: 2021-10-20 12:03:47
 (epstopdf)                    size: 8702 bytes
 (epstopdf)             Command: <repstopdf --outfile=iir_stop-eps-converted-to.
 pdf iir_stop.eps>
@@ -3360,12 +3360,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3156.
 ### simple group (level 1) entered at line 2668 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7886 strings out of 481239
- 123787 string characters out of 5920377
- 381157 words of memory out of 5000000
- 23024 multiletter control sequences out of 15000+600000
+ 7886 strings out of 482480
+ 123787 string characters out of 5946191
+ 378090 words of memory out of 5000000
+ 22830 multiletter control sequences out of 15000+600000
  536614 words of font info for 38 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 395 hyphenation exceptions out of 8191
  41i,13n,42p,549b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{equation.5.42} has been referenced 
 but does not exist, replaced by a fixed one
@@ -3383,7 +3383,7 @@ cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on images.pdf (460 pages, 636351 bytes).
+Output written on images.pdf (460 pages, 636322 bytes).
 PDF statistics:
  1644 PDF objects out of 1728 (max. 8388607)
  1125 compressed objects within 12 object streams

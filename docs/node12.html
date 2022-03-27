@@ -3,11 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Packages/Modules</TITLE>
-<META NAME="description" CONTENT="Packages/Modules">
-<META NAME="keywords" CONTENT="digital_signal_processing">
+<TITLE>Functions</TITLE>
+<META NAME="description" CONTENT="Digital Signal Processing">
+<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
+<META CHARSET="UTF-8">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
 <LINK REL="next" HREF="node13.html">
-<LINK REL="previous" HREF="node8.html">
+<LINK REL="previous" HREF="node11.html">
 <LINK REL="next" HREF="node13.html">
 </HEAD>
 
@@ -32,92 +33,43 @@
 <A
  HREF="node11.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html200"
+<A ID="tex2html206"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node13.html">Data types</A>
+ HREF="node13.html">Classes</A>
 <B> Up:</B> <A
  HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node11.html">Help</A>
- &nbsp; <B>  <A ID="tex2html201"
+ HREF="node11.html">Control structures</A>
+ &nbsp; <B>  <A ID="tex2html207"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H2><A ID="SECTION00042000000000000000">
-Packages/Modules</A>
+<H2><A ID="SECTION00045000000000000000">
+Functions</A>
 </H2>
-The power of Python comes form thousands of modules which are shipped
-with python or can be installed via python's package
-manager. A package contains usually many modules.
-The standard package manager of python is called &ldquo;pip&rdquo;
-which downloads the package for you and installs it. This is not just
-very convenient but also is safe because the download location is the
-official python repository.
+Function definitions can happen anywhere in the program or in a separate file.
+For example, the above average calculations can be defined as:
 
 <P>
-In general you import modules with the &ldquo;import&rdquo; command. For example
-&ldquo;import numpy as np&rdquo; imports the module numpy into python and
-abbreviates it as &ldquo;np&rdquo; so that you'd write &ldquo;np.sin(c)&rdquo; to call the
-sine function in numpy.
+<PRE>
+def myaverage(y):
+    s = 0.0
+    for v in y:
+        s = s + v
+    return (s/len(y))
+</PRE>
+and then called from the main program as <SPAN  CLASS="texttt">myaverage(a)</SPAN>.  The
+keyword &ldquo;def&rdquo; indicates the start of the function definition.  Note
+again the 4 character indent for the function body and the colon after
+the function name. This is characteristic for python.
 
 <P>
-The import command loads essentially a file
-called &ldquo;numpy.py&rdquo; so that you can write your own modules just by
-creating file with that name. See below in the &ldquo;class&rdquo; section for
-an example. There are numerous ways how to import modules but the
-&ldquo;import as&rdquo; way is by far the most popular.
-
-<P>
-Important modules are:
-
-<UL>
-<LI>numpy: Numerical operations for number crunching, matrix/array
-  operations, trigonometric functions, etc. It offers fast numerical
-  operations on arrays and matrices. It also has extensive Fourier
-  Transform commands.
-</LI>
-<LI>pylab: Plotting functions (MATLAB style), statistics and data fitting functions
-</LI>
-<LI>scipy: Scientific computing package. In particular we are insterested in
-  scipy.signal which contains all the signal processing functions and
-  filter design commands. It also offers Fourier Transforms, data io routines,
-  vector quantisation, linear algebra, optimisation tools and statistics.
-</LI>
-</UL>
-
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A
- HREF="node13.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<A
- HREF="node7.html">
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
-<A
- HREF="node11.html">
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html200"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node13.html">Data types</A>
-<B> Up:</B> <A
- HREF="node7.html">Python</A>
-<B> Previous:</B> <A
- HREF="node11.html">Help</A>
- &nbsp; <B>  <A ID="tex2html201"
-  HREF="node1.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-<ADDRESS>
-<p><br /><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a><br /></p>
-</ADDRESS>
+<BR> <HR>
+<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
 </BODY>
 </HTML>

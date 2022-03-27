@@ -3,11 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Sampling</TITLE>
-<META NAME="description" CONTENT="Sampling">
-<META NAME="keywords" CONTENT="digital_signal_processing">
+<TITLE>Filters</TITLE>
+<META NAME="description" CONTENT="Digital Signal Processing">
+<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
+<META CHARSET="UTF-8">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
@@ -15,7 +16,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node33.html">
+<LINK REL="next" HREF="node30.html">
 <LINK REL="previous" HREF="node28.html">
 <LINK REL="next" HREF="node30.html">
 </HEAD>
@@ -27,67 +28,182 @@
  HREF="node30.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node28.html">
+ HREF="node25.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node28.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html247"
+<A ID="tex2html308"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node30.html">Normalised frequency</A>
+ HREF="node30.html">The z-transform</A>
 <B> Up:</B> <A
- HREF="node28.html">Signal conversion</A>
+ HREF="node25.html">Causal Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node28.html">Signal conversion</A>
- &nbsp; <B>  <A ID="tex2html248"
+ HREF="node28.html">Laplace transform</A>
+ &nbsp; <B>  <A ID="tex2html309"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<H2><A ID="SECTION00051000000000000000">
-Sampling</A>
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html310"
+  HREF="node29.html#SECTION00074100000000000000">How to characterise filters?</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H2><A ID="SECTION00074000000000000000">
+Filters</A>
 </H2>
-The analogue signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img34.svg"
- ALT="$X_a$"></SPAN> is sampled at intervals <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img30.svg"
- ALT="$T$"></SPAN> to get
-the sampled signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img35.svg"
- ALT="$X(n)$"></SPAN>.
+
+<DIV class="CENTER"><A ID="filter"></A><A ID="1686"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 14:</STRONG>
+General idea of a filter and how to describe it:
+either with its impulse response or with it's Laplace transforms.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img232.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{filter}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+Fig.&nbsp;<A HREF="#filter">14</A> presents a causal filter as a black box in continuous time. We
+send in a signal and and we get a signal out of it. The
+operation of the filter is that of a convolution of the input
+signal or a multiplication in the Laplace space:
 
 <DIV class="equation">
 
 <!-- MATH
  \begin{equation}
-x(n) = x_{a}(nT),  \qquad -\infty < n < +\infty
+g(t) = h(t) * x(t) \Leftrightarrow Y(s) = H(s) \cdot X(s)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img36.svg"
- ALT="$\displaystyle x(n) = x_{a}(nT), \qquad -\infty &lt; n &lt; +\infty
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img233.svg"
+ ALT="$\displaystyle g(t) = h(t) * x(t) \Leftrightarrow Y(s) = H(s) \cdot X(s)
 $"> 
 
-(<SPAN CLASS="arabic">2</SPAN>)
+(<SPAN CLASS="arabic">87</SPAN>)
 </DIV>
 
 <P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html249"
-  HREF="node30.html">Normalised frequency</A>
-<LI><A ID="tex2html250"
-  HREF="node31.html">Nyquist frequency</A>
-<LI><A ID="tex2html251"
-  HREF="node32.html">Sampling theorem</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR><HR>
-<ADDRESS>
-<p><br /><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a><br /></p>
-</ADDRESS>
+<H3><A ID="SECTION00074100000000000000">
+How to characterise filters?</A>
+</H3>
+
+<P>
+
+<OL>
+<LI><B>Impulse Response</B>
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+x(t) & = & \delta(t) \qquad \leftarrow \mbox{delta pulse} \\
+h(t) & = & y(t) \qquad \leftarrow \mbox{impulse response}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img106.svg"
+ ALT="$\displaystyle x(t)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img234.svg"
+ ALT="$\displaystyle \delta(t) \qquad \leftarrow \mbox{delta pulse}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">88</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img235.svg"
+ ALT="$\displaystyle h(t)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img236.svg"
+ ALT="$\displaystyle y(t) \qquad \leftarrow \mbox{impulse response}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">89</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The filter is fully characterised by its impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
+ ALT="$h(t)$"></SPAN>
+
+<P>
+</LI>
+<LI><B>Transfer function</B>
+The Laplace transform of the impulse response is called
+<SPAN  CLASS="textsl">Transfer Function</SPAN>. With the argument <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img237.svg"
+ ALT="$j\omega$"></SPAN> we
+get the frequency
+response of the filter. What does the frequency response tell us about
+the filter?  The absolute value of the
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+|H(i \omega)|
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img238.svg"
+ ALT="$\displaystyle \vert H(i \omega)\vert
+$"> 
+
+(<SPAN CLASS="arabic">90</SPAN>)
+</DIV>
+gives us the amplitude or magnitude for every frequency
+(compare the Fourier transform).
+The angle of the term <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img239.svg"
+ ALT="$H(j\omega)$"></SPAN> gives us the phase shift:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\phi = \arg\left(H(i \omega) \right)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img240.svg"
+ ALT="$\displaystyle \phi = \arg\left(H(i \omega) \right)
+$"> 
+
+(<SPAN CLASS="arabic">91</SPAN>)
+</DIV>
+of the filter. In this context the <SPAN  CLASS="textsl">group delay</SPAN> can
+be defined as:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\tau_{\omega} = \frac{d \phi (\omega)}{d\omega}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="img241.svg"
+ ALT="$\displaystyle \tau_{\omega} = \frac{d \phi (\omega)}{d\omega}
+$"> 
+
+(<SPAN CLASS="arabic">92</SPAN>)
+</DIV>
+which is delay for a certain frequency <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img242.svg"
+ ALT="$\omega$"></SPAN>. In many applications
+this should be kept constant for all frequencies.
+</LI>
+</OL>
+
+<P>
+
+<DIV CLASS="navigation"><HR></DIV>
+<!--End of Navigation Panel-->
+<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
 </BODY>
 </HTML>

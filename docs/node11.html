@@ -3,11 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Help</TITLE>
-<META NAME="description" CONTENT="Help">
-<META NAME="keywords" CONTENT="digital_signal_processing">
+<TITLE>Control structures</TITLE>
+<META NAME="description" CONTENT="Digital Signal Processing">
+<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
+<META CHARSET="UTF-8">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
+<LINK REL="next" HREF="node12.html">
 <LINK REL="previous" HREF="node10.html">
 <LINK REL="next" HREF="node12.html">
 </HEAD>
@@ -26,44 +28,93 @@
  HREF="node12.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node8.html">
+ HREF="node7.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node10.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html198"
+<A ID="tex2html202"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node12.html">Packages/Modules</A>
+ HREF="node12.html">Functions</A>
 <B> Up:</B> <A
- HREF="node8.html">How to use Python?</A>
+ HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node10.html">Python scripts</A>
- &nbsp; <B>  <A ID="tex2html199"
+ HREF="node10.html">Data types</A>
+ &nbsp; <B>  <A ID="tex2html203"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<H4><A ID="SECTION00041030000000000000">
-Help</A>
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A ID="tex2html204"
+  HREF="node11.html#SECTION00044010000000000000">Conditionals</A>
+<LI><A ID="tex2html205"
+  HREF="node11.html#SECTION00044020000000000000">Loops</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H2><A ID="SECTION00044000000000000000">
+Control structures</A>
+</H2>
+
+<P>
+
+<H4><A ID="SECTION00044010000000000000">
+Conditionals</A>
 </H4>
-There is an abundance of online help available for Python. The
-official Python pages have an excellent tutorial
-(<SPAN  CLASS="texttt">https://docs.python.org/3/tutorial/</SPAN>) and of course you find
-answers to all your questions on Stack Overflow.
+Conditional operation is done in exactly the same way as in other languages:
+<PRE>
+if a &gt; c:
+    a = c
+    c = c*2
+print(c)
+</PRE>
+The indent of 4 characters indicates the conditionally executed commands. The same
+applies for do and while loops where the body has an indent. Here, print(c)
+is always executed because it doesn't have an indent.
 
 <P>
-If you need help for a function you can use the in built help function
-&ldquo;help(thecommand)&rdquo; to get help for &ldquo;thecommand&rdquo;. Try out &ldquo;help(print)&rdquo;
-to get help for the &ldquo;print&rdquo; command.
+
+<H4><A ID="SECTION00044020000000000000">
+Loops</A>
+</H4>
+Imagine you want to calculate the average of the array <SPAN  CLASS="texttt">y</SPAN>.
+<PRE>
+s = 0.0
+for i in range(len(y)):
+    s = s + y[i]
+print("Average:",s/len(y))
+</PRE>
+The &ldquo;for&rdquo; statement iterates through all elements of an array with
+the help of a list created by the &ldquo;range&rdquo; command. This is very much
+C-like. However Python, as for example in C++11 or Swift, allows iterating over the array elements
+themselves:
+<PRE>
+s = 0.0
+for v in y:
+    s = s + v
+print("Average:",s/len(y))
+</PRE>
+which is a much more compact and safe way of coding as there will
+never be an out of bounds error.
 
 <P>
-<BR><HR>
-<ADDRESS>
-<p><br /><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a><br /></p>
-</ADDRESS>
+Important: the <SPAN  CLASS="textsl">indent</SPAN> indicates the commands which the loop
+iterates through. This is the general rule in python.
+
+<P>
+See the Python documentation for other ways of creating loops.
+
+<P>
+<BR> <HR>
+<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
 </BODY>
 </HTML>

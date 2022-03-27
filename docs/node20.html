@@ -3,11 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Loops</TITLE>
-<META NAME="description" CONTENT="Loops">
-<META NAME="keywords" CONTENT="digital_signal_processing">
+<TITLE>Frequency representation of signals</TITLE>
+<META NAME="description" CONTENT="Digital Signal Processing">
+<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
+<META CHARSET="UTF-8">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
@@ -15,7 +16,8 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="previous" HREF="node19.html">
+<LINK REL="next" HREF="node25.html">
+<LINK REL="previous" HREF="node17.html">
 <LINK REL="next" HREF="node21.html">
 </HEAD>
 
@@ -26,61 +28,80 @@
  HREF="node21.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node18.html">
+ HREF="digital_signal_processing.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node19.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html222"
+<A ID="tex2html232"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node21.html">Functions</A>
+ HREF="node21.html">Continuous time and frequency</A>
 <B> Up:</B> <A
- HREF="node18.html">Control structures</A>
+ HREF="digital_signal_processing.html">Digital Signal Processing</A>
 <B> Previous:</B> <A
- HREF="node19.html">Conditionals</A>
- &nbsp; <B>  <A ID="tex2html223"
+ HREF="node19.html">Quantisation</A>
+ &nbsp; <B>  <A ID="tex2html233"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H4><A ID="SECTION00044020000000000000">
-Loops</A>
-</H4>
-Imagine you want to calculate the average of the array <SPAN  CLASS="texttt">y</SPAN>.
-<PRE>
-s = 0.0
-for i in range(len(y)):
-    s = s + y[i]
-print("Average:",s/len(y))
-</PRE>
-The &ldquo;for&rdquo; statement iterates through all elements of an array with
-the help of a list created by the &ldquo;range&rdquo; command. This is very much
-C-like. However Python, as for example in C++11 or Swift, allows iterating over the array elements
-themselves:
-<PRE>
-s = 0.0
-for v in y:
-    s = s + v
-print("Average:",s/len(y))
-</PRE>
-which is a much more compact and safe way of coding as there will
-never be an out of bounds error.
+<H1><A ID="SECTION00060000000000000000">
+Frequency representation of signals</A>
+</H1>
+Often we are more interested in the frequency representation
+of signals than the evolution in time.
 
 <P>
-Important: the <SPAN  CLASS="textsl">indent</SPAN> indicates the commands which the loop
-iterates through. This is the general rule in python.
+We will use small letters for time domain representation
+and capital letters for the frequency representation, for example
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
+ ALT="$X(F)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img91.svg"
+ ALT="$x(t)$"></SPAN>.
 
 <P>
-See the Python documentation for other ways of creating loops.
+<BR> <HR>
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<P>
-<BR><HR>
-<ADDRESS>
-<p><br /><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a><br /></p>
-</ADDRESS>
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html234"
+  HREF="node21.html">Continuous time and frequency</A>
+<UL>
+<LI><A ID="tex2html235"
+  HREF="node21.html#SECTION00061100000000000000">Periodic signals</A>
+<LI><A ID="tex2html236"
+  HREF="node21.html#SECTION00061200000000000000">A-periodic signals</A>
+</UL>
+<BR>
+<LI><A ID="tex2html237"
+  HREF="node22.html">Sampled time and/or frequency</A>
+<UL>
+<LI><A ID="tex2html238"
+  HREF="node22.html#SECTION00062100000000000000">Discrete time Fourier Transform (DTFT)</A>
+<LI><A ID="tex2html239"
+  HREF="node22.html#SECTION00062200000000000000">The effect of time domain sampling on the spectrum (Sampling
+theorem)</A>
+<LI><A ID="tex2html240"
+  HREF="node22.html#SECTION00062300000000000000">Discrete Fourier Transform (DFT)</A>
+<LI><A ID="tex2html241"
+  HREF="node22.html#SECTION00062400000000000000">Properties of the DFT</A>
+<LI><A ID="tex2html242"
+  HREF="node22.html#SECTION00062500000000000000">Problems with finite length DFTs</A>
+<LI><A ID="tex2html243"
+  HREF="node22.html#SECTION00062600000000000000">Fast Fourier Transform</A>
+</UL>
+<BR>
+<LI><A ID="tex2html244"
+  HREF="node23.html">Software</A>
+<LI><A ID="tex2html245"
+  HREF="node24.html">Visualisation</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR> <HR>
+<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
 </BODY>
 </HTML>

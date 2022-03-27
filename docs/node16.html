@@ -3,11 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Tupels</TITLE>
-<META NAME="description" CONTENT="Tupels">
-<META NAME="keywords" CONTENT="digital_signal_processing">
+<TITLE>Importing data</TITLE>
+<META NAME="description" CONTENT="Digital Signal Processing">
+<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
+<META CHARSET="UTF-8">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
@@ -15,7 +16,6 @@
 
 <LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
 
-<LINK REL="next" HREF="node17.html">
 <LINK REL="previous" HREF="node15.html">
 <LINK REL="next" HREF="node17.html">
 </HEAD>
@@ -27,55 +27,83 @@
  HREF="node17.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node13.html">
+ HREF="node7.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node15.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html212"
+<A ID="tex2html214"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node17.html">numpy Arrays/Matrices</A>
+ HREF="node17.html">Signal conversion</A>
 <B> Up:</B> <A
- HREF="node13.html">Data types</A>
+ HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node15.html">Lists</A>
- &nbsp; <B>  <A ID="tex2html213"
+ HREF="node15.html">Plotting of Functions</A>
+ &nbsp; <B>  <A ID="tex2html215"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<H4><A ID="SECTION00043030000000000000">
-Tupels</A>
-</H4>
-Tupels are similar to lists but they are rather used as
-&ldquo;containers&rdquo; to package up different variables into one variable. For
-example, you might want to put the sampling rate and the resolution of
-an ADC into a tuple as they belong together.
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A ID="tex2html216"
+  HREF="node16.html#SECTION00049010000000000000">Space/Tab/Comma separated data</A>
+<LI><A ID="tex2html217"
+  HREF="node16.html#SECTION00049020000000000000">WAV files</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
 
-<UL>
-<LI><SPAN  CLASS="texttt">p&nbsp;=&nbsp;(1,9,'kk')</SPAN> is a tupel with the two integer numbers 1,2 and 'kk'.
-</LI>
-<LI>The round brackets are often omitted:
-  <SPAN  CLASS="texttt">p&nbsp;=&nbsp;1,9,'kk'</SPAN> which implicitly defines a tupel.
-</LI>
-<LI><SPAN  CLASS="texttt">p[1]</SPAN> returns the 2nd element of the tupel (the index
-  counts from 0).
-</LI>
-<LI>Extracting a tupel into separate variables also works:
-  <SPAN  CLASS="texttt">a,b,c = p</SPAN> assigns 1 to a, 9 to b and 'kk' to c. This
-  is very convenient for functions if you want to return more than
-  one result. Just package them up into a tuple and return it.
-</LI>
-</UL>
+<H2><A ID="SECTION00049000000000000000">
+Importing data</A>
+</H2>
 
 <P>
-<BR><HR>
-<ADDRESS>
-<p><br /><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a><br /></p>
-</ADDRESS>
+
+<H4><A ID="SECTION00049010000000000000">
+Space/Tab/Comma separated data</A>
+</H4>
+Numpy has a very handy import function for data as long as the the
+elements in the data file are separated with spaces, tabs or
+commas. To load such data files just type in: <SPAN  CLASS="texttt">x =
+  np.loadtxt('mydatafile.dat')</SPAN>. This creates a two dimensional array
+which reflects exactly the structure in the datafile.
+
+<P>
+Thus, if you want to write software which creates Python
+readable data then just export the data as space/tab separated ASCII files.
+
+<P>
+
+<H4><A ID="SECTION00049020000000000000">
+WAV files</A>
+</H4>
+Scipy contains in its submodule io a subsubmodule wavfile which supports
+reading and writing wav files:
+<PRE>
+import scipy.io.wavfile as wavfile
+fs,data = wavfile.read('kongas.wav');
+</PRE>
+fs,data is a tuple containing the sampling rate and then the data.
+
+<P>
+<PRE>
+import scipy.io.wavfile as wavfile
+wavfile.write('kongas_filt.wav',fs,y3);
+</PRE>
+whereas 'fs' is the sampling rate and y3 the data &ndash; usually normalised between
+-1 and +1 for floating point numbers.
+
+<P>
+
+<P>
+<BR> <HR>
+<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
 </BODY>
 </HTML>

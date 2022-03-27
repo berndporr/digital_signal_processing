@@ -3,11 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Lists</TITLE>
-<META NAME="description" CONTENT="Lists">
-<META NAME="keywords" CONTENT="digital_signal_processing">
+<TITLE>Plotting of Functions</TITLE>
+<META NAME="description" CONTENT="Digital Signal Processing">
+<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
+<META CHARSET="UTF-8">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
@@ -27,64 +28,67 @@
  HREF="node16.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node13.html">
+ HREF="node7.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node14.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html210"
+<A ID="tex2html212"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node16.html">Tupels</A>
+ HREF="node16.html">Importing data</A>
 <B> Up:</B> <A
- HREF="node13.html">Data types</A>
+ HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node14.html">Numbers</A>
- &nbsp; <B>  <A ID="tex2html211"
+ HREF="node14.html">Mathematical functions</A>
+ &nbsp; <B>  <A ID="tex2html213"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H4><A ID="SECTION00043020000000000000">
-Lists</A>
-</H4>
-There are numerous data types in Python which allow storing
-collections of data. For DSP we need: lists, tupels and arrays. To clear
-up the confusion from the start we are going through them one
-by one. First up: lists!
-
-<UL>
-<LI><SPAN  CLASS="texttt">p&nbsp;=&nbsp;[1,9,77]</SPAN> is a list with the components 1,2 and 77.
-</LI>
-<LI><SPAN  CLASS="texttt">p[2]</SPAN> returns the third element of the list (the index
-  counts from 0). Note the index needs to be an integer so you might
-  need to cast a floating point variables first into an integer, for example
-  &ldquo;p[int(a)]&rdquo;.
-</LI>
-<LI><SPAN  CLASS="texttt">p[1:5]</SPAN> extracts from the list all elements from
-  index number 1 to index number 4 (!). The index 5 is excluded!
-  This is called splicing. Check out the online docs
-  for more examples.
-</LI>
-<LI><SPAN  CLASS="texttt">p&nbsp;=&nbsp;range(1,4)</SPAN> generates <SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img27.svg"
- ALT="$1, 2, 3$"></SPAN> which is the same as
-  a &ldquo;for loop&rdquo; in C: for(int i=1;i&lt;4;i++)
-</LI>
-<LI><SPAN  CLASS="texttt">p.append(10)</SPAN> adds a new element to the end of the
-  list. You see that lists are essentially classes with methods (see below)!
-  Check out the documentation for more options to manipulate lists.
-</LI>
-<LI><SPAN  CLASS="texttt">len(p2)</SPAN> provides the number of elements.
-</LI>
-</UL>
+<H2><A ID="SECTION00048000000000000000">
+Plotting of Functions</A>
+</H2>
+Pylab has a vast amount of plotting functions which supports simple plotting
+with just two commands (plot and show) up to complex animations of 3D data.
+Plotting a sine wave can be achieved with:
+<PRE> 
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0,2*np.pi,100)
+y = np.sin(x)
+plt.plot(x,y)
+plt.show()
+</PRE>
+where I have used the numpy linspace command to create an array which
+runs from 0 to two pi with 100 samples.
 
 <P>
-<BR><HR>
-<ADDRESS>
-<p><br /><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a><br /></p>
-</ADDRESS>
+If you want to create more plot-windows you can use the command
+<SPAN  CLASS="texttt">plt.figure</SPAN>. Access the windows with the commands <SPAN  CLASS="texttt">plt.figure(1)</SPAN>,
+<SPAN  CLASS="texttt">plt.figure(2)</SPAN>.
+
+<P>
+It is also possible to combine plot windows into one with the
+command <SPAN  CLASS="texttt">subplot</SPAN>.
+
+<P>
+How to make it look nice? Here is an example:
+<PRE>
+plt.xlabel('time (s)')
+plt.ylabel('voltage (V)')
+plt.title('That is an AC voltage over time!')
+plt.grid(True)
+</PRE>
+
+<P>
+Generally the best approach is to use an example and then customise it to your needs.
+
+<P>
+<BR> <HR>
+<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
 </BODY>
 </HTML>

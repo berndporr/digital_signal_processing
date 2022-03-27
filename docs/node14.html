@@ -3,11 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Numbers</TITLE>
-<META NAME="description" CONTENT="Numbers">
-<META NAME="keywords" CONTENT="digital_signal_processing">
+<TITLE>Mathematical functions</TITLE>
+<META NAME="description" CONTENT="Digital Signal Processing">
+<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
+<META CHARSET="UTF-8">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
@@ -27,55 +28,47 @@
  HREF="node15.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node13.html">
+ HREF="node7.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node13.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html208"
+<A ID="tex2html210"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node15.html">Lists</A>
+ HREF="node15.html">Plotting of Functions</A>
 <B> Up:</B> <A
- HREF="node13.html">Data types</A>
+ HREF="node7.html">Python</A>
 <B> Previous:</B> <A
- HREF="node13.html">Data types</A>
- &nbsp; <B>  <A ID="tex2html209"
+ HREF="node13.html">Classes</A>
+ &nbsp; <B>  <A ID="tex2html211"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H4><A ID="SECTION00043010000000000000">
-Numbers</A>
-</H4>
-Numbers are represented in a standard way, including complex numbers:
-
-<UL>
-<LI><SPAN  CLASS="texttt">6E23</SPAN><!-- MATH
- $=6\cdot 10^{23}$
- -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img26.svg"
- ALT="$=6\cdot 10^{23}$"></SPAN>
-</LI>
-<LI><SPAN  CLASS="texttt">6+2j</SPAN> is a complex number which is just generated
-  by adding a &ldquo;j&rdquo; to the imaginary part.
-</LI>
-<LI><SPAN  CLASS="texttt">complex(0,1)</SPAN> creates 1j and is useful if you have
-  variables which you want to combine into a complex number.
-</LI>
-</UL>
-Note that python has implicit types which might make you trip
-over. If you write &ldquo;a=1&rdquo; then &ldquo;a&rdquo; is an integer whereas
-&ldquo;a=1.0&rdquo; is a floating point number. You can force a certain type by using
-the typecast operator, for example &ldquo; a = int(b)&rdquo; to create an integer.
+<H2><A ID="SECTION00047000000000000000">
+Mathematical functions</A>
+</H2>
+Just import the numpy library which contains all the
+mathematical functions and constants such as pi.
+<SPAN  CLASS="texttt">import numpy as np</SPAN>. It has all the standard functions such
+as np.sin, np.cos, np.tan, np.exp, ....
 
 <P>
-<BR><HR>
-<ADDRESS>
-<p><br /><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a><br /></p>
-</ADDRESS>
+Note that these functions also take arrays as arguments. For example,
+inputting the array x into the sine:
+<PRE>
+x = np.array(range(6))
+y = np.sin(x);
+</PRE>
+yields again an array in y! All elements have been processed at the 
+<SPAN  CLASS="textit">same</SPAN> time.
+
+<P>
+<BR> <HR>
+<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
 </BODY>
 </HTML>

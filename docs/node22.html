@@ -3,11 +3,12 @@
 <!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
 <HTML lang="EN">
 <HEAD>
-<TITLE>Classes</TITLE>
-<META NAME="description" CONTENT="Classes">
-<META NAME="keywords" CONTENT="digital_signal_processing">
+<TITLE>Sampled time and/or frequency</TITLE>
+<META NAME="description" CONTENT="Digital Signal Processing">
+<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
+<META CHARSET="UTF-8">
 
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
@@ -27,74 +28,1042 @@
  HREF="node23.html">
 <IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
 <A
- HREF="node7.html">
+ HREF="node20.html">
 <IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up.png"></A> 
 <A
  HREF="node21.html">
 <IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev.png"></A> 
-<A ID="tex2html226"
+<A ID="tex2html250"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
 <BR>
 <B> Next:</B> <A
- HREF="node23.html">Mathematical functions</A>
+ HREF="node23.html">Software</A>
 <B> Up:</B> <A
- HREF="node7.html">Python</A>
+ HREF="node20.html">Frequency representation of signals</A>
 <B> Previous:</B> <A
- HREF="node21.html">Functions</A>
- &nbsp; <B>  <A ID="tex2html227"
+ HREF="node21.html">Continuous time and frequency</A>
+ &nbsp; <B>  <A ID="tex2html251"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A ID="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
 
-<H2><A ID="SECTION00046000000000000000">
-Classes</A>
+<UL CLASS="ChildLinks">
+<LI><A ID="tex2html252"
+  HREF="node22.html#SECTION00062100000000000000">Discrete time Fourier Transform (DTFT)</A>
+<LI><A ID="tex2html253"
+  HREF="node22.html#SECTION00062200000000000000">The effect of time domain sampling on the spectrum (Sampling
+theorem)</A>
+<LI><A ID="tex2html254"
+  HREF="node22.html#SECTION00062300000000000000">Discrete Fourier Transform (DFT)</A>
+<LI><A ID="tex2html255"
+  HREF="node22.html#SECTION00062400000000000000">Properties of the DFT</A>
+<LI><A ID="tex2html256"
+  HREF="node22.html#SECTION00062500000000000000">Problems with finite length DFTs</A>
+<LI><A ID="tex2html257"
+  HREF="node22.html#SECTION00062600000000000000">Fast Fourier Transform</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H2><A ID="SECTION00062000000000000000">
+Sampled time and/or frequency</A>
 </H2>
-Classes contain functions and variables. They usually
-have a constructor called <SPAN  CLASS="texttt">init</SPAN> which is a special function which is called
-when an instance of a class is created.
-<PRE>
-class MyAmazingClass:
-    def __init__(self,coeff):
-        # Your init code here.
-        self.mylocalcoeff = coeff
-
-    def doSomeProcessing(self,data):
-        # we process data
-        data = data * self.mylocalcoeff
-        return data
-</PRE>
-(!) Note the special variable &ldquo;self&rdquo; which is <SPAN  CLASS="textsl">the first</SPAN>
-argument of every method in a class. Variables which
-are part of the class are references by &ldquo;self&rdquo;. For
-example the constructor argument &ldquo;coeff&rdquo; is saved
-in the class as &ldquo;mylocalcoeff&rdquo; and is then available
-throughout the lifetime of the class as &ldquo;self.mylocalcoeff&rdquo;. When we call
-the method &ldquo;doSomeProcessing&rdquo; then &ldquo;self.mylocalcoeff&rdquo;
-is multiplied with the &ldquo;data&rdquo; argument and the result
-is returned. Anything which hasn't got &ldquo;self.&rdquo; in front
-of it will be forgotten after the function has terminated.
-In this way you distinguish which variables are kept
-for the lifetime of the class or
-are just used temporarily.
 
 <P>
-Classes are just types and need to be instantiated:
-<PRE>
-f = MyAmazingClass(5)
-a = f.doSomeProcessing(10)
-b = f.doSomeProcessing(20)
-</PRE>
-which will give us 50 as a result for the variable &ldquo;a&rdquo; and
-100 for the variable &ldquo;b&rdquo;. The variable &ldquo;f&rdquo; is the instance
-of the class MyAmazingClass and the argument initialises
-self.mylocalcoeff with 5.
+
+<H3><A ID="SECTION00062100000000000000">
+Discrete time Fourier Transform (DTFT)</A>
+</H3>
 
 <P>
-<BR><HR>
-<ADDRESS>
-<p><br /><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a><br /></p>
-</ADDRESS>
+The signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> is discrete whereas the resulting frequency
+spectrum is considered as continuous (arbitrary signals).
+
+<P>
+
+<UL>
+<LI>Analysis or direct transform:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X(\omega)=\sum_{n=-\infty}^{\infty} x(n) e^{-j\omega n}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.94ex; vertical-align: -2.59ex; " SRC="img115.svg"
+ ALT="$\displaystyle X(\omega)=\sum_{n=-\infty}^{\infty} x(n) e^{-j\omega n}
+$"> 
+
+(<SPAN CLASS="arabic">37</SPAN>)
+</DIV>
+
+<P>
+</LI>
+<LI>Synthesis or inverse transform:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+x(n) & = & \frac{1}{2\pi} \int_{-\pi}^{\pi} X(\omega) e^{j\omega n} d\omega \\
+     & = & \frac{1}{2\pi} \int_{-0.5}^{0.5} X(f) e^{j 2\pi f n} dt
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img116.svg"
+ ALT="$\displaystyle x(n)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img117.svg"
+ ALT="$\displaystyle \frac{1}{2\pi} \int_{-\pi}^{\pi} X(\omega) e^{j\omega n} d\omega$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">38</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.96ex; vertical-align: -1.86ex; " SRC="img118.svg"
+ ALT="$\displaystyle \frac{1}{2\pi} \int_{-0.5}^{0.5} X(f) e^{j 2\pi f n} dt$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">39</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+note the range here. <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img4.svg"
+ ALT="$f$"></SPAN> is the normalised frequency.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<H3><A ID="SECTION00062200000000000000">
+The effect of time domain sampling on the spectrum (Sampling
+theorem)</A>
+</H3>
+
+<DIV class="CENTER"><A ID="periodic_ny"></A><A ID="1644"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 5:</STRONG>
+Effect of sampling on the spectrum.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img119.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{periodic_ny}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+What effect has time domain sampling on the frequency spectrum<A ID="tex2html7"
+  HREF="footnode.html#foot1645"><SUP><SPAN CLASS="arabic">2</SPAN></SUP></A>? Imagine we
+have an analog spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img120.svg"
+ ALT="$X_a(F)$"></SPAN> from a continuous signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img91.svg"
+ ALT="$x(t)$"></SPAN>. We want
+to know how the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
+ ALT="$X(F)$"></SPAN> of the discrete signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> looks like.
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X(F) \Leftrightarrow X_a(F)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img121.svg"
+ ALT="$\displaystyle X(F) \Leftrightarrow X_a(F)
+$"> 
+
+(<SPAN CLASS="arabic">40</SPAN>)
+</DIV>
+The signal is represented by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> so that
+we can equate the Fourier transforms of the sampled spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
+ ALT="$X(F)$"></SPAN> and
+of the analogue spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img120.svg"
+ ALT="$X_a(F)$"></SPAN>. 
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\int_{-0.5}^{0.5} \underbrace{X(f)}_{\mbox{sampled}} e^{j 2 \pi f n} df =
+\int_{-\infty}^{+\infty} \underbrace{X_a(F)}_{\mbox{cont}} e^{j 2\pi n F/F_s} dF
+\end{equation}
+ -->
+ &nbsp;  <A ID="sampl_idea"></A><IMG STYLE="height: 7.59ex; vertical-align: -4.51ex; " SRC="img122.svg"
+ ALT="$\displaystyle \int_{-0.5}^{0.5} \underbrace{X(f)}_{\mbox{sampled}} e^{j 2 \pi f...
+...nt_{-\infty}^{+\infty} \underbrace{X_a(F)}_{\mbox{cont}} e^{j 2\pi n F/F_s} dF
+$"> 
+
+(<SPAN CLASS="arabic">41</SPAN>)
+</DIV>
+Obviously <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img123.svg"
+ ALT="$X(f)$"></SPAN> must be different to accommodate the different integration
+ranges. The trick is now to divide the integral on the right hand side 
+of Eq.&nbsp;<A HREF="#sampl_idea">41</A> 
+into chunks to make it compatible to the range on the left hand
+hand side.
+
+<P>
+Remember that the normalised frequency is <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img124.svg"
+ ALT="$f=F/F_s$"></SPAN> which allows us
+to change the integration to analogue frequency on both sides:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+\frac{1}{F_s} \int_{-F_s/2}^{F_s/2} X(\frac{F}{F_s}) e^{j 2 \pi n F/F_s} dF
+=
+\int_{-\infty}^{+\infty} X_a(F) e^{j 2\pi n F/F_s} dF
+\end{equation}
+ -->
+ &nbsp;  <A ID="sampl_ana_dig"></A><IMG STYLE="height: 5.33ex; vertical-align: -2.08ex; " SRC="img125.svg"
+ ALT="$\displaystyle \frac{1}{F_s} \int_{-F_s/2}^{F_s/2} X(\frac{F}{F_s}) e^{j 2 \pi n F/F_s} dF
+=
+\int_{-\infty}^{+\infty} X_a(F) e^{j 2\pi n F/F_s} dF
+$"> 
+
+(<SPAN CLASS="arabic">42</SPAN>)
+</DIV>
+and now we divide the right hand side into chunks of <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img5.svg"
+ ALT="$F_s$"></SPAN> which corresponds
+to the integration range on the left hand side.
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+\int_{-\infty}^{+\infty} X_a(F) e^{j 2\pi n \frac{F}{F_s}} dF
+& = &
+\sum_{k=-\infty}^{\infty} \int_{-\frac{1}{2} F_s + k F_s}^{+\frac{1}{2} F_s + k F_s} X_a(F) e^{j2\pi n \frac{F}{F_s}} dF \\
+& = &
+\sum_{k=-\infty}^{\infty} \int_{-\frac{1}{2} F_s}^{+\frac{1}{2} F_s} X_a(F-k F_s) \underbrace{e^{j2\pi n\frac{F}{F_s}}}_{k F_s \mbox{ omit.}} dF \\
+& = &
+\int_{-\frac{1}{2} F_s}^{+\frac{1}{2} F_s} \underbrace{\sum_{k=-\infty}^{\infty} X_a(F-k F_s)}_{=X(F) \mbox{ of Eq.~\ref{sampl_ana_dig}}} e^{j2\pi n\frac{F}{F_s}} dF
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 4.90ex; vertical-align: -1.86ex; " SRC="img126.svg"
+ ALT="$\displaystyle \int_{-\infty}^{+\infty} X_a(F) e^{j 2\pi n \frac{F}{F_s}} dF$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.19ex; vertical-align: -2.73ex; " SRC="img127.svg"
+ ALT="$\displaystyle \sum_{k=-\infty}^{\infty} \int_{-\frac{1}{2} F_s + k F_s}^{+\frac{1}{2} F_s + k F_s} X_a(F) e^{j2\pi n \frac{F}{F_s}} dF$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">43</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.11ex; vertical-align: -3.66ex; " SRC="img128.svg"
+ ALT="$\displaystyle \sum_{k=-\infty}^{\infty} \int_{-\frac{1}{2} F_s}^{+\frac{1}{2} F_s} X_a(F-k F_s) \underbrace{e^{j2\pi n\frac{F}{F_s}}}_{k F_s \mbox{ omit.}} dF$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">44</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 10.03ex; vertical-align: -6.58ex; " SRC="img129.svg"
+ ALT="% latex2html id marker 6130
+$\displaystyle \int_{-\frac{1}{2} F_s}^{+\frac{1}{2...
+...-k F_s)}_{=X(F) \mbox{ of Eq.~\ref{sampl_ana_dig}}} e^{j2\pi n\frac{F}{F_s}} dF$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">45</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This gives us now an equation for the sampled spectrum:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+X(F/F_s) & = & F_s \sum_{k=-\infty}^{\infty} X_a(F-kF_s) \\
+X(f) & = & F_s \sum_{k=-\infty}^{\infty} X_a[(f-k)F_s]
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img130.svg"
+ ALT="$\displaystyle X(F/F_s)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.07ex; vertical-align: -2.73ex; " SRC="img131.svg"
+ ALT="$\displaystyle F_s \sum_{k=-\infty}^{\infty} X_a(F-kF_s)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">46</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img132.svg"
+ ALT="$\displaystyle X(f)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.07ex; vertical-align: -2.73ex; " SRC="img133.svg"
+ ALT="$\displaystyle F_s \sum_{k=-\infty}^{\infty} X_a[(f-k)F_s]$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">47</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This equation can now be interpreted. In order to get the sampled
+spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
+ ALT="$X(F)$"></SPAN> we need to make copies of the analog spectrum
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img120.svg"
+ ALT="$X_a(F)$"></SPAN> and place these copies at multiples of the sampling rate
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img5.svg"
+ ALT="$F_s$"></SPAN> (see Fig.&nbsp;<A HREF="#periodic_ny">5</A>). This illustrates also the
+<SPAN  CLASS="textsl">sampling theorem</SPAN>: if the bandwidth of the spectrum is wider
+than <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
+ ALT="$F_s/2$"></SPAN> then the copies of the analogue spectrum will overlap and
+reconstruction would be impossible. This is called aliasing. Note that
+it is not necessary bad that the spectrum of the analogue signal lies
+within the range of the so called &ldquo;base band&rdquo; <!-- MATH
+ $-F/2 \ldots F/2$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img135.svg"
+ ALT="$-F/2 \ldots F/2$"></SPAN>. It
+can also lie in another frequency range further up, for example <!-- MATH
+ $-F/2
++ 34 \ldots F/2 +34$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img136.svg"
+ ALT="$-F/2
++ 34 \ldots F/2 +34$"></SPAN> as long as the
+<SPAN  CLASS="textsl">bandwidth</SPAN> does not exceed <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
+ ALT="$F_s/2$"></SPAN>. If it is placed further up
+it will automatically show up in the baseband <!-- MATH
+ $-F/2 \ldots F/2$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img135.svg"
+ ALT="$-F/2 \ldots F/2$"></SPAN> which
+is called &ldquo;fold down&rdquo;. This can be used for our purposes if we
+want to down mix a signal.
+
+<P>
+
+<DIV class="CENTER"><A ID="fold_down"></A><A ID="1662"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 6:</STRONG>
+Mapping of frequencies in the analogue domain (<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img3.svg"
+ ALT="$F$"></SPAN>)
+and sampled domain (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img4.svg"
+ ALT="$f$"></SPAN>). <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img5.svg"
+ ALT="$F_s$"></SPAN> is the sampling rate.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img137.svg"
+ ALT="\includegraphics[width=\textwidth]{fold_down}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+With the insight from these equations we can create
+a plot of how analogue frequencies map onto sampled frequencies.
+Fig&nbsp;<A HREF="#fold_down">6</A> shows how the analogue frequencies <!-- MATH
+ $F_\textrm{analogue}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.94ex; vertical-align: -1.32ex; " SRC="img138.svg"
+ ALT="$F_\textrm{analogue}$"></SPAN>
+map on the normalised frequencies <!-- MATH
+ $f_\textrm{sampled}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.96ex; vertical-align: -1.32ex; " SRC="img139.svg"
+ ALT="$f_\textrm{sampled}$"></SPAN>.
+As long as the analogue frequencies are below <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
+ ALT="$F_s/2$"></SPAN> the mapping
+is as usual as shown in Fig&nbsp;<A HREF="#fold_down">6</A>A. 
+Between <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
+ ALT="$F_s/2$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img5.svg"
+ ALT="$F_s$"></SPAN> we have an inverse mapping:
+an increase in analogue frequency causes a decrease in frequencies.
+Then, from <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img5.svg"
+ ALT="$F_s$"></SPAN> we have again an increase in frequencies starting
+from DC. So,
+in general if we keep a bandlimited signal within one of these
+slopes (for example from <!-- MATH
+ $F_s \ldots F_s + 1/2 F_s$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img140.svg"
+ ALT="$F_s \ldots F_s + 1/2 F_s$"></SPAN> as 
+shown in Fig&nbsp;<A HREF="#fold_down">6</A>B) then we can
+reproduce the signal.
+
+<P>
+This leads us to the generalised Nyquist theorem: if a bandpass
+filtered signal has a bandwidth of <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img60.svg"
+ ALT="$B$"></SPAN> then the minimum sampling
+frequency is <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img141.svg"
+ ALT="$F_s = 2B$"></SPAN>.
+
+<P>
+
+<H3><A ID="SECTION00062300000000000000">
+Discrete Fourier Transform (DFT)</A>
+</H3>
+So far we have only sampled in the time domain. However, on
+a digital computer the Fourier spectrum will always be a discrete
+spectrum.
+
+<P>
+The discrete Fourier Transform (DFT) is defined as:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X(k) = \sum_{n=0}^{N-1} x(n) e^{-j2\pi kn / N} \qquad k=0,1,2, \ldots, N-1
+\end{equation}
+ -->
+ &nbsp;  <A ID="DFT"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img142.svg"
+ ALT="$\displaystyle X(k) = \sum_{n=0}^{N-1} x(n) e^{-j2\pi kn / N} \qquad k=0,1,2, \ldots, N-1
+$"> 
+
+(<SPAN CLASS="arabic">48</SPAN>)
+</DIV>
+where <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
+ ALT="$N$"></SPAN> is the number of samples in both the time and frequency domain.
+
+<P>
+The inverse discrete Fourier Transform (IDFT) is defined as:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x(n) = \frac{1}{N} \sum_{k=0}^{N-1} X(k) e^{j 2\pi kn/N} \qquad n=0,1,2,\ldots, N-1
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.29ex; vertical-align: -2.57ex; " SRC="img143.svg"
+ ALT="$\displaystyle x(n) = \frac{1}{N} \sum_{k=0}^{N-1} X(k) e^{j 2\pi kn/N} \qquad n=0,1,2,\ldots, N-1
+$"> 
+
+(<SPAN CLASS="arabic">49</SPAN>)
+</DIV>
+
+<P>
+
+<DIV class="CENTER"><A ID="time_alias"></A><A ID="1664"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 7:</STRONG>
+Effect of sampling in the frequency domain. The
+inverse in the time domain <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> contains repetitions of
+the original signal.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img144.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{time_alias}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+What is the effect in the timedomain of this discretisation<A ID="tex2html10"
+  HREF="footnode.html#foot1665"><SUP><SPAN CLASS="arabic">3</SPAN></SUP></A>? We start with
+the continuous Fourier transform
+and discretise it into N samples in the frequency domain:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X\left(\frac{2\pi}{N}k\right) = \sum_{n = -\infty}^{\infty} x(n) e^{-j\frac{2\pi}{N}kn} \qquad k = 0, \ldots, N-1
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.94ex; vertical-align: -2.59ex; " SRC="img145.svg"
+ ALT="$\displaystyle X\left(\frac{2\pi}{N}k\right) = \sum_{n = -\infty}^{\infty} x(n) e^{-j\frac{2\pi}{N}kn} \qquad k = 0, \ldots, N-1
+$"> 
+
+(<SPAN CLASS="arabic">50</SPAN>)
+</DIV>
+
+<P>
+Let's subdivide the sum into chunks of length <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
+ ALT="$N$"></SPAN>:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+X\left(\frac{2\pi}{N}k\right)
+& = &
+\sum_{l = -\infty}^{\infty} \sum_{n=lN}^{lN+N-1} x(n)e^{-j \frac{2\pi}{N}kn} \\
+& = & \sum_{l=-\infty}^{\infty} \sum_{n=0}^{N-1} x(n-lN) e^{-j \frac{2\pi}{N} kn} \\
+& = & \sum_{n=0}^{N-1} \underbrace{\sum_{l=-\infty}^{\infty} x(n - lN)}_{\mbox{Periodic repetition!}} e^{-j \frac{2\pi}{N}kn}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img146.svg"
+ ALT="$\displaystyle X\left(\frac{2\pi}{N}k\right)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.47ex; vertical-align: -2.73ex; " SRC="img147.svg"
+ ALT="$\displaystyle \sum_{l = -\infty}^{\infty} \sum_{n=lN}^{lN+N-1} x(n)e^{-j \frac{2\pi}{N}kn}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">51</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.45ex; vertical-align: -2.73ex; " SRC="img148.svg"
+ ALT="$\displaystyle \sum_{l=-\infty}^{\infty} \sum_{n=0}^{N-1} x(n-lN) e^{-j \frac{2\pi}{N} kn}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">52</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 10.29ex; vertical-align: -6.58ex; " SRC="img149.svg"
+ ALT="$\displaystyle \sum_{n=0}^{N-1} \underbrace{\sum_{l=-\infty}^{\infty} x(n - lN)}_{\mbox{Periodic repetition!}} e^{-j \frac{2\pi}{N}kn}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">53</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+We note the following:
+
+<UL>
+<LI>Ambiguity in the time domain
+</LI>
+<LI>The signal is repeated every N samples
+</LI>
+</UL>
+Practically this repetition won't show up because
+the number of samples is limited to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
+ ALT="$N$"></SPAN> in the inverse transform.
+However, for operations which shift signals in the frequency domain
+it is important to remember that we shift a periodic time series. If
+we shift it out at the end of the array we will get it back at the
+start of the array.
+
+<P>
+
+<DIV class="CENTER"><A ID="dft_example"></A><A ID="1673"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 8:</STRONG>
+Example of a DFT. The sampled signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> is
+converted to the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img7.svg"
+ ALT="$X(k)$"></SPAN>. Both have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
+ ALT="$N$"></SPAN> samples.
+Note the redundancy: the spectrum is mirrored around <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img9.svg"
+ ALT="$N/2$"></SPAN>.
+The first value <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img10.svg"
+ ALT="$X(0)$"></SPAN> is the DC value of the signal. However
+this is the only sample which is not mirrored.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img150.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{dft_example}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+Fig.&nbsp;<A HREF="#dft_example">8</A> shows an example of a DFT. It is important
+to know that the spectrum is mirrored around <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img9.svg"
+ ALT="$N/2$"></SPAN>. DC is represented
+by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img10.svg"
+ ALT="$X(0)$"></SPAN> and the Nyquist frequency <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img134.svg"
+ ALT="$F_s/2$"></SPAN> is represented by
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img151.svg"
+ ALT="$X(N/2)$"></SPAN>. The mirroring occurs because the input signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>
+is <SPAN  CLASS="textsl">real</SPAN>. This is important if one wants to modify the
+spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
+ ALT="$X(F)$"></SPAN> by hand, for example to eliminate 50Hz noise. One
+needs to zero two elements of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img90.svg"
+ ALT="$X(F)$"></SPAN> to zero. This is illustrated
+in this python code:
+<PRE>
+import scipy as sp
+yf=sp.fft(y)
+# the sampling rate is 1kHz. We've got 2000 samples.
+# midpoint at the ifft is 1000 which corresponds to 500Hz
+# So, 100 corresponds to 50Hz
+yf[99:101+1]=0;
+# and the mirror
+yf[1899:1901+1]=0;
+#
+yi=sp.ifft(yf);
+</PRE>
+This filters out the 50Hz hum from the signal <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img152.svg"
+ ALT="$y$"></SPAN> with sampling rate
+1000Hz. The signal <SPAN  CLASS="texttt">yi</SPAN> should be real valued again or contain
+only very small complex numbers due to numerical errors.
+
+<P>
+
+<H3><A ID="SECTION00062400000000000000">
+Properties of the DFT</A>
+</H3>
+
+<UL>
+<LI>Periodicity:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+x(n + N) & = & x(n) \\
+X(k + N) & = & X(k)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img153.svg"
+ ALT="$\displaystyle x(n + N)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img116.svg"
+ ALT="$\displaystyle x(n)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">54</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img154.svg"
+ ALT="$\displaystyle X(k + N)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img155.svg"
+ ALT="$\displaystyle X(k)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">55</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+</LI>
+<LI>Symmetry: if <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN> real:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x(n)\mbox{ is real} \Leftrightarrow X^*(k) = X(-k) = X(N-k)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img156.svg"
+ ALT="$\displaystyle x(n)\mbox{ is real} \Leftrightarrow X^*(k) = X(-k) = X(N-k)
+$"> 
+
+(<SPAN CLASS="arabic">56</SPAN>)
+</DIV>
+This is important when manipulating <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img7.svg"
+ ALT="$X(k)$"></SPAN> by hand.
+
+<P>
+</LI>
+<LI>Time Reversal:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+x(n) & \leftrightarrow & X(k) \\
+x(-n)& \leftrightarrow & X(N - k)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img116.svg"
+ ALT="$\displaystyle x(n)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.01ex; vertical-align: -0.09ex; " SRC="img157.svg"
+ ALT="$\textstyle \leftrightarrow$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img155.svg"
+ ALT="$\displaystyle X(k)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">57</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img158.svg"
+ ALT="$\displaystyle x(-n)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.01ex; vertical-align: -0.09ex; " SRC="img157.svg"
+ ALT="$\textstyle \leftrightarrow$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img159.svg"
+ ALT="$\displaystyle X(N - k)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">58</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textsl">Circular</SPAN> convolution:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X_{1}(k) X_{2}(k) \leftrightarrow x_1(n) * x_2(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img160.svg"
+ ALT="$\displaystyle X_{1}(k) X_{2}(k) \leftrightarrow x_1(n) * x_2(n)
+$"> 
+
+(<SPAN CLASS="arabic">59</SPAN>)
+</DIV>
+with
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x_{3}(m) = \sum_{n = 0}^{N - 1} x_{1}(n) x_{2}(m - n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img161.svg"
+ ALT="$\displaystyle x_{3}(m) = \sum_{n = 0}^{N - 1} x_{1}(n) x_{2}(m - n)
+$"> 
+
+(<SPAN CLASS="arabic">60</SPAN>)
+</DIV>
+</LI>
+</UL>
+More useful equations are at <A
+ HREF="node35.html#Proakis1996">Proakis and Manolakis (1996, pp.415)</A>.
+
+<P>
+
+<H3><A ID="SECTION00062500000000000000">
+Problems with finite length DFTs</A>
+</H3>
+
+<DIV class="CENTER"><A ID="windowing_dft"></A><A ID="1675"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 9:</STRONG>
+The effect of windowing on the DFT.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img162.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{windowing_dft}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+x_w(n) = x(n) \cdot w(n)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img163.svg"
+ ALT="$\displaystyle x_w(n) = x(n) \cdot w(n)
+$"> 
+
+(<SPAN CLASS="arabic">61</SPAN>)
+</DIV>
+where <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img164.svg"
+ ALT="$x$"></SPAN> is the input signal and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img165.svg"
+ ALT="$w(n)$"></SPAN> represents a function
+which is <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img97.svg"
+ ALT="$1$"></SPAN> from <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img166.svg"
+ ALT="$n=0$"></SPAN> to <SPAN CLASS="MATH"><IMG STYLE="height: 1.91ex; vertical-align: -0.28ex; " SRC="img167.svg"
+ ALT="$n=L-1$"></SPAN> so that we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$L$"></SPAN> samples
+from the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img6.svg"
+ ALT="$x(n)$"></SPAN>.
+
+<P>
+To illustrate the effect of this finite sequence we introduce a sine
+wave <!-- MATH
+ $x(n) = \cos \omega_0 n$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img168.svg"
+ ALT="$x(n) = \cos \omega_0 n$"></SPAN> which has just two peaks in a proper
+Fourier spectrum at <SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.28ex; " SRC="img169.svg"
+ ALT="$-\omega$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.65ex; vertical-align: -0.27ex; " SRC="img170.svg"
+ ALT="$+\omega$"></SPAN>.
+
+<P>
+The spectrum of the rectangular window with the width <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img75.svg"
+ ALT="$L$"></SPAN> is:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+W(\omega) = \frac{sin(\omega L /2)}{sin (\omega / 2)} e^{-j\omega (L -1)/2}
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 5.48ex; vertical-align: -2.20ex; " SRC="img171.svg"
+ ALT="$\displaystyle W(\omega) = \frac{sin(\omega L /2)}{sin (\omega / 2)} e^{-j\omega (L -1)/2}
+$"> 
+
+(<SPAN CLASS="arabic">62</SPAN>)
+</DIV>
+
+<P>
+The resulting spectrum is then:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X_{3}(\omega) = X(\omega) * W(\omega)
+\end{equation}
+ -->
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img172.svg"
+ ALT="$\displaystyle X_{3}(\omega) = X(\omega) * W(\omega)
+$"> 
+
+(<SPAN CLASS="arabic">63</SPAN>)
+</DIV>
+
+<P>
+Because the spectrum of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img173.svg"
+ ALT="$X(\omega)$"></SPAN> consists of just two delta functions
+the spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img174.svg"
+ ALT="$X_{3}(\omega)$"></SPAN> contains the window spectrum <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img175.svg"
+ ALT="$W(\omega)$"></SPAN> twice at
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.68ex; vertical-align: -0.28ex; " SRC="img169.svg"
+ ALT="$-\omega$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.65ex; vertical-align: -0.27ex; " SRC="img170.svg"
+ ALT="$+\omega$"></SPAN> (see Fig.&nbsp;<A HREF="#windowing_dft">9</A>). This
+is called <SPAN  CLASS="textsl">leakage</SPAN>. Solutions to solve the leakage problem?
+Use Windows with a narrower spectrum and with less ripples
+(see FIR filters).
+
+<P>
+
+<H3><A ID="SECTION00062600000000000000">
+Fast Fourier Transform</A>
+</H3>
+
+<P>
+We can rewrite the DFT (Eq.&nbsp;<A HREF="#DFT">48</A>) in a slightly more compact form:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X(k) = \sum_{n = 0}^{N-1}  x(n) W_{N}^{kn}
+\end{equation}
+ -->
+ &nbsp;  <A ID="compactDFT"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img176.svg"
+ ALT="$\displaystyle X(k) = \sum_{n = 0}^{N-1} x(n) W_{N}^{kn}
+$"> 
+
+(<SPAN CLASS="arabic">64</SPAN>)
+</DIV>
+with the constant:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+W_{N} = e^{-j 2\pi/N}
+\end{equation}
+ -->
+ &nbsp;  <A ID="constWN"></A><IMG STYLE="height: 2.57ex; vertical-align: -0.43ex; " SRC="img177.svg"
+ ALT="$\displaystyle W_{N} = e^{-j 2\pi/N}
+$"> 
+
+(<SPAN CLASS="arabic">65</SPAN>)
+</DIV>
+The problem with the DFT is that it needs <SPAN CLASS="MATH"><IMG STYLE="height: 1.96ex; vertical-align: -0.09ex; " SRC="img178.svg"
+ ALT="$N^2$"></SPAN> multiplications.
+How can we reduce the number of multiplications?
+Idea: Let's divide the DFT in an odd and an even sequence:
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+& x(2m) & \\
+& x(2m + 1), & \qquad m = 0, ..... , \frac{N}{2} - 1
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img179.svg"
+ ALT="$\textstyle x(2m)$"></TD>
+<TD>&nbsp;</TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">66</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img180.svg"
+ ALT="$\textstyle x(2m + 1),$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.77ex; vertical-align: -1.64ex; " SRC="img181.svg"
+ ALT="$\displaystyle \qquad m = 0, ..... , \frac{N}{2} - 1$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">67</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which gives us with the trick <!-- MATH
+ $W_N^{2mk} = W_{N/2}^{mk}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 3.02ex; vertical-align: -1.08ex; " SRC="img182.svg"
+ ALT="$W_N^{2mk} = W_{N/2}^{mk}$"></SPAN> because of the
+definition Eq.&nbsp;<A HREF="#constWN">65</A>.
+<BR>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+X(k) & = & \sum_{m=0}^{N/2-1} x(2m) W_{N}^{2mk} + \sum_{m=0}^{N/2 - 1}  x(2m + 1) W_{N}^{k (2m + 1)} \\
+& = & \sum_{m=0}^{N/2-1} x(2m) W_{N/2}^{mk} + W_{N}^{k} \sum_{m = 0}^{N/2 - 1} x(2m + 1) W_{N/2}^{mk} \\
+& = & F_{e}(k) + W_{N}^{k} F_{o}(k)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img155.svg"
+ ALT="$\displaystyle X(k)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.53ex; vertical-align: -2.50ex; " SRC="img183.svg"
+ ALT="$\displaystyle \sum_{m=0}^{N/2-1} x(2m) W_{N}^{2mk} + \sum_{m=0}^{N/2 - 1} x(2m + 1) W_{N}^{k (2m + 1)}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">68</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.53ex; vertical-align: -2.50ex; " SRC="img184.svg"
+ ALT="$\displaystyle \sum_{m=0}^{N/2-1} x(2m) W_{N/2}^{mk} + W_{N}^{k} \sum_{m = 0}^{N/2 - 1} x(2m + 1) W_{N/2}^{mk}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">69</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img185.svg"
+ ALT="$\displaystyle F_{e}(k) + W_{N}^{k} F_{o}(k)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">70</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img186.svg"
+ ALT="$F_e$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.06ex; vertical-align: -0.43ex; " SRC="img187.svg"
+ ALT="$F_o$"></SPAN> have both half the length of the original sequence and
+need only <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img188.svg"
+ ALT="$(N/2)^2$"></SPAN> multiplication, so in total <!-- MATH
+ $2 \cdot (N/2)^2 = \frac{N^2}{2}$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 3.09ex; vertical-align: -0.87ex; " SRC="img189.svg"
+ ALT="$2 \cdot (N/2)^2 = \frac{N^2}{2}$"></SPAN>.
+Basically by dividing the sequence in even and odd parts we can reduce
+the number of multiplications by 2. Obviously, the next step is then
+to subdivide the two sequences <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img190.svg"
+ ALT="$F_{e}(k)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img191.svg"
+ ALT="$F_{o}(k)$"></SPAN> even further
+into something like <!-- MATH
+ $F_{ee}(k), F_{eo}(k), F_{oe}(k)$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img192.svg"
+ ALT="$F_{ee}(k), F_{eo}(k), F_{oe}(k)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img193.svg"
+ ALT="$F_{oo}(k)$"></SPAN>.
+
+<P>
+
+<DIV class="CENTER"><A ID="fft_div"></A><A ID="1677"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure 10:</STRONG>
+Illustration of the Fast Fourier Algorithm. The sequence
+of <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img8.svg"
+ ALT="$N$"></SPAN> samples is recursively divided into subsequences of odd and
+even samples.
+</CAPTION>
+<TR><TD>
+<DIV class="CENTER">
+<IMG STYLE=""
+ SRC="img194.svg"
+ ALT="\includegraphics[width=0.75\textwidth]{fft_div}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+In general the recipe for the calculation of the FFT is:
+
+<DIV class="equation">
+
+<!-- MATH
+ \begin{equation}
+X_{i}(k) = X_{ie}(k) + W_{L}^{k} X_{io}(k)
+\end{equation}
+ -->
+ &nbsp;  <A ID="butterfly"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img195.svg"
+ ALT="$\displaystyle X_{i}(k) = X_{ie}(k) + W_{L}^{k} X_{io}(k)
+$"> 
+
+(<SPAN CLASS="arabic">71</SPAN>)
+</DIV>
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.59ex; vertical-align: -0.65ex; " SRC="img196.svg"
+ ALT="$W_{L}^{k}$"></SPAN> is the phase factor in front of the odd sequence.
+This is continued until we have only two point (<SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img197.svg"
+ ALT="$N=2$"></SPAN>) 
+DFTs (see Eq.&nbsp;<A HREF="#compactDFT">64</A>):
+<BR>
+<DIV ALIGN="CENTER"><A ID="dcDFT"></A><A ID="nyDFT"></A>
+<!-- MATH
+ \begin{eqnarray}
+\mbox{DC:} \qquad X(0) & = & x(0) + \underbrace{W_2^0}_{1} x(1) = x(0) + x(1)\\
+\mbox{Nyquist frequ.:} \qquad X(1) & = & x(0) + \underbrace{W_2^1}_{-1} x(1) = x(0) - x(1)
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img198.svg"
+ ALT="$\displaystyle \mbox{DC:} \qquad X(0)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.44ex; vertical-align: -3.47ex; " SRC="img199.svg"
+ ALT="$\displaystyle x(0) + \underbrace{W_2^0}_{1} x(1) = x(0) + x(1)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">72</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img200.svg"
+ ALT="$\displaystyle \mbox{Nyquist frequ.:} \qquad X(1)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.59ex; vertical-align: -3.62ex; " SRC="img201.svg"
+ ALT="$\displaystyle x(0) + \underbrace{W_2^1}_{-1} x(1) = x(0) - x(1)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">73</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+A two point DFT operates only on two samples which can represent only
+two frequencies: DC and the Nyquist frequency which makes the
+calculation trivial. Eq.&nbsp;<A HREF="#dcDFT">72</A> is an averager and
+Eq.&nbsp;<A HREF="#nyDFT">73</A> is basically a differentiator which gives the max output
+for the sequence <!-- MATH
+ $1,-1,1,-1,\ldots$
+ -->
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img202.svg"
+ ALT="$1,-1,1,-1,\ldots$"></SPAN>.  Fig.&nbsp;<A HREF="#fft_div">10</A> illustrates
+how to divide the initial sequence to arrive at 2 point DFTs. In other
+words the calculation of the full DFT is done by first calculating
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img9.svg"
+ ALT="$N/2$"></SPAN> 2 point DFTs and recombining the results with the help of
+Eq.&nbsp;<A HREF="#butterfly">71</A>. This is sometimes called the &ldquo;Butterfly&rdquo;
+algorithm because the data flow diagram can be drawn as a butterfly.
+The number of complex multiplications reduces in this approach to <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img203.svg"
+ ALT="$N
+\log_2 N$"></SPAN> which is actually the worst case scenario because many
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.59ex; vertical-align: -0.65ex; " SRC="img196.svg"
+ ALT="$W_{L}^{k}$"></SPAN> usually turn out to be <SPAN CLASS="MATH"><IMG STYLE="height: 2.09ex; vertical-align: -0.53ex; " SRC="img204.svg"
+ ALT="$1,-1,j,-j$"></SPAN> which are just sign
+inversions or swaps of real and imaginary parts. A clever
+implementation of this algorithm will be even faster.
+
+<P>
+In summary the idea behind the FFT algorithms is to divide the sequence
+into subsequences. Here we have presented the most popular radix 2 algorithm.
+The radix 4 is even more efficient and there are also algorithms
+for divisions into prime numbers and other rather exotic divisions.
+However, the main idea is always the same: subsample the data in a clever
+way so that the final DFT becomes trivial.
+
+<P>
+
+<DIV CLASS="navigation"><HR></DIV>
+<!--End of Navigation Panel-->
+<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
 </BODY>
 </HTML>
