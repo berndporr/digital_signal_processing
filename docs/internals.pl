@@ -75,15 +75,15 @@ $ref_files{$key} = "$dir".q|node26.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/cite_Diniz2002/;
-$ref_files{$key} = "$dir".q|node35.html|; 
+$ref_files{$key} = "$dir".q|node34.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/cite_NumericalRec2007/;
-$ref_files{$key} = "$dir".q|node35.html|; 
+$ref_files{$key} = "$dir".q|node34.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/cite_Proakis1996/;
-$ref_files{$key} = "$dir".q|node35.html|; 
+$ref_files{$key} = "$dir".q|node34.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/compactDFT/;
@@ -135,7 +135,7 @@ $ref_files{$key} = "$dir".q|node32.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/fir_stop/;
-$ref_files{$key} = "$dir".q|node34.html|; 
+$ref_files{$key} = "$dir".q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fold_down/;
@@ -167,7 +167,7 @@ $ref_files{$key} = "$dir".q|node32.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fir_stop/;
-$ref_files{$key} = "$dir".q|node34.html|; 
+$ref_files{$key} = "$dir".q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fixed/;
@@ -175,7 +175,7 @@ $ref_files{$key} = "$dir".q|node33.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_stop/;
-$ref_files{$key} = "$dir".q|node34.html|; 
+$ref_files{$key} = "$dir".q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_types/;
@@ -243,7 +243,7 @@ $ref_files{$key} = "$dir".q|node19.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/resonatorz/;
-$ref_files{$key} = "$dir".q|node34.html|; 
+$ref_files{$key} = "$dir".q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/sFunktion/;

@@ -75,15 +75,15 @@ $external_labels{$key} = "$URL/" . q|node26.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/cite_Diniz2002/;
-$external_labels{$key} = "$URL/" . q|node35.html|; 
+$external_labels{$key} = "$URL/" . q|node34.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/cite_NumericalRec2007/;
-$external_labels{$key} = "$URL/" . q|node35.html|; 
+$external_labels{$key} = "$URL/" . q|node34.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/cite_Proakis1996/;
-$external_labels{$key} = "$URL/" . q|node35.html|; 
+$external_labels{$key} = "$URL/" . q|node34.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/compactDFT/;
@@ -135,7 +135,7 @@ $external_labels{$key} = "$URL/" . q|node32.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/fir_stop/;
-$external_labels{$key} = "$URL/" . q|node34.html|; 
+$external_labels{$key} = "$URL/" . q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/fold_down/;
@@ -167,7 +167,7 @@ $external_labels{$key} = "$URL/" . q|node32.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fir_stop/;
-$external_labels{$key} = "$URL/" . q|node34.html|; 
+$external_labels{$key} = "$URL/" . q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_fixed/;
@@ -175,7 +175,7 @@ $external_labels{$key} = "$URL/" . q|node33.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/iir_stop/;
-$external_labels{$key} = "$URL/" . q|node34.html|; 
+$external_labels{$key} = "$URL/" . q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/iir_types/;
@@ -243,7 +243,7 @@ $external_labels{$key} = "$URL/" . q|node19.html|;
 $noresave{$key} = "$nosave";
 
 $key = q/resonatorz/;
-$external_labels{$key} = "$URL/" . q|node34.html|; 
+$external_labels{$key} = "$URL/" . q|node33.html|; 
 $noresave{$key} = "$nosave";
 
 $key = q/sFunktion/;
