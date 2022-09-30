@@ -57,7 +57,7 @@ The Fourier transform is not suitable for causal systems
 because it requires the whole signal from <!-- MATH
  $-\infty < t < +\infty$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.75ex; vertical-align: -0.28ex; " SRC="img220.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.75ex; vertical-align: -0.28ex; " SRC="img221.svg"
  ALT="$-\infty &lt; t &lt; +\infty$"></SPAN>.
 What we need is a transform which works with continuous causal signals.
 This is the Laplace transform:
@@ -69,7 +69,7 @@ This is the Laplace transform:
 {\mathrm{\bf L\!T}({h(t)})} = H(s) = \int_{0}^{\infty} h(t) e^{-st} dt
 \end{equation}
  -->
- &nbsp;  <A ID="lapltrans"></A><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img221.svg"
+ &nbsp;  <A ID="lapltrans"></A><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img222.svg"
  ALT="$\displaystyle {\mathrm{\bf L\!T}({h(t)})} = H(s) = \int_{0}^{\infty} h(t) e^{-st} dt
 $"> 
 
@@ -87,7 +87,7 @@ The Laplace transform has a couple of very useful properties:
 \int f(\tau) d\tau \Leftrightarrow \frac{1}{s} F(s)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img222.svg"
+ &nbsp;  <IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img223.svg"
  ALT="$\displaystyle \int f(\tau) d\tau \Leftrightarrow \frac{1}{s} F(s)
 $"> 
 
@@ -103,7 +103,7 @@ $">
 \frac{d}{dt} f(t) \Leftrightarrow s F(s)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.80ex; vertical-align: -1.64ex; " SRC="img223.svg"
+ &nbsp;  <IMG STYLE="height: 4.80ex; vertical-align: -1.64ex; " SRC="img224.svg"
  ALT="$\displaystyle \frac{d}{dt} f(t) \Leftrightarrow s F(s)
 $"> 
 
@@ -119,7 +119,7 @@ $">
 f(t - T) \Leftrightarrow e^{-Ts} F(s)
 \end{equation}
  -->
- &nbsp;  <A ID="shiftOperation"></A><IMG STYLE="height: 2.69ex; vertical-align: -0.66ex; " SRC="img224.svg"
+ &nbsp;  <A ID="shiftOperation"></A><IMG STYLE="height: 2.69ex; vertical-align: -0.66ex; " SRC="img225.svg"
  ALT="$\displaystyle f(t - T) \Leftrightarrow e^{-Ts} F(s)
 $"> 
 
@@ -139,39 +139,39 @@ Proof:
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img225.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img226.svg"
  ALT="$\displaystyle {\mathrm{\bf L\!T}({h(t - T)})}$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.32ex; vertical-align: -3.55ex; " SRC="img226.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.32ex; vertical-align: -3.55ex; " SRC="img227.svg"
  ALT="$\displaystyle \int_{0}^{\infty} h\underbrace{(t - T)}_{causal} e^{-st} dt$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">81</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img227.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img228.svg"
  ALT="$\displaystyle \int_{0}^{\infty} h(t) e^{-s(t + T)} dt$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">82</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img228.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img229.svg"
  ALT="$\displaystyle \int_{0}^{\infty} h(t) e^{-st} e^{-sT} dt$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">83</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.82ex; vertical-align: -5.06ex; " SRC="img229.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 7.82ex; vertical-align: -5.06ex; " SRC="img230.svg"
  ALT="$\displaystyle e^{-sT} \underbrace{\int_{0}^{\infty} h(t) e^{-st} dt}_{H(s)}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">84</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.69ex; vertical-align: -0.66ex; " SRC="img230.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.69ex; vertical-align: -0.66ex; " SRC="img231.svg"
  ALT="$\displaystyle e^{-sT} H(s)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">85</SPAN>)</TD></TR>
@@ -189,7 +189,7 @@ Proof:
 f(t) * g(t) \Leftrightarrow F(s) G(s)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img231.svg"
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img232.svg"
  ALT="$\displaystyle f(t) * g(t) \Leftrightarrow F(s) G(s)
 $"> 
 

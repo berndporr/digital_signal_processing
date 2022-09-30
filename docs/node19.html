@@ -53,7 +53,7 @@
 Quantisation</A>
 </H2>
 
-<DIV class="CENTER"><A ID="quant_overv"></A><A ID="1637"></A>
+<DIV class="CENTER"><A ID="quant_overv"></A><A ID="1638"></A>
 <TABLE>
 <CAPTION class="BOTTOM"><STRONG>Figure 3:</STRONG>
 <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img1.svg"
@@ -117,7 +117,7 @@ $">
 
 <P>
 
-<DIV class="CENTER"><A ID="quant_err"></A><A ID="1643"></A>
+<DIV class="CENTER"><A ID="quant_err"></A><A ID="1644"></A>
 <TABLE>
 <CAPTION class="BOTTOM"><STRONG>Figure 4:</STRONG>
 Illustration of the quantisation error. It is zero at <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img2.svg"
@@ -224,6 +224,13 @@ P_{q} = \frac{\Delta^2}{12\tau^3} \tau^3 =\frac{\Delta^2}{12}
 <BR CLEAR="ALL"><P></P>
 
 <P>
+this then results in the almost trival result that the size of the
+quantisation step <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img1.svg"
+ ALT="$\Delta $"></SPAN> scales linarly with the average error <SPAN CLASS="MATH"><IMG STYLE="height: 3.62ex; vertical-align: -1.24ex; " SRC="img86.svg"
+ ALT="$\sqrt{P_{q}}$"></SPAN>. So if we
+have two times more quantisation steps then the error will half!
+
+<P>
 What is the relative error to a sine wave?
 
 <DIV class="equation">
@@ -233,7 +240,7 @@ What is the relative error to a sine wave?
 P_x = \frac{1}{T_p} \int_{0}^{T_p}(A \cos \Omega t)^2 dt = \frac{A^2}{2}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img86.svg"
+ &nbsp;  <IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img87.svg"
  ALT="$\displaystyle P_x = \frac{1}{T_p} \int_{0}^{T_p}(A \cos \Omega t)^2 dt = \frac{A^2}{2}
 $"> 
 
@@ -254,18 +261,18 @@ Ratio to signal power to noise:
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.02ex; vertical-align: -0.38ex; " SRC="img87.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.02ex; vertical-align: -0.38ex; " SRC="img88.svg"
  ALT="$\displaystyle \mbox {SQNR}$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img88.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.64ex; vertical-align: -2.27ex; " SRC="img89.svg"
  ALT="$\displaystyle \frac {P_x}{P_q} = \frac{A^2}{2} . \frac{12}{\Delta^2}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">25</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.02ex; vertical-align: -1.64ex; " SRC="img89.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.02ex; vertical-align: -1.64ex; " SRC="img90.svg"
  ALT="$\displaystyle \frac{6A^2}{\Delta^2}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">26</SPAN>)</TD></TR>

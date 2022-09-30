@@ -87,7 +87,7 @@ The analytical way
 FIR Filter</A>
 </H2>
 
-<DIV class="CENTER"><A ID="FIRfilter"></A><A ID="1693"></A>
+<DIV class="CENTER"><A ID="FIRfilter"></A><A ID="1695"></A>
 <TABLE>
 <CAPTION class="BOTTOM"><STRONG>Figure 16:</STRONG>
 FIR filter using the impulse response of the analogue filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img13.svg"
@@ -95,7 +95,7 @@ FIR filter using the impulse response of the analogue filter <SPAN CLASS="MATH">
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img261.svg"
+ SRC="img262.svg"
  ALT="\includegraphics[width=\linewidth]{fir}">
 
 </DIV></TD></TR>
@@ -112,7 +112,7 @@ analogue filter? Let's find out:
 h(t)=\sum_{n=0}^\infty h(nT) \delta(t-nT)
 \end{equation}
  -->
- &nbsp;  <A ID="sampltime"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img262.svg"
+ &nbsp;  <A ID="sampltime"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img263.svg"
  ALT="$\displaystyle
 h(t)=\sum_{n=0}^\infty h(nT) \delta(t-nT)
 $"> 
@@ -129,7 +129,7 @@ H(s)=\sum_{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_
                                            {z^{-1}}}^n
 \end{equation}
  -->
- &nbsp;  <A ID="sFunktion"></A><IMG STYLE="height: 7.56ex; vertical-align: -4.22ex; " SRC="img263.svg"
+ &nbsp;  <A ID="sFunktion"></A><IMG STYLE="height: 7.56ex; vertical-align: -4.22ex; " SRC="img264.svg"
  ALT="$\displaystyle
 H(s)=\sum_{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_
 {z^{-1}}}^n
@@ -137,10 +137,10 @@ $">
 
 (<SPAN CLASS="arabic">103</SPAN>)
 </DIV>
-Remember that <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img264.svg"
+Remember that <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img265.svg"
  ALT="$e^{-sT}$"></SPAN> has a very handy meaning: it is a delay
 by the unit time step (Eq.&nbsp;<A HREF="node28.html#shiftOperation">80</A>).
-Thus <SPAN CLASS="MATH"><IMG STYLE="height: 1.90ex; vertical-align: -0.09ex; " SRC="img265.svg"
+Thus <SPAN CLASS="MATH"><IMG STYLE="height: 1.90ex; vertical-align: -0.09ex; " SRC="img266.svg"
  ALT="$z^{-n}$"></SPAN> is a delay by <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
  ALT="$n$"></SPAN> time steps.
 We can rewrite Eq.&nbsp;<A HREF="#sFunktion">103</A>:
@@ -152,7 +152,7 @@ We can rewrite Eq.&nbsp;<A HREF="#sFunktion">103</A>:
 H(z)=\sum_{n=0}^\infty h(nT) {(z^{-1})}^n
 \end{equation}
  -->
- &nbsp;  <A ID="ztrans"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img266.svg"
+ &nbsp;  <A ID="ztrans"></A><IMG STYLE="height: 5.84ex; vertical-align: -2.50ex; " SRC="img267.svg"
  ALT="$\displaystyle H(z)=\sum_{n=0}^\infty h(nT) {(z^{-1})}^n
 $"> 
 
@@ -162,8 +162,8 @@ This is the z-transform of the impulse response <SPAN CLASS="MATH"><IMG STYLE="h
  ALT="$h(t)$"></SPAN> of the filter.
 
 <P>
-We filter now the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
- ALT="$X(z)$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img268.svg"
+We filter now the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img268.svg"
+ ALT="$X(z)$"></SPAN> with <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img269.svg"
  ALT="$H(z)$"></SPAN>:
 
 <DIV class="equation">
@@ -173,7 +173,7 @@ We filter now the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical
 H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
 \end{equation}
  -->
- &nbsp;  <A ID="notFIRyet"></A><IMG STYLE="height: 9.18ex; vertical-align: -5.85ex; " SRC="img269.svg"
+ &nbsp;  <A ID="notFIRyet"></A><IMG STYLE="height: 9.18ex; vertical-align: -5.85ex; " SRC="img270.svg"
  ALT="$\displaystyle H(z)X(z)=\underbrace{\sum_{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z)
 $"> 
 
@@ -181,19 +181,19 @@ $">
 </DIV>
 
 <P>
-This sum is a direct recipe how to filter the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img267.svg"
+This sum is a direct recipe how to filter the signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img268.svg"
  ALT="$X(z)$"></SPAN>. We only
-need the impulse response of the filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img270.svg"
+need the impulse response of the filter <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img271.svg"
  ALT="$h(nT)$"></SPAN> and we can
 set up a digital filter (see Fig.&nbsp;<A HREF="#FIRfilter">16</A>). Of course
 in practise this impulse response cannot run till infinity
 but only for a limited number of samples. These are often
-called &ldquo;taps&rdquo;. So for example a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img271.svg"
- ALT="$100$"></SPAN> samples of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img270.svg"
+called &ldquo;taps&rdquo;. So for example a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img272.svg"
+ ALT="$100$"></SPAN> samples of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img271.svg"
  ALT="$h(nT)$"></SPAN> has
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img271.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img272.svg"
  ALT="$100$"></SPAN> &ldquo;taps&rdquo;. This in turn then requires a delay line which
-can hold <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img272.svg"
+can hold <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img273.svg"
  ALT="$M=100$"></SPAN> samples:
 
 <DIV class="equation">
@@ -203,7 +203,7 @@ can hold <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex;
 H(z)X(z)=\underbrace{\sum_{m=0}^M h(mT) z^{-m}}_{H(z)} X(z)
 \end{equation}
  -->
- &nbsp;  <A ID="FIRfromAnalogue"></A><A ID="FIRz"></A><IMG STYLE="height: 9.56ex; vertical-align: -5.85ex; " SRC="img273.svg"
+ &nbsp;  <A ID="FIRfromAnalogue"></A><A ID="FIRz"></A><IMG STYLE="height: 9.56ex; vertical-align: -5.85ex; " SRC="img274.svg"
  ALT="$\displaystyle
 H(z)X(z)=\underbrace{\sum_{m=0}^M h(mT) z^{-m}}_{H(z)} X(z)
 $"> 
@@ -213,14 +213,14 @@ $">
 
 <P>
 
-<DIV class="CENTER"><A ID="fir_digital"></A><A ID="1700"></A>
+<DIV class="CENTER"><A ID="fir_digital"></A><A ID="1702"></A>
 <TABLE>
 <CAPTION class="BOTTOM"><STRONG>Figure 17:</STRONG>
 Digital FIR filter with normalised frequency</CAPTION>
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img274.svg"
+ SRC="img275.svg"
  ALT="\includegraphics[width=\linewidth]{fir_digital}">
 
 </DIV></TD></TR>
@@ -234,7 +234,7 @@ sampled an analogue impulse response <SPAN CLASS="MATH"><IMG STYLE="height: 2.43
  ALT="$T$"></SPAN>.
 However, usually the impulse response of the filter is directly derived
 in the digital domain where the argument <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
- ALT="$n$"></SPAN> of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
+ ALT="$n$"></SPAN> of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img276.svg"
  ALT="$h(n)$"></SPAN> represents just the sample
 index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
  ALT="$n$"></SPAN> and the sampling interval is implicitly the inverse of the sampling
@@ -251,26 +251,26 @@ H(z)X(z) & = & \sum_{m=0}^M h_\textrm{\footnotesize {digital}}(m) z^{-n} \, X(z)
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img276.svg"
- ALT="$\displaystyle H(z)X(z)$"></TD>
-<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
- ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img277.svg"
- ALT="$\displaystyle \sum_{m=0}^M h_\textrm{\footnotesize {analogue}}(mT) z^{-n} \, X(z)$"></TD>
-<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
-(<SPAN CLASS="arabic">107</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img276.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img277.svg"
  ALT="$\displaystyle H(z)X(z)$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
 <TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img278.svg"
+ ALT="$\displaystyle \sum_{m=0}^M h_\textrm{\footnotesize {analogue}}(mT) z^{-n} \, X(z)$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">107</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img277.svg"
+ ALT="$\displaystyle H(z)X(z)$"></TD>
+<TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
+ ALT="$\textstyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img279.svg"
  ALT="$\displaystyle \sum_{m=0}^M h_\textrm{\footnotesize {digital}}(m) z^{-n} \, X(z)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">108</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img279.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img280.svg"
  ALT="$\displaystyle \sum_{m=0}^M h_(m) z^{-m} \, X(z)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">109</SPAN>)</TD></TR>
@@ -281,7 +281,7 @@ H(z)X(z) & = & \sum_{m=0}^M h_\textrm{\footnotesize {digital}}(m) z^{-n} \, X(z)
 Eq&nbsp;<A HREF="#FIRa">107</A> is the filter where the impulse response is based on an analogue
 filter and Eq.&nbsp;<A HREF="#FIRd">108</A> is based on the impulse response originating from a digital filter
 design (see section&nbsp;<A HREF="#freqsamp">6.7.6</A> and <A HREF="#idealFilt">6.7.7</A>) where the frequencies
-are normalised frequencies from <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img280.svg"
+are normalised frequencies from <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img281.svg"
  ALT="$0$"></SPAN> to <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img40.svg"
  ALT="$0.5$"></SPAN>. From now on we will
 always refer to the &ldquo;digital&rdquo; one (Eq.&nbsp;<A HREF="#FIRd">108</A>) and the subscript will be
@@ -297,7 +297,7 @@ In the time domain the FIR filter is then doing the following operation:
 y(n) = \sum_{m=0}^{M-1} h(m) x(n-m)
 \end{equation}
  -->
- &nbsp;  <A ID="FIRtime"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img281.svg"
+ &nbsp;  <A ID="FIRtime"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img282.svg"
  ALT="$\displaystyle y(n) = \sum_{m=0}^{M-1} h(m) x(n-m)
 $"> 
 
@@ -410,7 +410,7 @@ needs efficient solutions.
 Fixed point FIR filters</A>
 </H3>
 
-<DIV class="CENTER"><A ID="fir_fixed"></A><A ID="1704"></A>
+<DIV class="CENTER"><A ID="fir_fixed"></A><A ID="1706"></A>
 <TABLE>
 <CAPTION class="BOTTOM"><STRONG>Figure 18:</STRONG>
 Fixed point FIR filter. The output signal is bit shifted to the
@@ -420,7 +420,7 @@ Fixed point FIR filter. The output signal is bit shifted to the
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img282.svg"
+ SRC="img283.svg"
  ALT="\includegraphics[width=\linewidth]{fir_fixed}">
 
 </DIV></TD></TR>
@@ -439,21 +439,21 @@ the output as well (usually the same as the input in terms of bit width).
 <P>
 In contrast to a floating point FIR filter we need to scale up the
 coefficients so that they use full the integer range to avoid
-quantisation errors. For example if the coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
+quantisation errors. For example if the coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img276.svg"
  ALT="$h(n)$"></SPAN> range
-from <SPAN CLASS="MATH"><IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="img283.svg"
- ALT="$-0.75$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img284.svg"
+from <SPAN CLASS="MATH"><IMG STYLE="height: 1.82ex; vertical-align: -0.28ex; " SRC="img284.svg"
+ ALT="$-0.75$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 1.80ex; vertical-align: -0.27ex; " SRC="img285.svg"
  ALT="$+0.75$"></SPAN> and we have signed 16 bit integers then the
-scaling factor is <SPAN CLASS="MATH"><IMG STYLE="height: 2.46ex; vertical-align: -0.53ex; " SRC="img285.svg"
+scaling factor is <SPAN CLASS="MATH"><IMG STYLE="height: 2.46ex; vertical-align: -0.53ex; " SRC="img286.svg"
  ALT="$2^W, W=15$"></SPAN>.
 
 <P>
 However, the accumulator A which collects the data needs to have more
 bits because it receives scaled input values at I bits precision and
-these multiplied by factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img286.svg"
- ALT="$2^W$"></SPAN>. If we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img287.svg"
+these multiplied by factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.02ex; vertical-align: -0.09ex; " SRC="img287.svg"
+ ALT="$2^W$"></SPAN>. If we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img288.svg"
  ALT="$M$"></SPAN> taps then the additional
-bits we need is <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img288.svg"
+bits we need is <SPAN CLASS="MATH"><IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img289.svg"
  ALT="$\log_2 M$"></SPAN>. The total number of bits we need in the accumulator
 in the worst case are:
 
@@ -464,14 +464,14 @@ in the worst case are:
 A = I + W + \log_2 M
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img289.svg"
+ &nbsp;  <IMG STYLE="height: 2.27ex; vertical-align: -0.62ex; " SRC="img290.svg"
  ALT="$\displaystyle A = I + W + \log_2 M
 $"> 
 
 (<SPAN CLASS="arabic">111</SPAN>)
 </DIV>
 However, this is the worst case scenario because if the gain of the
-FIR filter is below one then the summations by the <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img287.svg"
+FIR filter is below one then the summations by the <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img288.svg"
  ALT="$M$"></SPAN> taps will only
 create <SPAN  CLASS="textsl">temporary</SPAN> overflows because integer numbers are
 cyclic in their representation. In case the gain of the FIR filter
@@ -484,7 +484,7 @@ is below one this can be relaxed:
 A = I + W
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 1.89ex; vertical-align: -0.27ex; " SRC="img290.svg"
+ &nbsp;  <IMG STYLE="height: 1.89ex; vertical-align: -0.27ex; " SRC="img291.svg"
  ALT="$\displaystyle A = I + W
 $"> 
 
@@ -493,8 +493,8 @@ $">
 The actual bitwidth of the accumulator is usually the next integer size
 available and also makes sure that in case the gain goes slightly over one
 in an unexpected case that the filter still works. For example if I
-has <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img291.svg"
- ALT="$16$"></SPAN>&nbsp;bits the accumulator has probably <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img292.svg"
+has <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img292.svg"
+ ALT="$16$"></SPAN>&nbsp;bits the accumulator has probably <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img293.svg"
  ALT="$32$"></SPAN>&nbsp;bits.
 
 <P>
@@ -512,7 +512,7 @@ no constant group delay which is defined by:
 \tau_\omega={d\phi(\omega)\over d\omega}
 \end{equation}
  -->
- &nbsp;  <A ID="grpdelay"></A><IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="img293.svg"
+ &nbsp;  <A ID="grpdelay"></A><IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="img294.svg"
  ALT="$\displaystyle \tau_\omega={d\phi(\omega)\over d\omega}
 $"> 
 
@@ -520,10 +520,10 @@ $">
 </DIV>
 This means that different frequencies arrive at the output of the
 filter earlier or later. This is not desirable. The group delay
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img294.svg"
- ALT="$\tau_\omega$"></SPAN> should be constant for all frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img242.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.49ex; vertical-align: -0.43ex; " SRC="img295.svg"
+ ALT="$\tau_\omega$"></SPAN> should be constant for all frequencies <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img243.svg"
  ALT="$\omega$"></SPAN> so that
-all frequencies arrive at the same time at the output <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img152.svg"
+all frequencies arrive at the same time at the output <SPAN CLASS="MATH"><IMG STYLE="height: 1.59ex; vertical-align: -0.53ex; " SRC="img153.svg"
  ALT="$y$"></SPAN> of the
 filter.
 
@@ -538,18 +538,18 @@ the transfer function:
 H(e^{i\omega})=B(\omega)e^{-i\omega\tau+i\phi}
 \end{equation}
  -->
- &nbsp;  <A ID="transmin"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img295.svg"
+ &nbsp;  <A ID="transmin"></A><IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img296.svg"
  ALT="$\displaystyle H(e^{i\omega})=B(\omega)e^{-i\omega\tau+i\phi}
 $"> 
 
 (<SPAN CLASS="arabic">114</SPAN>)
 </DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img296.svg"
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img297.svg"
  ALT="$B(\omega)$"></SPAN> is real and the phase is only defined by the exponential.
 The phase of this transfer function is then trivially <!-- MATH
  $\omega\tau+\phi$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img297.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img298.svg"
  ALT="$\omega\tau+\phi$"></SPAN>. The
 group delay is the derivative of this term which is constant.
 
@@ -567,7 +567,7 @@ h(n)=\frac{1}{2\pi}\int_{-\infty}^{+\infty} H(e^{i\omega})
 e^{i\omega n}d \omega
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img298.svg"
+ &nbsp;  <IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img299.svg"
  ALT="$\displaystyle h(n)=\frac{1}{2\pi}\int_{-\infty}^{+\infty} H(e^{i\omega})
 e^{i\omega n}d \omega
 $"> 
@@ -583,18 +583,18 @@ After some transformations we get:
 h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b(n)
 \end{equation}
  -->
- &nbsp;  <A ID="imp1"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img299.svg"
+ &nbsp;  <A ID="imp1"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img300.svg"
  ALT="$\displaystyle h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b(n)
 $"> 
 
 (<SPAN CLASS="arabic">116</SPAN>)
 </DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img300.svg"
- ALT="$b(n)$"></SPAN> represents the Fourier coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img296.svg"
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img301.svg"
+ ALT="$b(n)$"></SPAN> represents the Fourier coefficients of <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img297.svg"
  ALT="$B(\omega)$"></SPAN>. Since <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img60.svg"
  ALT="$B$"></SPAN> is
-real the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img300.svg"
- ALT="$b(n)$"></SPAN> have the property <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img301.svg"
+real the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img301.svg"
+ ALT="$b(n)$"></SPAN> have the property <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img302.svg"
  ALT="$b(n)=b^*(-n)$"></SPAN>.
 Thus we get a second impulse response:
 
@@ -605,13 +605,13 @@ Thus we get a second impulse response:
 h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b^*(-n)
 \end{equation}
  -->
- &nbsp;  <A ID="imp2"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img302.svg"
+ &nbsp;  <A ID="imp2"></A><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img303.svg"
  ALT="$\displaystyle h(n+\tau)=\frac{1}{2\pi}e^{i\phi}b^*(-n)
 $"> 
 
 (<SPAN CLASS="arabic">117</SPAN>)
 </DIV>
-Now we can eliminate <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img303.svg"
+Now we can eliminate <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img304.svg"
  ALT="$b$"></SPAN> by equating Eq.&nbsp;<A HREF="#imp1">116</A> and Eq.&nbsp;<A HREF="#imp2">117</A> which
 yields:
 
@@ -622,26 +622,26 @@ yields:
 h(n+\tau)=e^{2i\phi} n^*(-n+\tau)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img304.svg"
+ &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img305.svg"
  ALT="$\displaystyle h(n+\tau)=e^{2i\phi} n^*(-n+\tau)
 $"> 
 
 (<SPAN CLASS="arabic">118</SPAN>)
 </DIV>
-With the shift <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img305.svg"
+With the shift <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img306.svg"
  ALT="$\tau$"></SPAN> we have the chance to make the filter &ldquo;more&rdquo;
 causal. We can shift the impulse response in positive time to get
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
- ALT="$h(n)$"></SPAN> zero for <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img306.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img276.svg"
+ ALT="$h(n)$"></SPAN> zero for <SPAN CLASS="MATH"><IMG STYLE="height: 1.69ex; vertical-align: -0.15ex; " SRC="img307.svg"
  ALT="$n&lt;0$"></SPAN>. In a practical application we shift the impulse
-response by half the number of delays. If we have a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img287.svg"
+response by half the number of delays. If we have a filter with <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img288.svg"
  ALT="$M$"></SPAN>
-taps we have to delay by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img307.svg"
+taps we have to delay by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img308.svg"
  ALT="$\tau=M/2$"></SPAN>.
 
 <P>
-The factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img308.svg"
- ALT="$e^{2i\phi}$"></SPAN> restricts the values of <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img309.svg"
+The factor <SPAN CLASS="MATH"><IMG STYLE="height: 2.04ex; vertical-align: -0.09ex; " SRC="img309.svg"
+ ALT="$e^{2i\phi}$"></SPAN> restricts the values of <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img310.svg"
  ALT="$\phi$"></SPAN> because the impulse
 response must be real. This gives us the final FIR design rule:
 
@@ -652,16 +652,16 @@ response must be real. This gives us the final FIR design rule:
 h(n+M/2)=(-1)^k h(-n+M/2)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img310.svg"
+ &nbsp;  <IMG STYLE="height: 2.71ex; vertical-align: -0.66ex; " SRC="img311.svg"
  ALT="$\displaystyle h(n+M/2)=(-1)^k h(-n+M/2)
 $"> 
 
 (<SPAN CLASS="arabic">119</SPAN>)
 </DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img311.svg"
- ALT="$k=0$"></SPAN> or <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img97.svg"
+where <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img312.svg"
+ ALT="$k=0$"></SPAN> or <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img98.svg"
  ALT="$1$"></SPAN>. This means that the filter is either symmetric or
-antisymmetric and the impulse response has to be delayed by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img307.svg"
+antisymmetric and the impulse response has to be delayed by <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img308.svg"
  ALT="$\tau=M/2$"></SPAN>.
 
 <P>
@@ -670,7 +670,7 @@ antisymmetric and the impulse response has to be delayed by <SPAN CLASS="MATH"><
 Window functions</A>
 </H3>
 
-<DIV class="CENTER"><A ID="window_functions"></A><A ID="1706"></A>
+<DIV class="CENTER"><A ID="window_functions"></A><A ID="1708"></A>
 <TABLE>
 <CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
 Different window functions applied to a low pass filter 
@@ -680,7 +680,7 @@ with cutoff at <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img312.svg"
+ SRC="img313.svg"
  ALT="\includegraphics[width=\linewidth]{window_functions}">
 
 </DIV></TD></TR>
@@ -689,14 +689,14 @@ with cutoff at <SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0
 So far we still have a infinite number of coefficients for 
 for the FIR filter because there's no guarantee that the 
 impulse response becomes zero
-after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img313.svg"
+after <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img314.svg"
  ALT="$M/2$"></SPAN> delays. Thus, we have to find a way to truncate the
 response without distorting the filter response.
 
 <P>
 The standard technique is to multiply the coefficients with a window
 function which becomes and stays zero at a certain coefficient
-<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img314.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 1.78ex; vertical-align: -0.15ex; " SRC="img315.svg"
  ALT="$n&gt;N$"></SPAN> so that Eq.&nbsp;<A HREF="#FIRz">106</A> need not to run to infinity:
 
 <DIV class="equation">
@@ -706,7 +706,7 @@ function which becomes and stays zero at a certain coefficient
 H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
 \end{equation}
  -->
- &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img315.svg"
+ &nbsp;  <A ID="FIRzlimit"></A><IMG STYLE="height: 6.22ex; vertical-align: -2.50ex; " SRC="img316.svg"
  ALT="$\displaystyle
 H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
 $"> 
@@ -734,7 +734,7 @@ The stop-band damping is poor
 w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img316.svg"
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img317.svg"
  ALT="$\displaystyle w(n) = \alpha - (1-\alpha) \cos\left(\frac{2\pi n}{M}\right)
 $"> 
 
@@ -742,10 +742,10 @@ $">
 </DIV>
 
 <UL>
-<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img317.svg"
+<LI>Hamming: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img318.svg"
  ALT="$\alpha = 0.54$"></SPAN>
 </LI>
-<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img318.svg"
+<LI>Hanning: <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img319.svg"
  ALT="$\alpha = 0.5$"></SPAN>
 </LI>
 </UL>
@@ -762,7 +762,7 @@ w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
 0.08 \cos \left( \frac{4 \pi n}{M} \right) 
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img319.svg"
+ &nbsp;  <IMG STYLE="height: 4.83ex; vertical-align: -1.78ex; " SRC="img320.svg"
  ALT="$\displaystyle w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) +
 0.08 \cos \left( \frac{4 \pi n}{M} \right)
 $"> 
@@ -775,7 +775,7 @@ equation available.
 </LI>
 </OL>
 To illustrate how window functions influence the frequency response
-we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img320.svg"
+we have taken an impulse response of a lowpass filter (<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img321.svg"
  ALT="$f_c=0.1$"></SPAN>)
 and applied different window functions to it (Fig.&nbsp;<A HREF="#window_functions">19</A>).
 
@@ -794,15 +794,15 @@ damping. In such a case a Hamming window might be a better choice.
 Python code: 
 impulse response from the inverse DFT - The frequency sampling
 method
-</H3> Imagine that we want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img321.svg"
+</H3> Imagine that we want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img322.svg"
  ALT="$50Hz$"></SPAN> from a
-signal with sampling rate of <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img322.svg"
+signal with sampling rate of <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img323.svg"
  ALT="$1kHz$"></SPAN>. We define an FIR filter with 100
-taps. The midpoint <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img323.svg"
- ALT="$N/2=50$"></SPAN> corresponds to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img324.svg"
- ALT="$500Hz$"></SPAN>. The <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img321.svg"
+taps. The midpoint <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img324.svg"
+ ALT="$N/2=50$"></SPAN> corresponds to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img325.svg"
+ ALT="$500Hz$"></SPAN>. The <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img322.svg"
  ALT="$50Hz$"></SPAN>
-correspond to index <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img325.svg"
+correspond to index <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img326.svg"
  ALT="$5$"></SPAN>.
 <PRE>
 f_resp=np.ones(100)
@@ -819,7 +819,7 @@ h_shift[50:100]=h[0:50]
 h_wind=h_shift*hamming(100)
 </PRE>
 To get a nice symmetric impulse response we need to shift the
-inverse around <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img326.svg"
+inverse around <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img327.svg"
  ALT="$50$"></SPAN> samples.
 
 <P>
@@ -841,14 +841,14 @@ response
 |H(e^{j\omega})| = \underbrace{B(e^{j\omega})}_{\mbox{real}}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 6.06ex; vertical-align: -4.07ex; " SRC="img327.svg"
+ &nbsp;  <IMG STYLE="height: 6.06ex; vertical-align: -4.07ex; " SRC="img328.svg"
  ALT="$\displaystyle \vert H(e^{j\omega})\vert = \underbrace{B(e^{j\omega})}_{\mbox{real}}
 $"> 
 
 (<SPAN CLASS="arabic">123</SPAN>)
 </DIV>
 and perform an inverse Fourier transform to get the impulse response
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img276.svg"
  ALT="$h(n)$"></SPAN>.
 
 <P>
@@ -867,7 +867,7 @@ We demonstrate this with a lowpass filter:
 \right.
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img328.svg"
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img329.svg"
  ALT="$\displaystyle \vert H(e^{j\omega})\vert =
 \left\{
 \begin{array}{ll}
@@ -894,32 +894,32 @@ h(n) & = & \frac{1}{2 \pi} \int_{-\pi}^{\pi} H(e^{j \omega}) e^{j \omega n} d\om
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img329.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img330.svg"
  ALT="$\displaystyle h(n)$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img330.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.91ex; vertical-align: -1.86ex; " SRC="img331.svg"
  ALT="$\displaystyle \frac{1}{2 \pi} \int_{-\pi}^{\pi} H(e^{j \omega}) e^{j \omega n} d\omega$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">125</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.94ex; vertical-align: -1.90ex; " SRC="img331.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.94ex; vertical-align: -1.90ex; " SRC="img332.svg"
  ALT="$\displaystyle \frac{1}{2 \pi} \int_{- \omega_{c}}^{+ \omega_{c}} e^{j \omega n} d\omega$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">126</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.38ex; vertical-align: -2.63ex; " SRC="img332.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.38ex; vertical-align: -2.63ex; " SRC="img333.svg"
  ALT="$\displaystyle \frac{1}{2 \pi} \left[\frac{1}{jn} e^{j \omega n} \right]_{- \omega_{c}}^{+ \omega_{c}}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">127</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="img333.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="img334.svg"
  ALT="$\displaystyle \frac{1}{2 \pi jn} \left( e^{j \omega_{c} n} - e^{-j \omega_{c}n} \right)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">128</SPAN>)</TD></TR>
@@ -936,19 +936,19 @@ With these handy equations:
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.68ex; vertical-align: -0.09ex; " SRC="img334.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.68ex; vertical-align: -0.09ex; " SRC="img335.svg"
  ALT="$\displaystyle \sin z$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="img335.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="img336.svg"
  ALT="$\displaystyle \frac{1}{2j} (e^{zj} - e^{-zj})$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">129</SPAN>)</TD></TR>
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img336.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img337.svg"
  ALT="$\displaystyle \cos z$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img337.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.69ex; vertical-align: -1.64ex; " SRC="img338.svg"
  ALT="$\displaystyle \frac{1}{2} (e^{zj} + e^{-zj})$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">130</SPAN>)</TD></TR>
@@ -969,7 +969,7 @@ h(n) =
 \right.
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img338.svg"
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img339.svg"
  ALT="$\displaystyle h(n) =
 \left\{
 \begin{array}{cc}
@@ -994,7 +994,7 @@ way and lead to the following ideal filter characteristics:
 <LI><SPAN  CLASS="textbf">Lowpass</SPAN> with cutoff frequency <!-- MATH
  $\omega_c=2\pi f_c$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img339.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img340.svg"
  ALT="$\omega_c=2\pi f_c$"></SPAN>:
 
 <DIV class="equation">
@@ -1010,7 +1010,7 @@ h(n) =
 \right.
 \end{equation}
  -->
- &nbsp;  <A ID="idealLP"></A><IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img340.svg"
+ &nbsp;  <A ID="idealLP"></A><IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img341.svg"
  ALT="$\displaystyle h(n) =
 \left\{
 \begin{array}{ll}
@@ -1028,7 +1028,7 @@ $">
 <LI><SPAN  CLASS="textbf">Highpass</SPAN> with the cutoff frequency <!-- MATH
  $\omega_c=2\pi f_c$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img339.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.18ex; vertical-align: -0.53ex; " SRC="img340.svg"
  ALT="$\omega_c=2\pi f_c$"></SPAN>:
 
 <DIV class="equation">
@@ -1044,7 +1044,7 @@ h(n)=
 \right.
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img341.svg"
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img342.svg"
  ALT="$\displaystyle h(n)=
 \left\{
 \begin{array}{ll}
@@ -1062,7 +1062,7 @@ $">
 <LI><SPAN  CLASS="textbf">Bandpass</SPAN> with the passband frequencies <!-- MATH
  $\omega_{1,2}=2\pi f_{1,2}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img342.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img343.svg"
  ALT="$\omega_{1,2}=2\pi f_{1,2}$"></SPAN>:
 
 <DIV class="equation">
@@ -1078,7 +1078,7 @@ h(n)=
 \right.
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img343.svg"
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img344.svg"
  ALT="$\displaystyle h(n)=
 \left\{
 \begin{array}{ll}
@@ -1095,7 +1095,7 @@ $">
 <LI><SPAN  CLASS="textbf">Bandstop</SPAN> with the notch frequencies <!-- MATH
  $\omega_{1,2}=2\pi f_{1,2}$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img342.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.37ex; vertical-align: -0.72ex; " SRC="img343.svg"
  ALT="$\omega_{1,2}=2\pi f_{1,2}$"></SPAN>:
 
 <DIV class="equation">
@@ -1111,7 +1111,7 @@ h(n)=
 \right.
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img344.svg"
+ &nbsp;  <IMG STYLE="height: 5.79ex; vertical-align: -2.34ex; " SRC="img345.svg"
  ALT="$\displaystyle h(n)=
 \left\{
 \begin{array}{ll}
@@ -1147,7 +1147,7 @@ then the coeffecient at 200 is fixed. Do it better!
 <H3><A ID="SECTION00077800000000000000">
 Design steps for FIR filters</A>
 </H3>
-Here are the design steps for an <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img287.svg"
+Here are the design steps for an <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img288.svg"
  ALT="$M$"></SPAN> tap FIR filter.
 
 <OL>
@@ -1174,11 +1174,11 @@ differentiators, etc)
 <LI>Mirror the impulse response (if not already symmetrical)
 </LI>
 <LI>Window the impulse response from an infinite number of samples
-to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img287.svg"
+to <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img288.svg"
  ALT="$M$"></SPAN> samples.
 </LI>
 <LI>Move the impulse response to positive time so that it becomes causal
-(move it <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img313.svg"
+(move it <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img314.svg"
  ALT="$M/2$"></SPAN> steps to the right).
 </LI>
 </OL>
@@ -1217,7 +1217,7 @@ Definition of a correlator?
 e(t) = \int_{0}^{t} \underbrace{s(\tau)}_{\mbox{signal}} \underbrace{r(\tau)}_{\mbox{template}} d(\tau)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 7.55ex; vertical-align: -4.51ex; " SRC="img345.svg"
+ &nbsp;  <IMG STYLE="height: 7.55ex; vertical-align: -4.51ex; " SRC="img346.svg"
  ALT="$\displaystyle e(t) = \int_{0}^{t} \underbrace{s(\tau)}_{\mbox{signal}} \underbrace{r(\tau)}_{\mbox{template}} d(\tau)
 $"> 
 
@@ -1236,7 +1236,7 @@ How to build a correlator with a filter? Definition of filtering?
 e(t) = \int_{0}^{\infty} s(\tau) h(t - \tau) d\tau
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img346.svg"
+ &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img347.svg"
  ALT="$\displaystyle e(t) = \int_{0}^{\infty} s(\tau) h(t - \tau) d\tau
 $"> 
 
@@ -1246,8 +1246,8 @@ NB. h - integration runs backwards.  However we used an int forward!
 <!-- MATH
  $h(t) : = r(T - \tau)$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img347.svg"
- ALT="$h(t) : = r(T - \tau)$"></SPAN>, only valid for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img348.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img348.svg"
+ ALT="$h(t) : = r(T - \tau)$"></SPAN>, only valid for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img349.svg"
  ALT="$0\ldots T$"></SPAN>.
 
 <P>
@@ -1261,24 +1261,24 @@ e(t) & = & \int_{0}^{T} s(\tau) r \left(T - (t - \tau)\right) d\tau \\
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img349.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img350.svg"
  ALT="$\displaystyle e(t)$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img350.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img351.svg"
  ALT="$\displaystyle \int_{0}^{T} s(\tau) r \left(T - (t - \tau)\right) d\tau$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">138</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img351.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 4.86ex; vertical-align: -1.71ex; " SRC="img352.svg"
  ALT="$\displaystyle \int_{0}^{T} s(\tau) r(T - t + \tau) d\tau$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">139</SPAN>)</TD></TR>
 </TABLE></DIV>
 <BR CLEAR="ALL"><P></P>
-for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img352.svg"
+for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SRC="img353.svg"
  ALT="$t: = T$"></SPAN> we get:
 
 <DIV class="equation">
@@ -1288,7 +1288,7 @@ for <SPAN CLASS="MATH"><IMG STYLE="height: 1.72ex; vertical-align: -0.09ex; " SR
 e(T) = \int_{0}^{\infty} s(\tau) r (\tau) d\tau
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img353.svg"
+ &nbsp;  <IMG STYLE="height: 4.48ex; vertical-align: -1.71ex; " SRC="img354.svg"
  ALT="$\displaystyle e(T) = \int_{0}^{\infty} s(\tau) r (\tau) d\tau
 $"> 
 
@@ -1302,14 +1302,14 @@ $">
 \underbrace{h(t) : = r(T - t)}_{ matched \quad  filter!}
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 5.60ex; vertical-align: -3.84ex; " SRC="img354.svg"
+ &nbsp;  <IMG STYLE="height: 5.60ex; vertical-align: -3.84ex; " SRC="img355.svg"
  ALT="$\displaystyle \underbrace{h(t) : = r(T - t)}_{ matched \quad filter!}
 $"> 
 
 (<SPAN CLASS="arabic">141</SPAN>)
 </DIV>
 In order to design a detector we just create an impulse
-response <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img214.svg"
+response <SPAN CLASS="MATH"><IMG STYLE="height: 1.74ex; vertical-align: -0.09ex; " SRC="img215.svg"
  ALT="$h$"></SPAN> by reversing the template <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img24.svg"
  ALT="$r$"></SPAN> in time and
 constructing an FIR filter with it.
@@ -1323,7 +1323,7 @@ How to improve the matching process? Square the output of the filter!
 Adaptive FIR Least Mean Squares (LMS) filters</A>
 </H3>
 
-<DIV class="CENTER"><A ID="fir_lms"></A><A ID="1721"></A>
+<DIV class="CENTER"><A ID="fir_lms"></A><A ID="1723"></A>
 <TABLE>
 <CAPTION class="BOTTOM"><STRONG>Figure 20:</STRONG>
 Adaptive FIR filter: A) Negative feedback
@@ -1341,7 +1341,7 @@ Adaptive FIR filter: A) Negative feedback
 <TR><TD>
 <DIV class="CENTER">
 <IMG STYLE=""
- SRC="img355.svg"
+ SRC="img356.svg"
  ALT="\includegraphics[width=\linewidth]{fir_lms}">
 
 </DIV></TD></TR>
@@ -1351,7 +1351,7 @@ So far the coefficients of the FIR filter have been constant but now
 we are going to allow them to change <SPAN  CLASS="textsl">while</SPAN> the FIR filter is
 operating so that it can learn its own coefficients. The
 idea is to use an error signal <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img19.svg"
- ALT="$e(n)$"></SPAN> to tune the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img275.svg"
+ ALT="$e(n)$"></SPAN> to tune the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img276.svg"
  ALT="$h(n)$"></SPAN>
 of the FIR filter (see Fig.&nbsp;<A HREF="#fir_lms">20</A>A) by comparing its output
 <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
@@ -1365,7 +1365,7 @@ of the FIR filter (see Fig.&nbsp;<A HREF="#fir_lms">20</A>A) by comparing its ou
 e(n) = d(n) - y(n)
 \end{equation}
  -->
- &nbsp;  <A ID="lmserror"></A><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img356.svg"
+ &nbsp;  <A ID="lmserror"></A><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img357.svg"
  ALT="$\displaystyle e(n) = d(n) - y(n)
 $"> 
 
@@ -1383,7 +1383,7 @@ expressed as a so called &ldquo;gradient descent&rdquo; which minimises the squa
 error <!-- MATH
  $\frac{1}{2} e(n)^2$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img357.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.81ex; vertical-align: -0.87ex; " SRC="img358.svg"
  ALT="$\frac{1}{2} e(n)^2$"></SPAN> because both a positive and a negative
 error are equally bad:
 
@@ -1394,33 +1394,33 @@ error are equally bad:
 \Delta h_m = - \mu \frac{\partial\left( \frac{1}{2}e(n)^2 \right)}{\partial h_m}
 \end{equation}
  -->
- &nbsp;  <A ID="graddes"></A><IMG STYLE="height: 6.25ex; vertical-align: -1.97ex; " SRC="img358.svg"
+ &nbsp;  <A ID="graddes"></A><IMG STYLE="height: 6.25ex; vertical-align: -1.97ex; " SRC="img359.svg"
  ALT="$\displaystyle \Delta h_m = - \mu \frac{\partial\left( \frac{1}{2}e(n)^2 \right)}{\partial h_m}
 $"> 
 
 (<SPAN CLASS="arabic">143</SPAN>)
 </DIV>
-where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img359.svg"
- ALT="$\Delta h_m(n)$"></SPAN> is the change of the coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img360.svg"
+where <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img360.svg"
+ ALT="$\Delta h_m(n)$"></SPAN> is the change of the coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img361.svg"
  ALT="$h_m(n)$"></SPAN> at
 every time step: <!-- MATH
  $h_m(n+1) = h_m(n) + \Delta h_m(n)$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img361.svg"
- ALT="$h_m(n+1) = h_m(n) + \Delta h_m(n)$"></SPAN>.  <SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img362.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img362.svg"
+ ALT="$h_m(n+1) = h_m(n) + \Delta h_m(n)$"></SPAN>.  <SPAN CLASS="MATH"><IMG STYLE="height: 2.07ex; vertical-align: -0.53ex; " SRC="img363.svg"
  ALT="$\mu \ll 1$"></SPAN>
 defines how quickly the coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> change at every time step
 and is called the &ldquo;learning rate&rdquo;. Note here the change in notation
 of the FIR filter coefficients <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> which are changing much
-<SPAN  CLASS="textsl">slower</SPAN> than the sampled signals <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img363.svg"
+<SPAN  CLASS="textsl">slower</SPAN> than the sampled signals <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img364.svg"
  ALT="$e(n), d(n)$"></SPAN> and <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img18.svg"
  ALT="$y(n)$"></SPAN> and
 can still be seen as constant for the realtime filtering
 operation. Thus, we have <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img51.svg"
  ALT="$n$"></SPAN> for the sample by sample processing as
-before and the index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img364.svg"
+before and the index <SPAN CLASS="MATH"><IMG STYLE="height: 1.15ex; vertical-align: -0.09ex; " SRC="img365.svg"
  ALT="$m$"></SPAN> of <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> for the very slowly changing FIR
 filter coefficients. To gain some intuition why
@@ -1431,20 +1431,20 @@ increase the FIR coefficient <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vert
 small amount of <!-- MATH
  $|\epsilon| \ll 1$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img365.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img366.svg"
  ALT="$\vert\epsilon\vert \ll 1$"></SPAN>: <!-- MATH
  $h_m := h_m + \epsilon$
  -->
-<SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img366.svg"
+<SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img367.svg"
  ALT="$h_m := h_m + \epsilon$"></SPAN>. Then we can
 observe two cases:
 
 <OL>
-<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img367.svg"
+<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img368.svg"
  ALT="$e(n)^2$"></SPAN> increases so we need to decrease <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> as it makes it worse.
 </LI>
-<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img367.svg"
+<LI>The squared error <SPAN CLASS="MATH"><IMG STYLE="height: 2.52ex; vertical-align: -0.66ex; " SRC="img368.svg"
  ALT="$e(n)^2$"></SPAN> decreases so we need to increase <SPAN CLASS="MATH"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img21.svg"
  ALT="$h_m$"></SPAN> as it makes it better.
 </LI>
@@ -1473,32 +1473,32 @@ solving its partial derivative by inserting Eqs.&nbsp;<A HREF="#lmserror">142</A
 \end{eqnarray}
  -->
 <TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
-<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img368.svg"
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG STYLE="height: 2.08ex; vertical-align: -0.43ex; " SRC="img369.svg"
  ALT="$\displaystyle \Delta h_m$"></TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.63ex; vertical-align: -1.97ex; " SRC="img369.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 5.63ex; vertical-align: -1.97ex; " SRC="img370.svg"
  ALT="$\displaystyle - \mu \frac{1}{2}\frac{\partial \left(d(n)-y(n)\right)^2}{\partial h_m}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">144</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.62ex; vertical-align: -1.97ex; " SRC="img370.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 6.62ex; vertical-align: -1.97ex; " SRC="img371.svg"
  ALT="$\displaystyle - \mu \frac{1}{2}\frac{\partial \left(d(n)-\sum_{m=0}^{M-1} h_m \cdot x(n-m)\right)^2}{\partial h_m}$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">145</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img371.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img372.svg"
  ALT="$\displaystyle \mu \left(d(n)-y(n)\right) \cdot x(n-m)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">146</SPAN>)</TD></TR>
 <TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
 <TD ALIGN="CENTER" NOWRAP><IMG STYLE="height: 1.00ex; vertical-align: -0.09ex; " SRC="img82.svg"
  ALT="$\textstyle =$"></TD>
-<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img372.svg"
+<TD ALIGN="LEFT" NOWRAP><IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img373.svg"
  ALT="$\displaystyle \mu \cdot e(n) \cdot x(n-m)$"></TD>
 <TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
 (<SPAN CLASS="arabic">147</SPAN>)</TD></TR>
@@ -1533,7 +1533,7 @@ is correlated with the input <SPAN CLASS="MATH"><IMG STYLE="height: 2.43ex; vert
 is also the cleaned up output signal of the adaptive filter.
 
 <P>
-Imagine you want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img326.svg"
+Imagine you want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img327.svg"
  ALT="$50$"></SPAN>&nbsp;Hz mains from a signal
 
 <DIV class="equation">
@@ -1543,13 +1543,13 @@ Imagine you want to remove <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertic
 d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img373.svg"
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img374.svg"
  ALT="$\displaystyle d(n) = \mathrm{signal}(n) + \mathrm{50Hz~noise}(n)
 $"> 
 
 (<SPAN CLASS="arabic">148</SPAN>)
 </DIV>
-then one would provide <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img326.svg"
+then one would provide <SPAN CLASS="MATH"><IMG STYLE="height: 1.63ex; vertical-align: -0.09ex; " SRC="img327.svg"
  ALT="$50$"></SPAN>&nbsp;Hz mains
 via
 
@@ -1560,7 +1560,7 @@ via
 x(n) = \mathrm{50Hz~noise}(n)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img374.svg"
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img375.svg"
  ALT="$\displaystyle x(n) = \mathrm{50Hz~noise}(n)
 $"> 
 
@@ -1585,7 +1585,7 @@ signal:
 e(n) = \mathrm{signal}(n)
 \end{equation}
  -->
- &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img375.svg"
+ &nbsp;  <IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; " SRC="img376.svg"
  ALT="$\displaystyle e(n) = \mathrm{signal}(n)
 $"> 
 
