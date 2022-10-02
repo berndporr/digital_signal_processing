@@ -892,9 +892,9 @@ $key = q/displaystylefrac{1}{2pijn}left(e^{jomega_{c}n}-e^{-jomega_{c}n}right);M
 $cached_env_img{$key} = q|<IMG STYLE="height: 5.12ex; vertical-align: -2.07ex; " SRC="|."$dir".q|img334.svg"
  ALT="$\displaystyle \frac{1}{2 \pi jn} \left( e^{j \omega_{c} n} - e^{-j \omega_{c}n} \right)$">|; 
 
-$key = q/displaystylefrac{1}{2pi}int_{-0.5}^{0.5}X(f)e^{j2pifn}dt;MSF=1.6;LFS=12;AAT/;
+$key = q/displaystylefrac{1}{2pi}int_{-0.5}^{0.5}X(f)e^{j2pifn}df;MSF=1.6;LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG STYLE="height: 4.96ex; vertical-align: -1.86ex; " SRC="|."$dir".q|img119.svg"
- ALT="$\displaystyle \frac{1}{2\pi} \int_{-0.5}^{0.5} X(f) e^{j 2\pi f n} dt$">|; 
+ ALT="$\displaystyle \frac{1}{2\pi} \int_{-0.5}^{0.5} X(f) e^{j 2\pi f n} df$">|; 
 
 $key = q/displaystylefrac{1}{2pi}int_{-omega_{c}}^{+omega_{c}}e^{jomegan}domega;MSF=1.6;LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG STYLE="height: 4.94ex; vertical-align: -1.90ex; " SRC="|."$dir".q|img332.svg"
