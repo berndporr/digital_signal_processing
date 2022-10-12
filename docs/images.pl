@@ -1230,14 +1230,14 @@ $cached_env_img{$key} = q|<IMG STYLE="height: 2.43ex; vertical-align: -0.66ex; "
  ALT="$\displaystyle t = n/F_s
 $">|; 
 
-$key = q/displaystyletau_omega={dphi(omega)overdomega};MSF=1.6;LFS=12;AAT/;
+$key = q/displaystyletau_omega=-{dphi(omega)overdomega};MSF=1.6;LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="|."$dir".q|img294.svg"
- ALT="$\displaystyle \tau_\omega={d\phi(\omega)\over d\omega}
+ ALT="$\displaystyle \tau_\omega= - {d\phi(\omega)\over d\omega}
 $">|; 
 
-$key = q/displaystyletau_{omega}=frac{dphi(omega)}{domega};MSF=1.6;LFS=12;AAT/;
+$key = q/displaystyletau_{omega}=-frac{dphi(omega)}{domega};MSF=1.6;LFS=12;AAT/;
 $cached_env_img{$key} = q|<IMG STYLE="height: 4.92ex; vertical-align: -1.64ex; " SRC="|."$dir".q|img242.svg"
- ALT="$\displaystyle \tau_{\omega} = \frac{d \phi (\omega)}{d\omega}
+ ALT="$\displaystyle \tau_{\omega} = - \frac{d \phi (\omega)}{d\omega}
 $">|; 
 
 $key = q/displaystyleunderbrace{h(t):=r(T-t)}_{matchedquadfilter!};MSF=1.6;LFS=12;AAT/;
