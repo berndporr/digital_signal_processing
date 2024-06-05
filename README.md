@@ -21,8 +21,8 @@ are structured in playlists. Every playlist has a specific topic.
 
 The lab is project based with every project running for 3 weeks:
 
-  * Fourier Transform: Audio manipulation with the Fast Fourier Transform (FFT) and detection of tones
-  * Finite Impulse Response filters (FIR): ECG 50Hz / DC removal, matched filters & heartbeat / rate detection)
-  * Impulse Response filters (IIR): Realtime filtering and plotting of data coming from an ADC
+  * Fourier Transform: Audio manipulation with the Fast Fourier Transform (FFT)
+  * Finite Impulse Response filters (FIR): ECG 50Hz / DC removal, matched filters & heartbeat / rate detection
+  * Infinite Impulse Response filters (IIR): Realtime filtering and plotting of data coming from an ADC
 
-Creative commons BY-SA (C), 2018-2020 Bernd Porr <bernd.porr@glasgow.ac.uk>
+Creative commons BY-SA (C), 2018-2024 Bernd Porr <bernd.porr@glasgow.ac.uk>
