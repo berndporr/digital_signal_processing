@@ -2,7 +2,7 @@
 
 ![alt tag](iir_fir_stop.png)
 
-These are the lecture notes which are part of my class Digital Signal
+These are the lecture notes which are part of my Digital Signal
 Processing (DSP) class which consists of YouTube clips and 3 extensive
 assignments = flipped classroom.
 
