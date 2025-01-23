@@ -1,0 +1,110 @@
+svg.icon {
+    height: 2em;
+}
+
+button.icon-button {
+    padding: 0;
+    line-height: 1em;
+}
+
+.runnable-code-wrapper {
+    display: grid;
+    grid-template:
+        "code code code" "run output ." / auto 1fr;
+    grid-gap: 0 var(--spacing);
+    margin: var(--spacing) 0;
+    font-size: var(--code-font-size);
+}
+.runnable-code-wrapper[data-format="slides"] {
+    grid-template:
+        "code output" 10rem "run ." / 3fr 2fr;
+    grid-gap: 0;
+    width: 100%;
+}
+
+@media (max-width: 40rem) {
+    .runnable-code-wrapper {
+       grid-template:
+           "code"
+           "run"
+           "output"
+       ;
+    }
+}
+
+.runnable-code-wrapper .buttons {
+    align-self: start;
+    grid-area: run;
+}
+
+.runnable-code-wrapper .buttons > button {
+    padding: calc(0.5 * var(--spacing));
+    font-size: inherit;
+    justify-self: start;
+}
+
+.runnable-code-wrapper .code {
+    grid-area: code;
+    border: 1px solid var(--text-colour);
+    padding: calc(0.5 * var(--spacing));
+    color: black;
+    background: white;
+}
+.runnable-code-wrapper #code {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.runnable-code-wrapper .output {
+    grid-area: output;
+    padding: calc(0.5 * var(--spacing));
+    border: 1px solid var(--text-colour);
+    border-top: none;
+    margin: 0;
+    background: var(--bg-colour);
+    max-height: 20em;
+    overflow: auto;
+}
+.runnable-code-wrapper #output {
+    max-height: 100%;
+    overflow: auto;
+}
+
+.runnable-code-wrapper[data-format="slides"] .output {
+    border-top: 1px solid var(--text-colour);
+}
+
+.runnable-code-wrapper .output pre {
+    margin-top: 0;
+}
+
+.runnable-code-wrapper .output .images :is(canvas,img) {
+    max-width: 100%;
+}
+
+.runnable-code-wrapper:not([data-state="ran"]) .output {
+    background: var(--bg-colour-accent-4);
+    color: var(--text-colour-accent-4);
+    font-style: italic;
+}
+
+.runnable-code-wrapper[data-state="fresh"] .output {
+    display: none;
+}
+
+.runnable-code-wrapper .fullscreenable {
+    position: relative;
+}
+
+.runnable-code-wrapper .fullscreenable > button.fullscreen {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+@media print {
+    .runnable-code-wrapper .buttons,
+    .runnable-code-wrapper button.fullscreen {
+        display: none;
+    }
+}

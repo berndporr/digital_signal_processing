@@ -1,0 +1,26 @@
+.exam_solution{
+  color:#b73333;
+  margin-top:0.5em;
+}
+.exam_comment{
+  color:#355477;
+}
+.exam_marks{
+  font-weight: bold;
+  text-align:right;
+  width:100%;
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}
+.exam_theend{
+  font-weight: bold;
+  text-align:center;
+  width:100%;
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}
+.exam_title{
+  font-weight: bold;
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+}

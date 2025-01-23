@@ -1,325 +1,3626 @@
-<!DOCTYPE HTML>
 
-<!--Converted with LaTeX2HTML 2019.2 (Released June 5, 2019) -->
-<HTML lang="EN">
-<HEAD>
-<TITLE>Digital Signal Processing</TITLE>
-<meta name="google-site-verification" content="dHOmN66WitxgD2yFMjrDq8aatlUBmj2hBDQL6v7sU30" />
-<META NAME="description" CONTENT="Digital Signal Processing">
-<META NAME="keywords" CONTENT="DSP, Python, Digital, Signals, Engineering, Computer science">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-<META CHARSET="UTF-8">
+<!doctype html>
+<html lang="en">
+    <head>
+        
+            <meta charset="utf-8">
+            <meta name="robots" content="noindex">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="author" content="Bernd Porr" />
+            <meta name="date" content="2025-01-23" />
+        
 
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
-<META NAME="Generator" CONTENT="LaTeX2HTML v2019.2">
+        <title>digital_signal_processing | Digital Signal Processing</title>
 
-<LINK REL="STYLESHEET" HREF="digital_signal_processing.css">
+        
+    
+    
+            <link rel="stylesheet" href="static/styles.css?build_time=1737629381.100127">
+            
+            
+        
+    <link rel="stylesheet" id="customiseCodeCSS" href="static/pygmentize.css?build_time=1737629381.100127">
 
-<LINK REL="next" HREF="node1.html">
-</HEAD>
+    <link rel="stylesheet" href="static/print.css?build_time=1737629381.100127">
 
-<BODY >
 
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A
- HREF="node1.html">
-<IMG WIDTH="37" HEIGHT="24" ALT="next" SRC="next.png"></A> 
-<IMG WIDTH="26" HEIGHT="24" ALT="up" SRC="up_g.png"> 
-<IMG WIDTH="63" HEIGHT="24" ALT="previous" SRC="prev_g.png"> 
-<A ID="tex2html32"
-  HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A
- HREF="node1.html">Contents</A>
- &nbsp; <B>  <A ID="tex2html33"
-  HREF="node1.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
+        
+    
+			<script>
+				var chirun_static_url = new URL('static?build_time=1737629381.100127', location.href);
+			</script>
 
-<P>
-<DIV class="CENTER">
-<IMG STYLE=""
- SRC="img25.svg"
- ALT="\includegraphics[width=\textwidth]{SchEng_mono}">
-</DIV>
-<P>
-<DIV class="CENTER">
-</DIV>
-<P>
-<DIV class="CENTER"><B><SPAN CLASS="XHUGE">Digital Signal Processing</SPAN></B>
-</DIV>
-<P>
-<DIV class="CENTER"></DIV>
-<P><P>
-<BR>
-<DIV class="CENTER"></DIV>
-<P>
-<DIV class="CENTER"><SPAN CLASS="XLARGE">Bernd Porr &amp; Nick Bailey</SPAN>
-</DIV>
-<P>
-<DIV class="CENTER"></DIV>
-<P><P>
-<BR>
-<DIV class="CENTER"></DIV>
-<P>
-<DIV class="CENTER"><SPAN CLASS="SPAN">October 12, 2022</SPAN>
-</DIV>
-<P>
-<DIV class="CENTER">
-</DIV>
-<P>
-<DIV class="CENTER"><kbd><A ID="tex2html1"
-  HREF="https://www.youtube.com/dspcourse">https://www.youtube.com/dspcourse</A></kbd></DIV>
-<P>
-<DIV class="CENTER"></DIV>
-<P><P>
-<BR>
-<DIV class="CENTER"></DIV>
-<P>
-<DIV class="CENTER"><SPAN  CLASS="texttt">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</SPAN>
-</DIV>
-<P>
-<DIV class="CENTER">
-</DIV>
-<P>
-<DIV class="CENTER">
-</DIV>
+            
+                <script defer src="static/mathjax_config.js?build_time=1737629381.100127"></script>
+                <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+            
 
-<P>
+            <script type="module" src="static/localisation.js?build_time=1737629381.100127"></script>
 
-<P>
-<BR> <HR>
-<!--Table of Child-Links-->
-<A ID="CHILD_LINKS"></A>
+            <script defer src="static/customisation.js?build_time=1737629381.100127"></script>
 
-<UL CLASS="ChildLinks">
-<LI><A ID="tex2html34"
-  HREF="node1.html">Contents</A>
-<LI><A ID="tex2html35"
-  HREF="node2.html">Acknowledgements</A>
-<LI><A ID="tex2html36"
-  HREF="node3.html">Introduction</A>
-<UL>
-<LI><A ID="tex2html37"
-  HREF="node4.html">Suggested reading</A>
-<LI><A ID="tex2html38"
-  HREF="node5.html">Advantages of digital signal processing</A>
-<LI><A ID="tex2html39"
-  HREF="node6.html">Development boards</A>
-</UL>
-<BR>
-<LI><A ID="tex2html40"
-  HREF="node7.html">Python</A>
-<UL>
-<LI><A ID="tex2html41"
-  HREF="node8.html">How to use Python?</A>
-<UL>
-<LI><A ID="tex2html42"
-  HREF="node8.html#SECTION00041010000000000000">The python console</A>
-<LI><A ID="tex2html43"
-  HREF="node8.html#SECTION00041020000000000000">Python scripts</A>
-<LI><A ID="tex2html44"
-  HREF="node8.html#SECTION00041030000000000000">Help</A>
-</UL>
-<LI><A ID="tex2html45"
-  HREF="node9.html">Packages/Modules</A>
-<LI><A ID="tex2html46"
-  HREF="node10.html">Data types</A>
-<UL>
-<LI><A ID="tex2html47"
-  HREF="node10.html#SECTION00043010000000000000">Numbers</A>
-<LI><A ID="tex2html48"
-  HREF="node10.html#SECTION00043020000000000000">Lists</A>
-<LI><A ID="tex2html49"
-  HREF="node10.html#SECTION00043030000000000000">Tupels</A>
-<LI><A ID="tex2html50"
-  HREF="node10.html#SECTION00043040000000000000">numpy Arrays/Matrices</A>
-</UL>
-<LI><A ID="tex2html51"
-  HREF="node11.html">Control structures</A>
-<UL>
-<LI><A ID="tex2html52"
-  HREF="node11.html#SECTION00044010000000000000">Conditionals</A>
-<LI><A ID="tex2html53"
-  HREF="node11.html#SECTION00044020000000000000">Loops</A>
-</UL>
-<LI><A ID="tex2html54"
-  HREF="node12.html">Functions</A>
-<LI><A ID="tex2html55"
-  HREF="node13.html">Classes</A>
-<LI><A ID="tex2html56"
-  HREF="node14.html">Mathematical functions</A>
-<LI><A ID="tex2html57"
-  HREF="node15.html">Plotting of Functions</A>
-<LI><A ID="tex2html58"
-  HREF="node16.html">Importing data</A>
-<UL>
-<LI><A ID="tex2html59"
-  HREF="node16.html#SECTION00049010000000000000">Space/Tab/Comma separated data</A>
-<LI><A ID="tex2html60"
-  HREF="node16.html#SECTION00049020000000000000">WAV files</A>
-</UL>
-</UL>
-<BR>
-<LI><A ID="tex2html61"
-  HREF="node17.html">Signal conversion</A>
-<UL>
-<LI><A ID="tex2html62"
-  HREF="node18.html">Sampling</A>
-<UL>
-<LI><A ID="tex2html63"
-  HREF="node18.html#SECTION00051100000000000000">Normalised frequency</A>
-<LI><A ID="tex2html64"
-  HREF="node18.html#SECTION00051200000000000000">Nyquist frequency</A>
-<LI><A ID="tex2html65"
-  HREF="node18.html#SECTION00051300000000000000">Sampling theorem</A>
-</UL>
-<LI><A ID="tex2html66"
-  HREF="node19.html">Quantisation</A>
-</UL>
-<BR>
-<LI><A ID="tex2html67"
-  HREF="node20.html">Frequency representation of signals</A>
-<UL>
-<LI><A ID="tex2html68"
-  HREF="node21.html">Continuous time and frequency</A>
-<UL>
-<LI><A ID="tex2html69"
-  HREF="node21.html#SECTION00061100000000000000">Periodic signals</A>
-<LI><A ID="tex2html70"
-  HREF="node21.html#SECTION00061200000000000000">A-periodic signals</A>
-</UL>
-<LI><A ID="tex2html71"
-  HREF="node22.html">Sampled time and/or frequency</A>
-<UL>
-<LI><A ID="tex2html72"
-  HREF="node22.html#SECTION00062100000000000000">Discrete time Fourier Transform (DTFT)</A>
-<LI><A ID="tex2html73"
-  HREF="node22.html#SECTION00062200000000000000">The effect of time domain sampling on the spectrum (Sampling
-theorem)</A>
-<LI><A ID="tex2html74"
-  HREF="node22.html#SECTION00062300000000000000">Discrete Fourier Transform (DFT)</A>
-<LI><A ID="tex2html75"
-  HREF="node22.html#SECTION00062400000000000000">Properties of the DFT</A>
-<LI><A ID="tex2html76"
-  HREF="node22.html#SECTION00062500000000000000">Problems with finite length DFTs</A>
-<LI><A ID="tex2html77"
-  HREF="node22.html#SECTION00062600000000000000">Fast Fourier Transform</A>
-</UL>
-<LI><A ID="tex2html78"
-  HREF="node23.html">Software</A>
-<LI><A ID="tex2html79"
-  HREF="node24.html">Visualisation</A>
-</UL>
-<BR>
-<LI><A ID="tex2html80"
-  HREF="node25.html">Causal Signal Processing</A>
-<UL>
-<LI><A ID="tex2html81"
-  HREF="node26.html">Causality</A>
-<LI><A ID="tex2html82"
-  HREF="node27.html">Convolution of Causal Signals</A>
-<LI><A ID="tex2html83"
-  HREF="node28.html">Laplace transform</A>
-<LI><A ID="tex2html84"
-  HREF="node29.html">Filters</A>
-<UL>
-<LI><A ID="tex2html85"
-  HREF="node29.html#SECTION00074100000000000000">How to characterise filters?</A>
-</UL>
-<LI><A ID="tex2html86"
-  HREF="node30.html">The z-transform</A>
-<LI><A ID="tex2html87"
-  HREF="node31.html">Frequency response of a sampled filter</A>
-<LI><A ID="tex2html88"
-  HREF="node32.html">FIR Filter</A>
-<UL>
-<LI><A ID="tex2html89"
-  HREF="node32.html#SECTION00077100000000000000">Generally FIR filters do not perform a convolution operation</A>
-<LI><A ID="tex2html90"
-  HREF="node32.html#SECTION00077200000000000000">FIR filter implementations</A>
-<LI><A ID="tex2html91"
-  HREF="node32.html#SECTION00077300000000000000">Fixed point FIR filters</A>
-<LI><A ID="tex2html92"
-  HREF="node32.html#SECTION00077400000000000000">Constant group delay or linear phase filter</A>
-<LI><A ID="tex2html93"
-  HREF="node32.html#SECTION00077500000000000000">Window functions</A>
-<LI><A ID="tex2html94"
-  HREF="node32.html#SECTION00077600000000000000">Python code: 
-impulse response from the inverse DFT - The frequency sampling
-method</A>
-<LI><A ID="tex2html95"
-  HREF="node32.html#SECTION00077700000000000000">FIR filter design from ideal frequency response &ndash;
-The analytical way
-</A>
-<LI><A ID="tex2html96"
-  HREF="node32.html#SECTION00077800000000000000">Design steps for FIR filters</A>
-<LI><A ID="tex2html97"
-  HREF="node32.html#SECTION00077900000000000000">FIR filter design with Python's high level functions</A>
-<LI><A ID="tex2html98"
-  HREF="node32.html#SECTION000771000000000000000">Signal Detection: Matched filter</A>
-<LI><A ID="tex2html99"
-  HREF="node32.html#SECTION000771100000000000000">Adaptive FIR Least Mean Squares (LMS) filters</A>
-</UL>
-<LI><A ID="tex2html100"
-  HREF="node33.html">IIR Filter</A>
-<UL>
-<LI><A ID="tex2html101"
-  HREF="node33.html#SECTION00078100000000000000">Introduction</A>
-<LI><A ID="tex2html102"
-  HREF="node33.html#SECTION00078200000000000000">Determining the data-flow diagram of an IIR filter</A>
-<LI><A ID="tex2html103"
-  HREF="node33.html#SECTION00078300000000000000">General form of IIR filters</A>
-<LI><A ID="tex2html104"
-  HREF="node33.html#SECTION00078400000000000000">IIR filter topologies</A>
-<LI><A ID="tex2html105"
-  HREF="node33.html#SECTION00078500000000000000">Fixed point IIR filters</A>
-<LI><A ID="tex2html106"
-  HREF="node33.html#SECTION00078600000000000000">Filter design based on analogue filters</A>
-<UL>
-<LI><A ID="tex2html107"
-  HREF="node33.html#SECTION00078610000000000000">A list of popular analogue transfer functions being
-used for IIR filter design:</A>
-<LI><A ID="tex2html108"
-  HREF="node33.html#SECTION00078620000000000000">How to transform the analogue lowpass filters into
-  highpass, bandstop or bandpass filters?</A>
-<LI><A ID="tex2html109"
-  HREF="node33.html#SECTION00078630000000000000">Bilinear Transform: transforming the analoge transfer function into a digital one:</A>
-<LI><A ID="tex2html110"
-  HREF="node33.html#SECTION00078640000000000000">IIR filter design steps:</A>
-<LI><A ID="tex2html111"
-  HREF="node33.html#SECTION00078650000000000000">Time or frequency domain?</A>
-</UL>
-<LI><A ID="tex2html112"
-  HREF="node33.html#SECTION00078700000000000000">Adaptive IIR filter: The Kalman filter</A>
-<LI><A ID="tex2html113"
-  HREF="node33.html#SECTION00078800000000000000">The role of poles and zeros</A>
-<UL>
-<LI><A ID="tex2html114"
-  HREF="node33.html#SECTION00078810000000000000">Zeros</A>
-<LI><A ID="tex2html115"
-  HREF="node33.html#SECTION00078820000000000000">Poles</A>
-<LI><A ID="tex2html116"
-  HREF="node33.html#SECTION00078830000000000000">Stability</A>
-<LI><A ID="tex2html117"
-  HREF="node33.html#SECTION00078840000000000000">Poles and zeroes combined: design of a pure digital IIR notch filter</A>
-<LI><A ID="tex2html118"
-  HREF="node33.html#SECTION00078850000000000000">Identifying filters from their poles and zeroes</A>
-</UL>
-</UL>
-</UL>
-<BR>
-<LI><A ID="tex2html119"
-  HREF="node34.html">Bibliography</A>
-<LI><A ID="tex2html120"
-  HREF="node35.html">About this document ...</A>
-</UL>
-<!--End of Table of Child-Links-->
-<BR> <HR>
-<p><a href="https://github.com/berndporr/digital_signal_processing">github / contact</a></p><P><A REL="license" HREF="http://creativecommons.org/licenses/by-sa/4.0/"><IMG ALT="Creative Commons License" SRC="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></A></P>
-</BODY>
-</HTML>
+            
+
+            
+        
+    <script defer src="static/code.js?build_time=1737629381.100127" type="module"></script>
+    <script defer src="static/embed_numbas.js?build_time=1737629381.100127" type="module"></script>
+    <script defer src="static/embed_qrcode.js?build_time=1737629381.100127" type="module"></script>
+
+
+        <template id="runnable-code-template">
+            <link rel="stylesheet" href="static/code.css?build_time=1737629381.100127">
+            <div class="runnable-code-wrapper">
+                <section class="fullscreenable code">
+                    <div id="code"></div>
+                    <button class="fullscreen icon-button" title="Fullscreen code"><svg class="icon" aria-label="Fullscreen code" viewBox="0 0 180 180">
+    <use href="#fullscreen"/>
+</svg></button>
+                </section>
+                <section class="fullscreenable output">
+                    <div id="output" aria-live="polite">
+                        <pre class="stdout"></pre>
+                        <pre class="result"></pre>
+                        <div class="images"></div>
+                    </div>
+                    <button class="fullscreen icon-button" title="Fullscreen output"><svg class="icon" aria-label="Fullscreen output" viewBox="0 0 180 180">
+    <use href="#fullscreen"/>
+</svg></button>
+                </section>
+                <div class="buttons">
+                    <button type="button" class="run-code">Run code</button>
+                </div>
+                <svg
+   width="180"
+   height="180"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="icon-defs"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <g id="cog">
+            <path 
+                style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:2.91107"
+                d="m 97.752501,14.130132 -9.381402,13.321575 -0.875593,3.780985 0.153413,10.126218 -15.231962,2.683646 -3.320429,-9.569021 -2.115099,-3.246528 -13.372747,-9.313164 -6.817124,3.940185 1.375919,16.23265 1.756892,3.456901 6.623829,7.658625 -9.938582,11.848983 -8.693428,-5.196724 -3.712755,-1.125768 -16.226967,1.461225 -2.695014,7.397083 11.490766,11.553325 3.570636,1.518082 10.001112,1.609049 v 15.465082 l -10.001112,1.609049 -3.570636,1.51808 -11.490766,11.55333 2.695014,7.39707 16.226967,1.46124 3.712755,-1.12577 8.693428,-5.19673 9.938582,11.849 -6.623829,7.6586 -1.756892,3.4569 -1.375919,16.23267 6.817124,3.94017 13.372747,-9.31317 2.115099,-3.24651 3.320429,-9.56902 15.231962,2.68363 -0.153413,10.12623 0.875593,3.78099 9.381402,13.32157 7.749599,-1.37024 4.25858,-15.72665 -0.46624,-3.84919 -3.60472,-9.46099 13.3898,-7.73254 6.39641,7.85192 3.09872,2.33113 15.74934,4.17332 5.06027,-6.02683 -6.84557,-14.78849 -2.83716,-2.64385 -8.84125,-4.93518 5.28767,-14.532632 9.94426,1.910392 3.8777,-0.21038 14.74863,-6.925177 v -7.868995 l -14.74863,-6.925174 -3.8777,-0.210383 -9.94426,1.910392 -5.28767,-14.532629 8.84125,-4.935179 2.83716,-2.643849 6.84557,-14.788484 -5.06027,-6.026831 -15.74934,4.173298 -3.09872,2.331133 -6.39641,7.851938 -13.3898,-7.73254 3.60472,-9.460991 0.46624,-3.849211 -4.25858,-15.726624 z M 88.371099,75.44463 A 14.55537,14.55537 0 0 1 102.92647,90 14.55537,14.55537 0 0 1 88.371099,104.55537 14.55537,14.55537 0 0 1 73.815728,90 14.55537,14.55537 0 0 1 88.371099,75.44463 Z"
+            />
+        </g>
+        <g id="pdf">
+            <path
+                style="fill:var(--bg-colour);fill-opacity:1;fill-rule:nonzero;stroke:currentColor;stroke-width:5.73751;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                d="m 115.96038,9.1011226 31.41471,31.7977544 m 0,11.232914 V 159.42386 c 0,6.35716 -5.11786,11.47502 -11.47502,11.47502 H 44.099928 c -6.35716,0 -11.475018,-5.11786 -11.475018,-11.47502 V 20.576141 c 0,-6.35716 5.117858,-11.4750184 11.475018,-11.4750184 h 71.860452 l -0.14159,20.0812814 c -0.0449,6.357008 5.11832,11.398586 11.47503,11.475018 l 20.08127,0.241455"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:4.74634;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 56.949794,109.50753 C 70.723931,123.86069 104.41318,45.431956 83.05466,47.805125 61.696136,50.178294 111.53269,116.62705 123.39853,100.01485 135.26439,83.402664 43.175657,95.15437 56.949794,109.50753 Z"
+            />
+        </g>
+        <g id="slides">
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,21.25 30,137.5"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 90,21.25 60,158.75"
+            />
+            <rect
+                style="fill:var(--bg-colour);fill-opacity:1;stroke:currentColor;stroke-width:10.4525;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="119.79137"
+                height="82.273766"
+                x="30.104315"
+                y="36.476234"
+                ry="4.7737675"
+                rx="4.7737675"
+            />
+            <rect
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5.90268;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="140"
+                height="5.2262344"
+                x="20"
+                y="31.25"
+                ry="1.6724058"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,66.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,76.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,86.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,56.25 h 50"
+            />
+            <path
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                d="M 80.000002,78.84906 A 20.099062,20.099062 0 0 1 67.592518,97.418172 20.099062,20.099062 0 0 1 45.688757,93.061243 20.099062,20.099062 0 0 1 41.331828,71.157482 20.099062,20.099062 0 0 1 59.90094,58.749998 V 78.84906 Z"
+            />
+        </g>
+
+        <g id="notebook">
+            <path
+                style="fill:var(--bg-colour);stroke:currentColor;stroke-width:4.964;stroke-linecap:butt;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
+                d="M 34.482063,31.89923 V 16.261703 c 0,-5.41792 4.36172,-9.7796397 9.77964,-9.7796397 H 135.7383 c 5.41792,0 9.77964,4.3617197 9.77964,9.7796397 V 163.7383 c 0,5.41792 -4.36172,9.77964 -9.77964,9.77964 H 44.261703 c -5.41792,0 -9.77964,-4.36172 -9.77964,-9.77964 v -23.96224"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="58.699139"
+               cy="59.503937"
+               r="3.8077738"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="113.59385"
+               cy="52.885151"
+               r="4.9348516"
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,54.782256 C 74.053011,55.067917 59.927013,65.025096 57.261258,76.89961 69.209289,67.830932 79.817786,64.804678 88.900432,64.855157 97.983077,64.804678 108.59157,67.830932 120.53961,76.89961 117.87385,65.025096 103.74785,55.067917 88.900432,54.782256 Z"
+           
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,121.58085 C 74.053011,121.29519 59.927013,111.33801 57.261258,99.46349 c 11.948031,9.06868 22.556528,12.09494 31.639174,12.04445 9.082643,0.0505 19.691138,-2.97577 31.639178,-12.04445 -2.66576,11.87452 -16.79176,21.8317 -31.639178,22.11736 z"
+              
+            />
+            <ellipse
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="63.813011"
+               cy="125.96338"
+               rx="6.4332962"
+               ry="6.4347191"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="m 28,40 c 2.806997,-4.320074 9.452509,-3.66881 12,0"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="M 34,46.266514 V 62.316215"
+            
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,71.583335 c 2.806997,-4.320073 9.452509,-3.668809 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="M 34,77.849849 V 93.89955"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,103.16667 c 2.806997,-4.320071 9.452509,-3.668807 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 34,109.43318 v 16.0497"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,134.75 c 2.806997,-4.32007 9.452509,-3.66881 12,0"
+            />
+        </g>
+
+        <g id="fullscreen">
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:10;stroke-dasharray:none;paint-order:stroke markers fill"
+               d="M 19.402776,9.9953678 H 160.51388 c 5.2117,0 9.40741,4.1957032 9.40741,9.4074042 V 160.51388 c 0,5.2117 -4.19571,9.40741 -9.40741,9.40741 H 19.402776 c -5.211704,0 -9.4074082,-4.19571 -9.4074082,-9.40741 V 19.402772 c 0,-5.211701 4.1957042,-9.4074042 9.4074082,-9.4074042 z" />
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="M 150.95833,68.801471 V 28.958332 h -39.84314"
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="m 28.958332,111.11519 v 39.84314 h 39.843139"
+            />
+        </g>
+    </defs>
+</svg>
+            </div>
+        </template>
+
+        <template id="embed-numbas-template">
+            <link rel="stylesheet" href="static/embed_numbas.css?build_time=1737629381.100127">
+            <details id="wrapper" data-completion-status="incomplete">
+                <summary>
+                    <h1 id="title">Test Yourself</h1>
+                    <div id="completion-status" data-completion-status="unknown">
+                        <span class="complete">Complete</span>
+                        <span class="incomplete">Incomplete</span>
+                    </div>
+                    <label id="score-feedback">
+                        Score:
+                        <progress min="0"></progress>
+                    </label>
+                </summary>
+                <iframe class="embed" title="Numbas"></iframe>
+            </details>
+        </template>
+
+    </head>
+    <body class="" >
+        
+
+        <a class="skip-to-content-link" href="#main-content">Skip to content</a>
+        
+            <form id="display-options">
+    <div class="buttons">
+        <button type="button" id="reset-display-options">Reset to defaults</button>
+
+        <a href="https://chirun.org.uk/accessibility-statement/material">Accessibility statement</a>
+
+        <button type="button" aria-controls="display-options" aria-expanded="false">
+            Close
+        </button>
+    </div>
+
+    <div class="inputs">
+        <div class="input-group">
+            <label for="display-options-font-scale">
+                Text size
+            </label>
+            <input type="range" min="50" max="600" step="5" value="100" id="display-options-font-scale">
+            <output for="display-options-font-scale">100%</output>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-spacing-factor">
+                Spacing
+            </label>
+            <input type="range" min="0" max="1200" step="5" value="100" id="display-options-spacing-factor">
+            <output for="display-options-spacing-factor">100%</output>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-font-family">
+                Text font
+            </label>
+            <select id="display-options-font-family">
+                <option value="var(--sans-serif-font)" selected>Sans-serif</option>
+                <option value="var(--serif-font)">Serif</option>
+                <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
+                <option value="Comic Sans MS">Comic Sans</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-colour-scheme">
+                Colour scheme
+            </label>
+            <select id="display-options-colour-scheme">
+                <option value="auto" selected>Automatic (default)</option>
+                <option value="light">Black text on white</option>
+                <option value="dark">White text on black</option>
+                <option value="custom">Custom</option>
+            </select>
+        </div>
+
+        <section id="custom-colour-scheme-options" class="inputs">
+            <div class="input-group">
+                <label for="display-options-text-colour">
+                    Text colour
+                </label>
+                <input type="color" value="#000000" id="display-options-text-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-link-colour">
+                    Link colour
+                </label>
+                <input type="color" value="#0000ee" id="display-options-link-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour">
+                    Background colour
+                </label>
+                <input type="color" value="#ffffff" id="display-options-bg-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-off">
+                    Muted background colour
+                </label>
+                <input type="color" value="#eeeeee" id="display-options-bg-colour-off">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-1">
+                    Accent colour 1
+                </label>
+                <input type="color" value="#4caf50" id="display-options-bg-colour-accent-1">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-2">
+                    Accent colour 2
+                </label>
+                <input type="color" value="#f6f6ff" id="display-options-bg-colour-accent-2">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-3">
+                    Accent colour 3
+                </label>
+                <input type="color" value="#eeffd3" id="display-options-bg-colour-accent-3">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-4">
+                    Accent colour 4
+                </label>
+                <input type="color" value="#ffeeee" id="display-options-bg-colour-accent-4">
+            </div>
+        </section>
+
+        <section id="filter-colour-scheme-options" class="inputs">
+            <div class="input-group">
+                <label for="display-options-filter-sepia">
+                    Sepia filter
+                </label>
+                <input type="range" min="0" max="100" step="1" value="0" id="display-options-filter-sepia">
+                <output for="display-options-filter-sepia">0%</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-filter-hue-rotate">
+                    Rotate hues
+                </label>
+                <input type="range" min="0" max="1" step="0.01" value="0" id="display-options-filter-hue-rotate">
+                <output for="display-options-filter-hue-rotate">0 turns</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-invert-images">
+                    Invert images in dark mode
+                </label>
+                <input type="checkbox" id="display-options-invert-images">
+            </div>
+
+        </section>
+    </div>
+</form>
+        
+
+        <header>
+            
+<button class="icon-button" type="button" aria-controls="display-options" aria-expanded="false" title="Display options">
+    <svg class="icon" aria-label="Display options" viewBox="0 0 180 180">
+    <use href="#cog"/>
+</svg>
+</button>
+            
+    
+
+            
+            
+        </header>
+
+        <main id="main-content">
+            
+    <nav id="sidebar">
+        
+        <ul class="alternative-formats">
+            
+            <li><a rel="alternate" type="application/pdf" href="digital_signal_proce.pdf"download><svg class="icon" aria-label="PDF" viewBox="0 0 180 180">
+    <use href="#pdf"/>
+</svg> Download as PDF</a></li>
+            
+        </ul>
+        
+
+        <h1>Table of Contents</h1>
+        <a class="jump-to-item-content" href="#item-content">Jump to content</a>
+        
+            <ol class="table-of-contents">
+                
+                    
+    <li>
+        <a href="#a0000000003">1 Acknowledgements</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000004">2 Introduction</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000005">2.1 Suggested reading</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000009">2.2 Advantages of digital signal processing</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000015">2.3 Development boards</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000016">3 Python</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000017">3.1 How to use Python?</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000021">3.2 Packages/Modules</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000026">3.3 Data types</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000051">3.4 Control structures</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000054">3.5 Functions</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000055">3.6 Classes</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000056">3.7 Mathematical functions</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000057">3.8 Plotting of Functions</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000058">3.9 Importing data</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000061">4 Signal conversion</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000071">4.1 Sampling</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000073">Normalised frequency</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000082">Nyquist frequency</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000086">Sampling theorem</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000092">4.2 Quantisation</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000108">5 Frequency representation of signals</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000109">5.1 Continuous time and frequency</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000110">Periodic signals</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000125">A-periodic signals</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000128">5.2 Sampled time and/or frequency</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000129">Discrete time Fourier Transform (DTFT)</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000137">The effect of time domain sampling on the spectrum (Sampling theorem)</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000149">Discrete Fourier Transform (DFT)</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000162">Properties of the DFT</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000177">Problems with finite length DFTs</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000182">Fast Fourier Transform</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000192">5.3 Software</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000193">5.4 Visualisation</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000198">6 Causal Signal Processing</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000199">6.1 Causality</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000202">6.2 Convolution of Causal Signals</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000205">6.3 Laplace transform</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000220">6.4 Filters</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000223">How to characterise filters?</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000233">6.5 The z-transform</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000240">6.6 Frequency response of a sampled filter</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000248">6.7 FIR Filter</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000252">Generally FIR filters do not perform a convolution operation</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000253">FIR filter implementations</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000257">Fixed point FIR filters</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000261">Constant group delay or linear phase filter</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000265">Window functions</a>
+        
+    </li>
+
+    <li>
+        <a href="#freqsamp">Python code: impulse response from the inverse DFT - The frequency sampling method</a>
+        
+    </li>
+
+    <li>
+        <a href="#idealFilt">FIR filter design from ideal frequency response – The analytical way </a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000297">Design steps for FIR filters</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000308">FIR filter design with Python’s high level functions</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000309">Signal Detection: Matched filter</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000317">Adaptive FIR Least Mean Squares (LMS) filters</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000329">6.8 IIR Filter</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#a0000000330">Introduction</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000337">Determining the data-flow diagram of an IIR filter</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000342">General form of IIR filters</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000344">IIR filter topologies</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000350">Fixed point IIR filters</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000352">Filter design based on analogue filters</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000384">Adaptive IIR filter: The Kalman filter</a>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000389">The role of poles and zeros</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+    <li>
+        <a href="#a0000000413">References</a>
+        
+    </li>
+
+    <li>
+        <a href="#footnot_1">Footnotes</a>
+        
+    </li>
+
+                
+            </ol>
+        
+
+    </nav>
+
+    <article class="item-content" id="item-content">
+        <div class="centered"><p>
+<div class="mbox" id="a0000000002" style="width: "><img alt="\includegraphics[width=\textwidth ]{SchEng_mono}" src="images/img-0001.svg" style="width:469.755pt"/></div>
+</p>
+<p>
+<b class="bf"><big class="xhuge">Digital Signal Processing</big></b>
+</p>
+<p>
+<span class="vspace bigskip"></span>
+</p>
+<p>
+<big class="xlarge">Bernd Porr &amp; Nick Bailey</big>
+</p>
+<p>
+<span class="vspace bigskip"></span>
+</p>
+<p>
+<small class="small">January 23, 2025</small>
+</p>
+<p>
+<a href="https://www.youtube.com/dspcourse">https://www.youtube.com/dspcourse</a>
+</p>
+<p>
+<span class="vspace bigskip"></span>
+</p>
+<p>
+<span class="ttfamily">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</span>
+</p>
+</div>
+<p>
+<br/>
+</p>
+<p>
+<br/>
+</p>
+<section class="section">
+<h2 id="a0000000003">1 Acknowledgements</h2>
+<p>
+ A big thanks to Fiona Baxter for typing up the handwritten lecture notes and turning them into L<sup style="font-variant:small-caps; margin-left:-0.3em">a</sup>T<sub style="text-transform:uppercase; margin-left:-0.2em">e</sub>X. 
+</p>
+</section><section class="section">
+<h2 id="a0000000004">2 Introduction</h2>
+<p>
+ This handout introduces you into the basic concepts of Digital Signal Processing. In contrast to the YouTube clips it focusses more on the theoretical aspects of it and its analytical derivations. The (video-) lectures cover more practical programming examples in Python and C++. 
+</p>
+<section class="subsection">
+<h3 id="a0000000005">2.1 Suggested reading</h3>
+<ul class="itemize" id="a0000000006">
+<li id="a0000000007">
+<p>
+Digital Signal Processing by John G. Proakis and Dimitris K Manolakis 
+</p>
+</li>
+<li id="a0000000008">
+<p>
+Digital Signal Processing: System Analysis and Design by Paulo S. R. Diniz, Eduardo A. B. da Silva, and Sergio L. Netto 
+</p>
+</li>
+</ul>
+</section><section class="subsection">
+<h3 id="a0000000009">2.2 Advantages of digital signal processing</h3>
+<ul class="itemize" id="a0000000010">
+<li id="a0000000011">
+<p>
+flexible: reconfigurable in software! 
+</p>
+</li>
+<li id="a0000000012">
+<p>
+easy storage: numbers! 
+</p>
+</li>
+<li id="a0000000013">
+<p>
+cheaper than analogue design 
+</p>
+</li>
+<li id="a0000000014">
+<p>
+very reproducible results (virtually no drift) 
+</p>
+</li>
+</ul>
+</section><section class="subsection">
+<h3 id="a0000000015">2.3 Development boards</h3>
+<p>
+ Buy a DSP development board and play with it. You get them either directly from a company or from a distributor such as Farnell or RS. Also general purpose boards such as the Raspberry PI and Arduino are great platforms for DSP. 
+</p>
+</section>
+</section><section class="section">
+<h2 id="a0000000016">3 Python</h2>
+<p>
+ Python is a fully featured scripting language and it’s very well thought through in its approach. It has a vast library of modules which means that only rarely you need implement low level functionality. It can be programmed both in a quick and dirty approach to try out new ideas and at the same time it supports object oriented programming so that truly professional programs can be developed. 
+</p>
+<p>
+Python has a straightforward interface to call C and C++ functions so that you can also mix it with C/C++ to speed up processing. For example a digital filter class might have the design parts written in python and the actual fast filter routines implemented in C. All this is supported by the python package management so that you can also deploy mixed python / C code without any problems. For example the AI library by google “tensorflow” can be installed as a python package and in the background it uses the GPUs on your computer without even noticing. 
+</p>
+<p>
+Here, I just comment on certain aspects of Python which are important for DSP. Check out the full documentation of python if you are interested beyond DSP in it. In particular it has also very easy to use support for GUI programming. 
+</p>
+<section class="subsection">
+<h3 id="a0000000017">3.1 How to use Python?</h3>
+<p>
+ There are two ways to use Python. The one is interactive within the python console and then the other method is by running a python script. 
+</p>
+<p>
+Development environments such as anaconda have both the console and then scripting facility integrated under one roof. 
+</p>
+<p class="paragraph">
+<strong class="paragraph-title" id="a0000000018">The python console</strong>
+
+     The python console you can just start by typing ``python'': <pre class="verbatim">
+Python 3.8.10 (default, Jun  2 2021, 10:49:15) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; 
+</pre> then you can type in commands one by one. Under Windows you might need to point the PATH variable to your python program or you let Anaconda do it for you. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000019">Python scripts</strong>
+
+     Scripts are text files which contain python commands. One command per line and these are executed line by line. 
+Write your commands in any text editor and save it as a .py-file. However, it's recommended to use an editor which supports at least python's indentation which is a very important feature of python. We'll see that indentation in python defines the body of a function, the content of a loop or the code executed conditionally. 
+So, it's recommended for any serious work to install an editor which supports python such as spyder, VS-code, py-charm or emacs. 
+Once you have your script file saved just type ``python myscript.py'' and it will be executed. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000020">Help</strong>
+
+     There is an abundance of online help available for Python. The official Python pages have an excellent tutorial (<span class="ttfamily">https://docs.python.org/3/tutorial/</span>) and of course you find answers to all your questions on Stack Overflow. 
+If you need help for a function you can use the in built help function ``help(thecommand)'' to get help for ``thecommand''. Try out ``help(print)'' to get help for the ``print'' command. 
+
+</p>
+</section><section class="subsection">
+<h3 id="a0000000021">3.2 Packages/Modules</h3>
+<p>
+ The power of Python comes form thousands of modules which are shipped with python or can be installed via python’s package manager. A package contains usually many modules. The standard package manager of python is called “pip” which downloads the package for you and installs it. This is not just very convenient but also is safe because the download location is the official python repository. 
+</p>
+<p>
+In general you import modules with the “import” command. For example “import numpy as np” imports the module numpy into python and abbreviates it as “np” so that you’d write “np.sin(c)” to call the sine function in numpy. 
+</p>
+<p>
+The import command loads essentially a file called “numpy.py” so that you can write your own modules just by creating file with that name. See below in the “class” section for an example. There are numerous ways how to import modules but the “import as” way is by far the most popular. 
+</p>
+<p>
+Important modules are: 
+</p>
+<ul class="itemize" id="a0000000022">
+<li id="a0000000023">
+<p>
+numpy: Numerical operations for number crunching, matrix/array operations, trigonometric functions, etc. It offers fast numerical operations on arrays and matrices. It also has extensive Fourier Transform commands. 
+</p>
+</li>
+<li id="a0000000024">
+<p>
+pylab: Plotting functions (MATLAB style), statistics and data fitting functions 
+</p>
+</li>
+<li id="a0000000025">
+<p>
+scipy: Scientific computing package. In particular we are insterested in scipy.signal which contains all the signal processing functions and filter design commands. It also offers Fourier Transforms, data io routines, vector quantisation, linear algebra, optimisation tools and statistics. 
+</p>
+</li>
+</ul>
+</section><section class="subsection">
+<h3 id="a0000000026">3.3 Data types</h3>
+<p>
+ Python has all the standard data types such as int, float, string, …and a few more. You can check which type a variable has with: “type(variable)”. Important for DSP are these types: 
+</p>
+<p class="paragraph">
+<strong class="paragraph-title" id="a0000000027">Numbers</strong>
+
+     Numbers are represented in a standard way, including complex numbers:     <ul class="itemize" id="a0000000028">
+<li id="a0000000029">
+<p>
+<span class="ttfamily">6E23</span>\(=6\cdot 10^{23}\) 
+</p>
+</li>
+<li id="a0000000030">
+<p>
+<span class="ttfamily">6+2j</span> is a complex number which is just generated by adding a “j” to the imaginary part. 
+</p>
+</li>
+<li id="a0000000031">
+<p>
+<span class="ttfamily">complex(0,1)</span> creates 1j and is useful if you have variables which you want to combine into a complex number. 
+</p>
+</li>
+</ul>
+ Note that python has implicit types which might make you trip over. If you write ``a=1'' then ``a'' is an integer whereas ``a=1.0'' is a floating point number. You can force a certain type by using the typecast operator, for example `` a = int(b)'' to create an integer. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000032">Lists</strong>
+
+     There are numerous data types in Python which allow storing collections of data. For DSP we need: lists, tupels and arrays. To clear up the confusion from the start we are going through them one by one. First up: lists!     <ul class="itemize" id="a0000000033">
+<li id="a0000000034">
+<p>
+<span class="ttfamily">p = [1,9,77]</span> is a list with the components 1,2 and 77. 
+</p>
+</li>
+<li id="a0000000035">
+<p>
+<span class="ttfamily">p[2]</span> returns the third element of the list (the index counts from 0). Note the index needs to be an integer so you might need to cast a floating point variables first into an integer, for example “p[int(a)]”. 
+</p>
+</li>
+<li id="a0000000036">
+<p>
+<span class="ttfamily">p[1:5]</span> extracts from the list all elements from index number 1 to index number 4 (!). The index 5 is excluded! This is called splicing. Check out the online docs for more examples. 
+</p>
+</li>
+<li id="a0000000037">
+<p>
+<span class="ttfamily">p = range(1,4)</span> generates \(1, 2, 3\) which is the same as a “for loop” in C: for(int i=1;i&lt;4;i++) 
+</p>
+</li>
+<li id="a0000000038">
+<p>
+<span class="ttfamily">p.append(10)</span> adds a new element to the end of the list. You see that lists are essentially classes with methods (see below)! Check out the documentation for more options to manipulate lists. 
+</p>
+</li>
+<li id="a0000000039">
+<p>
+<span class="ttfamily">len(p2)</span> provides the number of elements. 
+</p>
+</li>
+</ul>
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000040">Tupels</strong>
+
+     Tupels are similar to lists but they are rather used as ``containers'' to package up different variables into one variable. For example, you might want to put the sampling rate and the resolution of an ADC into a tuple as they belong together.     <ul class="itemize" id="a0000000041">
+<li id="a0000000042">
+<p>
+<span class="ttfamily">p = (1,9,’kk’)</span> is a tupel with the two integer numbers 1,2 and ’kk’. 
+</p>
+</li>
+<li id="a0000000043">
+<p>
+The round brackets are often omitted: <span class="ttfamily">p = 1,9,’kk’</span> which implicitly defines a tupel. 
+</p>
+</li>
+<li id="a0000000044">
+<p>
+<span class="ttfamily">p[1]</span> returns the 2nd element of the tupel (the index counts from 0). 
+</p>
+</li>
+<li id="a0000000045">
+<p>
+Extracting a tupel into separate variables also works: <span class="ttfamily">a,b,c = p</span> assigns 1 to a, 9 to b and ’kk’ to c. This is very convenient for functions if you want to return more than one result. Just package them up into a tuple and return it. 
+</p>
+</li>
+</ul>
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000046">numpy Arrays/Matrices</strong>
+
+     Numpy arrays or matrices are used for number crunching and are ideal for DSP. Use these for all of you DSP data manipulation. They are essentially C arrays with a thin wrapper around them. In order to create and manipulate these arrays you need to use the numpy functions. 
+    <ul class="itemize" id="a0000000047">
+<li id="a0000000048">
+<p>
+<span class="ttfamily">a = np.array([1, 2, 5])</span> which creates a numpy array from a standard Python list containing 1,2,5. 
+</p>
+</li>
+<li id="a0000000049">
+<p>
+<span class="ttfamily">b = np.array([[6, 2], [9, 7]])</span> creates a two dimensional array. 
+</p>
+</li>
+<li id="a0000000050">
+<p>
+There are a lot of convenience functions in numpy to create arrays just containing zeros, ones or ascending numbers etc. Check out the numpy docs. 
+</p>
+</li>
+</ul>
+ 
+Since numpy arrays are close relatives to C arrays they have an additional field which is called ``dtype'' which determines the type of the array elements, for example ``int16'' (a 16 bit wide integer). <pre class="verbatim">
+&gt;&gt;&gt; data
+array([-12288, -12545, -12798, ...,    511,    513,    513], dtype=int16)
+&gt;&gt;&gt; data.dtype
+dtype('int16')
+&gt;&gt;&gt; data.astype(float)
+array([-12288., -12545., -12798., ...,    511.,    513.,    513.])
+</pre> where the member function ``astype'' can convert from one array type to another, here from int16 to floating point. 
+
+</p>
+</section><section class="subsection">
+<h3 id="a0000000051">3.4 Control structures</h3>
+<p class="paragraph">
+<strong class="paragraph-title" id="a0000000052">Conditionals</strong>
+
+     Conditional operation is done in exactly the same way as in other languages: <pre class="verbatim">
+if a &gt; c:
+    a = c
+    c = c*2
+print(c)
+</pre> The indent of 4 characters indicates the conditionally executed commands. The same applies for do and while loops where the body has an indent. Here, print(c) is always executed because it doesn't have an indent. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000053">Loops</strong>
+
+     Imagine you want to calculate the average of the array <span class="ttfamily">y</span>. <pre class="verbatim">
+s = 0.0
+for i in range(len(y)):
+    s = s + y[i]
+print("Average:",s/len(y))
+</pre> The ``for'' statement iterates through all elements of an array with the help of a list created by the ``range'' command. This is very much C-like. However Python, as for example in C++11 or Swift, allows iterating over the array elements themselves: <pre class="verbatim">
+s = 0.0
+for v in y:
+    s = s + v
+print("Average:",s/len(y))
+</pre> which is a much more compact and safe way of coding as there will never be an out of bounds error. 
+Important: the <i class="slshape">indent</i> indicates the commands which the loop iterates through. This is the general rule in python. 
+See the Python documentation for other ways of creating loops. 
+
+</p>
+</section><section class="subsection">
+<h3 id="a0000000054">3.5 Functions</h3>
+<p>
+ Function definitions can happen anywhere in the program or in a separate file. For example, the above average calculations can be defined as: 
+</p>
+<pre class="verbatim">
+def myaverage(y):
+    s = 0.0
+    for v in y:
+        s = s + v
+    return (s/len(y))
+</pre>
+<p>
+ and then called from the main program as <span class="ttfamily">myaverage(a)</span>. The keyword “def” indicates the start of the function definition. Note again the 4 character indent for the function body and the colon after the function name. This is characteristic for python. 
+</p>
+</section><section class="subsection">
+<h3 id="a0000000055">3.6 Classes</h3>
+<p>
+ Classes contain functions and variables. They usually have a constructor called <span class="ttfamily">init</span> which is a special function which is called when an instance of a class is created. 
+</p>
+<pre class="verbatim">
+class MyAmazingClass:
+    def __init__(self,coeff):
+        # Your init code here.
+        self.mylocalcoeff = coeff
+
+    def doSomeProcessing(self,data):
+        # we process data
+        data = data * self.mylocalcoeff
+        return data
+</pre>
+<p>
+ (!) Note the special variable “self” which is <i class="slshape">the first</i> argument of every method in a class. Variables which are part of the class are references by “self”. For example the constructor argument “coeff” is saved in the class as “mylocalcoeff” and is then available throughout the lifetime of the class as “self.mylocalcoeff”. When we call the method “doSomeProcessing” then “self.mylocalcoeff” is multiplied with the “data” argument and the result is returned. Anything which hasn’t got “self.” in front of it will be forgotten after the function has terminated. In this way you distinguish which variables are kept for the lifetime of the class or are just used temporarily. 
+</p>
+<p>
+Classes are just types and need to be instantiated: 
+</p>
+<pre class="verbatim">
+f = MyAmazingClass(5)
+a = f.doSomeProcessing(10)
+b = f.doSomeProcessing(20)
+</pre>
+<p>
+ which will give us 50 as a result for the variable “a” and 100 for the variable “b”. The variable “f” is the instance of the class MyAmazingClass and the argument initialises self.mylocalcoeff with 5. 
+</p>
+</section><section class="subsection">
+<h3 id="a0000000056">3.7 Mathematical functions</h3>
+<p>
+ Just import the numpy library which contains all the mathematical functions and constants such as pi. <span class="ttfamily">import numpy as np</span>. It has all the standard functions such as np.sin, np.cos, np.tan, np.exp, …. 
+</p>
+<p>
+Note that these functions also take arrays as arguments. For example, inputting the array x into the sine: 
+</p>
+<pre class="verbatim">
+x = np.array(range(6))
+y = np.sin(x);
+</pre>
+<p>
+ yields again an array in y! All elements have been processed at the <em>same</em> time. 
+</p>
+</section><section class="subsection">
+<h3 id="a0000000057">3.8 Plotting of Functions</h3>
+<p>
+ Pylab has a vast amount of plotting functions which supports simple plotting with just two commands (plot and show) up to complex animations of 3D data. Plotting a sine wave can be achieved with: 
+</p>
+<pre class="verbatim"> 
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0,2*np.pi,100)
+y = np.sin(x)
+plt.plot(x,y)
+plt.show()
+</pre>
+<p>
+ where I have used the numpy linspace command to create an array which runs from 0 to two pi with 100 samples. 
+</p>
+<p>
+If you want to create more plot-windows you can use the command <span class="ttfamily">plt.figure</span>. Access the windows with the commands <span class="ttfamily">plt.figure(1)</span>, <span class="ttfamily">plt.figure(2)</span>. 
+</p>
+<p>
+It is also possible to combine plot windows into one with the command <span class="ttfamily">subplot</span>. 
+</p>
+<p>
+How to make it look nice? Here is an example: 
+</p>
+<pre class="verbatim">
+plt.xlabel('time (s)')
+plt.ylabel('voltage (V)')
+plt.title('That is an AC voltage over time!')
+plt.grid(True)
+</pre>
+<p>
+Generally the best approach is to use an example and then customise it to your needs. 
+</p>
+</section><section class="subsection">
+<h3 id="a0000000058">3.9 Importing data</h3>
+<p class="paragraph">
+<strong class="paragraph-title" id="a0000000059">Space/Tab/Comma separated data</strong>
+
+     Numpy has a very handy import function for data as long as the the elements in the data file are separated with spaces, tabs or commas. To load such data files just type in: <span class="ttfamily">x = np.loadtxt(’mydatafile.dat’)</span>. This creates a two dimensional array which reflects exactly the structure in the datafile. 
+Thus, if you want to write software which creates Python readable data then just export the data as space/tab separated ASCII files. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000060">WAV files</strong>
+
+     Scipy contains in its submodule io a subsubmodule wavfile which supports reading and writing wav files: <pre class="verbatim">
+import scipy.io.wavfile as wavfile
+fs,data = wavfile.read('kongas.wav');
+</pre> fs,data is a tuple containing the sampling rate and then the data. 
+<pre class="verbatim">
+import scipy.io.wavfile as wavfile
+wavfile.write('kongas_filt.wav',fs,y3);
+</pre> whereas 'fs' is the sampling rate and y3 the data -- usually normalised between -1 and +1 for floating point numbers. 
+<br/>
+</p>
+</section>
+</section><section class="section">
+<h2 id="a0000000061">4 Signal conversion</h2>
+<p>
+We start with a few definitions when we transform an analogue signal into the digital domain and back: 
+</p>
+<ol class="enumerate" id="a0000000062">
+<li id="a0000000063" value="1">
+<p>
+<b class="bf">Sampling</b>
+</p>
+<div class="eqn" id="a0000000064">
+<script type="math/tex; mode=display">\begin{equation}\underbrace{x_{a}(nT)}_{\mbox{analogue signal}}~  \equiv \underbrace{x(n)}_{\mbox{discrete data}}\tag{1}\end{equation}</script>
+</div>
+<ul class="itemize" id="a0000000065">
+<li id="a0000000066">
+<p>
+\(x_a(t)\): analogue signal 
+</p>
+</li>
+<li id="a0000000067">
+<p>
+\(T\): sampling interval, \(\frac{1}{T}=F_s\) is the sampling rate 
+</p>
+</li>
+<li id="a0000000068">
+<p>
+\(x(n)\): discrete data 
+</p>
+</li>
+</ul>
+</li>
+<li id="a0000000069" value="2">
+<p>
+<b class="bf">Quantisation</b> Continuous value into discrete steps. \(x(n) \rightarrow x_{q}(n)\) 
+</p>
+</li>
+<li id="a0000000070" value="3">
+<p>
+<b class="bf">Coding</b> \(x_{q}(n) \rightarrow \) into binary sequence or integer numbers. 
+</p>
+</li>
+</ol>
+<section class="subsection">
+<h3 id="a0000000071">4.1 Sampling</h3>
+<p>
+ The analogue signal \(X_a\) is sampled at intervals \(T\) to get the sampled signal \(X(n)\). 
+</p>
+<div class="eqn" id="a0000000072">
+<script type="math/tex; mode=display">\begin{equation}x(n) = x_{a}(nT), \qquad -\infty < n < +\infty\tag{2}\end{equation}</script>
+</div>
+<section class="subsubsection">
+<h4 id="a0000000073">Normalised frequency</h4>
+<p>
+ Note that the sampling frequency 
+</p>
+<div class="eqn" id="a0000000074">
+<script type="math/tex; mode=display">\begin{equation}F_{s} = \frac{1}{T_s}\tag{3}\end{equation}</script>
+</div>
+<p>
+ is lost and needs to be stored additionally so that the analogue signal can be reconstructed: 
+</p>
+<div class="eqn" id="a0000000075">
+<script type="math/tex; mode=display">\begin{equation}x_{a}(t) = x_{a}(nT) = x_{a}(\frac{n}{F_{s}})\tag{4}\end{equation}</script>
+</div>
+<figure id="max_sampl">
+<div class="centered"> <div class="mbox" id="a0000000076" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{max_sampl}" src="images/img-0002.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">1</span>
+<span class="caption_text">Maximum frequency of a sampled signal is half the normalised frequency. </span>
+</figcaption>
+</figure>
+<p>
+What is the frequency range of our digital signal? What is the maximum frequency in digital terms? Fig <a class="ref" href="#max_sampl">1</a> shows that the max frequency is \(0.5\) because we need two samples to represent a “wave”. The frequency range \(0\ldots 0.5\) is called the <i class="slshape">normalised frequency</i> range. What is the relation between normalised frequency and sampling rate? 
+</p>
+<p>
+Let’s have a look at the analog signal \(X_{a}(t)\) with the frequency \(F\): 
+</p>
+<div class="eqn" id="a0000000077">
+<script type="math/tex; mode=display">\begin{equation}x_{a}(t) = A\cos (2\pi F t)\tag{5}\end{equation}</script>
+</div>
+<p>
+ and we sample it only at: 
+</p>
+<div class="eqn" id="a0000000078">
+<script type="math/tex; mode=display">\begin{equation}t = n/F_s\tag{6}\end{equation}</script>
+</div>
+<p>
+ Then the digital signal is: 
+</p>
+<div class="eqn" id="a0000000079">
+<script type="math/tex; mode=display">\begin{equation}x_{a}(n) = A \cos (2 \pi F/F_s n)\tag{7}\end{equation}</script>
+</div>
+<p>
+Now, we can define the normalised frequency as: 
+</p>
+<div class="eqn" id="a0000000080">
+<script type="math/tex; mode=display">\begin{equation}\mbox{Normalised frequency:} \qquad f = \frac{F}{F_s}\tag{8}\end{equation}</script>
+</div>
+<p>
+ which has its max value at \(0.5\) which represents one period of a sine wave within two samples<a class="footnote" href="#a0000000081" id="a0000000081-reference">
+<sup class="footnotemark">1</sup>
+</a>
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000082">Nyquist frequency</h4>
+<p>
+ Recall that the max value for the normalised frequency \(f\) is \(0.5\) and that: 
+</p>
+<div class="eqn" id="a0000000083">
+<script type="math/tex; mode=display">\begin{equation}x_{a}(n) = A \cos (2 \pi n f)\tag{9}\end{equation}</script>
+</div>
+<p>
+ with \(n\) as an integer because we are sampling. 
+</p>
+<p>
+What happens above \(f{\gt}0.5\)? Imagine \(f = 1\) 
+</p>
+<div class="eqn" id="a0000000084">
+<script type="math/tex; mode=display">\begin{equation}x_{a}(n) = \cos (2 \pi n) = 1 \qquad f=1\tag{10}\end{equation}</script>
+</div>
+<p>
+ which gives us DC or zero frequency. The same is true for \(f = 2, 3, 4, \ldots \). We see that above \(f=0.5\) we never get higher frequencies. Instead they will always stay between \(0\ldots 0.5\) for the simple reason that it is not possible to represent higher frequencies. This will be discussed later in greater detail. 
+</p>
+<p>
+The ratio \(F/F_s\) must be lower than \(0.5\) to avoid ambiguity or in other words the maximum frequency in a signal must be lower than \(\frac{1}{2} F_s\). This is the Nyquist frequency. 
+</p>
+<p>
+If there are higher frequencies in the signal then these frequencies are “folded down” into the frequency range of \(0\ldots \frac{1}{2} F_s\) and creating an alias of its original frequency in the so called “baseband” (\(f=0\ldots 0.5\)). As long as the alias is not overlapping with other signal components in the baseband this can be used to downmix a signal. This leads to the general definition of the sampling theorem which states that the bandwidth \(B\) of the input signal must be half of the sampling rate \(F_s\): 
+</p>
+<div class="eqn" id="samplingTheorem">
+<script type="math/tex; mode=display">\begin{equation}B < \frac{1}{2}F_s \label{samplingTheorem}\tag{11}\end{equation}</script>
+</div>
+<p>
+ The frequency \(\frac{1}{2}F_s\) is called the Nyquist frequency. 
+</p>
+<figure id="anti_alias">
+<div class="centered"> <div class="mbox" id="a0000000085" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{anti_alias}" src="images/img-0003.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">2</span>
+<span class="caption_text">Anti alias filtering. A) with a lowpass filter. B) with a sigma delta converter with very high sampling rate. </span>
+</figcaption>
+</figure>
+<p>
+What do we do if the signal contains frequencies above \(\frac{1}{2} F_s\)? There are two ways to tackle this problem: The classical way is to use a lowpass filter (see Fig. <a class="ref" href="#anti_alias">2</a>A) which filters out all frequencies above the Nyquist frequency. However this might be difficult in applications with high resolution A/D converters. Alternatively one can use a much higher sampling rate to avoid aliasing. This is the idea of the sigma delta converter which operates at sampling rates hundred times higher than the Nyquist frequency. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000086">Sampling theorem</h4>
+<p>
+ Is it possible to reconstruct an analogue signal from a digital signal which contains only frequencies below the Nyquist frequency? 
+</p>
+<div class="eqn" id="a0000000087">
+<script type="math/tex; mode=display">\begin{equation}F_s > 2 F_{\mbox{max}}\tag{12}\end{equation}</script>
+</div>
+<p>
+ where \(F_{\mbox{max}}\) is max frequency in the signal which we represent by sine waves: 
+</p>
+<div class="eqn" id="a0000000088">
+<script type="math/tex; mode=display">\begin{equation}x_{a}(t) = \sum _{i=1}^{n} A_i \cos (2 \pi F_{i}t + \Theta _{i})\tag{13}\end{equation}</script>
+</div>
+<p>
+The analogue signal \(x_{a}(t)\) can be completely reconstructed if: 
+</p>
+<div class="eqn" id="a0000000089">
+<script type="math/tex; mode=display">\begin{equation}g(t) = \frac{\sin 2\pi Bt}{2 \pi Bt}\tag{14}\end{equation}</script>
+</div>
+<p>
+with 
+</p>
+<div class="eqn" id="a0000000090">
+<script type="math/tex; mode=display">\begin{equation}B = F_{\mbox{max}}\tag{15}\end{equation}</script>
+</div>
+<div class="eqn" id="a0000000091">
+<script type="math/tex; mode=display">\begin{equation}x_{a}(t) = \sum _{h= -a}^{a}x_{a}(\frac{n}{F_s})g(t - \frac{h}{F_s})\tag{16}\end{equation}</script>
+</div>
+<p>
+The problem is that \(g(t)\) runs from negative time to positive time and as we see later is a-causal so that this cannot be implemented for real but approximations of \(g(t)\) are possible and are analogue lowpass filters which smooth out the step like outout of an digital to analogue converter. 
+</p>
+</section>
+</section><section class="subsection">
+<h3 id="a0000000092">4.2 Quantisation</h3>
+<figure id="quant_overv">
+<div class="centered"> <div class="mbox" id="a0000000093" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{quant_overv}" src="images/img-0004.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">3</span>
+<span class="caption_text">\(\Delta \) is the quantisation step. </span>
+</figcaption>
+</figure>
+<p>
+ A/D converters have a certain resolution. For example, the MAX1271 has a resolution of 12 bits which means that it divides the input range into 4096 equal steps (see Fig <a class="ref" href="#quant_overv">3</a>). 
+</p>
+<div class="eqn" id="a0000000094">
+<script type="math/tex; mode=display">\begin{equation}\Delta = \mbox{quantisation step} = \frac{x_{\mbox{max}} - x_{\mbox{min}}}{L - 1}\tag{17}\end{equation}</script>
+</div>
+<p>
+ where \(x_{\mbox{max}} - x_{\mbox{min}}\) is the dynamic range in volt (for example \(4.096V\)) and \(L\) is the number of quantisation steps (for example, 4096). \(\Delta \) is the quantisation step which defines minimal voltage change which is needed to see a change in the output of the quantiser. The operation of the quantiser can be written down as: 
+</p>
+<div class="eqn" id="a0000000095">
+<script type="math/tex; mode=display">\begin{equation}x_{q}(n) = Q[x(n)]\tag{18}\end{equation}</script>
+</div>
+<figure id="quant_err">
+<div class="centered"> <div class="mbox" id="a0000000096" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{quant_err}" src="images/img-0005.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">4</span>
+<span class="caption_text">Illustration of the quantisation error. It is zero at \(t=0\) and increases to the edges of the sampling interval. Illustrated is the worst case scenario. This repeats in the next sampling interval and so forth. </span>
+</figcaption>
+</figure>
+<p>
+Fig. <a class="ref" href="#quant_err">4</a> shows error produced by the quantiser in the worst case scenario. From that it can be seen that the maximum quantisation error is half the quantisation step: 
+</p>
+<div class="eqn" id="a0000000097">
+<script type="math/tex; mode=display">\begin{equation}- \frac{\Delta }{2} \le e(n) \le \frac{\Delta }{2}\tag{19}\end{equation}</script>
+</div>
+<p>
+ The smaller the quantisation step \(\Delta \) the lower the error! 
+</p>
+<p>
+What is the mean square error \(P_{q}\)? 
+</p>
+<div class="eqn" id="a0000000098">
+<script type="math/tex; mode=display">\begin{equation}P_{q} = \frac{1}{\tau } \int _{0}^{\tau } e_{q}^{2}(t) dt\tag{20}\end{equation}</script>
+</div>
+<div id="a0000000099">
+<div class="eqnarrayid" id="a0000000100"></div><div class="eqnarrayid" id="a0000000101"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{21} P_{q} &  = &  \frac{1}{\tau } \int _0^\tau \left(\frac{\Delta }{2\tau }\right)^2 t^2 dt \\ 
+\tag{22}&  = &  \frac{\Delta ^2}{4 \tau ^3} \int _0^\tau t^2 dt 
+\end{align}
+</script>
+</div>
+<div id="a0000000102">
+<div class="eqnarrayid" id="a0000000103"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{23} P_{q} = \frac{\Delta ^2}{12\tau ^3} \tau ^3 =\frac{\Delta ^2}{12} 
+\end{align}
+</script>
+</div>
+<p>
+this then results in the almost trival result that the size of the quantisation step \(\Delta \) scales linarly with the average error \(\sqrt{P_{q}}\). So if we have two times more quantisation steps then the error will half! 
+</p>
+<p>
+What is the relative error to a sine wave? 
+</p>
+<div class="eqn" id="a0000000104">
+<script type="math/tex; mode=display">\begin{equation}P_x = \frac{1}{T_p} \int _{0}^{T_p}(A \cos \Omega t)^2 dt = \frac{A^2}{2}\tag{24}\end{equation}</script>
+</div>
+<p>
+Ratio to signal power to noise: 
+</p>
+<div id="a0000000105">
+<div class="eqnarrayid" id="a0000000106"></div><div class="eqnarrayid" id="a0000000107"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{25} \mbox{SQNR} & =&  \frac{P_x}{P_q} = \frac{A^2}{2} . \frac{12}{\Delta ^2} \\ 
+\tag{26}& =&  \frac{6A^2}{\Delta ^2} 
+\end{align}
+</script>
+</div>
+<p>
+ This equation needs to be interpreted with care because increasing the amplitude of the input signal might lead to saturation if the input range of the A/D converter is exceeded. 
+</p>
+</section>
+</section><section class="section">
+<h2 id="a0000000108">5 Frequency representation of signals</h2>
+<p>
+ Often we are more interested in the frequency representation of signals than the evolution in time. 
+</p>
+<p>
+We will use small letters for time domain representation and capital letters for the frequency representation, for example \(X(F)\) and \(x(t)\). 
+</p>
+<section class="subsection">
+<h3 id="a0000000109">5.1 Continuous time and frequency</h3>
+<section class="subsubsection">
+<h4 id="a0000000110">Periodic signals</h4>
+<p>
+ Periodic signals can be composed of sine waves : 
+</p>
+<div class="eqn" id="a0000000111">
+<script type="math/tex; mode=display">\begin{equation}x(t) = \sum _{k = -\infty }^{\infty } c_{k} e^{j2\pi k F_1 t}\tag{27}\end{equation}</script>
+</div>
+<p>
+ where \(F_1\) is the principle or fundamental frequency and \(k \neq 1\) are the harmonics with strength \(c_k\). Usually \(c_1\) is set to \(1\). This is a Fourier series with \(c_{k}\) as coefficients. For example an ECG has a fundamental frequency of about 1Hz (60 beats per minute). However, the harmonics give the ECG its characteristic peak like shape. 
+</p>
+<p>
+How do we find the coefficients \(c_k\)? 
+</p>
+<div class="eqn" id="a0000000112">
+<script type="math/tex; mode=display">\begin{equation}c_{k} = \frac{1}{T_p} \int _{T_p} x(t) e^{-j2 \pi k F_1 t} dt\tag{28}\end{equation}</script>
+</div>
+<p>
+For simple cases there are analytical solutions for \(c_k\), for example for square waves, triangle wave, etc. 
+</p>
+<p>
+What are the properties of \(c_{k}\)? 
+</p>
+<div class="eqn" id="a0000000113">
+<script type="math/tex; mode=display">\begin{equation}c_{k} = c_{- k}^{*} \qquad \Leftrightarrow \qquad x(t)\mbox{ is real}\tag{29}\end{equation}</script>
+</div>
+<p>
+ or 
+</p>
+<div id="a0000000114">
+<div class="eqnarrayid" id="a0000000115"></div><div class="eqnarrayid" id="a0000000116"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{30} c_{k} & =&  \mid c_k \mid e^{j \theta _k} \\ 
+\tag{31}c_{-k} & =&  \mid c_k \mid e^{-j \theta _k} 
+\end{align}
+</script>
+</div>
+<p>
+Proof: with the handy equation…
+</p>
+<div class="eqn" id="a0000000117">
+<script type="math/tex; mode=display">\begin{equation}\cos z = \frac{1}{2} \left(e^{zi} + e^{-zi}\right)\tag{32}\end{equation}</script>
+</div>
+<p>
+ we get 
+</p>
+<div id="a0000000118">
+<div class="eqnarrayid" id="a0000000119"></div><div class="eqnarrayid" id="a0000000120"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{33} x(t) &  = &  c_0 + \sum _{k = 1}^{\infty } \mid c_k \mid e^{j \theta _k} e^{j 2\pi k F_1 t} + \sum _{k = 1}^{\infty } \mid c_{k}\mid e^{-j \theta _k} e^{-j 2\pi k F_1 t} \\ 
+\tag{34}&  = &  c_0 + 2 \sum _{k = 1}^{\infty } \mid c_k \mid \cos (2 \pi k F_1 t + \theta _{k}) 
+\end{align}
+</script>
+</div>
+<p>
+How are the frequencies distributed? Let’s have a look at the frequency spectrum of a periodic signal: \(P_{k} = \mid c_{k} \mid ^{2}\) 
+</p>
+<ul class="itemize" id="a0000000121">
+<li id="a0000000122">
+<p>
+There are discrete frequency peaks 
+</p>
+</li>
+<li id="a0000000123">
+<p>
+Spacing of the peaks is \(\frac{1}{T_1} = F_1\) 
+</p>
+</li>
+<li id="a0000000124">
+<p>
+Only the positive frequencies are needed: \(c_{-k} = c_{k}^{*}\) 
+</p>
+</li>
+</ul>
+</section><section class="subsubsection">
+<h4 id="a0000000125">A-periodic signals</h4>
+<p>
+ In case nothing is known about \(X(t)\) we need to integrate over all frequencies instead of just the discrete frequencies. 
+</p>
+<div class="eqn" id="a0000000126">
+<script type="math/tex; mode=display">\begin{equation}X(F) = \int _{-\infty }^{\infty } x(t) e^{-j 2 \pi F t} dt\tag{35}\end{equation}</script>
+</div>
+<p>
+ Consequently, the frequency spectrum \(X(F)\) is continuous. 
+</p>
+<div class="eqn" id="a0000000127">
+<script type="math/tex; mode=display">\begin{equation}x(t) = \frac{1}{2\pi } \int _{-\infty }^{\infty } X(F) e^{j 2 \pi F t} dF\tag{36}\end{equation}</script>
+</div>
+</section>
+</section><section class="subsection">
+<h3 id="a0000000128">5.2 Sampled time and/or frequency</h3>
+<section class="subsubsection">
+<h4 id="a0000000129">Discrete time Fourier Transform (DTFT)</h4>
+<p>
+The signal \(x(n)\) is discrete whereas the resulting frequency spectrum is considered as continuous (arbitrary signals). 
+</p>
+<ul class="itemize" id="a0000000130">
+<li id="a0000000131">
+<p>
+Analysis or direct transform: 
+</p>
+<div class="eqn" id="a0000000132">
+<script type="math/tex; mode=display">\begin{equation}X(\omega )=\sum _{n=-\infty }^{\infty } x(n) e^{-j\omega n}\tag{37}\end{equation}</script>
+</div>
+</li>
+<li id="a0000000133">
+<p>
+Synthesis or inverse transform: 
+</p>
+<div id="a0000000134">
+<div class="eqnarrayid" id="a0000000135"></div><div class="eqnarrayid" id="a0000000136"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{38} x(n) &  = &  \frac{1}{2\pi } \int _{-\pi }^{\pi } X(\omega ) e^{j\omega n} d\omega \\ 
+\tag{39}&  = &  \frac{1}{2\pi } \int _{-0.5}^{0.5} X(f) e^{j 2\pi f n} df 
+\end{align}
+</script>
+</div>
+<p>
+ note the range here. \(f\) is the normalised frequency. 
+</p>
+</li>
+</ul>
+</section><section class="subsubsection">
+<h4 id="a0000000137">The effect of time domain sampling on the spectrum (Sampling theorem)</h4>
+<figure id="periodic_ny">
+<div class="centered"> <div class="mbox" id="a0000000138" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{periodic_ny}" src="images/img-0006.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">5</span>
+<span class="caption_text">Effect of sampling on the spectrum. </span>
+</figcaption>
+</figure>
+<p>
+ What effect has time domain sampling on the frequency spectrum<a class="footnote" href="#a0000000139" id="a0000000139-reference">
+<sup class="footnotemark">2</sup>
+</a>? Imagine we have an analog spectrum \(X_a(F)\) from a continuous signal \(x(t)\). We want to know how the spectrum \(X(F)\) of the discrete signal \(x(n)\) looks like. 
+</p>
+<div class="eqn" id="a0000000140">
+<script type="math/tex; mode=display">\begin{equation}X(F) \Leftrightarrow X_a(F)\tag{40}\end{equation}</script>
+</div>
+<p>
+ The signal is represented by \(x(n)\) so that we can equate the Fourier transforms of the sampled spectrum \(X(F)\) and of the analogue spectrum \(X_a(F)\). 
+</p>
+<div class="eqn" id="sampl_idea">
+<script type="math/tex; mode=display">\begin{equation}\int _{-0.5}^{0.5} \underbrace{X(f)}_{\mbox{sampled}} e^{j 2 \pi f n} df = \int _{-\infty }^{+\infty } \underbrace{X_a(F)}_{\mbox{cont}} e^{j 2\pi n F/F_s} dF \label{sampl_idea}\tag{41}\end{equation}</script>
+</div>
+<p>
+ Obviously \(X(f)\) must be different to accommodate the different integration ranges. The trick is now to divide the integral on the right hand side of Eq. <a class="ref" href="#sampl_idea">41</a> into chunks to make it compatible to the range on the left hand hand side. 
+</p>
+<p>
+Remember that the normalised frequency is \(f=F/F_s\) which allows us to change the integration to analogue frequency on both sides: 
+</p>
+<div class="eqn" id="sampl_ana_dig">
+<script type="math/tex; mode=display">\begin{equation}\frac{1}{F_s} \int _{-F_s/2}^{F_s/2} X(\frac{F}{F_s}) e^{j 2 \pi n F/F_s} dF = \int _{-\infty }^{+\infty } X_a(F) e^{j 2\pi n F/F_s} dF \label{sampl_ana_dig}\tag{42}\end{equation}</script>
+</div>
+<p>
+ and now we divide the right hand side into chunks of \(F_s\) which corresponds to the integration range on the left hand side. 
+</p>
+<div id="a0000000141">
+<div class="eqnarrayid" id="a0000000142"></div><div class="eqnarrayid" id="a0000000143"></div><div class="eqnarrayid" id="a0000000144"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{43} \int _{-\infty }^{+\infty } X_a(F) e^{j 2\pi n \frac{F}{F_s}} dF &  = &  \sum _{k=-\infty }^{\infty } \int _{-\frac{1}{2} F_s + k F_s}^{+\frac{1}{2} F_s + k F_s} X_a(F) e^{j2\pi n \frac{F}{F_s}} dF \\ 
+\tag{44}&  = &  \sum _{k=-\infty }^{\infty } \int _{-\frac{1}{2} F_s}^{+\frac{1}{2} F_s} X_a(F-k F_s) \underbrace{e^{j2\pi n\frac{F}{F_s}}}_{k F_s \mbox{ omit.}} dF \\ 
+\tag{45}&  = &  \int _{-\frac{1}{2} F_s}^{+\frac{1}{2} F_s} \underbrace{\sum _{k=-\infty }^{\infty } X_a(F-k F_s)}_{=X(F) \mbox{ of Eq.~ \ref{sampl_ana_dig}}} e^{j2\pi n\frac{F}{F_s}} dF 
+\end{align}
+</script>
+</div>
+<p>
+ This gives us now an equation for the sampled spectrum: 
+</p>
+<div id="a0000000145">
+<div class="eqnarrayid" id="a0000000146"></div><div class="eqnarrayid" id="a0000000147"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{46} X(F/F_s) &  = &  F_s \sum _{k=-\infty }^{\infty } X_a(F-kF_s) \\ 
+\tag{47}X(f) &  = &  F_s \sum _{k=-\infty }^{\infty } X_a[(f-k)F_s] 
+\end{align}
+</script>
+</div>
+<p>
+ This equation can now be interpreted. In order to get the sampled spectrum \(X(F)\) we need to make copies of the analog spectrum \(X_a(F)\) and place these copies at multiples of the sampling rate \(F_s\) (see Fig. <a class="ref" href="#periodic_ny">5</a>). This illustrates also the <i class="slshape">sampling theorem</i>: if the bandwidth of the spectrum is wider than \(F_s/2\) then the copies of the analogue spectrum will overlap and reconstruction would be impossible. This is called aliasing. Note that it is not necessary bad that the spectrum of the analogue signal lies within the range of the so called “base band” \(-F/2 \ldots F/2\). It can also lie in another frequency range further up, for example \(-F/2 + 34 \ldots F/2 +34\) as long as the <i class="slshape">bandwidth</i> does not exceed \(F_s/2\). If it is placed further up it will automatically show up in the baseband \(-F/2 \ldots F/2\) which is called “fold down”. This can be used for our purposes if we want to down mix a signal. 
+</p>
+<figure id="fold_down">
+<div class="centered"> <div class="mbox" id="a0000000148" style="width: "><img alt="\includegraphics[width=\textwidth ]{fold_down}" src="images/img-0007.svg" style="width:469.755pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">6</span>
+<span class="caption_text">Mapping of frequencies in the analogue domain (\(F\)) and sampled domain (\(f\)). \(F_s\) is the sampling rate. </span>
+</figcaption>
+</figure>
+<p>
+With the insight from these equations we can create a plot of how analogue frequencies map onto sampled frequencies. Fig <a class="ref" href="#fold_down">6</a> shows how the analogue frequencies \(F_\textrm {analogue}\) map on the normalised frequencies \(f_\textrm {sampled}\). As long as the analogue frequencies are below \(F_s/2\) the mapping is as usual as shown in Fig <a class="ref" href="#fold_down">6</a>A. Between \(F_s/2\) and \(F_s\) we have an inverse mapping: an increase in analogue frequency causes a decrease in frequencies. Then, from \(F_s\) we have again an increase in frequencies starting from DC. So, in general if we keep a bandlimited signal within one of these slopes (for example from \(F_s \ldots F_s + 1/2 F_s\) as shown in Fig <a class="ref" href="#fold_down">6</a>B) then we can reproduce the signal. 
+</p>
+<p>
+This leads us to the generalised Nyquist theorem: if a bandpass filtered signal has a bandwidth of \(B\) then the minimum sampling frequency is \(F_s = 2B\). 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000149">Discrete Fourier Transform (DFT)</h4>
+<p>
+ So far we have only sampled in the time domain. However, on a digital computer the Fourier spectrum will always be a discrete spectrum. 
+</p>
+<p>
+The discrete Fourier Transform (DFT) is defined as: 
+</p>
+<div class="eqn" id="DFT">
+<script type="math/tex; mode=display">\begin{equation}X(k) = \sum _{n=0}^{N-1} x(n) e^{-j2\pi kn / N} \qquad k=0,1,2, \ldots , N-1 \label{DFT}\tag{48}\end{equation}</script>
+</div>
+<p>
+ where \(N\) is the number of samples in both the time and frequency domain. 
+</p>
+<p>
+The inverse discrete Fourier Transform (IDFT) is defined as: 
+</p>
+<div class="eqn" id="a0000000150">
+<script type="math/tex; mode=display">\begin{equation}x(n) = \frac{1}{N} \sum _{k=0}^{N-1} X(k) e^{j 2\pi kn/N} \qquad n=0,1,2,\ldots , N-1\tag{49}\end{equation}</script>
+</div>
+<figure id="time_alias">
+<div class="centered"> <div class="mbox" id="a0000000151" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{time_alias}" src="images/img-0008.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">7</span>
+<span class="caption_text">Effect of sampling in the frequency domain. The inverse in the time domain \(x(n)\) contains repetitions of the original signal. </span>
+</figcaption>
+</figure>
+<p>
+What is the effect in the timedomain of this discretisation<a class="footnote" href="#a0000000152" id="a0000000152-reference">
+<sup class="footnotemark">3</sup>
+</a>? We start with the continuous Fourier transform and discretise it into N samples in the frequency domain: 
+</p>
+<div class="eqn" id="a0000000153">
+<script type="math/tex; mode=display">\begin{equation}X\left(\frac{2\pi }{N}k\right) = \sum _{n = -\infty }^{\infty } x(n) e^{-j\frac{2\pi }{N}kn} \qquad k = 0, \ldots , N-1\tag{50}\end{equation}</script>
+</div>
+<p>
+Let’s subdivide the sum into chunks of length \(N\): 
+</p>
+<div id="a0000000154">
+<div class="eqnarrayid" id="a0000000155"></div><div class="eqnarrayid" id="a0000000156"></div><div class="eqnarrayid" id="a0000000157"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{51} X\left(\frac{2\pi }{N}k\right) &  = &  \sum _{l = -\infty }^{\infty } \sum _{n=lN}^{lN+N-1} x(n)e^{-j \frac{2\pi }{N}kn} \\ 
+\tag{52}&  = &  \sum _{l=-\infty }^{\infty } \sum _{n=0}^{N-1} x(n-lN) e^{-j \frac{2\pi }{N} kn} \\ 
+\tag{53}&  = &  \sum _{n=0}^{N-1} \underbrace{\sum _{l=-\infty }^{\infty } x(n - lN)}_{\mbox{Periodic repetition!}} e^{-j \frac{2\pi }{N}kn} 
+\end{align}
+</script>
+</div>
+<p>
+We note the following: 
+</p>
+<ul class="itemize" id="a0000000158">
+<li id="a0000000159">
+<p>
+Ambiguity in the time domain 
+</p>
+</li>
+<li id="a0000000160">
+<p>
+The signal is repeated every N samples 
+</p>
+</li>
+</ul>
+<p>
+ Practically this repetition won’t show up because the number of samples is limited to \(N\) in the inverse transform. However, for operations which shift signals in the frequency domain it is important to remember that we shift a periodic time series. If we shift it out at the end of the array we will get it back at the start of the array. 
+</p>
+<figure id="dft_example">
+<div class="centered"> <div class="mbox" id="a0000000161" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{dft_example}" src="images/img-0009.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">8</span>
+<span class="caption_text">Example of a DFT. The sampled signal \(x(n)\) is converted to the spectrum \(X(k)\). Both have \(N\) samples. Note the redundancy: the spectrum is mirrored around \(N/2\). The first value \(X(0)\) is the DC value of the signal. However this is the only sample which is not mirrored. </span>
+</figcaption>
+</figure>
+<p>
+ Fig. <a class="ref" href="#dft_example">8</a> shows an example of a DFT. It is important to know that the spectrum is mirrored around \(N/2\). DC is represented by \(X(0)\) and the Nyquist frequency \(F_s/2\) is represented by \(X(N/2)\). The mirroring occurs because the input signal \(x(n)\) is <i class="slshape">real</i>. This is important if one wants to modify the spectrum \(X(F)\) by hand, for example to eliminate 50Hz noise. One needs to zero two elements of \(X(F)\) to zero. This is illustrated in this python code: 
+</p>
+<pre class="verbatim">
+import scipy as sp
+yf=sp.fft(y)
+# the sampling rate is 1kHz. We've got 2000 samples.
+# midpoint at the ifft is 1000 which corresponds to 500Hz
+# So, 100 corresponds to 50Hz
+yf[99:101+1]=0;
+# and the mirror
+yf[1899:1901+1]=0;
+#
+yi=sp.ifft(yf);
+</pre>
+<p>
+ This filters out the 50Hz hum from the signal \(y\) with sampling rate 1000Hz. The signal <span class="ttfamily">yi</span> should be real valued again or contain only very small complex numbers due to numerical errors. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000162">Properties of the DFT</h4>
+<ul class="itemize" id="a0000000163">
+<li id="a0000000164">
+<p>
+Periodicity: 
+</p>
+<div id="a0000000165">
+<div class="eqnarrayid" id="a0000000166"></div><div class="eqnarrayid" id="a0000000167"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{54} x(n + N) &  = &  x(n) \\ 
+\tag{55}X(k + N) &  = &  X(k) 
+\end{align}
+</script>
+</div>
+</li>
+<li id="a0000000168">
+<p>
+Symmetry: if \(x(n)\) real: 
+</p>
+<div class="eqn" id="a0000000169">
+<script type="math/tex; mode=display">\begin{equation}x(n)\mbox{ is real} \Leftrightarrow X^*(k) = X(-k) = X(N-k)\tag{56}\end{equation}</script>
+</div>
+<p>
+ This is important when manipulating \(X(k)\) by hand. 
+</p>
+</li>
+<li id="a0000000170">
+<p>
+Time Reversal: 
+</p>
+<div id="a0000000171">
+<div class="eqnarrayid" id="a0000000172"></div><div class="eqnarrayid" id="a0000000173"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{57} x(n) &  \leftrightarrow &  X(k) \\ 
+\tag{58}x(-n)&  \leftrightarrow &  X(N - k) 
+\end{align}
+</script>
+</div>
+</li>
+<li id="a0000000174">
+<p>
+<i class="slshape">Circular</i> convolution: 
+</p>
+<div class="eqn" id="a0000000175">
+<script type="math/tex; mode=display">\begin{equation}X_{1}(k) X_{2}(k) \leftrightarrow x_1(n) * x_2(n)\tag{59}\end{equation}</script>
+</div>
+<p>
+ with 
+</p>
+<div class="eqn" id="a0000000176">
+<script type="math/tex; mode=display">\begin{equation}x_{3}(m) = \sum _{n = 0}^{N - 1} x_{1}(n) x_{2}(m - n)\tag{60}\end{equation}</script>
+</div>
+</li>
+</ul>
+<p>
+ More useful equations are at <span class="cite">
+	Proakis and Manolakis
+	 
+	(
+	
+	<a href="#Proakis1996">1996</a>
+	, pp.415
+	)
+</span>. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000177">Problems with finite length DFTs</h4>
+<figure id="windowing_dft">
+<div class="centered"> <div class="mbox" id="a0000000178" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{windowing_dft}" src="images/img-0010.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">9</span>
+<span class="caption_text">The effect of windowing on the DFT. </span>
+</figcaption>
+</figure>
+<div class="eqn" id="a0000000179">
+<script type="math/tex; mode=display">\begin{equation}x_w(n) = x(n) \cdot w(n)\tag{61}\end{equation}</script>
+</div>
+<p>
+ where \(x\) is the input signal and \(w(n)\) represents a function which is \(1\) from \(n=0\) to \(n=L-1\) so that we have \(L\) samples from the signal \(x(n)\). 
+</p>
+<p>
+To illustrate the effect of this finite sequence we introduce a sine wave \(x(n) = \cos \omega _0 n\) which has just two peaks in a proper Fourier spectrum at \(-\omega \) and \(+\omega \). 
+</p>
+<p>
+The spectrum of the rectangular window with the width \(L\) is: 
+</p>
+<div class="eqn" id="a0000000180">
+<script type="math/tex; mode=display">\begin{equation}W(\omega ) = \frac{sin(\omega L /2)}{sin (\omega / 2)} e^{-j\omega (L -1)/2}\tag{62}\end{equation}</script>
+</div>
+<p>
+The resulting spectrum is then: 
+</p>
+<div class="eqn" id="a0000000181">
+<script type="math/tex; mode=display">\begin{equation}X_{3}(\omega ) = X(\omega ) * W(\omega )\tag{63}\end{equation}</script>
+</div>
+<p>
+Because the spectrum of \(X(\omega )\) consists of just two delta functions the spectrum \(X_{3}(\omega )\) contains the window spectrum \(W(\omega )\) twice at \(-\omega \) and \(+\omega \) (see Fig. <a class="ref" href="#windowing_dft">9</a>). This is called <i class="slshape">leakage</i>. Solutions to solve the leakage problem? Use Windows with a narrower spectrum and with less ripples (see FIR filters). 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000182">Fast Fourier Transform</h4>
+<p>
+We can rewrite the DFT (Eq. <a class="ref" href="#DFT">48</a>) in a slightly more compact form: 
+</p>
+<div class="eqn" id="compactDFT">
+<script type="math/tex; mode=display">\begin{equation}X(k) = \sum _{n = 0}^{N-1} x(n) W_{N}^{kn} \label{compactDFT}\tag{64}\end{equation}</script>
+</div>
+<p>
+ with the constant: 
+</p>
+<div class="eqn" id="constWN">
+<script type="math/tex; mode=display">\begin{equation}W_{N} = e^{-j 2\pi /N} \label{constWN}\tag{65}\end{equation}</script>
+</div>
+<p>
+ The problem with the DFT is that it needs \(N^2\) multiplications. How can we reduce the number of multiplications? Idea: Let’s divide the DFT in an odd and an even sequence: 
+</p>
+<div id="a0000000183">
+<div class="eqnarrayid" id="a0000000184"></div><div class="eqnarrayid" id="a0000000185"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{66}&  x(2m) & \\ 
+\tag{67}&  x(2m + 1), &  \qquad m = 0, ..... , \frac{N}{2} - 1 
+\end{align}
+</script>
+</div>
+<p>
+ which gives us with the trick \(W_N^{2mk} = W_{N/2}^{mk}\) because of the definition Eq. <a class="ref" href="#constWN">65</a>. 
+</p>
+<div id="a0000000186">
+<div class="eqnarrayid" id="a0000000187"></div><div class="eqnarrayid" id="a0000000188"></div><div class="eqnarrayid" id="a0000000189"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{68} X(k) &  = &  \sum _{m=0}^{N/2-1} x(2m) W_{N}^{2mk} + \sum _{m=0}^{N/2 - 1} x(2m + 1) W_{N}^{k (2m + 1)} \\ 
+\tag{69}&  = &  \sum _{m=0}^{N/2-1} x(2m) W_{N/2}^{mk} + W_{N}^{k} \sum _{m = 0}^{N/2 - 1} x(2m + 1) W_{N/2}^{mk} \\ 
+\tag{70}&  = &  F_{e}(k) + W_{N}^{k} F_{o}(k) 
+\end{align}
+</script>
+</div>
+<p>
+ \(F_e\) and \(F_o\) have both half the length of the original sequence and need only \((N/2)^2\) multiplication, so in total \(2 \cdot (N/2)^2 = \frac{N^2}{2}\). Basically by dividing the sequence in even and odd parts we can reduce the number of multiplications by 2. Obviously, the next step is then to subdivide the two sequences \(F_{e}(k)\) and \(F_{o}(k)\) even further into something like \(F_{ee}(k), F_{eo}(k), F_{oe}(k)\) and \(F_{oo}(k)\). 
+</p>
+<figure id="fft_div">
+<div class="centered"> <div class="mbox" id="a0000000190" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{fft_div}" src="images/img-0011.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">10</span>
+<span class="caption_text">Illustration of the Fast Fourier Algorithm. The sequence of \(N\) samples is recursively divided into subsequences of odd and even samples. </span>
+</figcaption>
+</figure>
+<p>
+In general the recipe for the calculation of the FFT is: 
+</p>
+<div class="eqn" id="butterfly">
+<script type="math/tex; mode=display">\begin{equation}X_{i}(k) = X_{ie}(k) + W_{L}^{k} X_{io}(k) \label{butterfly}\tag{71}\end{equation}</script>
+</div>
+<p>
+ \(W_{L}^{k}\) is the phase factor in front of the odd sequence. This is continued until we have only two point (\(N=2\)) DFTs (see Eq. <a class="ref" href="#compactDFT">64</a>): 
+</p>
+<div id="dcDFT">
+<div class="eqnarrayid" id="a0000000191"></div><div class="eqnarrayid" id="nyDFT"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{72} \mbox{DC:} \qquad X(0) &  = &  x(0) + \underbrace{W_2^0}_{1} x(1) = x(0) + x(1) \label{dcDFT}\\ 
+\tag{73}\mbox{Nyquist frequ.:} \qquad X(1) &  = &  x(0) + \underbrace{W_2^1}_{-1} x(1) = x(0) - x(1) \label{nyDFT} 
+\end{align}
+</script>
+</div>
+<p>
+ A two point DFT operates only on two samples which can represent only two frequencies: DC and the Nyquist frequency which makes the calculation trivial. Eq. <a class="ref" href="#dcDFT">72</a> is an averager and Eq. <a class="ref" href="#nyDFT">73</a> is basically a differentiator which gives the max output for the sequence \(1,-1,1,-1,\ldots \). Fig. <a class="ref" href="#fft_div">10</a> illustrates how to divide the initial sequence to arrive at 2 point DFTs. In other words the calculation of the full DFT is done by first calculating \(N/2\) 2 point DFTs and recombining the results with the help of Eq. <a class="ref" href="#butterfly">71</a>. This is sometimes called the “Butterfly” algorithm because the data flow diagram can be drawn as a butterfly. The number of complex multiplications reduces in this approach to \(N \log _2 N\) which is actually the worst case scenario because many \(W_{L}^{k}\) usually turn out to be \(1,-1,j,-j\) which are just sign inversions or swaps of real and imaginary parts. A clever implementation of this algorithm will be even faster. 
+</p>
+<p>
+In summary the idea behind the FFT algorithms is to divide the sequence into subsequences. Here we have presented the most popular radix 2 algorithm. The radix 4 is even more efficient and there are also algorithms for divisions into prime numbers and other rather exotic divisions. However, the main idea is always the same: subsample the data in a clever way so that the final DFT becomes trivial. 
+</p>
+</section>
+</section><section class="subsection">
+<h3 id="a0000000192">5.3 Software</h3>
+<p>
+ In <span class="cite">
+	Teukolsky et al.
+	 
+	(
+	
+	<a href="#NumericalRec2007">2007</a>
+	
+	)
+</span> you’ll find highly optimised C code for Fourier transforms. Most Linux distros (Ubuntu, Suse, RedHat, …) come with an excellent FFT library called <span class="ttfamily">libfftw3</span>. 
+</p>
+</section><section class="subsection">
+<h3 id="a0000000193">5.4 Visualisation</h3>
+<figure id="visualisation">
+<div class="centered"> <div class="mbox" id="a0000000194" style="width: "><img alt="\includegraphics[width=\textwidth ]{visualisation}" src="images/img-0012.svg" style="width:469.755pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">11</span>
+<span class="caption_text"> An ECG signal in the time- and frequency domain. </span>
+</figcaption>
+</figure>
+<p>
+ The Fourier spectrum is a complex function of frequency which cannot be displayed in a convenient way. Usually the amplitude or magnitude of the spectrum is of interest (see Fig. <a class="ref" href="#visualisation">11</a>) which is calculated as the absolute value \(|X(F)|\) of the Fourier spectrum X(F). In addition the phase might be of interest which is calculated as \(\arg (X(F))\). 
+</p>
+<ul class="itemize" id="a0000000195">
+<li id="a0000000196">
+<p>
+Magnitude or Amplitude: \(|X(F)|\) 
+</p>
+</li>
+<li id="a0000000197">
+<p>
+Phase: \(\arg (X(F))\) 
+</p>
+</li>
+</ul>
+<p>
+<br/>
+</p>
+</section>
+</section><section class="section">
+<h2 id="a0000000198">6 Causal Signal Processing</h2>
+<p>
+In realtime systems and any system where data is processed as it arrives the values of the future samples are not known. This is as in an analogue system where we send for example a signal into an amplifier and it needs to process it as it arrives. The amplifier won’t know if the next music track is Mozart or Jimmy Hendrix. It just needs to react to what it’s fed into it. 
+</p>
+<p>
+However, the Fourier Transform is <i class="slshape">not real time</i>. We need the whole signal from the first to the last sample. For that reason we need to develop a new mathematical framework which we call “Causal Signal Processing”. These systems should ideally react to an incoming signal as an analogue system does, namely as fast as possible with little latency as possible. 
+</p>
+<p>
+In the next section we are now developing a mathematical framework for causal digital signal processing. We draw here heavily from analoge circuit design as this is by its own nature performs realtime causal processing. 
+</p>
+<section class="subsection">
+<h3 id="a0000000199">6.1 Causality</h3>
+<figure id="causality">
+<div class="centered"> <div class="mbox" id="a0000000200" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{causality}" src="images/img-0013.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">12</span>
+<span class="caption_text">A causal system only <i class="slshape">reacts</i> to it’s input. Causal signals only evolve in positive time. Per definition the signal is zero for \(t{\lt}0\). </span>
+</figcaption>
+</figure>
+<p>
+ Fig. <a class="ref" href="#causality">12</a> illustrates the concept of causality. Causal systems cannot look into the future. They can only react to a certain input. Causal signals are kept zero for \(t{\lt}0\) per definition. 
+</p>
+<figure id="convolution">
+<div class="centered"> <div class="mbox" id="a0000000201" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{convol}" src="images/img-0014.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">13</span>
+<span class="caption_text">Illustration of the convolution. The shaded area shows the integration for \(t=1\). </span>
+</figcaption>
+</figure>
+</section><section class="subsection">
+<h3 id="a0000000202">6.2 Convolution of Causal Signals</h3>
+<p>
+ After having defined causality we can define the convolution in continous time: 
+</p>
+<div id="a0000000203">
+<div class="eqnarrayid" id="a0000000204"></div><div class="eqnarrayid" id="eqconv"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{74} y(t) &  = &  h(t) * x(t) = \int _{-\infty }^{\infty } h(t - \tau ) x(\tau ) d\tau \\ 
+\tag{75}y(n) &  = &  h(n) * x(n) = \sum _{n = -\infty }^\infty h(n) x(m - n) \label{eqconv} 
+\end{align}
+</script>
+</div>
+<p>
+ Note the reversal of integration of the function \(h\). This is characteristic of the convolution. At time \(t=0\) only the values at \(h(0)\) and \(x(0)\) are evaluated (see Fig. <a class="ref" href="#convolution">13</a>). Note that both functions are zero for \(t{\lt}0\) (causality!). At \(t{\gt}0\) the surface which is integrated grows as shown in Fig. <a class="ref" href="#convolution">13</a> for \(t=1\). 
+</p>
+<p>
+What happens if \(x(t)=\delta (t)\)? Then Eq. <a class="ref" href="#eqconv">75</a>: 
+</p>
+<div class="eqn" id="convdelta">
+<script type="math/tex; mode=display">\begin{equation}y(t) = \int _{-\infty }^{\infty } h(t - \tau ) \delta (\tau ) d\tau = h(t) \label{convdelta}\tag{76}\end{equation}</script>
+</div>
+<p>
+ provides us with the function \(h(t)\) itself. This will be used later to determine the impulse response of the filter. 
+</p>
+</section><section class="subsection">
+<h3 id="a0000000205">6.3 Laplace transform</h3>
+<p>
+ The Fourier transform is not suitable for causal systems because it requires the whole signal from \(-\infty {\lt} t {\lt} +\infty \). What we need is a transform which works with continuous causal signals. This is the Laplace transform: 
+</p>
+<div class="eqn" id="lapltrans">
+<script type="math/tex; mode=display">\begin{equation}{\mathrm{\bf L\! T}({h(t)})} = H(s) = \int _{0}^{\infty } h(t) e^{-st} dt \label{lapltrans}\tag{77}\end{equation}</script>
+</div>
+<p>
+ The Laplace transform has a couple of very useful properties: 
+</p>
+<ul class="itemize" id="a0000000206">
+<li id="a0000000207">
+<p>
+Integration: 
+</p>
+<div class="eqn" id="a0000000208">
+<script type="math/tex; mode=display">\begin{equation}\int f(\tau ) d\tau \Leftrightarrow \frac{1}{s} F(s)\tag{78}\end{equation}</script>
+</div>
+</li>
+<li id="a0000000209">
+<p>
+Differentiation: 
+</p>
+<div class="eqn" id="a0000000210">
+<script type="math/tex; mode=display">\begin{equation}\frac{d}{dt} f(t) \Leftrightarrow s F(s)\tag{79}\end{equation}</script>
+</div>
+</li>
+<li id="a0000000211">
+<p>
+Shift: 
+</p>
+<div class="eqn" id="shiftOperation">
+<script type="math/tex; mode=display">\begin{equation}f(t - T) \Leftrightarrow e^{-Ts} F(s) \label{shiftOperation}\tag{80}\end{equation}</script>
+</div>
+<p>
+ Proof: 
+</p>
+<div id="a0000000212">
+<div class="eqnarrayid" id="a0000000213"></div><div class="eqnarrayid" id="a0000000214"></div><div class="eqnarrayid" id="a0000000215"></div><div class="eqnarrayid" id="a0000000216"></div><div class="eqnarrayid" id="a0000000217"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{81} {\mathrm{\bf L\! T}({h(t - T)})} &  = & \int _{0}^{\infty } h\underbrace{(t - T)}_{causal} e^{-st} dt \\ 
+\tag{82}&  = &  \int _{0}^{\infty } h(t) e^{-s(t + T)} dt \\ 
+\tag{83}&  = &  \int _{0}^{\infty } h(t) e^{-st} e^{-sT} dt \\ 
+\tag{84}&  = &  e^{-sT} \underbrace{\int _{0}^{\infty } h(t) e^{-st} dt}_{H(s)} \\ 
+\tag{85}&  = &  e^{-sT} H(s) 
+\end{align}
+</script>
+</div>
+</li>
+<li id="a0000000218">
+<p>
+Convolution: 
+</p>
+<div class="eqn" id="a0000000219">
+<script type="math/tex; mode=display">\begin{equation}f(t) * g(t) \Leftrightarrow F(s) G(s)\tag{86}\end{equation}</script>
+</div>
+</li>
+</ul>
+</section><section class="subsection">
+<h3 id="a0000000220">6.4 Filters</h3>
+<figure id="filter">
+<div class="centered"> <div class="mbox" id="a0000000221" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{filter}" src="images/img-0015.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">14</span>
+<span class="caption_text">General idea of a filter and how to describe it: either with its impulse response or with it’s Laplace transforms. </span>
+</figcaption>
+</figure>
+<p>
+ Fig. <a class="ref" href="#filter">14</a> presents a causal filter as a black box in continuous time. We send in a signal and and we get a signal out of it. The operation of the filter is that of a convolution of the input signal or a multiplication in the Laplace space: 
+</p>
+<div class="eqn" id="a0000000222">
+<script type="math/tex; mode=display">\begin{equation}g(t) = h(t) * x(t) \Leftrightarrow Y(s) = H(s) \cdot X(s)\tag{87}\end{equation}</script>
+</div>
+<section class="subsubsection">
+<h4 id="a0000000223">How to characterise filters?</h4>
+<ol class="enumerate" id="a0000000224">
+<li id="a0000000225" value="1">
+<p>
+<b class="bf">Impulse Response</b>
+</p>
+<div id="a0000000226">
+<div class="eqnarrayid" id="a0000000227"></div><div class="eqnarrayid" id="a0000000228"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{88} x(t) &  = &  \delta (t) \qquad \leftarrow \mbox{delta pulse} \\ 
+\tag{89}h(t) &  = &  y(t) \qquad \leftarrow \mbox{impulse response} 
+\end{align}
+</script>
+</div>
+<p>
+ The filter is fully characterised by its impulse response \(h(t)\) 
+</p>
+</li>
+<li id="a0000000229" value="2">
+<p>
+<b class="bf">Transfer function</b> The Laplace transform of the impulse response is called <i class="slshape">Transfer Function</i>. With the argument \(j\omega \) we get the frequency response of the filter. What does the frequency response tell us about the filter? The absolute value of the 
+</p>
+<div class="eqn" id="a0000000230">
+<script type="math/tex; mode=display">\begin{equation}|H(i \omega )|\tag{90}\end{equation}</script>
+</div>
+<p>
+ gives us the amplitude or magnitude for every frequency (compare the Fourier transform). The angle of the term \(H(j\omega )\) gives us the phase shift: 
+</p>
+<div class="eqn" id="a0000000231">
+<script type="math/tex; mode=display">\begin{equation}\phi = \arg \left(H(i \omega ) \right)\tag{91}\end{equation}</script>
+</div>
+<p>
+ of the filter. In this context the <i class="slshape">group delay</i> can be defined as: 
+</p>
+<div class="eqn" id="a0000000232">
+<script type="math/tex; mode=display">\begin{equation}\tau _{\omega } = - \frac{d \phi (\omega )}{d\omega }\tag{92}\end{equation}</script>
+</div>
+<p>
+ which is delay for a certain frequency \(\omega \). In many applications this should be kept constant for all frequencies. 
+</p>
+</li>
+</ol>
+</section>
+</section><section class="subsection">
+<h3 id="a0000000233">6.5 The z-transform</h3>
+<p>
+ The Laplace transform is for <i class="slshape">continuous</i> causal signals but in DSP we have <i class="slshape">sampled</i> signals. So, we need to investigate what happens if we feed a sampled signal: 
+</p>
+<div class="eqn" id="a0000000234">
+<script type="math/tex; mode=display">\begin{equation}x(t) = \sum _{n = 0}^{\infty } x(n) \delta (t - nT) \qquad \mbox{Sampled signal}\tag{93}\end{equation}</script>
+</div>
+<p>
+ into the Laplace transform: 
+</p>
+<div id="a0000000235">
+<div class="eqnarrayid" id="a0000000236"></div><div class="eqnarrayid" id="a0000000237"></div><div class="eqnarrayid" id="a0000000238"></div><div class="eqnarrayid" id="a0000000239"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{94} X(s) &  = &  \sum _{n = 0}^{\infty } x(n) e^{-snT} \\ 
+\tag{95}&  = &  \int _{0}^{\infty } x(n) e^{-st} dt \\ 
+\tag{96}&  = &  \sum _{n = 0}^{\infty } x(n) \underbrace{(e^{-sT})^{n}}_{z^{-1} = e^{-sT}} \\ 
+\tag{97}&  = &  \sum _{n = 0}^{\infty } x(n) (z^{-1})^{n} \qquad \mbox{z-transform} 
+\end{align}
+</script>
+</div>
+<p>
+ What is \(e^{-sT} = z^{-1}\)? It’s a unit delay (see Eq. <a class="ref" href="#shiftOperation">80</a>). 
+</p>
+</section><section class="subsection">
+<h3 id="a0000000240">6.6 Frequency response of a sampled filter</h3>
+<figure id="frequency_response">
+<div class="centered"> <div class="mbox" id="a0000000241" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{frequency_response}" src="images/img-0016.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">15</span>
+<span class="caption_text">Comparing the calculation of the frequency response in the continuous case and sampled case. </span>
+</figcaption>
+</figure>
+<p>
+ Reminder: for analogue Signals we had \(H(s)\) with \(s=j \omega \) for the frequency response. Let’s substitute \(s\) by \(z\): \(z^{-1} = e^{-sT}\) which gives us in general a mapping between the continuous domain and the sampled domain: 
+</p>
+<div class="eqn" id="mappingsz">
+<script type="math/tex; mode=display">\begin{equation}z = e^{sT} \label{mappingsz}\tag{98}\end{equation}</script>
+</div>
+<p>
+ With \(s=j \omega \) this gives us \(z = e^{j \omega }\) and therefore the frequency response of the digital filter is: 
+</p>
+<div class="eqn" id="a0000000242">
+<script type="math/tex; mode=display">\begin{equation}H(e^{j \omega })\tag{99}\end{equation}</script>
+</div>
+<p>
+ which then leads to the amplitude and phase response: 
+</p>
+<ul class="itemize" id="a0000000243">
+<li id="a0000000244">
+<p>
+Amplitude/Magnitude: 
+</p>
+<div class="eqn" id="a0000000245">
+<script type="math/tex; mode=display">\begin{equation}|H(e^{i \omega })|\tag{100}\end{equation}</script>
+</div>
+</li>
+<li id="a0000000246">
+<p>
+Phase 
+</p>
+<div class="eqn" id="a0000000247">
+<script type="math/tex; mode=display">\begin{equation}\arg H(e^{i \omega })\tag{101}\end{equation}</script>
+</div>
+</li>
+</ul>
+<p>
+ Fig. <a class="ref" href="#frequency_response">15</a> shows the difference between continuous and sampled signal. While in the continuous case the frequency response is evaluated along the imaginary axis, in the sampled case it happens along the unit circle which makes the response periodic! This is a subtle implication of the sampling theorem. 
+</p>
+<p>
+<br/>
+</p>
+</section><section class="subsection">
+<h3 id="a0000000248">6.7 FIR Filter</h3>
+<figure id="FIRfilter">
+<div class="centered"> <div class="mbox" id="a0000000249" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir}" src="images/img-0017.svg" style="width:469.755pt"/></div> <figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">16</span>
+<span class="caption_text">FIR filter using the impulse response of the analogue filter \(h(t)\) </span>
+</figcaption> </div>
+</figure>
+<p>
+ What happens if we sample the impulse response \(h(t)\) of an analogue filter? Let’s find out: 
+</p>
+<div class="eqn" id="sampltime">
+<script type="math/tex; mode=display">\begin{equation}\label{sampltime} h(t)=\sum _{n=0}^\infty h(nT) \delta (t-nT)\tag{102}\end{equation}</script>
+</div>
+<p>
+ If we transform it to the Laplace space it looks like this: 
+</p>
+<div class="eqn" id="sFunktion">
+<script type="math/tex; mode=display">\begin{equation}\label{sFunktion} H(s)=\sum _{n=0}^\infty h(nT) {\underbrace{{\left(e^{-sT}\right)}}_{z^{-1}}}^n\tag{103}\end{equation}</script>
+</div>
+<p>
+ Remember that \(e^{-sT}\) has a very handy meaning: it is a delay by the unit time step (Eq. <a class="ref" href="#shiftOperation">80</a>). Thus \(z^{-n}\) is a delay by \(n\) time steps. We can rewrite Eq. <a class="ref" href="#sFunktion">103</a>: 
+</p>
+<div class="eqn" id="ztrans">
+<script type="math/tex; mode=display">\begin{equation}H(z)=\sum _{n=0}^\infty h(nT) {(z^{-1})}^n \label{ztrans}\tag{104}\end{equation}</script>
+</div>
+<p>
+ This is the z-transform of the impulse response \(h(t)\) of the filter. 
+</p>
+<p>
+We filter now the signal \(X(z)\) with \(H(z)\): 
+</p>
+<div class="eqn" id="notFIRyet">
+<script type="math/tex; mode=display">\begin{equation}H(z)X(z)=\underbrace{\sum _{n=0}^\infty h(nT) z^{-n}}_{H(z)} X(z) \label{notFIRyet}\tag{105}\end{equation}</script>
+</div>
+<p>
+This sum is a direct recipe how to filter the signal \(X(z)\). We only need the impulse response of the filter \(h(nT)\) and we can set up a digital filter (see Fig. <a class="ref" href="#FIRfilter">16</a>). Of course in practise this impulse response cannot run till infinity but only for a limited number of samples. These are often called “taps”. So for example a filter with \(100\) samples of \(h(nT)\) has \(100\) “taps”. This in turn then requires a delay line which can hold \(M=100\) samples: 
+</p>
+<div class="eqn" id="FIRfromAnalogue">
+<script type="math/tex; mode=display">\begin{equation}\label{FIRz} H(z)X(z)=\underbrace{\sum _{m=0}^M h(mT) z^{-m}}_{H(z)} X(z) \label{FIRfromAnalogue}\tag{106}\end{equation}</script>
+</div>
+<figure id="fir_digital">
+<div class="centered"> <div class="mbox" id="a0000000250" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_digital}" src="images/img-0018.svg" style="width:469.755pt"/></div> <figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">17</span>
+<span class="caption_text">Digital FIR filter with normalised frequency </span>
+</figcaption> </div>
+</figure>
+<p>
+This is the formula of an Finite Impulse Response filter where we have sampled an analogue impulse response \(h(t)\) at time intervals of \(T\). However, usually the impulse response of the filter is directly derived in the digital domain where the argument \(n\) of \(h(n)\) represents just the sample index \(n\) and the sampling interval is implicitly the inverse of the sampling rate. For that reason one needs to distinguish between: 
+</p>
+<div id="FIRa">
+<div class="eqnarrayid" id="a0000000251"></div><div class="eqnarrayid" id="FIRd"></div><div class="eqnarrayid" id="FIRdefault"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{107} H(z)X(z) &  = &  \sum _{m=0}^M h_\textrm {\footnotesize {analogue}}(mT) z^{-n} \,  X(z) \label{FIRa} \\ 
+\tag{108}H(z)X(z) &  = &  \sum _{m=0}^M h_\textrm {\footnotesize {digital}}(m) z^{-n} \,  X(z) \label{FIRd} \\ 
+\tag{109}&  = &  \sum _{m=0}^M h_(m) z^{-m} \,  X(z) \label{FIRdefault} 
+\end{align}
+</script>
+</div>
+<p>
+Eq <a class="ref" href="#FIRa">107</a> is the filter where the impulse response is based on an analogue filter and Eq. <a class="ref" href="#FIRd">108</a> is based on the impulse response originating from a digital filter design (see section <a class="ref" href="#freqsamp">None</a> and <a class="ref" href="#idealFilt">None</a>) where the frequencies are normalised frequencies from \(0\) to \(0.5\). From now on we will always refer to the “digital” one (Eq. <a class="ref" href="#FIRd">108</a>) and the subscript will be omitted (Eq. <a class="ref" href="#FIRdefault">109</a> &amp; Fig. <a class="ref" href="#fir_digital">17</a>). 
+</p>
+<p>
+In the time domain the FIR filter is then doing the following operation: 
+</p>
+<div class="eqn" id="FIRtime">
+<script type="math/tex; mode=display">\begin{equation}y(n) = \sum _{m=0}^{M-1} h(m) x(n-m) \label{FIRtime}\tag{110}\end{equation}</script>
+</div>
+<section class="subsubsection">
+<h4 id="a0000000252">Generally FIR filters do not perform a convolution operation</h4>
+<p>
+Remember that we have derived the FIR filters from the analogue domain by filtering a signal (Eq.<a class="ref" href="#notFIRyet">105</a>). The timedomain representation of this is a discrete and causal convolution operation (using the sampled Laplace transform). However, the problem is that this runs to <i class="slshape">infinite time</i> (see Eq <a class="ref" href="#FIRtime">110</a>) and would require an infinite number of delay steps and thus infinite time to complete. So the FIR filter at best performs an approximation of the convolution operation but there are serious problems with the finite number of taps (\(N\)) which requires a technique called windowing which moves it even further away from a convolution operation. On the other hand if the impulse response is strictly limited in time one can use this property for example for matched filters. However, the bottomline is that sweeping statements such as that “FIR filters perform a convolution” are <i class="slshape">generally wrong</i> if nothing is known of the impulse response. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000253">FIR filter implementations</h4>
+<p>
+ No matter the design process the implementation is always the same: we need a delay line for the incoming signal and then weight the delayed outputs by the different coefficients and for that reason are called (water-) “taps” (see Eqs. <a class="ref" href="#FIRa">107</a> &amp; <a class="ref" href="#FIRd">108</a>). We are now presenting different implementations. 
+</p>
+<ul class="itemize" id="a0000000254">
+<li id="a0000000255">
+<p>
+C++: This is a simple example of a filter which stores the values in a simple linear buffer <span class="ttfamily">bufferFIR</span> which stores the delayed values. The coefficients are stored in <span class="ttfamily">coeffFIR</span>. 
+</p>
+<pre class="verbatim">
+  float filter(float value) {
+    // shift
+    for (int i=taps-1;i&gt;0;i--)  {
+      bufferFIR[i]=bufferFIR[i-l];
+    }
+    //store new value
+    bufferFIR[0]=value;
+    //calculate result
+    for (int i=0;i&lt;taps;i++)  {
+      output +=bufferFIR[i]*coeffFIR[i];
+    }
+  return output;
+  }
+</pre>
+</li>
+<li id="a0000000256">
+<p>
+Python: Here, the FIR filter is implemented as a class which receives the FIR filter coefficients in the constructor and then filters a signal sample by sample in the function filter: 
+</p>
+<pre class="verbatim">
+class FIR_filter:
+    def __init__(self,_coefficients):
+        self.ntaps = len(_coefficients)
+        self.coefficients = _coefficients
+        self.buffer = np.zeros(self.ntaps)
+
+    def filter(self,v):
+        self.buffer = np.roll(self.buffer,1)
+        self.buffer[0] = v
+        return np.inner(self.buffer,self.coefficients)
+</pre>
+<p>
+ which again processes the signal sample by sample. It uses the numpy “roll” command to shift the samples and then the inner product to calculate the weighted sum between the buffer and the coefficients. 
+</p>
+<p>
+If one wants to filter a whole array one can use Python’s lfilter command: 
+</p>
+<pre class="verbatim">
+import scipy.signal as signal
+y = signal.lfilter(h,1,x)
+</pre>
+<p>
+ This filters the signal <span class="ttfamily">x</span> with the impulse response <span class="ttfamily">h</span>. Note that this operation is on an array and thus a-causal. 
+</p>
+</li>
+</ul>
+<p>
+ More sophisticated code can be found in <span class="cite">
+	Teukolsky et al.
+	 
+	(
+	
+	<a href="#NumericalRec2007">2007</a>
+	
+	)
+</span>. This book is strongly recommended for any C programmer who needs efficient solutions. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000257">Fixed point FIR filters</h4>
+<figure id="fir_fixed">
+<div class="centered"> <div class="mbox" id="a0000000258" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_fixed}" src="images/img-0019.svg" style="width:469.755pt"/></div> <figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">18</span>
+<span class="caption_text">Fixed point FIR filter. The output signal is bit shifted to the right by \(w\) bits while the coefficients are scaled up by \(2^w\). </span>
+</figcaption> </div>
+</figure>
+<p>
+ These filters receive integer numbers as input, perform integer multiplications/additions and their outputs are integer as well. Thus, these filters do not require a floating point unit on a processor. 
+</p>
+<p>
+Fig. <a class="ref" href="#fir_fixed">18</a> shows a fixed point FIR filter. The input \(x(n)\) is an integer variable with I bit integers, the accumulator is an integer variable with A bits and the output as well (usually the same as the input in terms of bit width). 
+</p>
+<p>
+In contrast to a floating point FIR filter we need to scale up the coefficients so that they use full the integer range to avoid quantisation errors. For example if the coefficients of \(h(n)\) range from \(-0.75\) and \(+0.75\) and we have signed 16 bit integers then the scaling factor is \(2^W, W=15\). 
+</p>
+<p>
+However, the accumulator A which collects the data needs to have more bits because it receives scaled input values at I bits precision and these multiplied by factor \(2^W\). If we have \(M\) taps then the additional bits we need is \(\log _2 M\). The total number of bits we need in the accumulator in the worst case are: 
+</p>
+<div class="eqn" id="a0000000259">
+<script type="math/tex; mode=display">\begin{equation}A = I + W + \log _2 M\tag{111}\end{equation}</script>
+</div>
+<p>
+ However, this is the worst case scenario because if the gain of the FIR filter is below one then the summations by the \(M\) taps will only create <i class="slshape">temporary</i> overflows because integer numbers are cyclic in their representation. In case the gain of the FIR filter is below one this can be relaxed: 
+</p>
+<div class="eqn" id="a0000000260">
+<script type="math/tex; mode=display">\begin{equation}A = I + W\tag{112}\end{equation}</script>
+</div>
+<p>
+ The actual bitwidth of the accumulator is usually the next integer size available and also makes sure that in case the gain goes slightly over one in an unexpected case that the filter still works. For example if I has \(16\) bits the accumulator has probably \(32\) bits. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000261">Constant group delay or linear phase filter</h4>
+<p>
+ So far the FIR filter has no constant group delay which is defined by: 
+</p>
+<div class="eqn" id="grpdelay">
+<script type="math/tex; mode=display">\begin{equation}\tau _\omega = - {d\phi (\omega )\over d\omega } \label{grpdelay}\tag{113}\end{equation}</script>
+</div>
+<p>
+ This means that different frequencies arrive at the output of the filter earlier or later. This is not desirable. The group delay \(\tau _\omega \) should be constant for all frequencies \(\omega \) so that all frequencies arrive at the same time at the output \(y\) of the filter. 
+</p>
+<p>
+A constant group delay can be achieved by restricting ourselves to the transfer function: 
+</p>
+<div class="eqn" id="transmin">
+<script type="math/tex; mode=display">\begin{equation}H(e^{i\omega })=B(\omega )e^{-i\omega \tau +i\phi } \label{transmin}\tag{114}\end{equation}</script>
+</div>
+<p>
+ where \(B(\omega )\) is real and the phase is only defined by the exponential. The phase of this transfer function is then trivially \(\omega \tau +\phi \). The group delay is the derivative of this term which is constant. 
+</p>
+<p>
+Eq. <a class="ref" href="#transmin">114</a> now imposes restrictions on the impulse response \(h(t)\) of the filter. To show this we use the inverse Fourier transform of Eq. <a class="ref" href="#transmin">114</a> to get the impulse response: 
+</p>
+<div class="eqn" id="a0000000262">
+<script type="math/tex; mode=display">\begin{equation}h(n)=\frac{1}{2\pi }\int _{-\infty }^{+\infty } H(e^{i\omega }) e^{i\omega n}d \omega\tag{115}\end{equation}</script>
+</div>
+<p>
+ After some transformations we get: 
+</p>
+<div class="eqn" id="imp1">
+<script type="math/tex; mode=display">\begin{equation}h(n+\tau )=\frac{1}{2\pi }e^{i\phi }b(n) \label{imp1}\tag{116}\end{equation}</script>
+</div>
+<p>
+ where \(b(n)\) represents the Fourier coefficients of \(B(\omega )\). Since \(B\) is real the coefficients \(b(n)\) have the property \(b(n)=b^*(-n)\). Thus we get a second impulse response: 
+</p>
+<div class="eqn" id="imp2">
+<script type="math/tex; mode=display">\begin{equation}h(n+\tau )=\frac{1}{2\pi }e^{i\phi }b^*(-n) \label{imp2}\tag{117}\end{equation}</script>
+</div>
+<p>
+ Now we can eliminate \(b\) by equating Eq. <a class="ref" href="#imp1">116</a> and Eq. <a class="ref" href="#imp2">117</a> which yields: 
+</p>
+<div class="eqn" id="a0000000263">
+<script type="math/tex; mode=display">\begin{equation}h(n+\tau )=e^{2i\phi } n^*(-n+\tau )\tag{118}\end{equation}</script>
+</div>
+<p>
+ With the shift \(\tau \) we have the chance to make the filter “more” causal. We can shift the impulse response in positive time to get \(h(n)\) zero for \(n{\lt}0\). In a practical application we shift the impulse response by half the number of delays. If we have a filter with \(M\) taps we have to delay by \(\tau =M/2\). 
+</p>
+<p>
+The factor \(e^{2i\phi }\) restricts the values of \(\phi \) because the impulse response must be real. This gives us the final FIR design rule: 
+</p>
+<div class="eqn" id="a0000000264">
+<script type="math/tex; mode=display">\begin{equation}h(n+M/2)=(-1)^k h(-n+M/2)\tag{119}\end{equation}</script>
+</div>
+<p>
+ where \(k=0\) or \(1\). This means that the filter is either symmetric or antisymmetric and the impulse response has to be delayed by \(\tau =M/2\). 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000265">Window functions</h4>
+<figure id="window_functions">
+<div class="centered"> <div class="mbox" id="a0000000266" style="width: "><img alt="\includegraphics[width=\linewidth ]{window_functions}" src="images/img-0020.svg" style="width:469.755pt"/></div> <figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">19</span>
+<span class="caption_text">Different window functions applied to a low pass filter (Eq. <a class="ref" href="#idealLP">132</a>) with cutoff at \(f=0.1\) and 100 taps. </span>
+</figcaption> </div>
+</figure>
+<p>
+ So far we still have a infinite number of coefficients for for the FIR filter because there’s no guarantee that the impulse response becomes zero after \(M/2\) delays. Thus, we have to find a way to truncate the response without distorting the filter response. 
+</p>
+<p>
+The standard technique is to multiply the coefficients with a window function which becomes and stays zero at a certain coefficient \(n{\gt}N\) so that Eq. <a class="ref" href="#FIRfromAnalogue">106</a> need not to run to infinity: 
+</p>
+<div class="eqn" id="FIRzlimit">
+<script type="math/tex; mode=display">\begin{equation}\label{FIRzlimit} H(z)X(z)=\sum _{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)\tag{120}\end{equation}</script>
+</div>
+<ol class="enumerate" id="a0000000267">
+<li id="a0000000268" value="1">
+<p>
+Rectangular window: truncating the impulse response. Problem: we get ripples in the frequency-response. The stop-band damping is poor 
+</p>
+</li>
+<li id="a0000000269" value="2">
+<p>
+Triangular or Bartlett window: greatly improved stop-band attenuation. 
+</p>
+</li>
+<li id="a0000000270" value="3">
+<p>
+Hanning and Hamming window: standard windows in many applications. 
+</p>
+<div class="eqn" id="a0000000271">
+<script type="math/tex; mode=display">\begin{equation}w(n) = \alpha - (1-\alpha ) \cos \left(\frac{2\pi n}{M}\right)\tag{121}\end{equation}</script>
+</div>
+<ul class="itemize" id="a0000000272">
+<li id="a0000000273">
+<p>
+Hamming: \(\alpha = 0.54\) 
+</p>
+</li>
+<li id="a0000000274">
+<p>
+Hanning: \(\alpha = 0.5\) 
+</p>
+</li>
+</ul>
+</li>
+<li id="a0000000275" value="4">
+<p>
+Blackman window: 
+</p>
+<div class="eqn" id="a0000000276">
+<script type="math/tex; mode=display">\begin{equation}w(n) = 0.42 + 0.5 \cos \left(\frac{2 \pi n}{M}\right) + 0.08 \cos \left( \frac{4 \pi n}{M} \right)\tag{122}\end{equation}</script>
+</div>
+</li>
+<li id="a0000000277" value="5">
+<p>
+Kaiser window: control over stop- and passband. No closed form equation available. 
+</p>
+</li>
+</ol>
+<p>
+ To illustrate how window functions influence the frequency response we have taken an impulse response of a lowpass filter (\(f_c=0.1\)) and applied different window functions to it (Fig. <a class="ref" href="#window_functions">19</a>). 
+</p>
+<p>
+Note that the higher the damping the wider the transition from pass- to stopband. This can be seen when comparing the Blackman window with the Hamming window (Fig. <a class="ref" href="#window_functions">19</a>). For the lowpass filter this seems to be quite similar. However, for a bandstop filter the wider transition width might lead actually to very poor stopband damping. In such a case a Hamming window might be a better choice. 
+</p>
+</section><section class="subsubsection">
+<h4 id="freqsamp">Python code: impulse response from the inverse DFT - The frequency sampling method</h4>
+<p>
+ Imagine that we want to remove \(50Hz\) from a signal with sampling rate of \(1kHz\). We define an FIR filter with 100 taps. The midpoint \(N/2=50\) corresponds to \(500Hz\). The \(50Hz\) correspond to index \(5\). 
+</p>
+<pre class="verbatim">
+f_resp=np.ones(100)
+# note we need to add "+1" to the end because the end of
+# the range is not included.
+f_resp[4:6+1]=0
+f_resp[94:96+1]=0
+hc=np.fft.ifft(f_resp)
+h=np.real(hc)
+# this is from index 0 to index 49 on the left
+# and on the right hand side from index 50 to index 99
+h_shift[0:50]=h[50:100]
+h_shift[50:100]=h[0:50]
+h_wind=h_shift*hamming(100)
+</pre>
+<p>
+ To get a nice symmetric impulse response we need to shift the inverse around \(50\) samples. 
+</p>
+</section><section class="subsubsection">
+<h4 id="idealFilt">FIR filter design from ideal frequency response – The analytical way </h4>
+<p>
+ For many cases the impulse response can be calculated analytically. The idea is always the same: define a function with the ideal frequency response 
+</p>
+<div class="eqn" id="a0000000278">
+<script type="math/tex; mode=display">\begin{equation}|H(e^{j\omega })| = \underbrace{B(e^{j\omega })}_{\mbox{real}}\tag{123}\end{equation}</script>
+</div>
+<p>
+ and perform an inverse Fourier transform to get the impulse response \(h(n)\). 
+</p>
+<p>
+We demonstrate this with a lowpass filter: 
+</p>
+<div class="eqn" id="a0000000279">
+<script type="math/tex; mode=display">\begin{equation}|H(e^{j\omega })| = \left\{  \begin{array}{ll} 1 &  \mbox{for } |\omega | \leq \omega _{c} \\ 0 &  \mbox{for } \omega _c < |\omega | \leq \pi \end{array} \right.\tag{124}\end{equation}</script>
+</div>
+<p>
+Use the inverse Fourier transform to get the impulse response: 
+</p>
+<div id="a0000000280">
+<div class="eqnarrayid" id="a0000000281"></div><div class="eqnarrayid" id="a0000000282"></div><div class="eqnarrayid" id="a0000000283"></div><div class="eqnarrayid" id="a0000000284"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{125} h(n) &  = &  \frac{1}{2 \pi } \int _{-\pi }^{\pi } H(e^{j \omega }) e^{j \omega n} d\omega \\ 
+\tag{126}&  = &  \frac{1}{2 \pi } \int _{- \omega _{c}}^{+ \omega _{c}} e^{j \omega n} d\omega \\ 
+\tag{127}&  = &  \frac{1}{2 \pi } \left[\frac{1}{jn} e^{j \omega n} \right]_{- \omega _{c}}^{+ \omega _{c}} \\ 
+\tag{128}&  = &  \frac{1}{2 \pi jn} \left( e^{j \omega _{c} n} - e^{-j \omega _{c}n} \right) 
+\end{align}
+</script>
+</div>
+<p>
+ With these handy equations: 
+</p>
+<div id="a0000000285">
+<div class="eqnarrayid" id="a0000000286"></div><div class="eqnarrayid" id="a0000000287"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{129} \sin z &  = &  \frac{1}{2j} (e^{zj} - e^{-zj})\\ 
+\tag{130}\cos z &  = &  \frac{1}{2} (e^{zj} + e^{-zj}) 
+\end{align}
+</script>
+</div>
+<p>
+ we get for the filter: 
+</p>
+<div class="eqn" id="a0000000288">
+<script type="math/tex; mode=display">\begin{equation}h(n) = \left\{  \begin{array}{cc} \frac{1}{\pi n} \sin \omega _{c}n &  \mbox{for } n \neq 0 \\ \frac{\omega _{c}}{\pi } &  \mbox{for }n = 0 \end{array} \right.\tag{131}\end{equation}</script>
+</div>
+<p>
+ This response is a-causal! However we know that we can shift the response by any number of samples to make it causal! And we have to window the response to get rid of any remaining negative contribution and to improve the frequency response. 
+</p>
+<p>
+Highpass, bandstop and bandpass can be calculated in exactly the same way and lead to the following ideal filter characteristics: 
+</p>
+<ul class="itemize" id="a0000000289">
+<li id="a0000000290">
+<p>
+<b class="bfseries">Lowpass</b> with cutoff frequency \(\omega _c=2\pi f_c\): 
+</p>
+<div class="eqn" id="idealLP">
+<script type="math/tex; mode=display">\begin{equation}h(n) = \left\{  \begin{array}{ll} \frac{\omega _c}{\pi } &  \mbox{for $n=0$} \\ \frac{1}{\pi n} \sin (\omega _c n) &  \mbox{for $n\neq 0$} \end{array} \right. \label{idealLP}\tag{132}\end{equation}</script>
+</div>
+</li>
+<li id="a0000000291">
+<p>
+<b class="bfseries">Highpass</b> with the cutoff frequency \(\omega _c=2\pi f_c\): 
+</p>
+<div class="eqn" id="a0000000292">
+<script type="math/tex; mode=display">\begin{equation}h(n)= \left\{  \begin{array}{ll} 1-\frac{\omega _c}{\pi } &  \mbox{for $n=0$} \\ -\frac{1}{\pi n} \sin (\omega _c n) &  \mbox{for $n\neq 0$} \end{array} \right.\tag{133}\end{equation}</script>
+</div>
+</li>
+<li id="a0000000293">
+<p>
+<b class="bfseries">Bandpass</b> with the passband frequencies \(\omega _{1,2}=2\pi f_{1,2}\): 
+</p>
+<div class="eqn" id="a0000000294">
+<script type="math/tex; mode=display">\begin{equation}h(n)= \left\{  \begin{array}{ll} \frac{\omega _2-\omega _1}{\pi } &  \mbox{for $n=0$} \\ \frac{1}{\pi n}(\sin (\omega _2 n)-\sin (\omega _1 n)) &  \mbox{for $n\neq 0$} \end{array} \right.\tag{134}\end{equation}</script>
+</div>
+</li>
+<li id="a0000000295">
+<p>
+<b class="bfseries">Bandstop</b> with the notch frequencies \(\omega _{1,2}=2\pi f_{1,2}\): 
+</p>
+<div class="eqn" id="a0000000296">
+<script type="math/tex; mode=display">\begin{equation}h(n)= \left\{  \begin{array}{ll} 1-\frac{\omega _2-\omega _1}{\pi } &  \mbox{for $n=0$} \\ \frac{1}{\pi n}(\sin (\omega _1 n)-\sin (\omega _2 n)) &  \mbox{for $n\neq 0$} \end{array} \right.\tag{135}\end{equation}</script>
+</div>
+</li>
+</ul>
+<p>
+ See <span class="cite">
+	Diniz
+	 
+	(
+	
+	<a href="#Diniz2002">2002</a>
+	, p.195
+	)
+</span> for more impulse responses. 
+</p>
+<p>
+Here is an example code for a bandstop filter which fills the array <span class="ttfamily">h</span> with the analytically calculated impulse response: 
+</p>
+<pre class="verbatim">
+f1 = 45.0/fs
+f2 = 55.0/fs
+n = np.arange(-200,200)
+h = (1/(n*np.pi))*(np.sin(f1*2*np.pi*n)-np.sin(f2*2*np.pi*n))
+h[200] = 1-(f2*2*np.pi-f1*2*np.pi)/np.pi;
+h = h * np.hamming(400)
+</pre>
+<p>
+ After the function has been calculated it is windowed so that the cut off is smooth. It’s not very elegant as it’s causes a division by zero first and then the coeffecient at 200 is fixed. Do it better! 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000297">Design steps for FIR filters</h4>
+<p>
+ Here are the design steps for an \(M\) tap FIR filter. 
+</p>
+<ol class="enumerate" id="a0000000298">
+<li id="a0000000299" value="1">
+<p>
+Get yourself an impulse response for your filter: 
+</p>
+<ol class="enumerate" id="a0000000300">
+<li id="a0000000301" value="1">
+<p>
+Create a frequency response “by hand” just by filling an array with the desired frequency response. Then, perform an inverse Fourier transform (see section <a class="ref" href="#freqsamp">None</a>). 
+</p>
+</li>
+<li id="a0000000302" value="2">
+<p>
+Define a frequency response analytically. Do an inverse Fourier transform (see section <a class="ref" href="#idealFilt">None</a>). 
+</p>
+</li>
+<li id="a0000000303" value="3">
+<p>
+Use an analogue circuit, get its impulse response and use these as filter coefficients. 
+</p>
+</li>
+<li id="a0000000304" value="4">
+<p>
+Dream up directly an impulse response (for example, averagers, differentiators, etc) 
+</p>
+</li>
+</ol>
+</li>
+<li id="a0000000305" value="2">
+<p>
+Mirror the impulse response (if not already symmetrical) 
+</p>
+</li>
+<li id="a0000000306" value="3">
+<p>
+Window the impulse response from an infinite number of samples to \(M\) samples. 
+</p>
+</li>
+<li id="a0000000307" value="4">
+<p>
+Move the impulse response to positive time so that it becomes causal (move it \(M/2\) steps to the right). 
+</p>
+</li>
+</ol>
+</section><section class="subsubsection">
+<h4 id="a0000000308">FIR filter design with Python’s high level functions</h4>
+<p>
+ The “firwin” command generates the impulse response of a filter with m taps and also applies a default window function. For example: 
+</p>
+<pre class="verbatim">
+from scipy.signal import firwin
+h = firwin(m,2*f)
+</pre>
+<p>
+ generates a lowpass FIR filter with the normalised frequency f. Note the factor two because in scipy the normalisation is <i class="slshape">not</i> the sampling rate but the <i class="slshape">nyquist frequency</i>. To be compatible with the math here the easiest approach is to multiply the frequency by 2. With this command one can also design high pass, bandstop and bandpass filters. Type <span class="ttfamily">help(firwin)</span> which provides examples for all filter types and which parameters need to be set. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000309">Signal Detection: Matched filter</h4>
+<p>
+ How can I detect a certain event in a signal? With a correlator. Definition of a correlator? 
+</p>
+<div class="eqn" id="a0000000310">
+<script type="math/tex; mode=display">\begin{equation}e(t) = \int _{0}^{t} \underbrace{s(\tau )}_{\mbox{signal}} \underbrace{r(\tau )}_{\mbox{template}} d(\tau )\tag{136}\end{equation}</script>
+</div>
+<p>
+How to build a correlator with a filter? Definition of filtering? 
+</p>
+<div class="eqn" id="a0000000311">
+<script type="math/tex; mode=display">\begin{equation}e(t) = \int _{0}^{\infty } s(\tau ) h(t - \tau ) d\tau\tag{137}\end{equation}</script>
+</div>
+<p>
+ NB. h - integration runs backwards. However we used an int forward! \(h(t) : = r(T - \tau )\), only valid for \(0\ldots T\). 
+</p>
+<div id="a0000000312">
+<div class="eqnarrayid" id="a0000000313"></div><div class="eqnarrayid" id="a0000000314"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{138} e(t) &  = &  \int _{0}^{T} s(\tau ) r \left(T - (t - \tau )\right) d\tau \\ 
+\tag{139}&  = &  \int _{0}^{T} s(\tau ) r(T - t + \tau ) d\tau 
+\end{align}
+</script>
+</div>
+<p>
+ for \(t: = T\) we get: 
+</p>
+<div class="eqn" id="a0000000315">
+<script type="math/tex; mode=display">\begin{equation}e(T) = \int _{0}^{\infty } s(\tau ) r (\tau ) d\tau\tag{140}\end{equation}</script>
+</div>
+<div class="eqn" id="a0000000316">
+<script type="math/tex; mode=display">\begin{equation}\underbrace{h(t) : = r(T - t)}_{ matched \quad filter!}\tag{141}\end{equation}</script>
+</div>
+<p>
+ In order to design a detector we just create an impulse response \(h\) by reversing the template \(r\) in time and constructing an FIR filter with it. 
+</p>
+<p>
+How to improve the matching process? Square the output of the filter! 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000317">Adaptive FIR Least Mean Squares (LMS) filters</h4>
+<figure id="fir_lms">
+<div class="centered"> <div class="mbox" id="a0000000318" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_lms}" src="images/img-0021.svg" style="width:469.755pt"/></div> <figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">20</span>
+<span class="caption_text">Adaptive FIR filter : A) Negative feedback loop where a desired signal \(d(n)\) is compared with the output of the FIR filter \(y(n)\) and creates the error signal \(e(n)\) which then tunes the FIR filter. B) Internal workings of the adaptive FIR filter where the error signal \(e(n)\) is multiplied with the delayed input signal \(x(n-m)\) and then changes the FIR filter coefficients \(h_m\).</span>
+</figcaption> </div>
+</figure>
+<p>
+ So far the coefficients of the FIR filter have been constant but now we are going to allow them to change <i class="slshape">while</i> the FIR filter is operating so that it can learn its own coefficients. The idea is to use an error signal \(e(n)\) to tune the coefficients \(h(n)\) of the FIR filter (see Fig. <a class="ref" href="#fir_lms">20</a>A) by comparing its output \(y(n)\) with a desired output \(d(n)\): 
+</p>
+<div class="eqn" id="lmserror">
+<script type="math/tex; mode=display">\begin{equation}e(n) = d(n) - y(n) \label{lmserror}\tag{142}\end{equation}</script>
+</div>
+<p>
+ and tuning the FIR filter in a negative feedback loop till the average of \(e(n)\) is zero. 
+</p>
+<p>
+We need to derive how the error \(e(n)\) can change the FIR filter coefficients so that the error is actually minimised. This can be expressed as a so called “gradient descent” which minimises the squared error \(\frac{1}{2} e(n)^2\) because both a positive and a negative error are equally bad: 
+</p>
+<div class="eqn" id="graddes">
+<script type="math/tex; mode=display">\begin{equation}\Delta h_m = - \mu \frac{\partial \left( \frac{1}{2}e(n)^2 \right)}{\partial h_m} \label{graddes}\tag{143}\end{equation}</script>
+</div>
+<p>
+ where \(\Delta h_m(n)\) is the change of the coefficient \(h_m(n)\) at every time step: \(h_m(n+1) = h_m(n) + \Delta h_m(n)\). \(\mu \ll 1\) defines how quickly the coefficients \(h_m\) change at every time step and is called the “learning rate”. Note here the change in notation of the FIR filter coefficients \(h_m\) which are changing much <i class="slshape">slower</i> than the sampled signals \(e(n), d(n)\) and \(y(n)\) and can still be seen as constant for the realtime filtering operation. Thus, we have \(n\) for the sample by sample processing as before and the index \(m\) of \(h_m\) for the very slowly changing FIR filter coefficients. To gain some intuition why Eq. <a class="ref" href="#graddes">143</a> mimimises the error \(e(n)\) we look at what happens if we increase the FIR coefficient \(h_m\) a little bit, for example, by the small amount of \(|\epsilon | \ll 1\): \(h_m := h_m + \epsilon \). Then we can observe two cases: 
+</p>
+<ol class="enumerate" id="a0000000319">
+<li id="a0000000320" value="1">
+<p>
+The squared error \(e(n)^2\) increases so we need to decrease \(h_m\) as it makes it worse. 
+</p>
+</li>
+<li id="a0000000321" value="2">
+<p>
+The squared error \(e(n)^2\) decreases so we need to increase \(h_m\) as it makes it better. 
+</p>
+</li>
+</ol>
+<p>
+ This also works in the same way if we decrease \(h_m\) by a small amount. Thus from both directions this always minimises the error. This is basically a carrot &amp; stick approach where the coefficients \(h_m\) are being “rewarded” if they minimise the error and “punished” if they make the error larger. This approach is called “Least Mean Squares” (LMS) as it minimises the squared error on average. It’s also known from neural networks where the \(h_m\) are called the “weights” of a neuron (see delta rule). 
+</p>
+<p>
+Eq <a class="ref" href="#graddes">143</a> now needs to be turned into a form which can directly run in software by solving its partial derivative by inserting Eqs. <a class="ref" href="#lmserror">142</a> and <a class="ref" href="#FIRtime">110</a>. 
+</p>
+<div id="a0000000322">
+<div class="eqnarrayid" id="a0000000323"></div><div class="eqnarrayid" id="a0000000324"></div><div class="eqnarrayid" id="a0000000325"></div><div class="eqnarrayid" id="lmsLearn"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{144} \Delta h_m &  = &  - \mu \frac{1}{2}\frac{\partial \left(d(n)-y(n)\right)^2}{\partial h_m} \\ 
+\tag{145}&  = &  - \mu \frac{1}{2}\frac{\partial \left(d(n)-\sum _{m=0}^{M-1} h_m \cdot x(n-m)\right)^2}{\partial h_m} \\ 
+\tag{146}&  = &  \mu \left(d(n)-y(n)\right) \cdot x(n-m) \\ 
+\tag{147}&  = &  \mu \cdot e(n) \cdot x(n-m) \label{lmsLearn} 
+\end{align}
+</script>
+</div>
+<p>
+ Note that \(x(n-m)\) emerges because of the chain rule when partially differentiating the output \(y(n)\) which depends on the sum of the delay lines of the FIR filter (see Eq <a class="ref" href="#FIRtime">110</a>). Eq. <a class="ref" href="#lmsLearn">147</a> is now our “learning” rule which can simply be applied to the FIR filter as showm in Fig <a class="ref" href="#fir_lms">20</a>B. 
+</p>
+<p>
+Now we have the recipe of an adaptive filter where the FIR filter minimises its own error \(e(n)\) in a negative feedback loop and generating an output \(y(n)\) which is as closely as possible to the desired signal \(d(n)\). The signal \(y(n)\) is often called “the remover” as it cancels out the signal \(d(n)\). However, not everything in \(d(n)\) is cancelled out but <i class="slshape">only</i> what is correlated with the input \(x(n)\). This means that the error signal \(e(n)\) will not be zero but will contain any signal components which are <i class="slshape">not</i> correlated with \(x(n)\). This means that the error signal actually is also the cleaned up output signal of the adaptive filter. 
+</p>
+<p>
+Imagine you want to remove \(50\) Hz mains from a signal 
+</p>
+<div class="eqn" id="a0000000326">
+<script type="math/tex; mode=display">\begin{equation}d(n) = \mathrm{signal}(n) + \mathrm{50Hz~ noise}(n)\tag{148}\end{equation}</script>
+</div>
+<p>
+ then one would provide \(50\) Hz mains via 
+</p>
+<div class="eqn" id="a0000000327">
+<script type="math/tex; mode=display">\begin{equation}x(n) = \mathrm{50Hz~ noise}(n)\tag{149}\end{equation}</script>
+</div>
+<p>
+ so that then the filter learns to remove the powerline interference. One might think that the filter will remove everything from \(d(n)\) because it will try to minimise the error \(e(n)\) but only the 50 Hz in the contaminated signal will be removed because only signal components which are correlated between \(x(n)\) and \(d(n)\) will be removed. The cleaned up signal will be identical to the error signal: 
+</p>
+<div class="eqn" id="a0000000328">
+<script type="math/tex; mode=display">\begin{equation}e(n) = \mathrm{signal}(n)\tag{150}\end{equation}</script>
+</div>
+<p>
+<br/>
+</p>
+</section>
+</section><section class="subsection">
+<h3 id="a0000000329">6.8 IIR Filter</h3>
+<p>
+ IIR filter stands for Infinite Impulse Response. Such filters have feedback so that signals are processed in a recursive way. We will see that impulse responses from exponentials can easily be implemented as a recursive filter. 
+</p>
+<section class="subsubsection">
+<h4 id="a0000000330">Introduction</h4>
+<p>
+ As an instructional example we take a very simple analogue filter and sample it. This can then be generalised to more complex situations. 
+</p>
+<p>
+We define a first order filter which can be implemented, for example, as a simple RC network: 
+</p>
+<div class="eqn" id="ExpoFunktion">
+<script type="math/tex; mode=display">\begin{equation}h(t)=e^{-bt} \label{ExpoFunktion}\tag{151}\end{equation}</script>
+</div>
+<p>
+ where its Laplace transform is a simple fraction: 
+</p>
+<div class="eqn" id="a0000000331">
+<script type="math/tex; mode=display">\begin{equation}H(s)=\frac{1}{s+b}\tag{152}\end{equation}</script>
+</div>
+<p>
+ Now we sample Eq. <a class="ref" href="#ExpoFunktion">151</a>: 
+</p>
+<div class="eqn" id="a0000000332">
+<script type="math/tex; mode=display">\begin{equation}h(t)=\sum _{n=0}^\infty e^{-bnT} \cdot \delta (t-nT)\tag{153}\end{equation}</script>
+</div>
+<p>
+ and perform a Laplace transform on it: 
+</p>
+<div class="eqn" id="a0000000333">
+<script type="math/tex; mode=display">\begin{equation}H(s) = \sum _{n=0}^\infty e^{-bnT} \underbrace{e^{-nsT}}_{{z^{-1}}^n}\tag{154}\end{equation}</script>
+</div>
+<p>
+ which turns into a z-transform: 
+</p>
+<div id="a0000000334">
+<div class="eqnarrayid" id="a0000000335"></div><div class="eqnarrayid" id="a0000000336"></div><div class="eqnarrayid" id="IIReq"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{155} H(z)& =& \sum _{n=0}^\infty e^{-bnT} z^{-n} \\ 
+\tag{156}& =& \sum _{n=0}^\infty {\left(e^{-bT} z^{-1}\right)}^n \\ 
+\tag{157}& =& {1\over 1-e^{-bT} z^{-1}} \label{IIReq} 
+\end{align}
+</script>
+</div>
+<p>
+ Consequently the analogue transfer function \(H(s)\) transfers into \(H(z)\) with the following recipe: 
+</p>
+<div class="eqn" id="impInv">
+<script type="math/tex; mode=display">\begin{equation}H(s)=\frac{1}{s+b} \qquad \Leftrightarrow \qquad H(z)=\frac{1}{1-e^{-bT} z^{-1}} \label{impInv}\tag{158}\end{equation}</script>
+</div>
+<p>
+ Thus, if you have the poles of an analogue system and you want to have the poles in the z-plane you can transfer them with: 
+</p>
+<div class="eqn" id="translpoles">
+<script type="math/tex; mode=display">\begin{equation}z_\infty =e^{s_\infty T} \label{translpoles}\tag{159}\end{equation}</script>
+</div>
+<p>
+ This also gives us a stability criterion. In the Laplace domain the poles have to be in the left half plane (real value negative). This means that in the sampled domain the poles have to lie within the unit circle. 
+</p>
+<p>
+The same rule can be applied to zeros 
+</p>
+<div class="eqn" id="transzeros">
+<script type="math/tex; mode=display">\begin{equation}z_0=e^{s_0 T} \label{matchedz} \label{transzeros}\tag{160}\end{equation}</script>
+</div>
+<p>
+ together with Eq. <a class="ref" href="#translpoles">159</a> this is called “The matched z-transform method”. For example \(H(s)=s\) turns into \(H(z)=1-z^{-1}e^{0T}=1-z^{-1}\) which is basically a DC filter. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000337">Determining the data-flow diagram of an IIR filter</h4>
+<figure id="IIRfilter">
+<div class="centered"> <div class="mbox" id="a0000000338" style="width: "><img alt="\includegraphics[width=0.75\linewidth ]{iir}" src="images/img-0022.svg" style="width:352.31624999999997pt"/></div> <figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">21</span>
+<span class="caption_text">IIR filter </span>
+</figcaption> </div>
+</figure>
+<p>
+ To get a practical implementation of Eq. <a class="ref" href="#IIReq">157</a> we have to see it with its input- and output-signals: 
+</p>
+<div id="a0000000339">
+<div class="eqnarrayid" id="a0000000340"></div><div class="eqnarrayid" id="a0000000341"></div><div class="eqnarrayid" id="Verg"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{161} Y(z)& =& X(z)H(z)\\ 
+\tag{162}& =& X(z) {1\over 1-e^{-bT} z^{-1}} \\ 
+\tag{163}& =& Y(z)z^{-1}e^{-bT}+X(z) \label{Verg} 
+\end{align}
+</script>
+</div>
+<p>
+ We have to recall that \(z^{-1}\) is the delay by \(T\). With that information we directly have a difference equation in the temporal domain: 
+</p>
+<div class="eqn" id="IIRtime">
+<script type="math/tex; mode=display">\begin{equation}y(nT)=y([n-1]T) e^{-bT} + x(nT) \label{IIRtime}\tag{164}\end{equation}</script>
+</div>
+<p>
+ This means that the output signal \(y(nT)\) is calculated by adding the weighted and delayed output signal \(y([n-1]T)\) to the input signal \(x(nT)\). How this actually works is shown in Fig. <a class="ref" href="#IIRfilter">21</a>. The attention is drawn to the <i class="slshape">sign inversion</i> of the weighting factor \(e^{-bT}\) in contrast to the transfer function Eq. <a class="ref" href="#impInv">158</a> where it is \(-e^{-bT}\). In general the recursive coefficients change sign when they are taken from the transfer function. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000342">General form of IIR filters</h4>
+<p>
+ A filter with forward and feedback components can be represented as: 
+</p>
+<div class="eqn" id="a0000000343">
+<script type="math/tex; mode=display">\begin{equation}H(z) = \frac{\sum _{k = 0}^{r} B_{k} z^{-k}}{1 + \sum _{l = 1}^{m} A_{i} z^{-l}}\tag{165}\end{equation}</script>
+</div>
+<p>
+ where \(B_k\) are the FIR coefficients and \(A_l\) the recursive coefficients. Note the signs of the recursive coefficients are <i class="slshape">inverted</i> in the actual implementation of the filter. This can be seen when the function \(H(z)\) is actually multiplied with an input signal to obtain the output signal (see Eq. <a class="ref" href="#IIRtime">164</a> and Fig. <a class="ref" href="#IIRfilter">21</a>). The “1” in the denominator represents actually the output of the filter. If this factor is not one then the output will be scaled by that factor. However, usually this is kept one. 
+</p>
+<p>
+In Python filtering is performed with the command: 
+</p>
+<pre class="verbatim">
+import scipy.signal as signal
+Y = signal.lfilter(B,A,X)
+</pre>
+<p>
+ where B are the FIR coefficients, A the IIR coefficients and X is the input. For a pure FIR filter we just have: 
+</p>
+<pre class="verbatim">
+Y = signal.lfilter(B,1,X)
+</pre>
+<p>
+ The “1” represents the output. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000344">IIR filter topologies</h4>
+<figure id="iir_types">
+<div class="centered"> <div class="mbox" id="a0000000345" style="width: "><img alt="\includegraphics[width=\textwidth ]{iir_types}" src="images/img-0023.svg" style="width:469.755pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">22</span>
+<span class="caption_text">A) Direct Form I filter which one accumulator and B) Direct Form II filter with two accumlators. </span>
+</figcaption>
+</figure>
+<p>
+ In real applications one would create a <i class="slshape">chain of 2nd order IIR filters</i>. This has numerous advantages: 
+</p>
+<ol class="enumerate" id="a0000000346">
+<li id="a0000000347" value="1">
+<p>
+The optimisation can be done within these simple structures, for example omitting array operations completely and coding the 2nd order filters in assembly while keeping the higher level operations in C or C++. 
+</p>
+</li>
+<li id="a0000000348" value="2">
+<p>
+Control of stability issues: high order recursive systems might become unstable and it is very hard to predict when this might happen. On the other hand a chain of 2nd order filters can be made stable with ease. One can focus on stability in 2nd order systems which is well understood and manageable. 
+</p>
+</li>
+<li id="a0000000349" value="3">
+<p>
+Complex conjugate pole pairs are generated naturally in analogue filter design and directly translate to 2nd order IIR structures. Analogue design is usually described as 2nd order structures (=LCR) so that any transform from analogue to digital just needs to be of 2nd order! 
+</p>
+</li>
+</ol>
+<p>
+Fig. <a class="ref" href="#iir_types">22</a> shows the most popular filter topologies: Direct Form I and II. Because of the linear operation of the filter one is allowed to do the FIR and IIR operations in different orders. In Direct From I we have one accumulator and two delay lines whereas in the Direct Form II we have two accumulators and one delay line. Only the Direct Form I is suitable for integer operations. 
+</p>
+<p>
+A Python class of a direct form II filter can be implemented with a few lines: 
+</p>
+<pre class="verbatim">
+class IIR_filter:
+    def __init__(self,_num,_den):
+        self.numerator = _num
+        self.denominator = _den
+        self.buffer1 = 0
+        self.buffer2 = 0
+
+    def filter(self,v):
+        input=0.0
+        output=0.0
+        input=v
+        output=(self.numerator[1]*self.buffer1)
+        input=input-(self.denominator[1]*self.buffer1)
+        output=output+(self.numerator[2]*self.buffer2)
+        input=input-(self.denominator[2]*self.buffer2)
+        output=output+input*self.numerator[0]
+        self.buffer2=self.buffer1
+        self.buffer1=input
+        return output
+</pre>
+<p>
+ Here, the two delay steps are represented by two variables <span class="ttfamily">buffer1</span> and <span class="ttfamily">buffer2</span>. 
+</p>
+<p>
+In order to achive higher order filters one can then just chain these 2nd order filters. In Python this can be achieved by storing these in an array of instances of this class. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000350">Fixed point IIR filters</h4>
+<figure id="iir_fixed">
+<div class="centered"> <div class="mbox" id="a0000000351" style="width: "><img alt="\includegraphics[width=0.5\textwidth ]{iir_fixed}" src="images/img-0024.svg" style="width:234.8775pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">23</span>
+<span class="caption_text">Direct Form I filter with fixed point arithmetic. </span>
+</figcaption>
+</figure>
+<p>
+ Fig. <a class="ref" href="#iir_fixed">23</a> shows the implementation of a fixed point IIR filter. It’s a Direct Form I filter with one accumulator so that temporary overflows can be compensated. The original floating point IIR coefficients are scaled up by factor \(2^w\) so that they max out the range of the integer coefficients. After the addition operation they are shifted back by \(w\) bits to their original values. 
+</p>
+<p>
+For example if the largest IIR coefficient is 1.9 and we use 16 bit signed numbers (max number is 32767) then one could multiply all coefficients with \(2^{14}\). 
+</p>
+<p>
+Then one needs to assess the maximum value in the accumulator which is much more difficult than for FIR filters. For example, resonators can generate high output values with even small input values so that it’s advisable to have a large overhead in the accumulator. For example if the input signal is \(16\) bit and the scaling factor is \(14\) bits then the signal will certainly occupy \(16+14=30\) bits. With an accumulator of 32 bits that gives only a headroom of 2 bits so the output can only be 4 times larger than the input. A 64 bit accumulator is a safe bet. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000352">Filter design based on analogue filters</h4>
+<figure id="butterworth_poles">
+<div class="centered"> <div class="mbox" id="a0000000353" style="width: "><img alt="\includegraphics[width=0.5\textwidth ]{butterworth_poles}" src="images/img-0025.svg" style="width:234.8775pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">24</span>
+<span class="caption_text">Pole placements of the Butterworth filter. Its analogue cutoff frequency is \(\Omega = 2\pi F\) where \(F\) is the analogue cutoff frequency in Hertz. This filter can be implemented as a chain of 2nd order IIR filters (biquads) by using the complex conjugate pairs for the different 2nd order IIR filters. </span>
+</figcaption>
+</figure>
+<p>
+ Most IIR filters are designed from analogue filters by transforming from the continuous domain (\(h(t),H(s)\)) to the sampled domain (\(h(n),H(z)\)). 
+</p>
+<p class="paragraph">
+<strong class="paragraph-title" id="a0000000354">A list of popular analogue transfer functions being used for IIR filter design:</strong>
+<ul class="itemize" id="a0000000355">
+<li id="a0000000356">
+<p>
+<b class="bf">Butterworth:</b> All poles lie on the left half plane equally distributed on a half circle with radius \(\Omega = 2\pi F\) which is shown in Fig. <a class="ref" href="#butterworth_poles">24</a>. The Butterworth filter is by far the most popular filter. Here are its properties: 
+</p>
+<ul class="itemize" id="a0000000357">
+<li id="a0000000358">
+<p>
+monotonic frequency response 
+</p>
+</li>
+<li id="a0000000359">
+<p>
+only poles, no zeros 
+</p>
+</li>
+<li id="a0000000360">
+<p>
+the Poles have analytical solution and very easy to calculate 
+</p>
+</li>
+<li id="a0000000361">
+<p>
+no constant group delay but usually acceptable deviation from a strict constant group delay for many applications. 
+</p>
+</li>
+</ul>
+</li>
+<li id="a0000000362">
+<p>
+<b class="bf">Chebyshev Filters:</b>
+</p>
+<div class="eqn" id="a0000000363">
+<script type="math/tex; mode=display">\begin{equation}|H(\Omega )|^{2} = \frac{1}{1 - \varepsilon ^{2} T_{N} (\Omega /\Omega _{p})}\tag{166}\end{equation}</script>
+</div>
+<p>
+ where T = Chebyslev polynomials. These filters have either ripples in the stop or passband depending on the choice of polynomials. As with Butterworth the polynomials have analytical solutions for the poles and zeros of the filter so that their design again is straightforward. 
+</p>
+</li>
+<li id="a0000000364">
+<p>
+<b class="bf">Bessel Filter: </b>
+</p>
+<ul class="itemize" id="a0000000365">
+<li id="a0000000366">
+<p>
+Constant Group Delay 
+</p>
+</li>
+<li id="a0000000367">
+<p>
+Shallow transition from stop- to passband 
+</p>
+</li>
+<li id="a0000000368">
+<p>
+No analytical solution for the poles/zeros. 
+</p>
+</li>
+</ul>
+</li>
+</ul>
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000369">How to transform the analogue lowpass filters into highpass, bandstop or bandpass filters?</strong>
+
+     All the analogue transfer functions above are lowpass filters. However this is not a limitation because there are handy transforms which take an analogue lowpass transfer function or poles/zeros and then transforms them into highpass, bandpass and stopband filters. These rules can be found in any good analogue filter design book and industry handouts, for example from Analog Devices. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000370">Bilinear Transform: transforming the analoge transfer function into a digital one:</strong>
+
+     As a next step these analogue transfer functions \(H(s)\) need to be transformed to digital transfer functions \(H(z)\). This could be done by the matched z-transform (Eq. <a class="ref" href="#transzeros">160</a>). However, the problem with these methods is that they map frequencies 1:1 between the digital and analogue domain. Remember: in the sampled domain there is no infinite frequency but \(F_s/2\) which is the Nyquist frequency. This means that we never get more damping than at Nyquist \(F_s/2\). This is especially a problem for lowpass filters where damping increases the higher the frequency. 
+The solution is to map <b class="bf">all</b> analogue frequencies from \(0 \ldots \infty \) to the sampled frequencies \(0\ldots 0.5\) in a non-linear way: <div class="eqn" id="a0000000371">
+<script type="math/tex; mode=display">\begin{equation}- \infty < \Omega < \infty \Rightarrow -\pi \leq \omega \leq \pi\tag{167}\end{equation}</script>
+</div> This is called <i class="slshape">Bilinear Transformation</i>: <div class="eqn" id="a0000000372">
+<script type="math/tex; mode=display">\begin{equation}s = \frac{2}{T} \quad \frac{z - 1}{z + 1}\tag{168}\end{equation}</script>
+</div> This rule replaces all \(s\) with \(z\) in our analogue transfer function so that it's now digital. However, the cutoff frequency \(\Omega _c\) is still an analogue one but if we want to design a digital filter we want to specify a digital cutoff frequency. Plus remember that the frequency mapping is non-linear so that there is non-linear mapping also of the cutoff. 
+In the analogue domain the frequency is given as \(s = j\Omega \) and in the sampled domain as \(z = e^{j \omega }\). With the definition of the bilinear transform we can establish how to map from our desired digital cutoff to the analogue one: <div class="eqn" id="a0000000373">
+<script type="math/tex; mode=display">\begin{equation}j \Omega = \frac{2}{T} \left[\frac{e^{j \omega } - 1}{e^{j \omega } +1}\right] = \frac{2}{T} j \tan \frac{\omega }{2}\tag{169}\end{equation}</script>
+</div> This derivation is useful for two purposes. It shows the non-linear mapping between the digital and analogue world and it provides a recipe how to calculate our analogue cutoff frequency. 
+That the bilinear transform is a <b class="bf">non</b>linear mapping between the analogue world and the digital world can be directly seen by just omitting the \(j\): <div class="eqn" id="a0000000374">
+<script type="math/tex; mode=display">\begin{equation}\Omega = \frac{2}{T} tan \frac{\omega }{2}\tag{170}\end{equation}</script>
+</div> 
+This also means that the cut-off frequency of our analogue filter is changed by the bilinear transformation. Consequently, we need to apply the same transformation to the cutoff frequency itself: <div class="eqn" id="prewarp">
+<script type="math/tex; mode=display">\begin{equation}\Omega _{c} = \frac{2}{T} tan \frac{\omega _{c}}{2} \label{prewarp}\tag{171}\end{equation}</script>
+</div> where \(T\) is the sampling interval. This is often called ``pre-warp'' but is simply the application of the same rule to the cut-off frequency as what the bilinear transform does to the transfer function \(H(s)\). It has also another important result: we can now finally specify our cut-off in the sampled domain in normalised frequencies \(\omega _{c} = 2\pi f_{c}\) by using Eq. <a class="ref" href="#prewarp">171</a>. After all we just use the analogue filter as a vehicle to design a digital filter. 
+We can now list our design steps. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000375">IIR filter design steps:</strong>
+<ol class="enumerate" id="a0000000376">
+<li id="a0000000377" value="1">
+<p>
+Choose the cut-off frequency of your digital filter \(\omega _{c}\). 
+</p>
+</li>
+<li id="a0000000378" value="2">
+<p>
+Calculate the analogue cutoff frequency \(\omega _{c} \rightarrow \Omega _{c}\) with Eq. <a class="ref" href="#prewarp">171</a>
+</p>
+</li>
+<li id="a0000000379" value="3">
+<p>
+Choose your favourite analogue lowpass filter \(H(s)\), for example Butterworth. 
+</p>
+</li>
+<li id="a0000000380" value="4">
+<p>
+Replace all \(s\) in the analogue transfer function \(H(s)\) by \(s = \frac{2}{T} \frac{z - 1}{z + 1}\) to obtain the digital filter \(H(z)\) 
+</p>
+</li>
+<li id="a0000000381" value="5">
+<p>
+Change the transfer function \(H(z)\) so that it only contains negative powers of \(z\) (\(z^{-1}, z^{-2}, \ldots \)) which can be interpreted as delay lines. 
+</p>
+</li>
+<li id="a0000000382" value="6">
+<p>
+Build your IIR filter! 
+</p>
+</li>
+</ol>
+ 
+For filter-orders higher than two one needs to develop a different strategy because the bilinear transform is a real <i class="slshape">pain</i> to calculate for anything above the order of two. Nobody wants to transform high order analogue transfer functions \(H(s)\) to the \(H(z)\) domain. However, there is an important property of all analogue transfer functions: they generate complex conjugate pole pairs (plus one real pole if of of odd order) which suggest a chain of 2nd order IIR filters straight away (see Fig. <a class="ref" href="#butterworth_poles">24</a>). Remember that a complex conjugate pole pair creates a 2nd order IIR filter with with two delay steps. A real pole is a 1st order IIR filter with one delay but is often also implemented as a 2nd order filter where the coefficients of the 2nd delay are kept zero. 
+The design strategy is thus to split up the analogue transfer function \(H(s)\) in a chain of 2nd order filters \(H(s) = H_1(s) H_2(s) H_3(s) \ldots \) and then to apply the bilinear transform on every 2nd order term separately. Using this strategy you only need to calculate the bilinear transform once for a 2nd order system (or if the order is odd then also for a 1st order one) but then there is no need to do any more painful bilinear transforms. This is standard practise in IIR filter design. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000383">Time or frequency domain?</strong>
+
+     The transforms from analogue to digital alter both the temporal response and the frequency response. However the different transforms have different impact. The bilinear transform guarantees that the digital filter uses the whole frequency range of the analogue filter from zero to infinity which is the best solution for frequency domain problems. However, if one needs to reproduce the temporal response an analogue filter as faithfully as possible then the matched z transform is best because it's based (as the name suggests) on the impulse invariance method which aims to preserve the temporal behaviour of the filter (exact for pole-only transfer functions). 
+<div class="centered"> <table class="tabular">
+<tr><td colspan="" rowspan="" style="text-align:left"><p>
+ Identical frequency response required: 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:left"><p>
+ Bilinear transform 
+</p>
+</td>
+</tr>
+<tr><td colspan="" rowspan="" style="text-align:left"><p>
+Identical temporal behaviour required: 
+</p>
+</td>
+<td colspan="" rowspan="" style="text-align:left"><p>
+ Matched z-transform 
+</p>
+</td>
+</tr>
+</table> </div> 
+Of course a 100% match won't be achieved but in practise this can be assumed. In most cases the bilinear transform is the transform of choice. The matched z transform can be very useful, for example in robotics where timing is important. 
+
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000384">Adaptive IIR filter: The Kalman filter</h4>
+<p>
+ Often signals are contaminated by high frequency noise where the spectrum of the noise is changing or not known. The cutoff of a fixed low pass filter is not known or might be changing so that we need to adapt the cut-off continuously. One example is a Kalman filter which maximises the <i class="slshape">predictability</i> of the filtered signal. It’s an adaptive lowpass filter which increases the predictability of a signal because it smoothes it. 
+</p>
+<div class="eqn" id="a0000000385">
+<script type="math/tex; mode=display">\begin{equation}H(z) = \frac{b}{1 - a z^{-1}}\tag{172}\end{equation}</script>
+</div>
+<p>
+ The parameter \(a\) determines the cutoff frequency. Frequency Response : 
+</p>
+<div class="eqn" id="a0000000386">
+<script type="math/tex; mode=display">\begin{equation}|H(e^{j \omega }) | = |\frac{b}{1 - a e^{-j \omega }}|\tag{173}\end{equation}</script>
+</div>
+<p>
+ Let’s re-interpret our low-pass filter in the time domain: 
+</p>
+<div class="eqn" id="a0000000387">
+<script type="math/tex; mode=display">\begin{equation}\underbrace{y(n)}_{\mbox{\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}}\tag{174}\end{equation}</script>
+</div>
+<p>
+ We would like to have the best estimate for \(y(n)\) 
+</p>
+<div class="eqn" id="a0000000388">
+<script type="math/tex; mode=display">\begin{equation}p(n) = E[ \left( y (k) - y_{real} (k)\right)^{2}]\tag{175}\end{equation}</script>
+</div>
+<p>
+ We need to minimise \(p\) which gives us equations for a and b which implements a Kalman filter. 
+</p>
+</section><section class="subsubsection">
+<h4 id="a0000000389">The role of poles and zeros</h4>
+<p>
+ Transfer functions contain poles and zeros. To gain a deeper understanding of the transfer functions we need to understand how poles and zeros shape the frequency response of \(H(z)\). The position of the poles also determines the stability of the filter which is important for real world applications. 
+</p>
+<p>
+We are going to explore the roles of poles and zeros first with an instructional example which leads to a 2nd order bandstop filter. 
+</p>
+<p class="paragraph">
+<strong class="paragraph-title" id="a0000000390">Zeros</strong>
+<figure id="fir_stop">
+<div class="centered"> <div class="mbox" id="a0000000391" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{fir_stop}" src="images/img-0026.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">25</span>
+<span class="caption_text">A two tap FIR stopband filter for the frequency \(\omega _0\). </span>
+</figcaption>
+</figure> Let's look at the transfer function: <div id="a0000000392">
+<div class="eqnarrayid" id="a0000000393"></div><div class="eqnarrayid" id="a0000000394"></div><div class="eqnarrayid" id="a0000000395"></div><div class="eqnarrayid" id="a0000000396"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{176} H(z) &  = &  (1 - e^{j\omega _0} z^{-1})(1 - e^{-j\omega _0} z^{-1}) \\ 
+\tag{177}&  = &  1 - z^{-1} e^{j \omega -{0}} + z^{-2} \\ 
+\tag{178}&  = &  1 - z^{-1} (e^{j \omega _{0}} + e^{-j \omega _{0}}) + z^{-2} \\ 
+\tag{179}&  = &  1 - z^{-1} 2 \cos \omega _{0} + z^{-2} 
+\end{align}
+</script>
+</div> which leads to the data flow diagram shown in Fig <a class="ref" href="#fir_stop">25</a>. 
+<div class="eqn" id="a0000000397">
+<script type="math/tex; mode=display">\begin{equation}H(e^{j\omega }) = \underbrace{(1 - e^{j\omega _0}e^{-j\omega })(1 - e^{-j\omega _0} e^{-j\omega })}_{\mbox{2 zeros}}\tag{180}\end{equation}</script>
+</div> 
+The zeroes at \(e^{j \omega _{0}}\) and \(e^{-j \omega _0}\) eliminate the frequencies \(\omega _{0}\) and \(-\omega _{0}\). 
+A special case is \(\omega _{0} = 0\) which gives us: <div id="a0000000398">
+<div class="eqnarrayid" id="a0000000399"></div><div class="eqnarrayid" id="a0000000400"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{181} H(z) &  = &  (1 - e^{0} z^{-1})(1 - e^{0} z^{-1}) \\ 
+\tag{182}&  = &  1 - 2 z^{-1} + z^{-2} 
+\end{align}
+</script>
+</div> a DC filter. 
+In summary: zeros eliminate frequencies (and change phase). That's the idea of an FIR filter where loads of zeros (or loads of taps) knock out the frequencies in the stopband. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000401">Poles</strong>
+<figure id="iir_stop">
+<div class="centered"> <div class="mbox" id="a0000000402" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{iir_stop}" src="images/img-0027.svg" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">26</span>
+<span class="caption_text">A two tap IIR resonator for the frequency \(\omega _0\) and with the amplification \(r\). </span>
+</figcaption>
+</figure> While zeros knock out frequencies, poles amplify frequencies. Let's investigate complex conjugate poles: <div class="eqn" id="resonatorz">
+<script type="math/tex; mode=display">\begin{equation}H(z) = \frac{1}{\underbrace{(1 - r e^{j \omega _{0}} z^{-1})(1 - r e^{-j \omega _{0}} z^{-1})}_{2 poles!}} \label{resonatorz}\tag{183}\end{equation}</script>
+</div> which are characterised by their resonance frequency \(\omega _0\) and the amplification \(0{\lt}r{\lt}1\). 
+In order to obtain a data flow diagram we need to get powers of \(z^{-1}\) because they represent delays. <div class="eqn" id="a0000000403">
+<script type="math/tex; mode=display">\begin{equation}H(z) = \frac{1}{1 - 2 r \cos (\omega _{0}) z^{-1} + r^{2} z^{-2}}\tag{184}\end{equation}</script>
+</div> which we multiply with the input signal \(Y(z)\): <div id="a0000000404">
+<div class="eqnarrayid" id="a0000000405"></div><div class="eqnarrayid" id="a0000000406"></div><div class="eqnarrayid" id="a0000000407"></div><script type="math/tex; mode=display">
+\begin{align}
+\tag{185} Y(z) &  = &  X(z) \frac{1}{1 - 2 r \cos (\omega ) z^{-1} + r^{2} z^{-2}} \\ 
+\tag{186}X(z) &  = &  Y(z) - Y(z) 2r \cos (\omega _{0}) z^{-1} + Y(z) r^{2} z^{-2} \\ 
+\tag{187}Y(z) &  = &  X(z) + z^{-1} Y(z) 2r \cos (\omega _{0}) - z^{-2} Y(z) r^{2} 
+\end{align}
+</script>
+</div> This gives us a second order recursive filter (IIR) which is shown in Fig <a class="ref" href="#iir_stop">26</a>. These complex conjugate poles generate a resonance at \(\pm \omega _0\) where the amplitude is determined by \(r\). 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000408">Stability</strong>
+
+     A transfer function \(H(z)\) is only stable if the poles lie inside the unit circle. This is equivalent to the analog case where the poles of \(H(s)\) have to lie on the left hand side of the complex plane (see Eq. <a class="ref" href="#translpoles">159</a>). Looking at Eq. <a class="ref" href="#resonatorz">183</a> it becomes clear that \(r\) determines the radius of the two complex conjugate poles. If \(r{\gt}1\) then the filter becomes unstable. The same applies to poles on the real axis. Their the real values have to stay within the range \(-1 \ldots +1\). 
+In summary: poles generate resonances and amplify frequencies. The amplification is strongest the closer the poles move towards the unit circle. The poles need to stay within the unit circle to guarantee stability. 
+Note that in real implementations the coefficients of the filters are limited in precision. This means that a filter might work perfectly in python but will fail on a DSP with its limited precision. You can simlate this by forcing a certain datatype in python or you write it properly in C. 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000409">Poles and zeroes combined: design of a pure digital IIR notch filter</strong>
+<figure id="iir_fir_stop">
+<div class="centered"> <div class="mbox" id="a0000000410" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{iir_fir_stop}" src="images/img-0001.png" style="width:352.31624999999997pt"/></div> </div>
+<figcaption>
+<span class="caption_title">Figure</span>
+<span class="caption_ref">27</span>
+<span class="caption_text">A two tap IIR bandstop filter with tuneable stopband width \(r\) for the frequency \(\omega _0\). </span>
+</figcaption>
+</figure> Now we combine the filters from the last two sections: <div class="eqn" id="a0000000411">
+<script type="math/tex; mode=display">\begin{equation}H(z) = \frac{1 - 2 \cos (\omega _{0}) z^{-1} + z^{-2}}{1 - 2r \cos (\omega _{0}) z^{-1} + r^{2} z^{-2}}\tag{188}\end{equation}</script>
+</div> This gives us a notch filter where its width is tunable with the help of \(r{\lt}1\). The closer \(r\) goes towards \(1\) the more narrow is the frequency response. This filter has two poles and two zeros. The zeros sit on the unit circle and eliminate the frequencies \(\pm \omega _0\) while the poles sit within the unit circle and generate a resonance around \(\pm \omega _0\). As long as \(r{\lt}1\) this resonance will not go towards infinity at \(\pm \omega _0\) so that the zeros will always eliminate the frequencies \(\pm \omega _0\). 
+
+</p><p class="paragraph">
+<strong class="paragraph-title" id="a0000000412">Identifying filters from their poles and zeroes</strong>
+<span class="cite">
+	Proakis and Manolakis
+	 
+	(
+	
+	<a href="#Proakis1996">1996</a>
+	, pp.333
+	)
+</span> has an excellent section about this topic and we refer the reader to have a look. As a rule of thumb a digital lowpass filter has poles where their real parts are positive and a highpass filter has poles with negative real part of the complex poles. In both cases they reside within the unit circle to guarantee stability. 
+ 
+
+</p>
+</section>
+</section>
+</section><section class="section bibliography">
+<h2 id="a0000000413">References</h2>
+<ul class="bibliography">
+<li id="Diniz2002" style="list-style: none"> <div class="bibcite">[1]</div> <p>
+Diniz, P. S. R. (2002). <em>Digital Signal Processing</em>. Cambridge university press, Cambridge. 
+</p>
+</li>
+<li id="Proakis1996" style="list-style: none"> <div class="bibcite">[2]</div> <p>
+Proakis, J. G. and Manolakis, D. G. (1996). <em>Digital Signal Processing</em>. Prentice-Hall, New Jersey. 
+</p>
+</li>
+<li id="NumericalRec2007" style="list-style: none"> <div class="bibcite">[3]</div> <p>
+Teukolsky, S. A., Vetterling, W. T., and Flannery, B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em>. Cambridge University Press, 3rd edition. 
+</p>
+</li>
+</ul>
+</section>
+<footer id="footnotes">
+<h2 id="footnot_1">Footnotes</h2>
+<ol>
+<li id="a0000000081"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000081-reference">^</a> Note that the normalised frequency in Python’s scipy is differently defined. In scipy it is annoyingly defined as \(f_{\mbox{scipy}} = 2 \frac{F}{F_s}\). So, in other words \(f_{\mbox{scipy}}=1\) is the Nyquist frequency instead of \(f=0.5\) as normally defined.</li>
+<li id="a0000000139"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000139-reference">^</a> This derivation is loosely based on <span class="cite">
+	Proakis and Manolakis
+	 
+	(
+	
+	<a href="#Proakis1996">1996</a>
+	
+	)
+</span></li>
+<li id="a0000000152"><a aria-label="Jump to reference" class="footnote-jump" href="#a0000000152-reference">^</a> This derivation is loosely based on <span class="cite">
+	Proakis and Manolakis
+	 
+	(
+	
+	<a href="#Proakis1996">1996</a>
+	
+	)
+</span></li>
+</ol>
+</footer>
+<script id="plastex-labels" type="application/json">{"max_sampl": {"ref": "1", "url": "#max_sampl"}, "samplingTheorem": {"ref": "11", "url": "#samplingTheorem"}, "anti_alias": {"ref": "2", "url": "#anti_alias"}, "quant_overv": {"ref": "3", "url": "#quant_overv"}, "quant_err": {"ref": "4", "url": "#quant_err"}, "periodic_ny": {"ref": "5", "url": "#periodic_ny"}, "sampl_idea": {"ref": "41", "url": "#sampl_idea"}, "sampl_ana_dig": {"ref": "42", "url": "#sampl_ana_dig"}, "fold_down": {"ref": "6", "url": "#fold_down"}, "DFT": {"ref": "48", "url": "#DFT"}, "time_alias": {"ref": "7", "url": "#time_alias"}, "dft_example": {"ref": "8", "url": "#dft_example"}, "windowing_dft": {"ref": "9", "url": "#windowing_dft"}, "compactDFT": {"ref": "64", "url": "#compactDFT"}, "constWN": {"ref": "65", "url": "#constWN"}, "fft_div": {"ref": "10", "url": "#fft_div"}, "butterfly": {"ref": "71", "url": "#butterfly"}, "dcDFT": {"ref": "72", "url": "#dcDFT"}, "nyDFT": {"ref": "73", "url": "#nyDFT"}, "visualisation": {"ref": "11", "url": "#visualisation"}, "causality": {"ref": "12", "url": "#causality"}, "convolution": {"ref": "13", "url": "#convolution"}, "eqconv": {"ref": "75", "url": "#eqconv"}, "convdelta": {"ref": "76", "url": "#convdelta"}, "lapltrans": {"ref": "77", "url": "#lapltrans"}, "shiftOperation": {"ref": "80", "url": "#shiftOperation"}, "filter": {"ref": "14", "url": "#filter"}, "frequency_response": {"ref": "15", "url": "#frequency_response"}, "mappingsz": {"ref": "98", "url": "#mappingsz"}, "FIRfilter": {"ref": "16", "url": "#FIRfilter"}, "sampltime": {"ref": "102", "url": "#sampltime"}, "sFunktion": {"ref": "103", "url": "#sFunktion"}, "ztrans": {"ref": "104", "url": "#ztrans"}, "notFIRyet": {"ref": "105", "url": "#notFIRyet"}, "FIRz": {"ref": "106", "url": "#FIRfromAnalogue"}, "FIRfromAnalogue": {"ref": "106", "url": "#FIRfromAnalogue"}, "fir_digital": {"ref": "17", "url": "#fir_digital"}, "FIRa": {"ref": "107", "url": "#FIRa"}, "FIRd": {"ref": "108", "url": "#FIRd"}, "FIRdefault": {"ref": "109", "url": "#FIRdefault"}, "FIRtime": {"ref": "110", "url": "#FIRtime"}, "fir_fixed": {"ref": "18", "url": "#fir_fixed"}, "grpdelay": {"ref": "113", "url": "#grpdelay"}, "transmin": {"ref": "114", "url": "#transmin"}, "imp1": {"ref": "116", "url": "#imp1"}, "imp2": {"ref": "117", "url": "#imp2"}, "window_functions": {"ref": "19", "url": "#window_functions"}, "FIRzlimit": {"ref": "120", "url": "#FIRzlimit"}, "freqsamp": {"ref": "None", "url": "#freqsamp"}, "idealFilt": {"ref": "None", "url": "#idealFilt"}, "idealLP": {"ref": "132", "url": "#idealLP"}, "fir_lms": {"ref": "20", "url": "#fir_lms"}, "lmserror": {"ref": "142", "url": "#lmserror"}, "graddes": {"ref": "143", "url": "#graddes"}, "lmsLearn": {"ref": "147", "url": "#lmsLearn"}, "ExpoFunktion": {"ref": "151", "url": "#ExpoFunktion"}, "IIReq": {"ref": "157", "url": "#IIReq"}, "impInv": {"ref": "158", "url": "#impInv"}, "translpoles": {"ref": "159", "url": "#translpoles"}, "matchedz": {"ref": "160", "url": "#transzeros"}, "transzeros": {"ref": "160", "url": "#transzeros"}, "IIRfilter": {"ref": "21", "url": "#IIRfilter"}, "Verg": {"ref": "163", "url": "#Verg"}, "IIRtime": {"ref": "164", "url": "#IIRtime"}, "iir_types": {"ref": "22", "url": "#iir_types"}, "iir_fixed": {"ref": "23", "url": "#iir_fixed"}, "butterworth_poles": {"ref": "24", "url": "#butterworth_poles"}, "prewarp": {"ref": "171", "url": "#prewarp"}, "fir_stop": {"ref": "25", "url": "#fir_stop"}, "iir_stop": {"ref": "26", "url": "#iir_stop"}, "resonatorz": {"ref": "183", "url": "#resonatorz"}, "iir_fir_stop": {"ref": "27", "url": "#iir_fir_stop"}}</script>
+    </article>
+
+        </main>
+
+		
+		<footer>
+	<hr>
+
+    <nav id="footer-nav">
+        <a href="#">Back to top</a>
+    </nav>
+
+    <div id="footer-text">
+        <p>Generated using <a target="_blank" href="https://chirun.org.uk">Chirun</a> v1.2.1, written by the Digital Learning Unit, School of Mathematics &amp; Statistics, Newcastle University</p>
+        <p>This page last generated: 2025-01-23</p>
+        
+        
+        
+    </div>
+</footer>
+		
+
+        
+
+        <svg
+   width="180"
+   height="180"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="icon-defs"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <g id="cog">
+            <path 
+                style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:2.91107"
+                d="m 97.752501,14.130132 -9.381402,13.321575 -0.875593,3.780985 0.153413,10.126218 -15.231962,2.683646 -3.320429,-9.569021 -2.115099,-3.246528 -13.372747,-9.313164 -6.817124,3.940185 1.375919,16.23265 1.756892,3.456901 6.623829,7.658625 -9.938582,11.848983 -8.693428,-5.196724 -3.712755,-1.125768 -16.226967,1.461225 -2.695014,7.397083 11.490766,11.553325 3.570636,1.518082 10.001112,1.609049 v 15.465082 l -10.001112,1.609049 -3.570636,1.51808 -11.490766,11.55333 2.695014,7.39707 16.226967,1.46124 3.712755,-1.12577 8.693428,-5.19673 9.938582,11.849 -6.623829,7.6586 -1.756892,3.4569 -1.375919,16.23267 6.817124,3.94017 13.372747,-9.31317 2.115099,-3.24651 3.320429,-9.56902 15.231962,2.68363 -0.153413,10.12623 0.875593,3.78099 9.381402,13.32157 7.749599,-1.37024 4.25858,-15.72665 -0.46624,-3.84919 -3.60472,-9.46099 13.3898,-7.73254 6.39641,7.85192 3.09872,2.33113 15.74934,4.17332 5.06027,-6.02683 -6.84557,-14.78849 -2.83716,-2.64385 -8.84125,-4.93518 5.28767,-14.532632 9.94426,1.910392 3.8777,-0.21038 14.74863,-6.925177 v -7.868995 l -14.74863,-6.925174 -3.8777,-0.210383 -9.94426,1.910392 -5.28767,-14.532629 8.84125,-4.935179 2.83716,-2.643849 6.84557,-14.788484 -5.06027,-6.026831 -15.74934,4.173298 -3.09872,2.331133 -6.39641,7.851938 -13.3898,-7.73254 3.60472,-9.460991 0.46624,-3.849211 -4.25858,-15.726624 z M 88.371099,75.44463 A 14.55537,14.55537 0 0 1 102.92647,90 14.55537,14.55537 0 0 1 88.371099,104.55537 14.55537,14.55537 0 0 1 73.815728,90 14.55537,14.55537 0 0 1 88.371099,75.44463 Z"
+            />
+        </g>
+        <g id="pdf">
+            <path
+                style="fill:var(--bg-colour);fill-opacity:1;fill-rule:nonzero;stroke:currentColor;stroke-width:5.73751;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                d="m 115.96038,9.1011226 31.41471,31.7977544 m 0,11.232914 V 159.42386 c 0,6.35716 -5.11786,11.47502 -11.47502,11.47502 H 44.099928 c -6.35716,0 -11.475018,-5.11786 -11.475018,-11.47502 V 20.576141 c 0,-6.35716 5.117858,-11.4750184 11.475018,-11.4750184 h 71.860452 l -0.14159,20.0812814 c -0.0449,6.357008 5.11832,11.398586 11.47503,11.475018 l 20.08127,0.241455"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:4.74634;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 56.949794,109.50753 C 70.723931,123.86069 104.41318,45.431956 83.05466,47.805125 61.696136,50.178294 111.53269,116.62705 123.39853,100.01485 135.26439,83.402664 43.175657,95.15437 56.949794,109.50753 Z"
+            />
+        </g>
+        <g id="slides">
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,21.25 30,137.5"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 90,21.25 60,158.75"
+            />
+            <rect
+                style="fill:var(--bg-colour);fill-opacity:1;stroke:currentColor;stroke-width:10.4525;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="119.79137"
+                height="82.273766"
+                x="30.104315"
+                y="36.476234"
+                ry="4.7737675"
+                rx="4.7737675"
+            />
+            <rect
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5.90268;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="140"
+                height="5.2262344"
+                x="20"
+                y="31.25"
+                ry="1.6724058"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,66.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,76.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,86.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,56.25 h 50"
+            />
+            <path
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                d="M 80.000002,78.84906 A 20.099062,20.099062 0 0 1 67.592518,97.418172 20.099062,20.099062 0 0 1 45.688757,93.061243 20.099062,20.099062 0 0 1 41.331828,71.157482 20.099062,20.099062 0 0 1 59.90094,58.749998 V 78.84906 Z"
+            />
+        </g>
+
+        <g id="notebook">
+            <path
+                style="fill:var(--bg-colour);stroke:currentColor;stroke-width:4.964;stroke-linecap:butt;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
+                d="M 34.482063,31.89923 V 16.261703 c 0,-5.41792 4.36172,-9.7796397 9.77964,-9.7796397 H 135.7383 c 5.41792,0 9.77964,4.3617197 9.77964,9.7796397 V 163.7383 c 0,5.41792 -4.36172,9.77964 -9.77964,9.77964 H 44.261703 c -5.41792,0 -9.77964,-4.36172 -9.77964,-9.77964 v -23.96224"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="58.699139"
+               cy="59.503937"
+               r="3.8077738"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="113.59385"
+               cy="52.885151"
+               r="4.9348516"
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,54.782256 C 74.053011,55.067917 59.927013,65.025096 57.261258,76.89961 69.209289,67.830932 79.817786,64.804678 88.900432,64.855157 97.983077,64.804678 108.59157,67.830932 120.53961,76.89961 117.87385,65.025096 103.74785,55.067917 88.900432,54.782256 Z"
+           
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,121.58085 C 74.053011,121.29519 59.927013,111.33801 57.261258,99.46349 c 11.948031,9.06868 22.556528,12.09494 31.639174,12.04445 9.082643,0.0505 19.691138,-2.97577 31.639178,-12.04445 -2.66576,11.87452 -16.79176,21.8317 -31.639178,22.11736 z"
+              
+            />
+            <ellipse
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="63.813011"
+               cy="125.96338"
+               rx="6.4332962"
+               ry="6.4347191"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="m 28,40 c 2.806997,-4.320074 9.452509,-3.66881 12,0"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="M 34,46.266514 V 62.316215"
+            
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,71.583335 c 2.806997,-4.320073 9.452509,-3.668809 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="M 34,77.849849 V 93.89955"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,103.16667 c 2.806997,-4.320071 9.452509,-3.668807 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 34,109.43318 v 16.0497"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,134.75 c 2.806997,-4.32007 9.452509,-3.66881 12,0"
+            />
+        </g>
+
+        <g id="fullscreen">
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:10;stroke-dasharray:none;paint-order:stroke markers fill"
+               d="M 19.402776,9.9953678 H 160.51388 c 5.2117,0 9.40741,4.1957032 9.40741,9.4074042 V 160.51388 c 0,5.2117 -4.19571,9.40741 -9.40741,9.40741 H 19.402776 c -5.211704,0 -9.4074082,-4.19571 -9.4074082,-9.40741 V 19.402772 c 0,-5.211701 4.1957042,-9.4074042 9.4074082,-9.4074042 z" />
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="M 150.95833,68.801471 V 28.958332 h -39.84314"
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="m 28.958332,111.11519 v 39.84314 h 39.843139"
+            />
+        </g>
+    </defs>
+</svg>
+    </body>
+</html>

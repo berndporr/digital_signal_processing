@@ -1,0 +1,210 @@
+:root {
+    --base-font-size: min(3svw, 4svh);
+    --slide-padding: 2rem;
+    --slide-width: calc(100svw - 2 * var(--slide-padding));
+    --code-font-size: 0.9rem;
+}
+
+aside { 
+    display: none;
+}
+
+html {
+    font-size: 4vmin;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0 0 calc(0.5 * var(--spacing)) 0;
+    justify-self: center;
+}
+h2 {
+    font-size: 1.2em;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+h4, h5, h6 {
+    font-size: 1em;
+}
+
+p {
+    max-width: var(--readable-width);
+}
+
+button.icon-button svg.icon {
+  height: 1em;
+}
+
+body > main {
+    display: block;
+    padding: 0 var(--slide-padding);
+}
+
+
+body > main > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-gap: 1em;
+    margin: var(--spacing) 0;
+}
+
+body > main > section {
+    width: 100%;
+    display: grid;
+    position: relative;
+    align-items: center;
+    justify-items: center;
+    padding: 0;
+    grid-auto-rows: max-content;
+    align-content: center;
+    overflow-y: hidden;
+    padding: 1svw;
+
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        overflow: hidden;
+    }
+    body > main {
+        height: 100svh;
+        overflow: hidden scroll;
+        scroll-snap-type: y mandatory;
+    }
+    body > main > header {
+        scroll-snap-align: start;
+    }
+    body > main > section {
+        height: 100svh;
+        scroll-snap-align: center;
+    }
+}
+
+@media print, (orientation: portrait) {
+    main > section + section {
+        margin-top: calc(2 * var(--spacing));
+        padding-top: calc(2 * var(--spacing));
+    }
+}
+@media screen and (orientation: portrait) {
+    main > section + section {
+        border-top: 0.5svh dashed var(--text-colour);
+    }
+}
+
+main > section:focus {
+    outline: none;
+}
+main > section > p {
+    line-height: var(--line-height);
+    margin: calc(0.5 * var(--spacing)) 0;
+}
+main > section > :is(h1, h2) {
+    align-self: start;
+    padding: 0 1em;
+    line-height: 1.2em;
+}
+
+
+main > section > ul {
+    text-align: left;
+}
+main > section > ul > li ~ li {
+    margin-top: calc(0.5 * var(--spacing));
+}
+
+main > section :is(img, svg, video) {
+    max-width: 100%;
+    max-height: 60svh;
+    object-fit: contain;
+    margin: var(--spacing) 0;
+    border-radius: 0.3em;
+}
+
+main > section figure {
+    margin: 0;
+}
+
+
+main > section .full-height {
+    max-height: 90svh;
+}
+
+main > section blockquote {
+    line-height: 1.8em;
+}
+main > section > iframe {
+  width: 80%;
+  height: 75svh;
+  border: none;
+}
+
+main > section runnable-code {
+    display: block;
+    width: calc(var(--slide-width) - 2 * var(--spacing));
+    overflow: auto;
+}
+
+main > section mjx-container {
+    max-width: var(--slide-width);
+    margin: calc(0.25 * var(--spacing)) 0 !important;
+    line-height: revert;
+}
+
+.fragment:not(.revealed) {
+    visibility: hidden;
+}
+
+body > main > #pager {
+    position: absolute;
+    bottom: var(--spacing);
+    right: var(--spacing);
+    display: flex;
+}
+body > main > #pager button {
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0;
+    width: 2em;
+    --height: 1.5em;
+    height: var(--height);
+}
+body > main > #pager button#move-backwards {
+    border-radius: var(--height) 0 0 var(--height);
+}
+body > main > #pager button#move-forwards {
+    border-radius: 0 var(--height) var(--height) 0;
+}
+
+@media print, (orientation: portrait) {
+    body > main > #pager {
+        display: none;
+    }
+}
+
+@media print {
+    button[aria-controls="display-options"] {
+        display: none;
+    }
+    main > section {
+        page-break-after: always;
+        page-break-inside: always;
+    }
+    
+    body > main {
+        height: auto;
+        overflow: none;
+    }
+    
+    body > main > header {
+        display: none;
+    }
+}

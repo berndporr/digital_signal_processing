@@ -1,0 +1,35 @@
+author: Bernd Porr
+build_pdf: true
+build_zip: true
+code: ENG4053
+format_version: 2
+license: null
+locale: en
+mathjax_url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+num_pdf_runs: 1
+root_url: /{base}/{code}/
+structure:
+- build_pdf: true
+  content: []
+  formats:
+  - filetype: html
+    format: default
+    url: index.html
+  - filetype: pdf
+    format: default
+    url: digital_signal_proce.pdf
+  is_hidden: false
+  pdf_url: digital_signal_proce.pdf
+  slug: digital_signal_proce
+  source: digital_signal_processing.tex
+  splitlevel: -2
+  title: digital_signal_processing
+  type: standalone
+  url: index.html
+themes:
+- path: .
+  source: default
+  title: Default
+title: Digital Signal Processing
+year: 2025
+zipfile: digital_signal_proce.zip

@@ -1,0 +1,38 @@
+@media print {
+	@page {
+		margin: 4.0cm 3.225cm;
+	}
+	
+	body {
+		background: #fff !important;
+		color: #000;
+	}
+	
+	body > #display-options, button[aria-controls="display-options"], body > nav#sidebar {
+		display: none;
+	}
+	
+	body > footer {
+		display: none;
+	}
+	
+	pre {
+		font-size: inherit;
+	}
+
+    p, mjx-container {
+        page-break-inside: avoid;
+    }
+	
+	section.exercise,section.interlude {
+		page-break-inside: avoid;
+	}
+	
+	runnable-code {
+		page-break-before: avoid;
+	}
+	
+	h1, h2, h3 {
+		page-break-after: avoid;
+	}
+}
