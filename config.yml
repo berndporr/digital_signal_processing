@@ -1,0 +1,7 @@
+title: "Digital Signal Processing"
+code: ENG4053
+year: 2025
+author: Bernd Porr
+structure: 
+    - type: standalone
+      source: digital_signal_processing.tex
