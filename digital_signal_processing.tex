@@ -1503,8 +1503,8 @@ index $n$ and the sampling interval is implicitly the inverse of the sampling
 rate. For that reason one needs to distinguish between:
 
 \begin{eqnarray}
-H(z)X(z) & = & \sum_{m=0}^M h_\textrm{\footnotesize{analogue}}(mT) z^{-n} \, X(z) \label{FIRa} \\
-H(z)X(z) & = & \sum_{m=0}^M h_\textrm{\footnotesize{digital}}(m) z^{-n} \, X(z) \label{FIRd} \\
+H(z)X(z) & = & \sum_{m=0}^M h_\textrm{analogue}(mT) z^{-n} \, X(z) \label{FIRa} \\
+H(z)X(z) & = & \sum_{m=0}^M h_\textrm{digital}(m) z^{-n} \, X(z) \label{FIRd} \\
          & = & \sum_{m=0}^M h_(m) z^{-m} \, X(z) \label{FIRdefault}
 \end{eqnarray}
 
@@ -2503,7 +2503,7 @@ Frequency Response :
 \end{equation}
 Let's re-interpret our low-pass filter in the time domain:
 \begin{equation} 
-\underbrace{y(n)}_{\mbox {\footnotesize actual estimate}} = a(n) \underbrace{y(n - 1)}_{\mbox{\footnotesize previous estimate}} + b(n)\underbrace{x(n)}_{\mbox{\footnotesize current data sample}} 
+\underbrace{y(n)}_{\textrm{actual estimate}} = a(n) \underbrace{y(n - 1)}_{\textrm{\mbox{previous estimate}}} + b(n)\underbrace{x(n)}_{\textrm{current data sample}} 
 \end{equation}
 We would like to have the best estimate for $y(n)$
 \begin{equation} 
