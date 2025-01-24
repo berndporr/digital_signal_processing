@@ -6,7 +6,7 @@ These are the lecture notes which are part of my Digital Signal
 Processing (DSP) class which consists of YouTube clips and 3 extensive
 assignments = flipped classroom.
 
-[PDF](https://github.com/berndporr/digital_signal_processing/blob/master/digital_signal_processing.pdf)
+[PDF](docs/digital_signal_proce.pdf)
 
 [Online version](https://berndporr.github.io/digital_signal_processing/)
 
@@ -22,15 +22,15 @@ are structured in playlists. Every playlist has a specific topic.
 The lab is project based with every project running for 3 weeks:
 
   * Fourier Transform: Audio manipulation with the Fast Fourier Transform (FFT)
-  * Finite Impulse Response filters (FIR): ECG 50Hz / DC removal, matched filters & heartbeat / rate detection
+  * Finite Impulse Response filters (FIR): ECG 50Hz / DC removal, matched filters & heartbeat / rate detection and LMS filters
   * Infinite Impulse Response filters (IIR): Realtime filtering and plotting of data coming from an ADC
 
-## Prerequisites
+## Prerequisites to compile this LaTeX doc
 
   - Full LaTeX install
   - chirun to generate an accessible HTML page: https://github.com/chirun-ncl/chirun
 
-## How to generate
+## How to generate the PDF and HTML page
 
 There is a makefile which first runs pdflatex and then chirun which outputs it to the docs
 subdir. It also assumes that this lives in a repo as it makes sure the docs subdir is included.
