@@ -7,7 +7,7 @@
             <meta name="robots" content="noindex">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <meta name="author" content="Bernd Porr" />
-            <meta name="date" content="2025-01-23" />
+            <meta name="date" content="2025-01-24" />
         
 
         <title>digital_signal_processing | Digital Signal Processing</title>
@@ -15,41 +15,41 @@
         
     
     
-            <link rel="stylesheet" href="static/styles.css?build_time=1737629381.100127">
+            <link rel="stylesheet" href="static/styles.css?build_time=1737717965.191528">
             
             
         
-    <link rel="stylesheet" id="customiseCodeCSS" href="static/pygmentize.css?build_time=1737629381.100127">
+    <link rel="stylesheet" id="customiseCodeCSS" href="static/pygmentize.css?build_time=1737717965.191528">
 
-    <link rel="stylesheet" href="static/print.css?build_time=1737629381.100127">
+    <link rel="stylesheet" href="static/print.css?build_time=1737717965.191528">
 
 
         
     
 			<script>
-				var chirun_static_url = new URL('static?build_time=1737629381.100127', location.href);
+				var chirun_static_url = new URL('static?build_time=1737717965.191528', location.href);
 			</script>
 
             
-                <script defer src="static/mathjax_config.js?build_time=1737629381.100127"></script>
+                <script defer src="static/mathjax_config.js?build_time=1737717965.191528"></script>
                 <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
             
 
-            <script type="module" src="static/localisation.js?build_time=1737629381.100127"></script>
+            <script type="module" src="static/localisation.js?build_time=1737717965.191528"></script>
 
-            <script defer src="static/customisation.js?build_time=1737629381.100127"></script>
+            <script defer src="static/customisation.js?build_time=1737717965.191528"></script>
 
             
 
             
         
-    <script defer src="static/code.js?build_time=1737629381.100127" type="module"></script>
-    <script defer src="static/embed_numbas.js?build_time=1737629381.100127" type="module"></script>
-    <script defer src="static/embed_qrcode.js?build_time=1737629381.100127" type="module"></script>
+    <script defer src="static/code.js?build_time=1737717965.191528" type="module"></script>
+    <script defer src="static/embed_numbas.js?build_time=1737717965.191528" type="module"></script>
+    <script defer src="static/embed_qrcode.js?build_time=1737717965.191528" type="module"></script>
 
 
         <template id="runnable-code-template">
-            <link rel="stylesheet" href="static/code.css?build_time=1737629381.100127">
+            <link rel="stylesheet" href="static/code.css?build_time=1737717965.191528">
             <div class="runnable-code-wrapper">
                 <section class="fullscreenable code">
                     <div id="code"></div>
@@ -230,7 +230,7 @@
         </template>
 
         <template id="embed-numbas-template">
-            <link rel="stylesheet" href="static/embed_numbas.css?build_time=1737629381.100127">
+            <link rel="stylesheet" href="static/embed_numbas.css?build_time=1737717965.191528">
             <details id="wrapper" data-completion-status="incomplete">
                 <summary>
                     <h1 id="title">Test Yourself</h1>
@@ -839,7 +839,7 @@
 <span class="vspace bigskip"></span>
 </p>
 <p>
-<small class="small">January 23, 2025</small>
+<small class="small">January 24, 2025</small>
 </p>
 <p>
 <a href="https://www.youtube.com/dspcourse">https://www.youtube.com/dspcourse</a>
@@ -2315,7 +2315,7 @@ We filter now the signal \(X(z)\) with \(H(z)\):
 This sum is a direct recipe how to filter the signal \(X(z)\). We only need the impulse response of the filter \(h(nT)\) and we can set up a digital filter (see Fig. <a class="ref" href="#FIRfilter">16</a>). Of course in practise this impulse response cannot run till infinity but only for a limited number of samples. These are often called “taps”. So for example a filter with \(100\) samples of \(h(nT)\) has \(100\) “taps”. This in turn then requires a delay line which can hold \(M=100\) samples: 
 </p>
 <div class="eqn" id="FIRfromAnalogue">
-<script type="math/tex; mode=display">\begin{equation}\label{FIRz} H(z)X(z)=\underbrace{\sum _{m=0}^M h(mT) z^{-m}}_{H(z)} X(z) \label{FIRfromAnalogue}\tag{106}\end{equation}</script>
+<script type="math/tex; mode=display">\begin{equation}H(z)X(z)=\underbrace{\sum _{m=0}^M h(mT) z^{-m}}_{H(z)} X(z) \label{FIRfromAnalogue}\tag{106}\end{equation}</script>
 </div>
 <figure id="fir_digital">
 <div class="centered"> <div class="mbox" id="a0000000250" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_digital}" src="images/img-0018.svg" style="width:469.755pt"/></div> <figcaption>
@@ -2959,7 +2959,7 @@ We define a first order filter which can be implemented, for example, as a simpl
 The same rule can be applied to zeros 
 </p>
 <div class="eqn" id="transzeros">
-<script type="math/tex; mode=display">\begin{equation}z_0=e^{s_0 T} \label{matchedz} \label{transzeros}\tag{160}\end{equation}</script>
+<script type="math/tex; mode=display">\begin{equation}z_0=e^{s_0 T} \label{transzeros}\tag{160}\end{equation}</script>
 </div>
 <p>
  together with Eq. <a class="ref" href="#translpoles">159</a> this is called “The matched z-transform method”. For example \(H(s)=s\) turns into \(H(z)=1-z^{-1}e^{0T}=1-z^{-1}\) which is basically a DC filter. 
@@ -3188,7 +3188,7 @@ No analytical solution for the poles/zeros.
 </p><p class="paragraph">
 <strong class="paragraph-title" id="a0000000370">Bilinear Transform: transforming the analoge transfer function into a digital one:</strong>
 
-     As a next step these analogue transfer functions \(H(s)\) need to be transformed to digital transfer functions \(H(z)\). This could be done by the matched z-transform (Eq. <a class="ref" href="#transzeros">160</a>). However, the problem with these methods is that they map frequencies 1:1 between the digital and analogue domain. Remember: in the sampled domain there is no infinite frequency but \(F_s/2\) which is the Nyquist frequency. This means that we never get more damping than at Nyquist \(F_s/2\). This is especially a problem for lowpass filters where damping increases the higher the frequency. 
+     As a next step these analogue transfer functions \(H(s)\) need to be transformed to digital transfer functions \(H(z)\). This could be done by the matched z-transform. However, the problem with these methods is that they map frequencies 1:1 between the digital and analogue domain. Remember: in the sampled domain there is no infinite frequency but \(F_s/2\) which is the Nyquist frequency. This means that we never get more damping than at Nyquist \(F_s/2\). This is especially a problem for lowpass filters where damping increases the higher the frequency. 
 The solution is to map <b class="bf">all</b> analogue frequencies from \(0 \ldots \infty \) to the sampled frequencies \(0\ldots 0.5\) in a non-linear way: <div class="eqn" id="a0000000371">
 <script type="math/tex; mode=display">\begin{equation}- \infty < \Omega < \infty \Rightarrow -\pi \leq \omega \leq \pi\tag{167}\end{equation}</script>
 </div> This is called <i class="slshape">Bilinear Transformation</i>: <div class="eqn" id="a0000000372">
@@ -3441,7 +3441,7 @@ Teukolsky, S. A., Vetterling, W. T., and Flannery, B. P. (2007). <em>Numerica
 </span></li>
 </ol>
 </footer>
-<script id="plastex-labels" type="application/json">{"max_sampl": {"ref": "1", "url": "#max_sampl"}, "samplingTheorem": {"ref": "11", "url": "#samplingTheorem"}, "anti_alias": {"ref": "2", "url": "#anti_alias"}, "quant_overv": {"ref": "3", "url": "#quant_overv"}, "quant_err": {"ref": "4", "url": "#quant_err"}, "periodic_ny": {"ref": "5", "url": "#periodic_ny"}, "sampl_idea": {"ref": "41", "url": "#sampl_idea"}, "sampl_ana_dig": {"ref": "42", "url": "#sampl_ana_dig"}, "fold_down": {"ref": "6", "url": "#fold_down"}, "DFT": {"ref": "48", "url": "#DFT"}, "time_alias": {"ref": "7", "url": "#time_alias"}, "dft_example": {"ref": "8", "url": "#dft_example"}, "windowing_dft": {"ref": "9", "url": "#windowing_dft"}, "compactDFT": {"ref": "64", "url": "#compactDFT"}, "constWN": {"ref": "65", "url": "#constWN"}, "fft_div": {"ref": "10", "url": "#fft_div"}, "butterfly": {"ref": "71", "url": "#butterfly"}, "dcDFT": {"ref": "72", "url": "#dcDFT"}, "nyDFT": {"ref": "73", "url": "#nyDFT"}, "visualisation": {"ref": "11", "url": "#visualisation"}, "causality": {"ref": "12", "url": "#causality"}, "convolution": {"ref": "13", "url": "#convolution"}, "eqconv": {"ref": "75", "url": "#eqconv"}, "convdelta": {"ref": "76", "url": "#convdelta"}, "lapltrans": {"ref": "77", "url": "#lapltrans"}, "shiftOperation": {"ref": "80", "url": "#shiftOperation"}, "filter": {"ref": "14", "url": "#filter"}, "frequency_response": {"ref": "15", "url": "#frequency_response"}, "mappingsz": {"ref": "98", "url": "#mappingsz"}, "FIRfilter": {"ref": "16", "url": "#FIRfilter"}, "sampltime": {"ref": "102", "url": "#sampltime"}, "sFunktion": {"ref": "103", "url": "#sFunktion"}, "ztrans": {"ref": "104", "url": "#ztrans"}, "notFIRyet": {"ref": "105", "url": "#notFIRyet"}, "FIRz": {"ref": "106", "url": "#FIRfromAnalogue"}, "FIRfromAnalogue": {"ref": "106", "url": "#FIRfromAnalogue"}, "fir_digital": {"ref": "17", "url": "#fir_digital"}, "FIRa": {"ref": "107", "url": "#FIRa"}, "FIRd": {"ref": "108", "url": "#FIRd"}, "FIRdefault": {"ref": "109", "url": "#FIRdefault"}, "FIRtime": {"ref": "110", "url": "#FIRtime"}, "fir_fixed": {"ref": "18", "url": "#fir_fixed"}, "grpdelay": {"ref": "113", "url": "#grpdelay"}, "transmin": {"ref": "114", "url": "#transmin"}, "imp1": {"ref": "116", "url": "#imp1"}, "imp2": {"ref": "117", "url": "#imp2"}, "window_functions": {"ref": "19", "url": "#window_functions"}, "FIRzlimit": {"ref": "120", "url": "#FIRzlimit"}, "freqsamp": {"ref": "None", "url": "#freqsamp"}, "idealFilt": {"ref": "None", "url": "#idealFilt"}, "idealLP": {"ref": "132", "url": "#idealLP"}, "fir_lms": {"ref": "20", "url": "#fir_lms"}, "lmserror": {"ref": "142", "url": "#lmserror"}, "graddes": {"ref": "143", "url": "#graddes"}, "lmsLearn": {"ref": "147", "url": "#lmsLearn"}, "ExpoFunktion": {"ref": "151", "url": "#ExpoFunktion"}, "IIReq": {"ref": "157", "url": "#IIReq"}, "impInv": {"ref": "158", "url": "#impInv"}, "translpoles": {"ref": "159", "url": "#translpoles"}, "matchedz": {"ref": "160", "url": "#transzeros"}, "transzeros": {"ref": "160", "url": "#transzeros"}, "IIRfilter": {"ref": "21", "url": "#IIRfilter"}, "Verg": {"ref": "163", "url": "#Verg"}, "IIRtime": {"ref": "164", "url": "#IIRtime"}, "iir_types": {"ref": "22", "url": "#iir_types"}, "iir_fixed": {"ref": "23", "url": "#iir_fixed"}, "butterworth_poles": {"ref": "24", "url": "#butterworth_poles"}, "prewarp": {"ref": "171", "url": "#prewarp"}, "fir_stop": {"ref": "25", "url": "#fir_stop"}, "iir_stop": {"ref": "26", "url": "#iir_stop"}, "resonatorz": {"ref": "183", "url": "#resonatorz"}, "iir_fir_stop": {"ref": "27", "url": "#iir_fir_stop"}}</script>
+<script id="plastex-labels" type="application/json">{"max_sampl": {"ref": "1", "url": "#max_sampl"}, "samplingTheorem": {"ref": "11", "url": "#samplingTheorem"}, "anti_alias": {"ref": "2", "url": "#anti_alias"}, "quant_overv": {"ref": "3", "url": "#quant_overv"}, "quant_err": {"ref": "4", "url": "#quant_err"}, "periodic_ny": {"ref": "5", "url": "#periodic_ny"}, "sampl_idea": {"ref": "41", "url": "#sampl_idea"}, "sampl_ana_dig": {"ref": "42", "url": "#sampl_ana_dig"}, "fold_down": {"ref": "6", "url": "#fold_down"}, "DFT": {"ref": "48", "url": "#DFT"}, "time_alias": {"ref": "7", "url": "#time_alias"}, "dft_example": {"ref": "8", "url": "#dft_example"}, "windowing_dft": {"ref": "9", "url": "#windowing_dft"}, "compactDFT": {"ref": "64", "url": "#compactDFT"}, "constWN": {"ref": "65", "url": "#constWN"}, "fft_div": {"ref": "10", "url": "#fft_div"}, "butterfly": {"ref": "71", "url": "#butterfly"}, "dcDFT": {"ref": "72", "url": "#dcDFT"}, "nyDFT": {"ref": "73", "url": "#nyDFT"}, "visualisation": {"ref": "11", "url": "#visualisation"}, "causality": {"ref": "12", "url": "#causality"}, "convolution": {"ref": "13", "url": "#convolution"}, "eqconv": {"ref": "75", "url": "#eqconv"}, "convdelta": {"ref": "76", "url": "#convdelta"}, "lapltrans": {"ref": "77", "url": "#lapltrans"}, "shiftOperation": {"ref": "80", "url": "#shiftOperation"}, "filter": {"ref": "14", "url": "#filter"}, "frequency_response": {"ref": "15", "url": "#frequency_response"}, "mappingsz": {"ref": "98", "url": "#mappingsz"}, "FIRfilter": {"ref": "16", "url": "#FIRfilter"}, "sampltime": {"ref": "102", "url": "#sampltime"}, "sFunktion": {"ref": "103", "url": "#sFunktion"}, "ztrans": {"ref": "104", "url": "#ztrans"}, "notFIRyet": {"ref": "105", "url": "#notFIRyet"}, "FIRfromAnalogue": {"ref": "106", "url": "#FIRfromAnalogue"}, "fir_digital": {"ref": "17", "url": "#fir_digital"}, "FIRa": {"ref": "107", "url": "#FIRa"}, "FIRd": {"ref": "108", "url": "#FIRd"}, "FIRdefault": {"ref": "109", "url": "#FIRdefault"}, "FIRtime": {"ref": "110", "url": "#FIRtime"}, "fir_fixed": {"ref": "18", "url": "#fir_fixed"}, "grpdelay": {"ref": "113", "url": "#grpdelay"}, "transmin": {"ref": "114", "url": "#transmin"}, "imp1": {"ref": "116", "url": "#imp1"}, "imp2": {"ref": "117", "url": "#imp2"}, "window_functions": {"ref": "19", "url": "#window_functions"}, "FIRzlimit": {"ref": "120", "url": "#FIRzlimit"}, "freqsamp": {"ref": "None", "url": "#freqsamp"}, "idealFilt": {"ref": "None", "url": "#idealFilt"}, "idealLP": {"ref": "132", "url": "#idealLP"}, "fir_lms": {"ref": "20", "url": "#fir_lms"}, "lmserror": {"ref": "142", "url": "#lmserror"}, "graddes": {"ref": "143", "url": "#graddes"}, "lmsLearn": {"ref": "147", "url": "#lmsLearn"}, "ExpoFunktion": {"ref": "151", "url": "#ExpoFunktion"}, "IIReq": {"ref": "157", "url": "#IIReq"}, "impInv": {"ref": "158", "url": "#impInv"}, "translpoles": {"ref": "159", "url": "#translpoles"}, "transzeros": {"ref": "160", "url": "#transzeros"}, "IIRfilter": {"ref": "21", "url": "#IIRfilter"}, "Verg": {"ref": "163", "url": "#Verg"}, "IIRtime": {"ref": "164", "url": "#IIRtime"}, "iir_types": {"ref": "22", "url": "#iir_types"}, "iir_fixed": {"ref": "23", "url": "#iir_fixed"}, "butterworth_poles": {"ref": "24", "url": "#butterworth_poles"}, "prewarp": {"ref": "171", "url": "#prewarp"}, "fir_stop": {"ref": "25", "url": "#fir_stop"}, "iir_stop": {"ref": "26", "url": "#iir_stop"}, "resonatorz": {"ref": "183", "url": "#resonatorz"}, "iir_fir_stop": {"ref": "27", "url": "#iir_fir_stop"}}</script>
     </article>
 
         </main>
@@ -3456,7 +3456,7 @@ Teukolsky, S. A., Vetterling, W. T., and Flannery, B. P. (2007). <em>Numerica
 
     <div id="footer-text">
         <p>Generated using <a target="_blank" href="https://chirun.org.uk">Chirun</a> v1.2.1, written by the Digital Learning Unit, School of Mathematics &amp; Statistics, Newcastle University</p>
-        <p>This page last generated: 2025-01-23</p>
+        <p>This page last generated: 2025-01-24</p>
         
         
         

@@ -1485,7 +1485,6 @@ called ``taps''. So for example a filter with $100$ samples of $h(nT)$ has
 $100$ ``taps''. This in turn then requires a delay line which
 can hold $M=100$ samples:
 \begin{equation}
-\label{FIRz}
 H(z)X(z)=\underbrace{\sum_{m=0}^M h(mT) z^{-m}}_{H(z)} X(z) \label{FIRfromAnalogue}
 \end{equation}
 
@@ -1728,7 +1727,7 @@ response without distorting the filter response.
 
 The standard technique is to multiply the coefficients with a window
 function which becomes and stays zero at a certain coefficient
-$n>N$ so that Eq.~\ref{FIRz} need not to run to infinity:
+$n>N$ so that Eq.~\ref{FIRfromAnalogue} need not to run to infinity:
 \begin{equation}
 \label{FIRzlimit}
 H(z)X(z)=\sum_{n=0}^N \underbrace{h(nT) w(nT)} z^{-n} X(z)
@@ -2139,8 +2138,7 @@ the unit circle.
 
 The same rule can be applied to zeros
 \begin{equation}
-z_0=e^{s_0 T} \label{matchedz}
-\label{transzeros}
+z_0=e^{s_0 T} \label{transzeros}
 \end{equation}
 together with Eq.~\ref{translpoles} this is called ``The matched
 z-transform method''. For example $H(s)=s$ turns into
@@ -2364,8 +2362,7 @@ design book and industry handouts, for example from Analog Devices.
 \paragraph{Bilinear Transform: transforming the analoge transfer function into a digital one:}
 As a next step these analogue transfer functions $H(s)$ need to be
 transformed to digital transfer functions $H(z)$. This could be done
-by the matched z-transform
-(Eq.~\ref{matchedz}). However, the problem with these methods is that
+by the matched z-transform. However, the problem with these methods is that
 they map frequencies 1:1 between the digital and analogue
 domain. Remember: in the sampled domain there is no infinite frequency
 but $F_s/2$ which is the Nyquist frequency.  This means that we never

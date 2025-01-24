@@ -5,4 +5,6 @@ all:
 	pdflatex digital_signal_processing
 	rm -rf docs
 	chirun -o docs .
+	touch docs/.nojekyll
 	git add docs
+	git add docs/.nojekyll
