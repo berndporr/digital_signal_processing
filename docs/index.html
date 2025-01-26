@@ -7,7 +7,7 @@
             <meta name="robots" content="noindex">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <meta name="author" content="Bernd Porr" />
-            <meta name="date" content="2025-01-24" />
+            <meta name="date" content="2025-01-26" />
         
 
         <title>digital_signal_processing | Digital Signal Processing</title>
@@ -15,41 +15,41 @@
         
     
     
-            <link rel="stylesheet" href="static/styles.css?build_time=1737721785.112839">
+            <link rel="stylesheet" href="static/styles.css?build_time=1737882221.557658">
             
             
         
-    <link rel="stylesheet" id="customiseCodeCSS" href="static/pygmentize.css?build_time=1737721785.112839">
+    <link rel="stylesheet" id="customiseCodeCSS" href="static/pygmentize.css?build_time=1737882221.557658">
 
-    <link rel="stylesheet" href="static/print.css?build_time=1737721785.112839">
+    <link rel="stylesheet" href="static/print.css?build_time=1737882221.557658">
 
 
         
     
 			<script>
-				var chirun_static_url = new URL('static?build_time=1737721785.112839', location.href);
+				var chirun_static_url = new URL('static?build_time=1737882221.557658', location.href);
 			</script>
 
             
-                <script defer src="static/mathjax_config.js?build_time=1737721785.112839"></script>
+                <script defer src="static/mathjax_config.js?build_time=1737882221.557658"></script>
                 <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
             
 
-            <script type="module" src="static/localisation.js?build_time=1737721785.112839"></script>
+            <script type="module" src="static/localisation.js?build_time=1737882221.557658"></script>
 
-            <script defer src="static/customisation.js?build_time=1737721785.112839"></script>
+            <script defer src="static/customisation.js?build_time=1737882221.557658"></script>
 
             
 
             
         
-    <script defer src="static/code.js?build_time=1737721785.112839" type="module"></script>
-    <script defer src="static/embed_numbas.js?build_time=1737721785.112839" type="module"></script>
-    <script defer src="static/embed_qrcode.js?build_time=1737721785.112839" type="module"></script>
+    <script defer src="static/code.js?build_time=1737882221.557658" type="module"></script>
+    <script defer src="static/embed_numbas.js?build_time=1737882221.557658" type="module"></script>
+    <script defer src="static/embed_qrcode.js?build_time=1737882221.557658" type="module"></script>
 
 
         <template id="runnable-code-template">
-            <link rel="stylesheet" href="static/code.css?build_time=1737721785.112839">
+            <link rel="stylesheet" href="static/code.css?build_time=1737882221.557658">
             <div class="runnable-code-wrapper">
                 <section class="fullscreenable code">
                     <div id="code"></div>
@@ -230,7 +230,7 @@
         </template>
 
         <template id="embed-numbas-template">
-            <link rel="stylesheet" href="static/embed_numbas.css?build_time=1737721785.112839">
+            <link rel="stylesheet" href="static/embed_numbas.css?build_time=1737882221.557658">
             <details id="wrapper" data-completion-status="incomplete">
                 <summary>
                     <h1 id="title">Test Yourself</h1>
@@ -839,7 +839,7 @@
 <span class="vspace bigskip"></span>
 </p>
 <p>
-<small class="small">January 24, 2025</small>
+<small class="small">January 26, 2025</small>
 </p>
 <p>
 <a href="https://www.youtube.com/dspcourse">https://www.youtube.com/dspcourse</a>
@@ -3198,10 +3198,10 @@ In the analogue domain the frequency is given as \(s = j\Omega \) and in the sam
 <script type="math/tex; mode=display">\begin{equation}j \Omega = \frac{2}{T} \left[\frac{e^{j \omega } - 1}{e^{j \omega } +1}\right] = \frac{2}{T} j \tan \frac{\omega }{2}\tag{169}\end{equation}</script>
 </div> This derivation is useful for two purposes. It shows the non-linear mapping between the digital and analogue world and it provides a recipe how to calculate our analogue cutoff frequency. 
 That the bilinear transform is a <b class="bf">non</b>linear mapping between the analogue world and the digital world can be directly seen by just omitting the \(j\): <div class="eqn" id="a0000000374">
-<script type="math/tex; mode=display">\begin{equation}\Omega = \frac{2}{T} tan \frac{\omega }{2}\tag{170}\end{equation}</script>
+<script type="math/tex; mode=display">\begin{equation}\Omega = \frac{2}{T} \tan \frac{\omega }{2}\tag{170}\end{equation}</script>
 </div> 
 This also means that the cut-off frequency of our analogue filter is changed by the bilinear transformation. Consequently, we need to apply the same transformation to the cutoff frequency itself: <div class="eqn" id="prewarp">
-<script type="math/tex; mode=display">\begin{equation}\Omega _{c} = \frac{2}{T} tan \frac{\omega _{c}}{2} \label{prewarp}\tag{171}\end{equation}</script>
+<script type="math/tex; mode=display">\begin{equation}\Omega _{c} = \frac{2}{T} \tan \frac{\omega _{c}}{2} \label{prewarp}\tag{171}\end{equation}</script>
 </div> where \(T\) is the sampling interval. This is often called ``pre-warp'' but is simply the application of the same rule to the cut-off frequency as what the bilinear transform does to the transfer function \(H(s)\). It has also another important result: we can now finally specify our cut-off in the sampled domain in normalised frequencies \(\omega _{c} = 2\pi f_{c}\) by using Eq. <a class="ref" href="#prewarp">171</a>. After all we just use the analogue filter as a vehicle to design a digital filter. 
 We can now list our design steps. 
 
@@ -3456,7 +3456,7 @@ Teukolsky, S. A., Vetterling, W. T., and Flannery, B. P. (2007). <em>Numerica
 
     <div id="footer-text">
         <p>Generated using <a target="_blank" href="https://chirun.org.uk">Chirun</a> v1.2.1, written by the Digital Learning Unit, School of Mathematics &amp; Statistics, Newcastle University</p>
-        <p>This page last generated: 2025-01-24</p>
+        <p>This page last generated: 2025-01-26</p>
         
         
         
