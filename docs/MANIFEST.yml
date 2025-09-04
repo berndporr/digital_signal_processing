@@ -5,7 +5,7 @@ code: ENG4053
 format_version: 2
 license: null
 locale: en
-mathjax_url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+mathjax_url: https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js
 num_pdf_runs: 1
 root_url: /{base}/{code}/
 structure:

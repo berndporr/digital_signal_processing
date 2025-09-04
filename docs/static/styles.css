@@ -534,8 +534,39 @@ body > main > #sidebar li ~ li {
     margin-top: var(--spacing);
 }
 
-.table-of-contents a {
+body > main > #sidebar .table-of-contents a {
+    display: block;
+    border-right: medium solid transparent;
+    padding-right: 0.25em;
+}
+
+body > main > #sidebar .table-of-contents a.visible {
+    border-right-color: var(--text-color);
+    background-color: var(--bg-colour-accent-3);
+}
+
+body > main > #sidebar .table-of-contents a:not(:hover,:active,:focus) {
     text-decoration: none;
+}
+
+body > main > #sidebar .table-of-contents li {
+    list-style: none;
+}
+
+body > main > #sidebar .table-of-contents a[aria-expanded="true"] .toc-marker::before {
+    content: '▼';
+}
+body > main > #sidebar .table-of-contents a[aria-expanded="false"] .toc-marker::before {
+    content: '▶';
+}
+
+body > main > #sidebar .table-of-contents .toc-header [role="treeitem"][aria-expanded="false"] + [role="group"] {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 thead {
@@ -744,7 +775,7 @@ figure + em, .reveal figure + em {
 }
 
 .itemize > li.default-marker {
-    list-style-type: disc;
+    list-style-type: none;
 }
 
 :is(.bibliography, .itemize, .enumerate) > li > p:first-of-type,

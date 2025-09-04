@@ -232,3 +232,256 @@ class Customiser {
 }
 
 const customiser = new Customiser();
+
+function treeview(element) {
+    let search = '';
+
+    element.addEventListener('click', e => {
+        if(!e.target.classList.contains('toc-marker')) {
+            return;
+        }
+        const a = e.target.parentElement;
+        a.ariaExpanded = a.ariaExpanded == 'true' ? 'false' : 'true';
+        e.preventDefault();
+    });
+
+    const all_items = [];
+
+    function get_children(el) {
+        const group = el.querySelector('[role="group"]');
+        return group ? group.children : [];
+    }
+
+    function find_all_items(el) {
+        const treeitem = el.querySelector('[role="treeitem"]');
+
+        if(!treeitem) {
+            return;
+        }
+
+        all_items.push(treeitem);
+
+        if(treeitem.ariaExpanded == 'true') {
+            for(let child of get_children(el)) {
+                find_all_items(child);
+            }
+        }
+    }
+    find_all_items(element);
+
+
+    element.addEventListener('keydown', e => {
+        const modifier = e.altKey || e.ctrlKey || e.metaKey || e.shiftKey;
+
+        const focused = document.activeElement;
+
+        // find the <li> element for the focused item.
+        let el = focused;
+        while(el.parentElement && el.parentElement.role != 'group' && el.parentElement.role != 'tree') {
+            el = el.parentElement;
+        }
+        if(!el.parentElement) {
+            return;
+        }
+        const siblings = Array.from(el.parentElement.children);
+        const i = siblings.indexOf(el);
+
+        function next_item(el) {
+            const treeitem = el.querySelector('[role="treeitem"]');
+            const children = get_children(el);
+            if(children.length > 0 && treeitem.ariaExpanded == 'true' ) {
+                return children[0];
+            } else {
+                return next_sibling(el);
+            }
+        }
+
+        function next_sibling(el) {
+            const siblings = Array.from(el.parentElement.children);
+            const i = siblings.indexOf(el);
+            if(i == siblings.length-1) {
+                if(el.parentElement.role == 'tree') {
+                    return;
+                } else {
+                    return next_sibling(el.parentElement.parentElement);
+                }
+            } else {
+                return siblings[i+1];
+            }
+        }
+
+        function last_item(el) {
+            const treeitem = el.querySelector('[role="treeitem"]');
+            const children = get_children(el);
+            if(children.length > 0 && treeitem.ariaExpanded == 'true' ) {
+                return last_item(children[children.length-1]);
+            } else {
+                return el;
+            }
+        }
+
+        function previous_item(el) {
+            const siblings = Array.from(el.parentElement.children);
+            const i = siblings.indexOf(el);
+            if(i == 0) {
+                if(el.parentElement.role == 'tree') {
+                    return;
+                } else {
+                    return el.parentElement.parentElement;
+                }
+            } else {
+                return last_item(siblings[i-1]);
+            }
+        }
+
+        function focus_item(el, clear_search) {
+            if(clear_search !== false) {
+                search = '';
+            }
+            if(!el) {
+                return;
+            }
+            el.querySelector('[role="treeitem"]').focus();
+        }
+
+        const handlers = {
+            'ArrowLeft': () => {
+                const treeitem = el.querySelector('[role="treeitem"]');
+                if(treeitem.ariaExpanded == 'true') {
+                    treeitem.ariaExpanded = 'false';
+                    return;
+                }
+                if(el.role == 'tree') {
+                    return;
+                }
+                focus_item(el.parentElement.parentElement);
+            },
+            'ArrowRight': () => {
+                const treeitem = el.querySelector('[role="treeitem"]');
+                const children = get_children(el);
+                if(children.length > 0) {
+                    if(treeitem.ariaExpanded == 'false') {
+                        treeitem.ariaExpanded = 'true';
+                        return;
+                    }
+                    focus_item(children[0]);
+                }
+            },
+            'ArrowUp': () => {
+                focus_item(previous_item(el));
+            },
+            'ArrowDown': () => {
+                focus_item(next_item(el));
+            },
+            'Home': () => {
+                const first_item = element.querySelector('[role="treeitem"]');
+                if(!first_item) {
+                    return;
+                }
+                focus_item(first_item.parentElement);
+            },
+            'End': () => {
+                const last_item = all_items[all_items.length-1];
+                if(!last_item) {
+                    return;
+                }
+                focus_item(last_item.parentElement);
+            },
+            'Backspace': () => {
+                search = search.slice(0, search.length-1);
+            }
+        }
+
+        if(handlers[e.key]) {
+            handlers[e.key]();
+            e.preventDefault();
+        } else if(e.key.length==1 && !modifier) {
+            let j = all_items.indexOf(focused);
+            const cycled_items = all_items.slice(j+1).concat(all_items.slice(0,j));
+            search += e.key.toLowerCase();
+            const item = cycled_items.find(item => item.textContent.toLowerCase().includes(search));
+            if(item) {
+                focus_item(item.parentElement, false);
+                e.preventDefault();
+            } else {
+                search = '';
+            }
+        }
+
+    });
+
+    let update_visibility_timeout;
+    let last_update = 0;
+    const max_update_interval = 100;
+    function update_visibility() {
+        const t = new Date();
+        const dt = t - last_update;
+        if(dt < max_update_interval) {
+            if(!update_visibility_timeout) {
+                update_visibility_timeout = setTimeout(() => {
+                    update_visibility();
+                }, max_update_interval - dt);
+            }
+            return;
+        }
+
+        update_visibility_timeout = null;
+        last_update = t;
+
+        function set_not_visible(item) {
+            item.classList.remove('visible');
+        }
+
+        function set_visible(item, level) {
+            level = level || 0;
+            item.classList.add('visible');
+            let up = item;
+            for(let i=0;i<3;i++) {
+                up = up.parentElement;
+                if(!up) {
+                    return;
+                }
+            }
+            if(up.classList.contains('toc-header')) {
+                set_visible(up.querySelector('[role="treeitem"]'), level + 1);
+            }
+        }
+
+        const items = element.querySelectorAll('[role="treeitem"]');
+        for(let i=0;i<items.length;i++) {
+            const item = items[i];
+
+            const header = document.getElementById(item.getAttribute('href').slice(1));
+            const {top, bottom} = header.getBoundingClientRect();
+            const visibility = bottom < 0 ? 'above' : top > window.innerHeight ? 'below' : 'visible';
+
+            item.dataset.visibility = visibility;
+
+            item.tabIndex = -1;
+            switch(visibility) {
+                case 'above':
+                    set_not_visible(item);
+                    break;
+                case 'visible':
+                    set_visible(item);
+                    break;
+                case 'below':
+                    set_not_visible(item);
+                    if(i > 0 && items[i-1].dataset.visibility != 'below') {
+                        set_visible(items[i-1], 100);
+                    }
+                    break;
+            }
+        }
+
+        const visible_items = all_items.filter(item => item.classList.contains('visible'));
+        if(visible_items.length) {
+            visible_items[visible_items.length-1].tabIndex = 0;
+        }
+    }
+    update_visibility();
+    document.addEventListener('scroll', update_visibility);
+}
+
+
+Array.from(document.querySelectorAll('body > main > #sidebar .table-of-contents')).forEach(treeview);

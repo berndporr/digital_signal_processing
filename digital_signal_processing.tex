@@ -96,12 +96,6 @@ by John G. Proakis and Dimitris K Manolakis
 \item very reproducible results (virtually no drift)
 \end{itemize}
 
-\subsection{Development boards}
-Buy a DSP development board and play with it. You get them either
-directly from a company or from a distributor such as Farnell or RS.
-Also general purpose boards such as the Raspberry PI and Arduino are great
-platforms for DSP.
-
 \section{Python}
 Python is a fully featured scripting language and it's very well
 thought through in its approach. It has a vast library of modules
@@ -120,7 +114,7 @@ mixed python / C code without any problems. For example the AI library by
 google ``tensorflow'' can be installed as a python package and in the
 background it uses the GPUs on your computer without even noticing.
 
-Here, I just comment on certain aspects of Python which are
+Here, we just comment on certain aspects of Python which are
 important for DSP. Check out the full documentation of python
 if you are interested beyond DSP in it. In particular it has
 also very easy to use support for GUI programming.
@@ -138,10 +132,11 @@ roof.
 The python console you can just start by typing
 ``python'':
 \begin{verbatim}
-Python 3.8.10 (default, Jun  2 2021, 10:49:15) 
-[GCC 9.4.0] on linux
+Python 3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> 
+>>> 3+4
+7
+>>>
 \end{verbatim}
 then you can type in commands one by one. Under Windows you might
 need to point the PATH variable to your python program or you let Anaconda
@@ -159,16 +154,16 @@ defines the body of a function, the content of a loop or the code
 executed conditionally.
 
 So, it's recommended for any serious
-work to install an editor which supports python such as spyder, VS-code, py-charm
+work to install an editor which supports python such as spyder, vscode, pycharm
 or emacs.
 
 Once you have your script file saved just type ``python myscript.py''
 and it will be executed.
 
-\paragraph{Help}
+\paragraph{Help / Tutorials}
 There is an abundance of online help available for Python. The
 official Python pages have an excellent tutorial
-(\texttt{https://docs.python.org/3/tutorial/}) and of course you find
+(\url{https://docs.python.org/3/tutorial/}) and of course you find
 answers to all your questions on Stack Overflow.
 
 If you need help for a function you can use the in built help function
@@ -184,6 +179,25 @@ which downloads the package for you and installs it. This is not just
 very convenient but also is safe because the download location is the
 official python repository.
 
+Packages can be installed system-wide, user-specific or within
+virtual environments. The problem is that if you install packages
+system wide that they might interfere with another user's package
+needs. A better solution is to install packages in the user's
+subdirectory (by using the \texttt{--user} option). However even
+that might cause problems because different python scripts might
+need different pip packages. For that reason now a single user
+can install packages into separate locations for different use
+cases which are called ``virtual environments''. The newest Ubuntu
+versions enforce these and you need to create at least one environment:
+\begin{verbatim}
+python -m venv myenv
+\end{verbatim}
+which creates a subdirectory called \texttt{myenv}. If you want
+to use packages inside \texttt{myenv} you need to activate it with:
+\begin{verbatim}
+source ~/myenv/bin/activate
+\end{verbatim}
+
 In general you import modules with the ``import'' command. For example
 ``import numpy as np'' imports the module numpy into python and
 abbreviates it as ``np'' so that you'd write ``np.sin(c)'' to call the
@@ -191,243 +205,38 @@ sine function in numpy.
 
 The import command loads essentially a file
 called ``numpy.py'' so that you can write your own modules just by
-creating file with that name. See below in the ``class'' section for
-an example. There are numerous ways how to import modules but the
-``import as'' way is by far the most popular.
+creating file with that name.
 
-Important modules are:
+Important modules for DSP are:
 \begin{itemize}
 \item numpy: Numerical operations for number crunching, matrix/array
   operations, trigonometric functions, etc. It offers fast numerical
   operations on arrays and matrices. It also has extensive Fourier
   Transform commands.
-\item pylab: Plotting functions (MATLAB style), statistics and data fitting functions
+\item pylab: Plotting functions, statistics and data fitting functions
 \item scipy: Scientific computing package. In particular we are insterested in
   scipy.signal which contains all the signal processing functions and
-  filter design commands. It also offers Fourier Transforms, data io routines,
+  filter design commands. It also offers Fourier Transforms, data I/O routines,
   vector quantisation, linear algebra, optimisation tools and statistics.
 \end{itemize}
 
-
-\subsection{Data types}
-Python has all the standard data types such as int, float, string,
-\ldots and a few more. You can check which type a variable has with:
-``type(variable)''. Important for DSP are these types:
-
-\paragraph{Numbers}
-Numbers are represented in a standard way, including complex numbers:
-\begin{itemize}
-\item \texttt{6E23}$=6\cdot 10^{23}$
-\item \texttt{6+2j} is a complex number which is just generated
-  by adding a ``j'' to the imaginary part.
-\item \texttt{complex(0,1)} creates 1j and is useful if you have
-  variables which you want to combine into a complex number.
-\end{itemize}
-Note that python has implicit types which might make you trip
-over. If you write ``a=1'' then ``a'' is an integer whereas
-``a=1.0'' is a floating point number. You can force a certain type by using
-the typecast operator, for example `` a = int(b)'' to create an integer.
-
-\paragraph{Lists}
-There are numerous data types in Python which allow storing
-collections of data. For DSP we need: lists, tupels and arrays. To clear
-up the confusion from the start we are going through them one
-by one. First up: lists!
-\begin{itemize}
-\item \texttt{p~=~[1,9,77]} is a list with the components 1,2 and 77.
-\item \texttt{p[2]} returns the third element of the list (the index
-  counts from 0). Note the index needs to be an integer so you might
-  need to cast a floating point variables first into an integer, for example
-  ``p[int(a)]''.
-\item \texttt{p[1:5]} extracts from the list all elements from
-  index number 1 to index number 4 (!). The index 5 is excluded!
-  This is called splicing. Check out the online docs
-  for more examples.
-\item \texttt{p~=~range(1,4)} generates $1, 2, 3$ which is the same as
-  a ``for loop'' in C: for(int i=1;i<4;i++)
-\item \texttt{p.append(10)} adds a new element to the end of the
-  list. You see that lists are essentially classes with methods (see below)!
-  Check out the documentation for more options to manipulate lists.
-\item \texttt{len(p2)} provides the number of elements.
-\end{itemize}
-
-\paragraph{Tupels}
-Tupels are similar to lists but they are rather used as
-``containers'' to package up different variables into one variable. For
-example, you might want to put the sampling rate and the resolution of
-an ADC into a tuple as they belong together.
-\begin{itemize}
-\item \texttt{p~=~(1,9,'kk')} is a tupel with the two integer numbers 1,2 and 'kk'.
-\item The round brackets are often omitted:
-  \texttt{p~=~1,9,'kk'} which implicitly defines a tupel.
-\item \texttt{p[1]} returns the 2nd element of the tupel (the index
-  counts from 0).
-\item Extracting a tupel into separate variables also works:
-  \texttt{a,b,c = p} assigns 1 to a, 9 to b and 'kk' to c. This
-  is very convenient for functions if you want to return more than
-  one result. Just package them up into a tuple and return it.
-\end{itemize}
-
-\paragraph{numpy Arrays/Matrices}
-Numpy arrays or matrices are used for number crunching and are ideal for
-DSP. Use these for all of you DSP data manipulation.
-They are essentially C arrays with a thin wrapper around
-them. In order to create and manipulate these arrays you need to use the numpy functions.
-
-\begin{itemize}
-\item\texttt{a = np.array([1, 2, 5])} which creates a numpy
-  array from a standard Python list containing 1,2,5.
-\item\texttt{b = np.array([[6, 2], [9, 7]])} creates a two dimensional
-  array.
-\item There are a lot of convenience functions in numpy to create
-  arrays just containing zeros, ones or ascending numbers etc. Check out
-   the numpy docs.
-\end{itemize}
-
-Since numpy arrays are close relatives to C arrays they have an additional
-field which is called ``dtype'' which determines the type of the
-array elements, for example ``int16'' (a 16 bit wide integer).
-\begin{verbatim}
->>> data
-array([-12288, -12545, -12798, ...,    511,    513,    513], dtype=int16)
->>> data.dtype
-dtype('int16')
->>> data.astype(float)
-array([-12288., -12545., -12798., ...,    511.,    513.,    513.])
-\end{verbatim}
-where the member function ``astype'' can convert from one array type to another, here
-from int16 to floating point.
-
-
-\subsection{Control structures}
-
-\paragraph{Conditionals}
-Conditional operation is done in exactly the same way as in other languages:
-\begin{verbatim}
-if a > c:
-    a = c
-    c = c*2
-print(c)
-\end{verbatim}
-The indent of 4 characters indicates the conditionally executed commands. The same
-applies for do and while loops where the body has an indent. Here, print(c)
-is always executed because it doesn't have an indent.
-
-\paragraph{Loops}
-Imagine you want to calculate the average of the array \texttt{y}.
-\begin{verbatim}
-s = 0.0
-for i in range(len(y)):
-    s = s + y[i]
-print("Average:",s/len(y))
-\end{verbatim}
-The ``for'' statement iterates through all elements of an array with
-the help of a list created by the ``range'' command. This is very much
-C-like. However Python, as for example in C++11 or Swift, allows iterating over the array elements
-themselves:
-\begin{verbatim}
-s = 0.0
-for v in y:
-    s = s + v
-print("Average:",s/len(y))
-\end{verbatim}
-which is a much more compact and safe way of coding as there will
-never be an out of bounds error.
-
-Important: the \textsl{indent} indicates the commands which the loop
-iterates through. This is the general rule in python.
-
-See the Python documentation for other ways of creating loops.
-
-
-\subsection{Functions}
-Function definitions can happen anywhere in the program or in a separate file.
-For example, the above average calculations can be defined as:
-
-\begin{verbatim}
-def myaverage(y):
-    s = 0.0
-    for v in y:
-        s = s + v
-    return (s/len(y))
-\end{verbatim}
-and then called from the main program as \texttt{myaverage(a)}.  The
-keyword ``def'' indicates the start of the function definition.  Note
-again the 4 character indent for the function body and the colon after
-the function name. This is characteristic for python.
-
-
-\subsection{Classes}
-Classes contain functions and variables. They usually
-have a constructor called \texttt{init} which is a special function which is called
-when an instance of a class is created.
-\begin{verbatim}
-class MyAmazingClass:
-    def __init__(self,coeff):
-        # Your init code here.
-        self.mylocalcoeff = coeff
-
-    def doSomeProcessing(self,data):
-        # we process data
-        data = data * self.mylocalcoeff
-        return data
-\end{verbatim}
-(!) Note the special variable ``self'' which is \textsl{the first}
-argument of every method in a class. Variables which
-are part of the class are references by ``self''. For
-example the constructor argument ``coeff'' is saved
-in the class as ``mylocalcoeff'' and is then available
-throughout the lifetime of the class as ``self.mylocalcoeff''. When we call
-the method ``doSomeProcessing'' then ``self.mylocalcoeff''
-is multiplied with the ``data'' argument and the result
-is returned. Anything which hasn't got ``self.'' in front
-of it will be forgotten after the function has terminated.
-In this way you distinguish which variables are kept
-for the lifetime of the class or
-are just used temporarily.
-
-Classes are just types and need to be instantiated:
-\begin{verbatim}
-f = MyAmazingClass(5)
-a = f.doSomeProcessing(10)
-b = f.doSomeProcessing(20)
-\end{verbatim}
-which will give us 50 as a result for the variable ``a'' and
-100 for the variable ``b''. The variable ``f'' is the instance
-of the class MyAmazingClass and the argument initialises
-self.mylocalcoeff with 5.
-
-
-\subsection{Mathematical functions}
-Just import the numpy library which contains all the
-mathematical functions and constants such as pi.
-\texttt{import numpy as np}. It has all the standard functions such
-as np.sin, np.cos, np.tan, np.exp, \ldots.
-
-Note that these functions also take arrays as arguments. For example,
-inputting the array x into the sine:
-\begin{verbatim}
-x = np.array(range(6))
-y = np.sin(x);
-\end{verbatim}
-yields again an array in y! All elements have been processed at the 
-\emph{same} time.
-
-
 \subsection{Plotting of Functions}
 Pylab has a vast amount of plotting functions which supports simple plotting
-with just two commands (plot and show) up to complex animations of 3D data.
-Plotting a sine wave can be achieved with:
+with just a few commands up to complex animations of 3D data.
+For example, plotting a sine wave can be achieved with:
 \begin{verbatim} 
 import matplotlib.pyplot as plt
 import numpy as np
 x = np.linspace(0,2*np.pi,100)
 y = np.sin(x)
 plt.plot(x,y)
-plt.show()
+plt.show() # only ONCE and at the end
 \end{verbatim}
-where I have used the numpy linspace command to create an array which
+where we have used the numpy \texttt{linspace} command to create an array which
 runs from 0 to two pi with 100 samples.
+
+\textbf{Important:} There is only a single \texttt{plt.show()} at the very end of your program.
+This triggers the actual display of all plot-windows and then blocks.
 
 If you want to create more plot-windows you can use the command
 \texttt{plt.figure}. Access the windows with the commands \texttt{plt.figure(1)},
@@ -449,17 +258,26 @@ Generally the best approach is to use an example and then customise it to your n
 
 
 
-\subsection{Importing data}
+\subsection{Importing/Exporting data}
 
 \paragraph{Space/Tab/Comma separated data}
 Numpy has a very handy import function for data as long as the the
 elements in the data file are separated with spaces, tabs or
-commas. To load such data files just type in: \texttt{x =
-  np.loadtxt('mydatafile.dat')}. This creates a two dimensional array
-which reflects exactly the structure in the datafile.
+commas. To load such data files just type in:
+\begin{verbatim}
+x = np.loadtxt('mydatafile.dat')
+\end{verbatim}
+This creates a one- or two-dimensional array which reflects exactly the structure in the datafile.
+
+You can also save such numpy arrays again with:
+
+\begin{verbatim}
+numpy.savetxt("foo.csv", a, delimiter="\t") # tab-separated
+\end{verbatim}
 
 Thus, if you want to write software which creates Python
-readable data then just export the data as space/tab separated ASCII files.
+readable data then just export the data as space/tab/comma separated ASCII files.
+Generally for readability of the textfiles tab-separated is recommended.
 
 
 
@@ -1719,6 +1537,7 @@ antisymmetric and the impulse response has to be delayed by $\tau=M/2$.
 with cutoff at $f=0.1$ and 100 taps. \label{window_functions}}
 \end{center}
 \end{figure}
+
 So far we still have a infinite number of coefficients for 
 for the FIR filter because there's no guarantee that the 
 impulse response becomes zero

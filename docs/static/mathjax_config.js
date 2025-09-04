@@ -4,6 +4,11 @@ const plastex_labels = document.getElementById('plastex-labels');
 if(plastex_labels) {
     Object.assign(body_refs, JSON.parse(plastex_labels.textContent));
 }
+
+const packages_url = new URL(chirun_static_url);
+packages_url.pathname += '/mathjax-packages';
+packages_url.search = '';
+
 window.MathJax = {
     tex: {
         macros: {
@@ -19,10 +24,14 @@ window.MathJax = {
         packages: {'[+]': [
             'noerrors',
             'mhchem',
-            'textmacros',
             'mathtools',
             'tagformat',
-            'chirun-eqref'
+            'chirun-eqref',
+            'siunitx',
+            'gensymb',
+            'color',
+            'html',
+            'cancel'
         ]},
         textmacros: {
             packages: {'[+]': ['bbox']}
@@ -45,7 +54,7 @@ window.MathJax = {
         typeset: true,
         ready: () => {
             const Configuration = MathJax._.input.tex.Configuration.Configuration;
-            const CommandMap = MathJax._.input.tex.SymbolMap.CommandMap;
+            const CommandMap = MathJax._.input.tex.TokenMap.CommandMap;
             const Label = MathJax._.input.tex.Tags.Label;
             const BaseMethods = MathJax._.input.tex.base.BaseMethods.default;
 
@@ -84,6 +93,7 @@ window.MathJax = {
         }
     },
     options: {
+        enableEnrichment: true,
         ignoreHtmlClass: 'tex2jax_ignore',
         processHtmlClass: 'tex2jax_process',
         renderActions: {
@@ -102,13 +112,21 @@ window.MathJax = {
     },
     loader: {
         load: [
+            '[chirun]/siunitx.js',
+            '[tex]/gensymb',
+            '[tex]/color',
+            '[tex]/html',
+            '[tex]/cancel',
             '[tex]/noerrors',
             '[tex]/mhchem',
-            '[tex]/textmacros',
             '[tex]/bbox',
             '[tex]/mathtools',
             '[tex]/tagformat'
-        ]
+        ],
+
+        paths: {
+            chirun: packages_url,
+        }
     }
 };
 })();
