@@ -114,7 +114,7 @@ div.highlight pre .py { color: var(--code-colour-text) } /* Name.Property */
 div.highlight pre .nt { color: var(--code-colour-keyword); font-weight: bold } /* Name.Tag */
 div.highlight pre .nv { color: var(--code-colour-text) } /* Name.Variable */
 div.highlight pre .ow { color: var(--code-colour-keyword); font-weight: bold } /* Operator.Word */
-div.highlight pre .w { color: var(--code-colour-whitespace); text-decoration: underline } /* Text.Whitespace */
+div.highlight pre .w { color: var(--code-colour-whitespace); } /* Text.Whitespace */
 div.highlight pre .mb { color: var(--code-colour-number); font-weight: bold } /* Literal.Number.Bin */
 div.highlight pre .mf { color: var(--code-colour-number); font-weight: bold } /* Literal.Number.Float */
 div.highlight pre .mh { color: var(--code-colour-number); font-weight: bold } /* Literal.Number.Hex */

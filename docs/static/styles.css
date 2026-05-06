@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
 
 :root {
     --sans-serif-font: sans-serif;
@@ -7,11 +7,13 @@
     --base-font-size: 16px;
     --code-font-size: 1rem;
     --font-scale: 100;
+    --font-weight: 400;
     --spacing-factor: 100;
     --font-family: var(--sans-serif-font);
 
     --readable-width: 50rem;
     font-size: calc(calc(var(--font-scale) / 100) * var(--base-font-size));
+    font-weight: var(--font-weight);
 
     --text-colour: #000000;
     --link-colour: #0000ee;
@@ -102,24 +104,32 @@ body > .skip-to-content-link:not(:focus) {
 body > #display-options {
     --spacing: 2em;
     font-family: sans-serif;
+    font-weight: normal;
     font-size: clamp(16px, 3vw, 24px);
     color: black;
     --link-colour: #0000ee;
     background: white;
-    padding: var(--spacing);
+    padding: 0;
     border-bottom: 0.2em solid black;
-    margin-bottom: var(--spacing);
+    margin-bottom: 1em;
     max-height: 70vh;
     overflow-y: auto;
+}
+body > #display-options > form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
 }
 body > #display-options .inputs {
     display: flex;
     flex-wrap: wrap;
-    grid-gap: var(--spacing);
-    margin-top: var(--spacing);
+    gap: var(--spacing);
 }
-body > #display-options:not(.show) {
-    display: none;
+body > #display-options > form > * +* {
+    padding-inline: var(--spacing);
+}
+body > #display-options details summary {
+    margin-bottom: var(--spacing);
 }
 body > #display-options label {
     width: 8em;
@@ -140,9 +150,30 @@ body > #display-options output {
 
 body > #display-options .buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    background: Canvas;
+    padding-bottom: calc(0.5 * var(--spacing));
+    border-bottom: var(--border);
 }
+
+
+body > #display-options #custom-css-options {
+    flex-grow: 1;
+}
+body > #display-options #custom-css-options .input-group {
+    flex-grow: 1;
+}
+
+body > #display-options #display-options-custom-css {
+    flex-grow: 1;
+    resize: vertical;
+    min-height: 10em;
+}
+
 
 body:not([data-colour-scheme="custom"]) > #display-options #custom-colour-scheme-options {
     display: none;
@@ -172,6 +203,12 @@ li ~ li {
 img, svg {
     max-width: 100%;
     filter: var(--image-filter);
+}
+@media print {
+    img, svg {
+        max-height: calc(100svh - 6cm);
+        object-fit: contain;
+    }
 }
 
 p {
@@ -216,7 +253,7 @@ hr {
     margin: calc(2 * var(--spacing));
 }
 
-details {
+main details {
     background: var(--bg-colour-off);
     padding: var(--spacing);
     border: var(--border);
@@ -233,8 +270,15 @@ blockquote > p:last-child {
 }
 
 :is(p,li,table) code {
-    background-color: var(--bg-colour-off);
-    color: var(--text-colour);
+    background-color: var(--code-colour-bg);
+    color: var(--code-colour-text);
+    padding-inline: calc(0.2 * var(--spacing));
+}
+
+:is(p,li,table) .highlight code {
+    background: none;
+    color: inherit;
+    border: none;
 }
 
 pre {
@@ -360,14 +404,45 @@ body > main > #sidebar .jump-to-item-content {
     display: none;
 }
 
+body.big-text > main {
+    grid-template-columns: [full-start sidebar-start content-start] 1fr [sidebar-end content-end full-end];
+    grid-template-areas: "sidebar" "content";
+}
+body.big-text > main > #sidebar {
+    position: revert;
+    margin-bottom: var(--spacing);
+    display: grid;
+    justify-content: center;
+    max-height: none;
+}
+
+body.big-text > main > #sidebar .jump-to-item-content {
+    display: inline;
+}
+
+body.big-text > main {
+    grid-template-columns: [full-start sidebar-start content-start] 1fr [sidebar-end content-end full-end];
+    grid-template-areas: "sidebar" "content";
+}
+body.big-text > main > #sidebar {
+    position: revert;
+    margin-bottom: var(--spacing);
+    display: grid;
+    justify-content: center;
+    max-height: none;
+}
+
+body.big-text > main > #sidebar .jump-to-item-content {
+    display: inline;
+}
+
 @media (max-width: 55em), print {
     body > main {
         grid-template-columns: [full-start sidebar-start content-start] 1fr [sidebar-end content-end full-end];
         grid-template-areas: "sidebar" "content";
     }
     body > main > #sidebar {
-        position: initial;
-        background: var(--bg-colour-accent-2);
+        position: revert;
         margin-bottom: var(--spacing);
         display: grid;
         justify-content: center;
@@ -382,6 +457,9 @@ body > main > #sidebar .jump-to-item-content {
 @media print {
     body > header {
         margin-bottom: var(--spacing);
+    }
+    body > main {
+        display: block;
     }
     body > main > #sidebar {
         display: none;

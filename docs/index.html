@@ -7,53 +7,53 @@
             <meta name="robots" content="noindex">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <meta name="author" content="Bernd Porr" />
-            <meta name="date" content="2025-09-04" />
+            <meta name="date" content="2026-05-06" />
         
 
         <title>digital_signal_processing | Digital Signal Processing</title>
 
         
-            <link rel="icon" type="image/png" href="static/favicon.png?build_time=1756972830.19373"/>
+            <link rel="icon" type="image/png" href="static/favicon.png?build_time=1778090746.652734"/>
         
 
         
     
     
-            <link rel="stylesheet" href="static/styles.css?build_time=1756972830.19373">
+            <link rel="stylesheet" href="static/styles.css?build_time=1778090746.652734">
             
             
         
-    <link rel="stylesheet" id="customiseCodeCSS" href="static/pygmentize.css?build_time=1756972830.19373">
+    <link rel="stylesheet" id="customiseCodeCSS" href="static/pygmentize.css?build_time=1778090746.652734">
 
-    <link rel="stylesheet" href="static/print.css?build_time=1756972830.19373">
+    <link rel="stylesheet" href="static/print.css?build_time=1778090746.652734">
 
 
         
     
 			<script>
-				var chirun_static_url = new URL('static?build_time=1756972830.19373', location.href);
+				var chirun_static_url = new URL('static?build_time=1778090746.652734', location.href);
 			</script>
 
             
-                <script defer src="static/mathjax_config.js?build_time=1756972830.19373"></script>
+                <script defer src="static/mathjax_config.js?build_time=1778090746.652734"></script>
                 <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
             
 
-            <script type="module" src="static/localisation.js?build_time=1756972830.19373"></script>
+            <script type="module" src="static/localisation.js?build_time=1778090746.652734"></script>
 
-            <script defer src="static/customisation.js?build_time=1756972830.19373"></script>
+            <script defer src="static/customisation.js?build_time=1778090746.652734"></script>
 
             
 
             
         
-    <script defer src="static/code.js?build_time=1756972830.19373" type="module"></script>
-    <script defer src="static/embed_numbas.js?build_time=1756972830.19373" type="module"></script>
-    <script defer src="static/embed_qrcode.js?build_time=1756972830.19373" type="module"></script>
+    <script defer src="static/code.js?build_time=1778090746.652734" type="module"></script>
+    <script defer src="static/embed_numbas.js?build_time=1778090746.652734" type="module"></script>
+    <script defer src="static/embed_qrcode.js?build_time=1778090746.652734" type="module"></script>
 
 
         <template id="runnable-code-template">
-            <link rel="stylesheet" href="static/code.css?build_time=1756972830.19373">
+            <link rel="stylesheet" href="static/code.css?build_time=1778090746.652734">
             <div class="runnable-code-wrapper">
                 <section class="fullscreenable code">
                     <div id="code"></div>
@@ -234,7 +234,7 @@
         </template>
 
         <template id="embed-numbas-template">
-            <link rel="stylesheet" href="static/embed_numbas.css?build_time=1756972830.19373">
+            <link rel="stylesheet" href="static/embed_numbas.css?build_time=1778090746.652734">
             <details id="wrapper" data-completion-status="incomplete">
                 <summary>
                     <h1 id="title">Test Yourself</h1>
@@ -257,143 +257,167 @@
 
         <a class="skip-to-content-link" href="#main-content">Skip to content</a>
         
-            <form id="display-options">
-    <div class="buttons">
-        <button type="button" id="reset-display-options">Reset to defaults</button>
+            <dialog id="display-options">
+    <form>
+        <div class="buttons">
+            <button type="button" id="reset-display-options">Reset to defaults</button>
 
-        <a href="https://chirun.org.uk/accessibility-statement/material">Accessibility statement</a>
+            <a href="https://chirun.org.uk/accessibility-statement/material">Accessibility statement</a>
 
-        <button type="button" aria-controls="display-options" aria-expanded="false">
-            Close
-        </button>
-    </div>
-
-    <div class="inputs">
-        <div class="input-group">
-            <label for="display-options-font-scale">
-                Text size
-            </label>
-            <input type="range" min="50" max="600" step="5" value="100" id="display-options-font-scale">
-            <output for="display-options-font-scale">100%</output>
+            <button autofocus type="button" aria-controls="display-options">
+                Close
+            </button>
         </div>
 
-        <div class="input-group">
-            <label for="display-options-spacing-factor">
-                Spacing
-            </label>
-            <input type="range" min="0" max="1200" step="5" value="100" id="display-options-spacing-factor">
-            <output for="display-options-spacing-factor">100%</output>
+        <div class="inputs">
+            <div class="input-group">
+                <label for="display-options-font-scale">
+                    Text size
+                </label>
+                <input name="font-scale" type="range" min="50" max="600" step="5" value="100" id="display-options-font-scale">
+                <output for="display-options-font-scale">100%</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-font-weight">
+                    Text weight
+                </label>
+                <input name="font-weight" type="range" min="200" max="800" step="100" value="400" id="display-options-font-weight">
+                <output for="display-options-font-weight">400</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-spacing-factor">
+                    Spacing
+                </label>
+                <input name="spacing-factor" type="range" min="0" max="1200" step="5" value="100" id="display-options-spacing-factor">
+                <output for="display-options-spacing-factor">100%</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-font-family">
+                    Text font
+                </label>
+                <select name="font-family" id="display-options-font-family">
+                    <option value="var(--sans-serif-font)" selected>Sans-serif</option>
+                    <option value="var(--serif-font)">Serif</option>
+                    <option value="Atkinson Hyperlegible Next">Atkinson Hyperlegible</option>
+                    <option value="Comic Sans MS">Comic Sans</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-colour-scheme">
+                    Colour scheme
+                </label>
+                <select name="colour-scheme" id="display-options-colour-scheme">
+                    <option value="auto" selected>Automatic (default)</option>
+                    <option value="light">Black text on white</option>
+                    <option value="dark">White text on black</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+
+            <section id="custom-colour-scheme-options" class="inputs">
+                <div class="input-group">
+                    <label for="display-options-text-colour">
+                        Text colour
+                    </label>
+                    <input name="text-colour" type="color" value="#000000" id="display-options-text-colour">
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-link-colour">
+                        Link colour
+                    </label>
+                    <input name="link-colour" type="color" value="#0000ee" id="display-options-link-colour">
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-bg-colour">
+                        Background colour
+                    </label>
+                    <input name="bg-colour" type="color" value="#ffffff" id="display-options-bg-colour">
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-bg-colour-off">
+                        Muted background colour
+                    </label>
+                    <input name="bg-colour-off" type="color" value="#eeeeee" id="display-options-bg-colour-off">
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-bg-colour-accent-1">
+                        Accent colour 1
+                    </label>
+                    <input name="bg-colour-accent-1" type="color" value="#4caf50" id="display-options-bg-colour-accent-1">
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-bg-colour-accent-2">
+                        Accent colour 2
+                    </label>
+                    <input name="bg-colour-accent-2" type="color" value="#f6f6ff" id="display-options-bg-colour-accent-2">
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-bg-colour-accent-3">
+                        Accent colour 3
+                    </label>
+                    <input name="bg-colour-accent-3" type="color" value="#eeffd3" id="display-options-bg-colour-accent-3">
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-bg-colour-accent-4">
+                        Accent colour 4
+                    </label>
+                    <input name="bg-colour-accent-4" type="color" value="#ffeeee" id="display-options-bg-colour-accent-4">
+                </div>
+            </section>
+
+            <section id="filter-colour-scheme-options" class="inputs">
+                <div class="input-group">
+                    <label for="display-options-filter-sepia">
+                        Sepia filter
+                    </label>
+                    <input name="filter-sepia" type="range" min="0" max="100" step="1" value="0" id="display-options-filter-sepia">
+                    <output for="display-options-filter-sepia">0%</output>
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-filter-hue-rotate">
+                        Rotate hues
+                    </label>
+                    <input name="filter-hue-rotate" type="range" min="0" max="1" step="0.01" value="0" id="display-options-filter-hue-rotate">
+                    <output for="display-options-filter-hue-rotate">0 turns</output>
+                </div>
+
+                <div class="input-group">
+                    <label for="display-options-invert-images">
+                        Invert images in dark mode
+                    </label>
+                    <input name="invert-images" type="checkbox" id="display-options-invert-images">
+                </div>
+
+            </section>
+
+
         </div>
 
-        <div class="input-group">
-            <label for="display-options-font-family">
-                Text font
-            </label>
-            <select id="display-options-font-family">
-                <option value="var(--sans-serif-font)" selected>Sans-serif</option>
-                <option value="var(--serif-font)">Serif</option>
-                <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
-                <option value="Comic Sans MS">Comic Sans</option>
-            </select>
-        </div>
-
-        <div class="input-group">
-            <label for="display-options-colour-scheme">
-                Colour scheme
-            </label>
-            <select id="display-options-colour-scheme">
-                <option value="auto" selected>Automatic (default)</option>
-                <option value="light">Black text on white</option>
-                <option value="dark">White text on black</option>
-                <option value="custom">Custom</option>
-            </select>
-        </div>
-
-        <section id="custom-colour-scheme-options" class="inputs">
-            <div class="input-group">
-                <label for="display-options-text-colour">
-                    Text colour
-                </label>
-                <input type="color" value="#000000" id="display-options-text-colour">
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-link-colour">
-                    Link colour
-                </label>
-                <input type="color" value="#0000ee" id="display-options-link-colour">
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-bg-colour">
-                    Background colour
-                </label>
-                <input type="color" value="#ffffff" id="display-options-bg-colour">
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-bg-colour-off">
-                    Muted background colour
-                </label>
-                <input type="color" value="#eeeeee" id="display-options-bg-colour-off">
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-bg-colour-accent-1">
-                    Accent colour 1
-                </label>
-                <input type="color" value="#4caf50" id="display-options-bg-colour-accent-1">
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-bg-colour-accent-2">
-                    Accent colour 2
-                </label>
-                <input type="color" value="#f6f6ff" id="display-options-bg-colour-accent-2">
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-bg-colour-accent-3">
-                    Accent colour 3
-                </label>
-                <input type="color" value="#eeffd3" id="display-options-bg-colour-accent-3">
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-bg-colour-accent-4">
-                    Accent colour 4
-                </label>
-                <input type="color" value="#ffeeee" id="display-options-bg-colour-accent-4">
-            </div>
-        </section>
-
-        <section id="filter-colour-scheme-options" class="inputs">
-            <div class="input-group">
-                <label for="display-options-filter-sepia">
-                    Sepia filter
-                </label>
-                <input type="range" min="0" max="100" step="1" value="0" id="display-options-filter-sepia">
-                <output for="display-options-filter-sepia">0%</output>
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-filter-hue-rotate">
-                    Rotate hues
-                </label>
-                <input type="range" min="0" max="1" step="0.01" value="0" id="display-options-filter-hue-rotate">
-                <output for="display-options-filter-hue-rotate">0 turns</output>
-            </div>
-
-            <div class="input-group">
-                <label for="display-options-invert-images">
-                    Invert images in dark mode
-                </label>
-                <input type="checkbox" id="display-options-invert-images">
-            </div>
-
-        </section>
-    </div>
-</form>
+        <details id="advanced">
+            <summary>Advanced options</summary>
+            <section id="custom-css-options" class="inputs">
+                <div class="input-group">
+                    <label for="display-options-custom-css">
+                        Custom CSS code
+                    </label>
+                    <textarea name="custom-css" id="display-options-custom-css"></textarea>
+                </div>
+            </section>
+        </details>
+    </form>
+</dialog>
         
 
         <header>
@@ -1034,7 +1058,7 @@
 
     <article class="item-content" id="item-content">
         <div class="centered"><p>
-<div class="mbox" id="a0000000002" style="width: "><img alt="\includegraphics[width=\textwidth ]{SchEng_mono}" src="images/img-0001.svg" style="width:469.755pt"/></div>
+<div class="mbox" id="a0000000002" style="width: "><img alt="\includegraphics[width=\textwidth ]{SchEng_mono}" src="images/img-0001.svg?build_time=1778090746.644877" style="width:469.755pt"/></div>
 </p>
 <p>
 <b class="bf"><big class="xhuge">Digital Signal Processing</big></b>
@@ -1049,7 +1073,7 @@
 <span class="vspace bigskip"></span>
 </p>
 <p>
-<small class="small">September 4, 2025</small>
+<small class="small">May 6, 2026</small>
 </p>
 <p>
 <a href="https://www.youtube.com/dspcourse">https://www.youtube.com/dspcourse</a>
@@ -1334,7 +1358,7 @@ We start with a few definitions when we transform an analogue signal into the di
 <script type="math/tex; mode=display">\begin{equation}x_{a}(t) = x_{a}(nT) = x_{a}(\frac{n}{F_{s}})\tag{4}\end{equation}</script>
 </div>
 <figure id="max_sampl">
-<div class="centered"> <div class="mbox" id="a0000000044" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{max_sampl}" src="images/img-0002.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000044" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{max_sampl}" src="images/img-0002.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">1</span>
@@ -1406,7 +1430,7 @@ If there are higher frequencies in the signal then these frequencies are “fold
  The frequency \(\frac{1}{2}F_s\) is called the Nyquist frequency. 
 </p>
 <figure id="anti_alias">
-<div class="centered"> <div class="mbox" id="a0000000053" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{anti_alias}" src="images/img-0003.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000053" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{anti_alias}" src="images/img-0003.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">2</span>
@@ -1452,7 +1476,7 @@ The problem is that \(g(t)\) runs from negative time to positive time and as we 
 </section><section class="subsection">
 <h3 id="a0000000060">4.2 Quantisation</h3>
 <figure id="quant_overv">
-<div class="centered"> <div class="mbox" id="a0000000061" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{quant_overv}" src="images/img-0004.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000061" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{quant_overv}" src="images/img-0004.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">3</span>
@@ -1472,7 +1496,7 @@ The problem is that \(g(t)\) runs from negative time to positive time and as we 
 <script type="math/tex; mode=display">\begin{equation}x_{q}(n) = Q[x(n)]\tag{18}\end{equation}</script>
 </div>
 <figure id="quant_err">
-<div class="centered"> <div class="mbox" id="a0000000064" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{quant_err}" src="images/img-0005.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000064" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{quant_err}" src="images/img-0005.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">4</span>
@@ -1668,7 +1692,7 @@ Synthesis or inverse transform:
 </section><section class="subsubsection">
 <h4 id="a0000000105">The effect of time domain sampling on the spectrum (Sampling theorem)</h4>
 <figure id="periodic_ny">
-<div class="centered"> <div class="mbox" id="a0000000106" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{periodic_ny}" src="images/img-0006.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000106" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{periodic_ny}" src="images/img-0006.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">5</span>
@@ -1725,7 +1749,7 @@ Remember that the normalised frequency is \(f=F/F_s\) which allows us to change 
  This equation can now be interpreted. In order to get the sampled spectrum \(X(F)\) we need to make copies of the analog spectrum \(X_a(F)\) and place these copies at multiples of the sampling rate \(F_s\) (see Fig. <a class="ref" href="#periodic_ny">5</a>). This illustrates also the <i class="slshape">sampling theorem</i>: if the bandwidth of the spectrum is wider than \(F_s/2\) then the copies of the analogue spectrum will overlap and reconstruction would be impossible. This is called aliasing. Note that it is not necessary bad that the spectrum of the analogue signal lies within the range of the so called “base band” \(-F/2 \ldots F/2\). It can also lie in another frequency range further up, for example \(-F/2 + 34 \ldots F/2 +34\) as long as the <i class="slshape">bandwidth</i> does not exceed \(F_s/2\). If it is placed further up it will automatically show up in the baseband \(-F/2 \ldots F/2\) which is called “fold down”. This can be used for our purposes if we want to down mix a signal. 
 </p>
 <figure id="fold_down">
-<div class="centered"> <div class="mbox" id="a0000000116" style="width: "><img alt="\includegraphics[width=\textwidth ]{fold_down}" src="images/img-0007.svg" style="width:469.755pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000116" style="width: "><img alt="\includegraphics[width=\textwidth ]{fold_down}" src="images/img-0007.svg?build_time=1778090746.644877" style="width:469.755pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">6</span>
@@ -1759,7 +1783,7 @@ The inverse discrete Fourier Transform (IDFT) is defined as:
 <script type="math/tex; mode=display">\begin{equation}x(n) = \frac{1}{N} \sum _{k=0}^{N-1} X(k) e^{j 2\pi kn/N} \qquad n=0,1,2,\ldots , N-1\tag{49}\end{equation}</script>
 </div>
 <figure id="time_alias">
-<div class="centered"> <div class="mbox" id="a0000000119" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{time_alias}" src="images/img-0008.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000119" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{time_alias}" src="images/img-0008.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">7</span>
@@ -1805,7 +1829,7 @@ The signal is repeated every N samples
  Practically this repetition won’t show up because the number of samples is limited to \(N\) in the inverse transform. However, for operations which shift signals in the frequency domain it is important to remember that we shift a periodic time series. If we shift it out at the end of the array we will get it back at the start of the array. 
 </p>
 <figure id="dft_example">
-<div class="centered"> <div class="mbox" id="a0000000129" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{dft_example}" src="images/img-0009.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000129" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{dft_example}" src="images/img-0009.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">8</span>
@@ -1899,7 +1923,7 @@ Time Reversal:
 </section><section class="subsubsection">
 <h4 id="a0000000145">Problems with finite length DFTs</h4>
 <figure id="windowing_dft">
-<div class="centered"> <div class="mbox" id="a0000000146" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{windowing_dft}" src="images/img-0010.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000146" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{windowing_dft}" src="images/img-0010.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">9</span>
@@ -1971,7 +1995,7 @@ We can rewrite the DFT (Eq. <a class="ref" href="#DFT">48</a>) in a slightly mo
  \(F_e\) and \(F_o\) have both half the length of the original sequence and need only \((N/2)^2\) multiplication, so in total \(2 \cdot (N/2)^2 = \frac{N^2}{2}\). Basically by dividing the sequence in even and odd parts we can reduce the number of multiplications by 2. Obviously, the next step is then to subdivide the two sequences \(F_{e}(k)\) and \(F_{o}(k)\) even further into something like \(F_{ee}(k), F_{eo}(k), F_{oe}(k)\) and \(F_{oo}(k)\). 
 </p>
 <figure id="fft_div">
-<div class="centered"> <div class="mbox" id="a0000000158" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{fft_div}" src="images/img-0011.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000158" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{fft_div}" src="images/img-0011.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">10</span>
@@ -2018,7 +2042,7 @@ In summary the idea behind the FFT algorithms is to divide the sequence into sub
 </section><section class="subsection">
 <h3 id="a0000000161">5.4 Visualisation</h3>
 <figure id="visualisation">
-<div class="centered"> <div class="mbox" id="a0000000162" style="width: "><img alt="\includegraphics[width=\textwidth ]{visualisation}" src="images/img-0012.svg" style="width:469.755pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000162" style="width: "><img alt="\includegraphics[width=\textwidth ]{visualisation}" src="images/img-0012.svg?build_time=1778090746.644877" style="width:469.755pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">11</span>
@@ -2058,7 +2082,7 @@ In the next section we are now developing a mathematical framework for causal di
 <section class="subsection">
 <h3 id="a0000000167">6.1 Causality</h3>
 <figure id="causality">
-<div class="centered"> <div class="mbox" id="a0000000168" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{causality}" src="images/img-0013.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000168" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{causality}" src="images/img-0013.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">12</span>
@@ -2069,7 +2093,7 @@ In the next section we are now developing a mathematical framework for causal di
  Fig. <a class="ref" href="#causality">12</a> illustrates the concept of causality. Causal systems cannot look into the future. They can only react to a certain input. Causal signals are kept zero for \(t{\lt}0\) per definition. 
 </p>
 <figure id="convolution">
-<div class="centered"> <div class="mbox" id="a0000000169" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{convol}" src="images/img-0014.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000169" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{convol}" src="images/img-0014.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">13</span>
@@ -2163,7 +2187,7 @@ Convolution:
 </section><section class="subsection">
 <h3 id="a0000000188">6.4 Filters</h3>
 <figure id="filter">
-<div class="centered"> <div class="mbox" id="a0000000189" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{filter}" src="images/img-0015.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000189" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{filter}" src="images/img-0015.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">14</span>
@@ -2247,7 +2271,7 @@ Convolution:
 </section><section class="subsection">
 <h3 id="a0000000208">6.6 Frequency response of a sampled filter</h3>
 <figure id="frequency_response">
-<div class="centered"> <div class="mbox" id="a0000000209" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{frequency_response}" src="images/img-0016.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000209" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{frequency_response}" src="images/img-0016.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">15</span>
@@ -2296,7 +2320,7 @@ Phase
 </section><section class="subsection">
 <h3 id="a0000000216">6.7 FIR Filter</h3>
 <figure id="FIRfilter">
-<div class="centered"> <div class="mbox" id="a0000000217" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir}" src="images/img-0017.svg" style="width:469.755pt"/></div> <figcaption>
+<div class="centered"> <div class="mbox" id="a0000000217" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir}" src="images/img-0017.svg?build_time=1778090746.644877" style="width:469.755pt"/></div> <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">16</span>
 <span class="caption_text">FIR filter using the impulse response of the analogue filter \(h(t)\) </span>
@@ -2336,7 +2360,7 @@ This sum is a direct recipe how to filter the signal \(X(z)\). We only need the 
 <script type="math/tex; mode=display">\begin{equation}H(z)X(z)=\underbrace{\sum _{m=0}^M h(mT) z^{-m}}_{H(z)} X(z) \label{FIRfromAnalogue}\tag{106}\end{equation}</script>
 </div>
 <figure id="fir_digital">
-<div class="centered"> <div class="mbox" id="a0000000218" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_digital}" src="images/img-0018.svg" style="width:469.755pt"/></div> <figcaption>
+<div class="centered"> <div class="mbox" id="a0000000218" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_digital}" src="images/img-0018.svg?build_time=1778090746.644877" style="width:469.755pt"/></div> <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">17</span>
 <span class="caption_text">Digital FIR filter with normalised frequency </span>
@@ -2439,7 +2463,7 @@ y = signal.lfilter(h,1,x)
 </section><section class="subsubsection">
 <h4 id="a0000000225">Fixed point FIR filters</h4>
 <figure id="fir_fixed">
-<div class="centered"> <div class="mbox" id="a0000000226" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_fixed}" src="images/img-0019.svg" style="width:469.755pt"/></div> <figcaption>
+<div class="centered"> <div class="mbox" id="a0000000226" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_fixed}" src="images/img-0019.svg?build_time=1778090746.644877" style="width:469.755pt"/></div> <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">18</span>
 <span class="caption_text">Fixed point FIR filter. The output signal is bit shifted to the right by \(w\) bits while the coefficients are scaled up by \(2^w\). </span>
@@ -2528,7 +2552,7 @@ The factor \(e^{2i\phi }\) restricts the values of \(\phi \) because the impulse
 </section><section class="subsubsection">
 <h4 id="a0000000233">Window functions</h4>
 <figure id="window_functions">
-<div class="centered"> <div class="mbox" id="a0000000234" style="width: "><img alt="\includegraphics[width=\linewidth ]{window_functions}" src="images/img-0020.svg" style="width:469.755pt"/></div> <figcaption>
+<div class="centered"> <div class="mbox" id="a0000000234" style="width: "><img alt="\includegraphics[width=\linewidth ]{window_functions}" src="images/img-0020.svg?build_time=1778090746.644877" style="width:469.755pt"/></div> <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">19</span>
 <span class="caption_text">Different window functions applied to a low pass filter (Eq. <a class="ref" href="#idealLP">132</a>) with cutoff at \(f=0.1\) and 100 taps. </span>
@@ -2832,7 +2856,7 @@ How to improve the matching process? Square the output of the filter!
 </section><section class="subsubsection">
 <h4 id="a0000000285">Adaptive FIR Least Mean Squares (LMS) filters</h4>
 <figure id="fir_lms">
-<div class="centered"> <div class="mbox" id="a0000000286" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_lms}" src="images/img-0021.svg" style="width:469.755pt"/></div> <figcaption>
+<div class="centered"> <div class="mbox" id="a0000000286" style="width: "><img alt="\includegraphics[width=\linewidth ]{fir_lms}" src="images/img-0021.svg?build_time=1778090746.644877" style="width:469.755pt"/></div> <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">20</span>
 <span class="caption_text">Adaptive FIR filter : A) Negative feedback loop where a desired signal \(d(n)\) is compared with the output of the FIR filter \(y(n)\) and creates the error signal \(e(n)\) which then tunes the FIR filter. B) Internal workings of the adaptive FIR filter where the error signal \(e(n)\) is multiplied with the delayed input signal \(x(n-m)\) and then changes the FIR filter coefficients \(h_m\).</span>
@@ -2985,7 +3009,7 @@ The same rule can be applied to zeros
 </section><section class="subsubsection">
 <h4 id="a0000000305">Determining the data-flow diagram of an IIR filter</h4>
 <figure id="IIRfilter">
-<div class="centered"> <div class="mbox" id="a0000000306" style="width: "><img alt="\includegraphics[width=0.75\linewidth ]{iir}" src="images/img-0022.svg" style="width:352.31624999999997pt"/></div> <figcaption>
+<div class="centered"> <div class="mbox" id="a0000000306" style="width: "><img alt="\includegraphics[width=0.75\linewidth ]{iir}" src="images/img-0022.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">21</span>
 <span class="caption_text">IIR filter </span>
@@ -3042,7 +3066,7 @@ Y = signal.lfilter(B,1,X)
 </section><section class="subsubsection">
 <h4 id="a0000000312">IIR filter topologies</h4>
 <figure id="iir_types">
-<div class="centered"> <div class="mbox" id="a0000000313" style="width: "><img alt="\includegraphics[width=\textwidth ]{iir_types}" src="images/img-0023.svg" style="width:469.755pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000313" style="width: "><img alt="\includegraphics[width=\textwidth ]{iir_types}" src="images/img-0023.svg?build_time=1778090746.644877" style="width:469.755pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">22</span>
@@ -3105,7 +3129,7 @@ In order to achive higher order filters one can then just chain these 2nd order 
 </section><section class="subsubsection">
 <h4 id="a0000000318">Fixed point IIR filters</h4>
 <figure id="iir_fixed">
-<div class="centered"> <div class="mbox" id="a0000000319" style="width: "><img alt="\includegraphics[width=0.5\textwidth ]{iir_fixed}" src="images/img-0024.svg" style="width:234.8775pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000319" style="width: "><img alt="\includegraphics[width=0.5\textwidth ]{iir_fixed}" src="images/img-0024.svg?build_time=1778090746.644877" style="width:234.8775pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">23</span>
@@ -3124,7 +3148,7 @@ Then one needs to assess the maximum value in the accumulator which is much more
 </section><section class="subsubsection">
 <h4 id="a0000000320">Filter design based on analogue filters</h4>
 <figure id="butterworth_poles">
-<div class="centered"> <div class="mbox" id="a0000000321" style="width: "><img alt="\includegraphics[width=0.5\textwidth ]{butterworth_poles}" src="images/img-0025.svg" style="width:234.8775pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000321" style="width: "><img alt="\includegraphics[width=0.5\textwidth ]{butterworth_poles}" src="images/img-0025.svg?build_time=1778090746.644877" style="width:234.8775pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">24</span>
@@ -3328,7 +3352,7 @@ We are going to explore the roles of poles and zeros first with an instructional
 <p class="paragraph">
 <strong class="paragraph-title" id="a0000000358">Zeros</strong>
 <figure id="fir_stop">
-<div class="centered"> <div class="mbox" id="a0000000359" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{fir_stop}" src="images/img-0026.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000359" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{fir_stop}" src="images/img-0026.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">25</span>
@@ -3361,7 +3385,7 @@ In summary: zeros eliminate frequencies (and change phase). That's the idea of a
 </p><p class="paragraph">
 <strong class="paragraph-title" id="a0000000369">Poles</strong>
 <figure id="iir_stop">
-<div class="centered"> <div class="mbox" id="a0000000370" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{iir_stop}" src="images/img-0027.svg" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000370" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{iir_stop}" src="images/img-0027.svg?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">26</span>
@@ -3392,7 +3416,7 @@ Note that in real implementations the coefficients of the filters are limited in
 </p><p class="paragraph">
 <strong class="paragraph-title" id="a0000000377">Poles and zeroes combined: design of a pure digital IIR notch filter</strong>
 <figure id="iir_fir_stop">
-<div class="centered"> <div class="mbox" id="a0000000378" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{iir_fir_stop}" src="images/img-0001.png" style="width:352.31624999999997pt"/></div> </div>
+<div class="centered"> <div class="mbox" id="a0000000378" style="width: "><img alt="\includegraphics[width=0.75\textwidth ]{iir_fir_stop}" src="images/img-0001.png?build_time=1778090746.644877" style="width:352.31624999999997pt"/></div> </div>
 <figcaption>
 <span class="caption_title">Figure</span>
 <span class="caption_ref">27</span>
@@ -3473,8 +3497,8 @@ Teukolsky, S. A., Vetterling, W. T., and Flannery, B. P. (2007). <em>Numerica
     </nav>
 
     <div id="footer-text">
-        <p>Generated using <a target="_blank" href="https://chirun.org.uk">Chirun</a> v1.3.0, written by the Digital Learning Unit, School of Mathematics &amp; Statistics, Newcastle University</p>
-        <p>This page last generated: 2025-09-04</p>
+        <p>Generated using <a target="_blank" href="https://chirun.org.uk">Chirun</a> v1.4.0, written by the Digital Learning Unit, School of Mathematics &amp; Statistics, Newcastle University</p>
+        <p>This page last generated: 2026-05-06</p>
         
         
         

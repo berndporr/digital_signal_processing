@@ -5,9 +5,8 @@ class Setting {
         this.default_value = default_value;
         this._value = default_value;
 
-        const id = `display-options-${name}`;
-        this.input = document.getElementById(id);
-        this.output = document.querySelector(`output[for="${id}"]`);
+        this.input = document.querySelector(`#display-options [name="${name}"]`);
+        this.output = document.querySelector(`output[for="display-options-${name}"]`);
 
         const change = () => {
             this.value = this.filter_value(this.input_value);
@@ -50,6 +49,10 @@ class Setting {
         this.output.textContent = this.display_value;
     }
 
+    update_page() {
+        document.documentElement.style.setProperty(`--${this.name}`, this.css_value);
+    }
+
     get value() {
         return this._value;
     }
@@ -63,6 +66,18 @@ class Setting {
     }
 }
 
+class CssSetting extends Setting {
+    constructor() {
+        super(...arguments);
+
+        this.style = document.createElement('style');
+        document.head.append(this.style);
+    }
+    update_page() {
+        this.style.textContent = this.value;
+    }
+}
+
 class AngleSetting extends Setting {
     get css_value() {
         return `${this._value}turn`;
@@ -71,6 +86,16 @@ class AngleSetting extends Setting {
     get display_value() {
         const t = this._value;
         return `${t} ${t==1 ? _('turn') : _('turns')}`
+    }
+}
+
+class NumberSetting extends Setting {
+    get css_value() {
+        return this.value.toString();
+    }
+
+    get display_value() {
+        return this.value.toString();
     }
 }
 
@@ -141,20 +166,26 @@ class Customiser {
     add_setting(name, kind, default_value) {
         const kinds = {
             'exponentialpercentage': ExponentialPercentageSetting,
+            'number': NumberSetting,
             'percentage': PercentageSetting,
             'boolean': BooleanSetting,
             'angle': AngleSetting,
             'colour': Setting,
             'text': Setting,
+            'css': CssSetting,
         }
         this.settings[name] = new kinds[kind](this, name, default_value);
     }
 
     constructor() {
         this.settings = {};
+        this.form = document.querySelector('#display-options > form');
+        this.form.addEventListener('submit', e => e.preventDefault());
+
         this.localStorage_key = 'chirun-theme-customization';
 
         this.add_setting('font-scale', 'exponentialpercentage', 100);
+        this.add_setting('font-weight', 'number', 400);
         this.add_setting('spacing-factor', 'exponentialpercentage', 100);
         this.add_setting('font-family', 'text', 'var(--sans-serif-font)');
         this.add_setting('colour-scheme', 'text', 'auto');
@@ -173,14 +204,19 @@ class Customiser {
 
         this.add_setting('invert-images', 'boolean', true);
 
-        const display_options_form = document.getElementById('display-options');
+        this.add_setting('custom-css', 'css', '');
+
+        const display_options_dialog = document.getElementById('display-options');
         const toggle_buttons = document.querySelectorAll('button[aria-controls="display-options"]');
         for(let button of toggle_buttons) {
             button.addEventListener('click', () => {
-                display_options_form.classList.toggle('show');
-                const displayed = display_options_form.classList.contains('show');
-
-                toggle_buttons.forEach(b => b.setAttribute('aria-expanded', displayed));
+                display_options_dialog.showModal();
+            });
+        }
+        const close_buttons = display_options_dialog.querySelectorAll('button[aria-controls="display-options"]')
+        for(let button of close_buttons) {
+            button.addEventListener('click', () => {
+                display_options_dialog.close();
             });
         }
 
@@ -217,11 +253,12 @@ class Customiser {
     }
 
     update_page() {
-        Object.entries(this.settings).forEach(([k,{css_value}]) => {
-            document.documentElement.style.setProperty(`--${k}`, css_value);
+        Object.values(this.settings).forEach((setting) => {
+            setting.update_page();
         });
         document.body.dataset.colourScheme = this.settings['colour-scheme'].value;
         document.body.dataset.invertImages = this.settings['invert-images'].value;
+        document.body.classList.toggle('big-text', this.settings['font-scale'].value >= 200);
     }
 
     reset() {
